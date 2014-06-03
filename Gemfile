@@ -30,6 +30,15 @@ gem 'spring',        group: :development
 ###HerokuSays
 gem 'rails_12factor', group: :production
 
+gem 'unicorn'
+
+#adminMoments
+
+gem 'devise'
+
+gem 'rails_admin'
+gem 'rails-admin-scaffold'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
