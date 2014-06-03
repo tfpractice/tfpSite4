@@ -1,0 +1,1 @@
+json.extract! @skill, :name, :proficiency, :category_id, :portfolio, :created_at, :updated_at

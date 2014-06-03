@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @image.title %>
+</p>
+
+<p>
+  <strong>Dimensions:</strong>
+  <%= @image.dimensions %>
+</p>
+
+<p>
+  <strong>Medium:</strong>
+  <%= @image.medium %>
+</p>
+
+<p>
+  <strong>Mainfilepath:</strong>
+  <%= @image.mainFilepath %>
+</p>
+
+<p>
+  <strong>Thumbnailfilepath:</strong>
+  <%= @image.thumbnailFilepath %>
+</p>
+
+<p>
+  <strong>Productiondate:</strong>
+  <%= @image.productionDate %>
+</p>
+
+<p>
+  <strong>Project:</strong>
+  <%= @image.project %>
+</p>
+
+<%= link_to 'Edit', edit_admin_image_path(@image) %> |
+<%= link_to 'Back', admin_images_path %>

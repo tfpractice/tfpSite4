@@ -1,0 +1,1 @@
+json.extract! @image, :title, :dimensions, :medium, :mainFilepath, :thumbnailFilepath, :productionDate, :project_id, :created_at, :updated_at

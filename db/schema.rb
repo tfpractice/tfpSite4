@@ -11,10 +11,68 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140603205824) do
+ActiveRecord::Schema.define(version: 20140603223323) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "categories", force: true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.boolean  "portfolio"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "categories_projects", id: false, force: true do |t|
+    t.integer "category_id", null: false
+    t.integer "project_id",  null: false
+  end
+
+  create_table "images", force: true do |t|
+    t.string   "title"
+    t.string   "dimensions"
+    t.string   "medium"
+    t.string   "mainFilepath"
+    t.string   "thumbnailFilepath"
+    t.date     "productionDate"
+    t.integer  "project_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "images", ["project_id"], name: "index_images_on_project_id", using: :btree
+
+  create_table "projects", force: true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.boolean  "portfolio"
+    t.date     "year"
+    t.integer  "subject_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "projects", ["subject_id"], name: "index_projects_on_subject_id", using: :btree
+
+  create_table "skills", force: true do |t|
+    t.string   "name"
+    t.integer  "proficiency"
+    t.integer  "category_id"
+    t.boolean  "portfolio"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "skills", ["category_id"], name: "index_skills_on_category_id", using: :btree
+
+  create_table "subjects", force: true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.boolean  "portfolio"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false

@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  dimensions: MyString
+  medium: MyString
+  mainFilepath: MyString
+  thumbnailFilepath: MyString
+  productionDate: 2014-06-03
+  project_id: 
+
+two:
+  title: MyString
+  dimensions: MyString
+  medium: MyString
+  mainFilepath: MyString
+  thumbnailFilepath: MyString
+  productionDate: 2014-06-03
+  project_id: 

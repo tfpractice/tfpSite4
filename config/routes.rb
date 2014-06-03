@@ -1,5 +1,25 @@
 Rails.application.routes.draw do
 
+  namespace :admin do
+    resources :skills
+  end
+
+  namespace :admin do
+    resources :categories
+  end
+
+  namespace :admin do
+    resources :images
+  end
+
+  namespace :admin do
+    resources :projects
+  end
+
+  namespace :admin do
+    resources :subjects
+  end
+
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :users
   root 'portfolio#index'

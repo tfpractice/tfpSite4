@@ -1,0 +1,35 @@
+<h1>Listing projects</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Portfolio</th>
+      <th>Year</th>
+      <th>Subject</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @projects.each do |project| %>
+      <tr>
+        <td><%= project.name %></td>
+        <td><%= project.description %></td>
+        <td><%= project.portfolio %></td>
+        <td><%= project.year %></td>
+        <td><%= project.subject %></td>
+        <td><%= link_to 'Show', [:admin, project] %></td>
+        <td><%= link_to 'Edit', edit_admin_project_path(project) %></td>
+        <td><%= link_to 'Destroy', [:admin, project], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Project', new_admin_project_path %>
