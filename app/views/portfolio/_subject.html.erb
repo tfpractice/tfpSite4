@@ -1,0 +1,38 @@
+<% subject = @subject %>
+
+<section class ="subjectSection" id= "<%=subject.name.downcase + "Home" %>">
+	<div class= "subjectContainer" id = "<%=subject.name.downcase + "Container" %>" >
+		<div class = "sectionSummary" id = "<%= subject.name + "Summary" %>" >
+			<h1 class = "sectionName" id = "<%= subject.name + "Name"%>  "> 
+				<%= subject.name.upcase%> </h1>
+
+			<p class = "description" id = "<%= subject.name + "Description" %>" >
+				<%= subject.description %> 
+				<% a = subject.categories.uniq.map do |category| %>
+				<% raw("<span class = 'categorySpan' id = '#{category.name.downcase}Span' >" + category.name.html_safe + "</span>") %> 
+				<%end%>
+					<%= raw(a.to_sentence) %>
+											
+				
+			</p>
+
+		</div><!--//subjectSummary-->	
+
+		<div class = "presentation"> 
+			<% subject.categories.uniq.each do |category| %>
+				<% @category = category %>
+		
+				<%= render 'portfolio/category', object: @category %>
+		
+		
+		
+				
+			<%end%>
+				
+		</div>
+		<div class = "displayWrapper">
+			
+		</div>
+		
+	</div> <!-- subjectContainer -->
+</section>

@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'portfolio/show'
+
   namespace :admin do
     resources :skills
   end

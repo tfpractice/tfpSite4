@@ -1,0 +1,30 @@
+<% category = @category %>
+
+
+
+<div class="categoryDiv">
+
+	<ul class="categoryList" id="<%= category.name.downcase %>+List">
+				<h1>	<%=category.name.upcase %></h1>
+				<p class = "categoryDescription" id = "<%= category.name + "Description" %>"> <%= category.description %> </p>
+					<span class="projectList" id = "<%= category.name.downcase + "ProjectList"%>">
+						<%category.projects.each do |project| %>
+						<% @project= project %>
+						<%# link_to "#{project.title}", project_path(@project, format: :js), remote: true, class: "projectLink" %>
+
+
+						<%# link_to "#{project.title}", project_path(@project), class: "projectLinkPjax" %>
+
+
+						<%# link_to "#{project.title}" ,(controller: "portfolio", action: "project", id: @project), remote: true class: "projectLink" %>
+
+
+						<%# render 'portfolio/project', object: @project %>
+						<%end%>
+					</span>
+					</ul>
+
+
+
+
+	</div>
