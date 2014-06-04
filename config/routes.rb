@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
-  get 'portfolio/show'
+  
+    resources :projects, only: [:index, :show], controller: 'portfolio'
 
   namespace :admin do
     resources :skills
@@ -26,6 +27,7 @@ Rails.application.routes.draw do
   devise_for :users
   root 'portfolio#index'
   get 'portfolio/index'
+  get 'portfolio/show'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

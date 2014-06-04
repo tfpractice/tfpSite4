@@ -1,0 +1,37 @@
+
+ <% @project.uniq.each do |project| %>
+
+<div class = "imageSection"> 
+	<h1>images</h1>
+
+	<div id = "slides">
+	<% project.images.each do |image| %>
+
+<div class = "imageDetails">
+
+
+		<h1> <%= image.name 	%>	</h1>
+		<h1> <%= image.medium 	%>	</h1>
+		<h1> <%= image.dimensions %> 	</h1>
+		<h1> <%= image.year 	%>	</h1>
+	</div>
+	
+		<%= image_tag "#{image.filepath}" %>
+
+	
+
+
+		
+			
+
+			<% end %> 
+			</div>
+			</div>
+	 <div class = "projectDescription">
+	<h1> <%= project.name %> </h1>
+	<p> <%= project.description %> </p>
+			</div>
+
+			
+
+<% end %>

@@ -10,7 +10,7 @@
 					<span class="projectList" id = "<%= category.name.downcase + "ProjectList"%>">
 						<%category.projects.each do |project| %>
 						<% @project= project %>
-						<%# link_to "#{project.title}", project_path(@project, format: :js), remote: true, class: "projectLink" %>
+						<%= link_to "#{project.name}", project_path(@project, format: :js), remote: true, class: "projectLink" %>
 
 
 						<%# link_to "#{project.title}", project_path(@project), class: "projectLinkPjax" %>

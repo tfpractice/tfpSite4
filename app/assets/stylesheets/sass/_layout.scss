@@ -9,87 +9,6 @@
 		
 		
 
-#artContainer{
-	background: $magenta;
-	//background-image	:
- //@include background(image-url("sectionBackgrounds/whiteHex1.svg"),
- //                     linear-gradient(bottom right, #600060, #ff00ff),
- //                     radial-gradient(#c00, #fff 100px)
- //                      );
-//	//background-image:	url("sectionBackgrounds/whiteHex1.svg");
- background-repeat: no-repeat; 
- background-position:  bottom right;
- color: $white;
- 	// background-size:	1000px, 1000px;
-
-
- 	#artDescription{
-
-	border-top: 1px solid #ffffff;
-	border-bottom: 1px solid #ffffff;
-	padding-top: 0.5rem;
-	padding-bottom: 0.5rem;
-}
-
-	#slides {
-border-top: 1px solid #ffffff;
-	border-bottom: 1px solid #ffffff;
-	padding-top: 0.5rem;
-	padding-bottom: 0.5rem;
-}
-
-
-}
-
-#designContainer{
-	background-color	:#777;
-// @include background(image-url("sectionBackgrounds/hot_fruit_background_0.svg"),
-
-  //                 // linear-gradient(bottom right, #600060, #ff00ff),
-  //                   radial-gradient(#ddd, #aaa 1000px)
-  //                   );
-	 background-size:	contain;
-	background-repeat: no-repeat;
-	background-position:  center;
-	
-
- 	#designDescription{
-
-	border-top: 1px solid #000000;
-	border-bottom: 1px solid #000000;
-	padding-top: 0.5rem;
-	padding-bottom: 0.5rem;
-}
-	}
-
-
-#developmentContainer{
-	background-color	:$black;
-	 //@include background(image-url("sectionBackgrounds/hot_fruit_background_0.svg"),
-	 //					$black
-//
-     //                // linear-gradient(bottom right, #600060, #ff00ff),
-     //                  //radial-gradient(#ddd, #888 100px)
-     //                  );
-	 background-size:	contain;
-	background-repeat: no-repeat;
-	background-position:  center;
-	color:				#00ff00;
-	
-
-	#developmentDescription{
-
-	border-top: 1px solid #00ff00;
-	border-bottom: 1px solid #00ff00;
-	padding-top: 0.5rem;
-	padding-bottom: 0.5rem;
-}
-	}
-#slides{
-
-	margin-left: 4rem;
-}
-
 //-----------
 
 .subjectContainer {
@@ -115,9 +34,11 @@ border-top: 1px solid #ffffff;
 }
 
 
-.projectDisplay{
-@include susy-grid-background;
+.pJDisplay{
+//@include susy-grid-background;
 	@include columns(24);
+	@include box-flex(1);
+
 }
  
 
@@ -129,10 +50,10 @@ border-top: 1px solid #ffffff;
 
 	#slides {
 		@include display-box;
- 		 @include box-orient(horizontal);
+ 		@include box-orient(horizontal);
   		@include box-align(stretch);
   		@include box-direction(reverse);
-		@include columns (14);
+		@include columns (10);
 		display: inline-block;
 
 		img {
