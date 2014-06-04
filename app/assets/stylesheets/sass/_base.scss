@@ -1,0 +1,26 @@
+// Imports -------------------------------------------------------------------
+@import url('http://fonts.googleapis.com/css?family=Ubuntu:300,400,500,300italic,400italic|Josefin+Sans|Open+Sans|Raleway');
+@import "susy";
+
+// Grid ----------------------------------------------------------------------
+
+$total-cols             : 24;
+$col-width              : 4em;
+$gutter-width           : 1em;
+$side-gutter-width      : $gutter-width;
+
+$show-grid-backgrounds  : true;
+//$font-main				: font-family: Monaco, Consolas, "Lucida Console", monospace;
+$font-primary			: Ubuntu, serif;
+$font-secondary			: Raleway, serif;
+
+
+
+
+h1 {
+	font-family: 		$font-primary;
+}
+
+p {
+	font-family:		$font-secondary;
+}

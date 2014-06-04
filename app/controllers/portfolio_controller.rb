@@ -1,6 +1,8 @@
 class PortfolioController < ApplicationController
 	  before_action :set_subject, :set_project, :set_category
 
+    layout "portfolio"
+
 
    def index
   	@subjects = Subject.includes(:projects, :categories).all
@@ -16,6 +18,19 @@ class PortfolioController < ApplicationController
 
 end
 
+def show
+    @subjects = Subject.includes(:projects, :categories).all
+    @projects = Project.includes(:categories).all
+    @categories = Category.includes(:projects).all
+   # @project = Project.includes(:categories).where(id: params[:id])
+    @cProject = @project
+
+     respond_to do |format|
+      format.html
+      format.xml { render :xml => @project.to_xml }
+      format.js {} #{render partial: 'portfolio/project', object: @project}
+    end
+end
 
 private
     # Use callbacks to share common setup or constraints between actions.

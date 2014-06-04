@@ -30,6 +30,7 @@ GEM
     arel (5.0.1.20140414130214)
     bcrypt (3.1.7)
     builder (3.2.2)
+    chunky_png (1.2.9)
     coffee-rails (4.0.1)
       coffee-script (>= 2.2.0)
       railties (>= 4.0.0, < 5.0)
@@ -37,6 +38,14 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.7.0)
+    compass (0.12.6)
+      chunky_png (~> 1.2)
+      fssm (>= 0.2.7)
+      sass (~> 3.2.19)
+    compass-rails (1.1.3)
+      compass (>= 0.12.2)
+    compass-susy-plugin (0.9)
+      compass (>= 0.11.1)
     devise (3.2.4)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
@@ -47,6 +56,7 @@ GEM
     execjs (2.1.0)
     font-awesome-rails (4.0.3.2)
       railties (>= 3.2, < 5.0)
+    fssm (0.2.10)
     haml (4.0.5)
       tilt
     hike (1.2.3)
@@ -169,6 +179,8 @@ PLATFORMS
 
 DEPENDENCIES
   coffee-rails (~> 4.0.0)
+  compass-rails
+  compass-susy-plugin
   devise
   jbuilder (~> 2.0)
   jquery-rails

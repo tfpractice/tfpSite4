@@ -39,6 +39,15 @@ gem 'devise'
 gem 'rails_admin'
 gem 'rails-admin-scaffold'
 
+#compassSassSusy
+gem 'compass-rails'
+gem 'compass-susy-plugin'
+
+###maybe
+
+###maybenot
+#gem "susy"
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
