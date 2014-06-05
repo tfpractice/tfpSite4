@@ -45,8 +45,12 @@ gem 'compass-susy-plugin'
 
 ###maybe
 
-###maybenot
+###maybenot because the compass-rails gem uses susy 1 and the susy gem is v 2
 #gem "susy"
+
+
+####d3js rails vs d3js IDK why I think this may be a mistake
+gem 'd3js-rails'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

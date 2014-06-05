@@ -7,7 +7,8 @@ class PortfolioController < ApplicationController
    def index
   	@subjects = Subject.includes(:projects, :categories).all
   	@projects = Project.includes(:categories).all
-  	@categories = Category.includes(:projects).all
+  	@categories = Category.includes(:projects, :skills).all
+    @skills = Skill.includes(:categories).all
   	#@subject = Subject.find(params[:id])
      
      respond_to do |format|

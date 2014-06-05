@@ -8,6 +8,15 @@
 				<h1>	<%=category.name.upcase %></h1>
 				<p class = "categoryDescription" id = "<%= category.name + "Description" %>"> <%= category.description %> </p>
 					<span class="projectList" id = "<%= category.name.downcase + "ProjectList"%>">
+
+
+
+
+
+
+
+
+
 						<%category.projects.each do |project| %>
 						<% @project= project %>
 						<%= link_to "#{project.name}", project_path(@project, format: :js), remote: true, class: "projectLink" %>
@@ -23,6 +32,21 @@
 						<%end%>
 					</span>
 					</ul>
+
+
+			<div class = "skillsDiv">
+					<ul class = "skillsList" >
+
+						<% category.skills.each do |skill| %>
+
+
+						<li> <%= skill.name %> </li>
+						<% end %>
+
+										</ul>
+
+						</div>
+
 
 
 
