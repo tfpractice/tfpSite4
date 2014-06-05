@@ -1,0 +1,62 @@
+<% category = @category %>
+
+
+<div class = "skillsDiv" id = "svgSkills"> 
+	<h1> svg </h1>
+<% category.skills.svg.each do |skill| %>
+							
+								<%= skill.name %>
+							
+
+
+							<% end %>  
+							</div>
+
+
+
+
+<div class = "skillsDiv" id = "stylingSkills"> 
+	<h1> styling </h1>
+<% category.skills.styling.each do |skill| %>
+							
+								<%= skill.name %>
+							
+							
+								<% end %>
+								</div> 
+
+
+<div class = "skillsDiv" id = "scriptingSkills"> 
+	<h1> scripting </h1>
+
+<% category.skills.scripting.each do |skill| %>
+							
+								<%= skill.name %>
+							
+							
+								<% end %>
+								</div> 
+
+
+
+<div class = "skillsDiv" id = "frameworkSkills">
+	<h1> frameworks/programming languages </h1>
+<% category.skills.framework.each do |skill| %>
+							 
+								<%= skill.name %>
+							
+							
+								<% end %>
+								</div> 
+
+
+
+<div class = "skillsDiv" id = "softwareSkills"> 
+	<h1> software engineering </h1>
+<% category.skills.software.each do |skill| %>
+							
+								<%= skill.name %>
+							
+							
+								<% end %>
+</div> 

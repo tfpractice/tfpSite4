@@ -22,18 +22,19 @@
 						<%= link_to "#{project.name}", project_path(@project, format: :js), remote: true, class: "projectLink" %>
 
 
-						<%# link_to "#{project.title}", project_path(@project), class: "projectLinkPjax" %>
-
-
-						<%# link_to "#{project.title}" ,(controller: "portfolio", action: "project", id: @project), remote: true class: "projectLink" %>
-
-
-						<%# render 'portfolio/project', object: @project %>
+						
 						<%end%>
 					</span>
 					</ul>
+							
 
 
+						<%= render 'portfolio/devSkills', object: @category %>
+
+
+
+
+<!--
 			<div class = "skillsDiv">
 					<ul class = "skillsList" >
 
@@ -47,7 +48,7 @@
 
 						</div>
 
-
+-->
 
 
 
