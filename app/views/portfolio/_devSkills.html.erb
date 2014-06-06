@@ -1,6 +1,6 @@
 <% category = @category %>
 
-
+<% if category.skills.svg.size > 0 %>
 <div class = "skillsDiv" id = "svgSkills"> 
 	<h1> svg </h1>
 <% category.skills.svg.each do |skill| %>
@@ -11,10 +11,11 @@
 
 							<% end %>  
 							</div>
+							<%end%>
 
 
 
-
+<% if category.skills.styling.size > 0 %>
 <div class = "skillsDiv" id = "stylingSkills"> 
 	<h1> styling </h1>
 <% category.skills.styling.each do |skill| %>
@@ -24,8 +25,9 @@
 							
 								<% end %>
 								</div> 
+								<%end%>
 
-
+<% if category.skills.scripting.size > 0 %>
 <div class = "skillsDiv" id = "scriptingSkills"> 
 	<h1> scripting </h1>
 
@@ -35,10 +37,11 @@
 							
 							
 								<% end %>
-								</div> 
+								</div>
+								<%end%>
 
 
-
+<% if category.skills.framework.size > 0 %>
 <div class = "skillsDiv" id = "frameworkSkills">
 	<h1> frameworks/programming languages </h1>
 <% category.skills.framework.each do |skill| %>
@@ -48,9 +51,10 @@
 							
 								<% end %>
 								</div> 
+								<%end%>
 
 
-
+<% if category.skills.software.size > 0 %>
 <div class = "skillsDiv" id = "softwareSkills"> 
 	<h1> software engineering </h1>
 <% category.skills.software.each do |skill| %>
@@ -60,3 +64,4 @@
 							
 								<% end %>
 </div> 
+<%end%>

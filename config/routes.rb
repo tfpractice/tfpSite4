@@ -2,6 +2,8 @@ Rails.application.routes.draw do
 
   
     resources :projects, only: [:index, :show], controller: 'portfolio'
+    resources :categories, only: [:index, :show], controller: 'portfolio'
+    resources :skills, only: [:index, :show], controller: 'portfolio'
 
   namespace :admin do
     resources :skills
