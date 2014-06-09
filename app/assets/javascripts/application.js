@@ -17,7 +17,7 @@
 //= require_tree ../../../vendor/assets/javascripts
 //= require_tree .
 
-$(document).ready(function (){ 
+/* $(document).ready(function (){ 
 
  onePageScroll(".onePageScroll", {
    sectionContainer: "section",     // sectionContainer accepts any kind of selector in case you don't want to use section
@@ -36,4 +36,4 @@ $(document).ready(function (){
 });
 
 
-});
+}); */
