@@ -11,6 +11,7 @@
 // about supported directives.
 //
 //= require d3
+//= require d3.tip
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks

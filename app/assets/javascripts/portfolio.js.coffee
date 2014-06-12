@@ -5,5 +5,12 @@
 
 $  ->
    console.log ("did this shit work?")
+
+   #$("path").hover ->
+#
+   #		console.log("you hovered")
+#  # 		@.find("text").show
+ # # 		@.find("text").hide
+
    
    

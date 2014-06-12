@@ -52,6 +52,9 @@ gem 'compass-susy-plugin'
 ####d3js rails vs d3js IDK why I think this may be a mistake
 gem 'd3js-rails'
 
+###fucking tooltips for dynamic text
+gem "d3-tip-rails"
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

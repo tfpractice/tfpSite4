@@ -24,6 +24,7 @@ $(document).ready(function (){
 	
 	
 	var proficiencyArray = [];
+
 	
 	
 	// ----____------____THIS IS WHERE THE CRAZY LOOP BEGINS
@@ -32,7 +33,9 @@ $(document).ready(function (){
 	
 	 	var arcDomain = d3.extent(data, function(d){ return d.proficiency;});
 	 	console.log(arcDomain);
-	
+
+		tip = d3.tip().attr('class', 'd3-tip').html(function(d) { return ( ((d.data.proficiency)+ "/10")); });
+
 	
 	 	 	$.each(data, function(index, value) {
 	
@@ -77,27 +80,97 @@ $(document).ready(function (){
 												.append("g")
 												.attr("class", "arc");
 												
+												
 	
 	
 							 //if (d.worktype == "svg") {
 							svgArcs.append("path")
-								
+								.call(tip)
 								.attr("d", arc)
 								.attr("fill", function(d){ return color(d.value); })
-								.attr("id", function(d) { return d.data.name + "Arc";});
+								.attr("id", function(d) { return d.data.name + "Arc";})
+								.on('mouseover', tip.show)
+								.on('mouseout', tip.hide);
+								//.on("click", function(){
+								//	var selectedArc = d3.select(this);
+								//	var selectedArcInner = selectedArc[0][0];
+								//	//console.log(d);
+								//	//console.log(d["data"]);
+								//	//console.log(d["data"].name);
+								//	//console.log(selectedArc);
+								//	//console.log(selectedArc[0]);
+								//	//console.log(selectedArcInner);
+								//	//console.log(svgArcs);
+//
+								//	
+								//	selectedArc.append("text")
+								//				.text(function(d) { 
+								//					if (d.data.worktype == "svg") {
+								//						return d.data.name ;
+								//						} else {
+								//						return ;
+								//						}
+								//					})
+								//				.attr("fill", function(d){ return color(d.value); })
+								//				.attr("id", function(d){ return (d.data.name + "Text"); });
+								//	});
+
+
+
+
+									//return appendText(selectedArcInner);});
+
+									//console.log(d.data.name);
+	
+
+
+										svgArcs
+												.on("mouseover", function(){
+													var selectedArc = d3.select(this);
+													selectedArc.append("text")
+													.text(function(d) { 
+														if (d.data.worktype == "svg") {
+															return ((d.data.name) 
+																//+ ":" +((d.data.proficiency) + "/10")
+																); 
+															} else {
+															return ;
+															}
+														})
+													.attr("fill","#00ff00" 
+														//function(d){ return color(d.value); }
+														)
+													.attr("id", function(d){ return (d.data.name + "Text")}); 
+
+														//});
+	
+												})
+												.on("mouseout", function(){
+													var selectedArc = d3.select(this);
+													var currentText = selectedArc.select("text");
+													currentText[0][0].remove();
+													return console.log(currentText[0]);
+//													
+	
+												});
+								
 	
 	
-	
-							svgArcs.append("text")
-									//.attr("transform", function(d){ console.log(d); return "translate(" + arc.centroid(d) + ")";})
-									.text(function(d){ 
-										if (d.data.worktype == "svg") {
-											return d.data.name ;
-											} else {
-											return ;
-											 }
-										})
-									.attr("fill", function(d){ return color(d.value); });
+							var appendText = function(d){
+									console.log(d);
+									d.append("text")
+										//.attr("transform", function(d, i){ console.log(d); return ("translate( 0," +(i*6) + ")");})
+										.text(function(d){ 
+									if (d.data.worktype == "svg") {
+										return d.data.name ;
+										} else {
+										return ;
+										 }
+									}
+
+											)
+										.attr("fill", function(d){ return color(d.value); })
+										.attr("id", function(d){ return (d.data.name + "Text");});}
 	
 	 				break;
 	

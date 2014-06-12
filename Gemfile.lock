@@ -46,6 +46,8 @@ GEM
       compass (>= 0.12.2)
     compass-susy-plugin (0.9)
       compass (>= 0.11.1)
+    d3-tip-rails (0.0.1)
+      railties (>= 3.1)
     d3js-rails (3.1.6)
       railties (>= 3.0, < 5.0)
     devise (3.2.4)
@@ -183,6 +185,7 @@ DEPENDENCIES
   coffee-rails (~> 4.0.0)
   compass-rails
   compass-susy-plugin
+  d3-tip-rails
   d3js-rails
   devise
   jbuilder (~> 2.0)
