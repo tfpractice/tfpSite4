@@ -14,4 +14,13 @@ text {
 	font-family: 		$font-primary;
 	font-size: 2rem;
 	text-anchor: middle;
+	background: #000;
+	max-width: 3rem;
+	word-wrap: break-word;
+}
+
+.canvasDiv{
+
+	border-top: 1px solid #00ff00;
+	border-bottom: 1px solid #00ff00;
 }

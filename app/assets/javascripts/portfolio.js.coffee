@@ -5,12 +5,12 @@
 
 $  ->
    console.log ("did this shit work?")
+   $(".canvasDiv").hide()
 
-   #$("path").hover ->
-#
-   #		console.log("you hovered")
-#  # 		@.find("text").show
- # # 		@.find("text").hide
+   $(".skillsDiv").hover ->
+   	curSVG = $(@).find(".canvasDiv")
+   	curSVG.slideDown()
+   	
 
    
    

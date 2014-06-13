@@ -1,25 +1,59 @@
 $(document).ready(function (){ 
 	
 	
-	var svgWidth = $(".skillsDiv").width();
-	var svgHeight = $(".skillsDiv").height();
-	var iRad = 125;
+	var visWidth = $(".skillsDiv").width();
+	var visHeight = $(".skillsDiv").height();
+	var iRad = 115;
 	var oRad = 150;
 	var fullCircle = Math.PI * 2;
 	var arc = d3.svg.arc()
 					.innerRadius(iRad)
 					.outerRadius(oRad);
 	
-	var dGreen = d3.rgb("#008800");
+	var dGreen = d3.rgb("#002200");
 	var bGreen = d3.rgb("#00ff00");
 	
-	var color = d3.scale.ordinal()
-					.range([dGreen, bGreen]);
+	var color = d3.scale.linear()
+					.domain([0,10])
+					.range([dGreen,  bGreen]);
 	
+	var svgCanvasDiv = d3.select("#svgSkills").append("div")
+						.attr("class", "canvasDiv")
+						.attr("id", "svgCanvasDiv");
 	
-	var svgCanvas  = d3.select("#svgSkills").append("svg")
+	var svgCanvas  = d3.select("#svgCanvasDiv").append("svg")
 	 						.attr("width", "100%")
-	 						.attr("height", svgWidth)
+	 						.attr("height", visWidth)
+	 						.attr("viewBox", "0,0,500,500");
+
+	var stylingCanvasDiv = d3.select("#stylingSkills").append("div")
+						.attr("class", "canvasDiv")
+						.attr("id", "stylingCanvasDiv");
+
+
+	var stylingCanvas  = d3.select("#stylingCanvasDiv").append("svg")
+	 						.attr("width", "100%")
+	 						.attr("height", visWidth)
+	 						.attr("viewBox", "0,0,500,500");
+
+	var scriptingCanvasDiv = d3.select("#scriptingSkills").append("div")
+						.attr("class", "canvasDiv")
+						.attr("id", "scriptingCanvasDiv");
+
+
+	var scriptingCanvas  = d3.select("#scriptingCanvasDiv").append("svg")
+	 						.attr("width", "100%")
+	 						.attr("height", visWidth)
+	 						.attr("viewBox", "0,0,500,500");
+	
+	var frameworkCanvasDiv = d3.select("#frameworkSkills").append("div")
+						.attr("class", "canvasDiv")
+						.attr("id", "frameworkCanvasDiv");
+
+
+	var frameworkCanvas  = d3.select("#frameworkCanvasDiv").append("svg")
+	 						.attr("width", "100%")
+	 						.attr("height", visWidth)
 	 						.attr("viewBox", "0,0,500,500");
 	
 	
@@ -32,7 +66,7 @@ $(document).ready(function (){
 	d3.json("skills.json", function(data) {
 	
 	 	var arcDomain = d3.extent(data, function(d){ return d.proficiency;});
-	 	console.log(arcDomain);
+	 	//console.log(arcDomain);
 
 		tip = d3.tip().attr('class', 'd3-tip').html(function(d) { return ( ((d.data.proficiency)+ "/10")); });
 
@@ -83,55 +117,25 @@ $(document).ready(function (){
 												
 	
 	
-							 //if (d.worktype == "svg") {
 							svgArcs.append("path")
-								.call(tip)
 								.attr("d", arc)
 								.attr("fill", function(d){ return color(d.value); })
-								.attr("id", function(d) { return d.data.name + "Arc";})
-								.on('mouseover', tip.show)
-								.on('mouseout', tip.hide);
-								//.on("click", function(){
-								//	var selectedArc = d3.select(this);
-								//	var selectedArcInner = selectedArc[0][0];
-								//	//console.log(d);
-								//	//console.log(d["data"]);
-								//	//console.log(d["data"].name);
-								//	//console.log(selectedArc);
-								//	//console.log(selectedArc[0]);
-								//	//console.log(selectedArcInner);
-								//	//console.log(svgArcs);
-//
-								//	
-								//	selectedArc.append("text")
-								//				.text(function(d) { 
-								//					if (d.data.worktype == "svg") {
-								//						return d.data.name ;
-								//						} else {
-								//						return ;
-								//						}
-								//					})
-								//				.attr("fill", function(d){ return color(d.value); })
-								//				.attr("id", function(d){ return (d.data.name + "Text"); });
-								//	});
+								.attr("stroke", 
+								  "#000"
+								 )
+								.attr("stroke-width", "10")
+								.attr("id", function(d) { return d.data.name + "Arc";});
+								//.call(tip)
+								//.on('mouseover', tip.show)
+								//.on('mouseout', tip.hide);
 
 
-
-
-									//return appendText(selectedArcInner);});
-
-									//console.log(d.data.name);
-	
-
-
-										svgArcs
-												.on("mouseover", function(){
+										svgArcs.on("mouseover", function(){
 													var selectedArc = d3.select(this);
 													selectedArc.append("text")
 													.text(function(d) { 
 														if (d.data.worktype == "svg") {
 															return ((d.data.name) 
-																//+ ":" +((d.data.proficiency) + "/10")
 																); 
 															} else {
 															return ;
@@ -140,99 +144,387 @@ $(document).ready(function (){
 													.attr("fill","#00ff00" 
 														//function(d){ return color(d.value); }
 														)
-													.attr("id", function(d){ return (d.data.name + "Text")}); 
+													.attr("id", function(d){ return (d.data.name + "Text")})
+													selectedArc.append("text")
+													.text(function(d) { 
+														if (d.data.worktype == "svg") {
+															return ((d.data.proficiency) + " / 10" 
+																); 
+															} else {
+															return ;
+															}
+														})
+													.attr("transform","translate(0, 40)")
+													.attr("fill","#00ff00" 
+														//function(d){ return color(d.value); }
+														)
+													.attr("id", function(d){ return (d.data.name + "Text2")}); 
+	
+												})
+												.on("mouseout", function(){
+													var selectedArc = d3.select(this);
+													var currentText = selectedArc.selectAll("text");
+													var textObj0 = (currentText[0][0]);
+													var textObj1 = (currentText[0][1]);
+													(textObj0).remove();	
+													(textObj1).remove();													
+													//return console.log(currentText);
+
+	
+												});
+							
+	
+	 			break;
+	
+	 			case "styling":
+	
+						 stylingCanvas.selectAll("p")
+							 		.data(data)
+							 		.enter()
+							 			.append("p")
+							 			.text(function(d) { 
+							 				if (d.worktype == "styling") {
+							 					return d.proficiency;
+							 				} else {
+							 					return ;
+							 				}
+						
+		 								});
+	
+							var stylingGroup = stylingCanvas.append("g")
+											.attr("transform", "translate (250, 250)");	 
+	
+							var stylingGraph = d3.layout.pie()
+											.value(function(d) {
+												if (d.worktype == "styling") {
+												return d.proficiency;
+											} else {
+												return 0;
+											}
+	
+											});		
+	
+							var stylingArcs = stylingGroup.selectAll(".arc")
+											.data(stylingGraph(data))
+									
+											
+											.enter()
+												.append("g")
+												.attr("class", "arc");
+												
+												
+	
+	
+							stylingArcs.append("path")
+								.attr("d", arc)
+								.attr("fill", function(d){ return color(d.value); })
+								.attr("stroke", 
+								  "#000"
+								 )
+								.attr("stroke-width", "10")
+								.attr("id", function(d) { return d.data.name + "Arc";});
+								
+
+
+										stylingArcs
+												.on("mouseover", function(){
+													var selectedArc = d3.select(this);
+													selectedArc.append("text")
+													.text(function(d) { 
+														if (d.data.worktype == "styling") {
+															return ((d.data.name) 
+																); 
+															} else {
+															return ;
+															}
+														})
+													.attr("fill","#00ff00")
+													.attr("id", function(d){ return (d.data.name + "Text")})
+													selectedArc.append("text")
+													.text(function(d) { 
+														if (d.data.worktype == "styling") {
+															return ((d.data.proficiency) + " / 10" 
+																); 
+															} else {
+															return ;
+															}
+														})
+													.attr("transform","translate(0, 40)")
+													.attr("fill","#00ff00")
+													.attr("id", function(d){ return (d.data.name + "Text2")});; 
 
 														//});
 	
 												})
 												.on("mouseout", function(){
 													var selectedArc = d3.select(this);
-													var currentText = selectedArc.select("text");
-													currentText[0][0].remove();
-													return console.log(currentText[0]);
-//													
+													var currentText = selectedArc.selectAll("text");
+													var textObj0 = (currentText[0][0]);
+													var textObj1 = (currentText[0][1]);
+													(textObj0).remove();	
+													(textObj1).remove();												
+													//return console.log(currentText);
+
 	
 												});
-								
+							
+	
+	 			break;
 	
 	
-							var appendText = function(d){
-									console.log(d);
-									d.append("text")
-										//.attr("transform", function(d, i){ console.log(d); return ("translate( 0," +(i*6) + ")");})
-										.text(function(d){ 
-									if (d.data.worktype == "svg") {
-										return d.data.name ;
-										} else {
-										return ;
-										 }
-									}
+	 			case "scripting":
 
-											)
-										.attr("fill", function(d){ return color(d.value); })
-										.attr("id", function(d){ return (d.data.name + "Text");});}
-	
-	 				break;
-	
-	 			case "styling":
-	 				
-	
-	 				d3.select("#stylingSkills")
-						 		.selectAll("p")
+						 scriptingCanvas.selectAll("p")
 							 		.data(data)
 							 		.enter()
 							 			.append("p")
 							 			.text(function(d) { 
-							 				if (d.worktype == "styling") {
-						
-							 					return d.name;
+							 				if (d.worktype == "scripting") {
+							 					return d.proficiency;
+							 				} else {
+							 					return ;
 							 				}
 						
-						
-		 			 });
+		 								});
+	
+							var scriptingGroup = scriptingCanvas.append("g")
+											.attr("transform", "translate (250, 250)");	 
+	
+							var scriptingGraph = d3.layout.pie()
+											.value(function(d) {
+												if (d.worktype == "scripting") {
+												return d.proficiency;
+											} else {
+												return 0;
+											}
+	
+											});		
+	
+							var scriptingArcs = scriptingGroup.selectAll(".arc")
+											.data(scriptingGraph(data))
+									
+											
+											.enter()
+												.append("g")
+												.attr("class", "arc");
+												
+												
 	
 	
-	 				break;
+							scriptingArcs.append("path")
+								.attr("d", arc)
+								.attr("fill", function(d){ return color(d.value); })
+								.attr("stroke", 
+								  "#000"
+								 )
+								.attr("stroke-width", "10")
+								.attr("id", function(d) { return d.data.name + "Arc";});
+								
+
+
+										scriptingArcs
+												.on("mouseover", function(){
+													var selectedArc = d3.select(this);
+													selectedArc.append("text")
+													.text(function(d) { 
+														if (d.data.worktype == "scripting") {
+															return ((d.data.name) 
+																); 
+															} else {
+															return ;
+															}
+														})
+													.attr("fill","#00ff00")
+													.attr("id", function(d){ return (d.data.name + "Text")})
+													selectedArc.append("text")
+													.text(function(d) { 
+														if (d.data.worktype == "scripting") {
+															return ((d.data.proficiency) + " / 10" 
+																); 
+															} else {
+															return ;
+															}
+														})
+													.attr("transform","translate(0, 40)")
+													.attr("fill","#00ff00")
+													.attr("id", function(d){ return (d.data.name + "Text2")});; 
+
+														//});
 	
-	 			case "scripting":
- 				
+												})
+												.on("mouseout", function(){
+													var selectedArc = d3.select(this);
+													var currentText = selectedArc.selectAll("text");
+													var textObj0 = (currentText[0][0]);
+													var textObj1 = (currentText[0][1]);
+													(textObj0).remove();	
+													(textObj1).remove();												
+													//return console.log(currentText);
 
- 				d3.select("#scriptingSkills")
-					 		.selectAll("p")
-						 		.data(data)
-						 		.enter()
-						 			.append("p")
-						 			.text(function(d) { 
-						 				if (d.worktype == "scripting") {
-					
-						 					return d.name;
-						 				}
-					
-					
-	 			 });
-
-
- 				break;
+	
+												});
+							
+	
+	 			break;
+	
 	
 	 			case "programming languages and frameworks":
- 				
+						 frameworkCanvas.selectAll("p")
+							 		.data(data)
+							 		.enter()
+							 			.append("p")
+							 			.text(function(d) { 
+							 				if (d.worktype == "programming languages and frameworks") {
+							 					return d.proficiency;
+							 				} else {
+							 					return ;
+							 				}
+						
+		 								});
+	
+							var frameworkGroup = frameworkCanvas.append("g")
+											.attr("transform", "translate (250, 250)")
+											.attr("class", "pieGroup");	 
+	
+							var frameworkGraph = d3.layout.pie()
+											.value(function(d) {
+												if (d.worktype == "programming languages and frameworks") {
+												return d.proficiency;
+											} else {
+												return 0;
+											}
+	
+											});		
+	
+							var frameworkArcs = frameworkGroup.selectAll(".arc")
+											.data(frameworkGraph(data))
+									
+											
+											.enter()
+												.append("g")
+												.attr("class", "arc")
+												.attr("id", //"lol");
+													function(d, i ){ return ("arc"+i); });
 
- 				d3.select("#frameworkSkills")
-					 		.selectAll("p")
-						 		.data(data)
-						 		.enter()
-						 			.append("p")
-						 			.text(function(d) { 
-						 				if (d.worktype == "programming languages and frameworks") {
-					
-						 					return d.name;
-						 				}
-					
-					
-	 			 });
+							var frameworksTags = frameworkGroup.selectAll(".tag")
+											.data(frameworkGraph(data))
+									
+											
+											.enter()
+												.append("g")
+												.attr("class", "tag");
+																		
+												
 
 
- 				break;
+							var frameworksTag = frameworkGroup.selectAll(".tag")
+											.data(frameworkGraph(data))
+
+									
+											
+											//	.enter()
+												.append("text")
+												.attr("class", "tag")
+												.attr("id", //"lol");
+													function(d, i ){ //console.log(d.data.name);
+													 return ((d.data.name)+i); });	
+												//console.log(frameworkGraph(data));
+																																				
+	
+	
+							frameworkArcs.append("path")
+								.attr("d", arc)
+								.attr("fill", function(d){ return color(d.value); })
+								.attr("stroke", 
+								  "#000"
+								 )
+								.attr("stroke-width", "10")
+								.attr("id", function(d) { return d.data.name + "Arc";});
+								
+
+
+							frameworkArcs.on("mouseover", function(){
+											var selectedArc = d3.select(this);
+											var selectedArcNode = selectedArc.node();
+											var selectedArcNodeParent = d3.select(selectedArcNode.parentNode);
+											var selectedId = (selectedArcNode.id);
+   											console.log(frameworksTag[0][18]);
+
+											var currentIndex =(frameworkArcs[0].indexOf(selectedArc[0][0]));
+													console.log(selectedArc);
+													console.log(selectedArcNode);
+													console.log(currentIndex);
+													console.log(frameworksTag);
+													//console.log(frameworksTag[0].attr("id"));
+											frameworksTag//.append("text")
+													.text(function(d, i) { 
+													//	console.log(i);
+													//	console.log(d);
+														//return (d.data.name);
+														if 	((d.data.worktype == "programming languages and frameworks") && 
+															//((frameworksTag[0][i]) == ("text#"+(d.data.name)+i)) && 
+															(((selectedArcNode.id) == ("arc" + i) ))
+															) 
+														{
+															return ((d.data.name) 
+																); 
+															} else {
+															return ;
+															}
+
+														})
+
+													.attr("fill","#00ff00")
+													.attr("id", function(d){ return (d.data.name + "Text")});
+											selectedArc.append("text")
+													.text(function(d) { 
+														if (d.data.worktype == "programming languages and frameworks")
+														 {
+															return ((d.data.proficiency) + " / 10" 
+																); 
+															} else {
+															return ;
+															}
+														})
+													.attr("transform","translate(0, 40)")
+													
+													.attr("fill","#00ff00")
+													.attr("id", function(d){ return (d.data.name + "Text2")});
+											var bbox = frameworksTag[0][currentIndex].getBBox();
+
+						
+
+											var selectedText  = frameworksTag.select("text");
+											selectedArc.insert("rect", "text")
+   														.attr("x", bbox.x)
+   														.attr("y", bbox.y)
+   														.attr("width", ((bbox.width)))
+   														.attr("height", bbox.height)
+   														.style("fill", "#000000")
+   														.style("fill-opacity", "1.0")
+   														//.style("stroke", "#666")
+   														//.style("stroke-width", "1.5px");
+   													
+   													console.log(bbox);
+   													//console.log(bbox2);
+	
+												})
+												.on("mouseout", function(){
+													var selectedArc = d3.select(this);
+													var currentText = selectedArc.selectAll("text");
+													var currentRects = selectedArc.selectAll("rect");
+													var textObj0 = (currentText[0][0]);
+													var textObj1 = (currentText[0][1]);
+													(textObj0).remove();	
+													(textObj1).remove();
+													(currentRects).remove();												
+													//return console.log(currentRects);
+
+	
+												});
+							
+	
+	 			break;
 	
 		case "software engineering":
 	 			
@@ -261,7 +553,7 @@ $(document).ready(function (){
 	
 	
 	 				default:
-	 				console.log("default action");
+	 			//	console.log("default action");
 	
 	 		};
 	
@@ -274,54 +566,6 @@ $(document).ready(function (){
 	
 	});
 	
-	//		var skillData2 = [1,12,33];
-	//		
-	//		//var svgWidth = $(".skillsDiv").width();
-	//		//var svgHeight = $(".skillsDiv").height();
-	//		//var iRad = 125;
-	//		//var oRad = 150;
-	//		//var fullCircle = Math.PI * 2;
-	//		//
-	//		var color = d3.scale.ordinal()
-	//						.range(["red", "white", "blue"]);
-	//		
-	//		var skillCanvases = d3.selectAll(".skillsDiv").append("svg")
-	//		 						.attr("width", "100%")
-	//		 						.attr("height", svgWidth)
-	//		 						.attr("viewBox", "0,0,500,500"); 
-	//		
-	//		var group = skillCanvases.append("g")
-	//						.attr("transform", "translate (250, 250)");
-	//		
-	//		var arc = d3.svg.arc()
-	//					.innerRadius(iRad)
-	//					.outerRadius(oRad)
-	//					//.startAngle(0)
-	//		//			.endAngle(fullCircle);
-	//		
-	//		var graph = d3.layout.pie()
-	//					.value(function(d) {
-	//		
-	//						return d;
-	//					});			
-	//		
-	//		
-	//		
-	//		var arcs = group.selectAll(".arc")
-	//					.data(graph(skillData2))
-	//					.enter()
-	//						.append("g")
-	//						.attr("class", "arc");			
-	//		
-	//		
-	//		arcs.append("path")
-	//			.attr("d", arc)
-	//			.attr("fill", function(d){ return color(d*20); });
-	//		
-	//		
-	//		//group.append("path")
-	//		//	.attr("d", arc)
-	//		//	.attr("fill", "#ffffff");
 	
 	
 	
