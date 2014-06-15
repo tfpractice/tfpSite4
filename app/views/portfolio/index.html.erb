@@ -1,4 +1,33 @@
 
+
+<section class ="subjectSection" id= "topHome" >
+	<div class= "subjectContainer" id = "topContainer" >
+		
+		
+
+		<ul class = "sectionsList">
+			
+			<% @subjects.portfolio.each do |subject| %>
+											<li class ="topList"> 
+												<h1><%= subject.name.upcase %></h1> 
+											</li>
+										<% end %>
+									
+		</ul>						
+				
+
+		</div><!--//subjectSummary-->	
+
+		
+				
+
+		
+		
+		
+	 <!-- subjectContainer -->
+</section>
+
+
 <% @subjects.portfolio.each do |subject| %>
 
 <% @subject = subject %>

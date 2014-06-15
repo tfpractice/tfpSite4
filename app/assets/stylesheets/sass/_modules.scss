@@ -24,3 +24,106 @@ text {
 	border-top: 1px solid #00ff00;
 	border-bottom: 1px solid #00ff00;
 }
+
+
+
+
+
+
+////______navigation-----//
+
+//.top-nav .menu-list.onepage-pagination {
+//	
+//	
+//	float: right;
+//	list-style-type: none;
+//	height: 40px;
+//	
+//
+//
+//}
+
+.menuItem  {
+
+	font-family: 		$font-primary;
+	font-size: 2rem;
+	text-anchor: middle;
+	
+	height: 40px;
+	background-color: #ff00ff;
+	display: inline-block;
+
+}
+
+////----weird nav offset fix
+
+.onepage-wrapper {
+
+	//margin-top: -20px;
+}
+
+
+#officialPagination {
+  display: none;
+//  z-index: -1 !important;
+}
+
+.onepage-pagination {
+  position: absolute;
+  right: 1%;
+  top: 1%;
+  z-index: 5;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.onepage-pagination li {
+  padding: 0;
+  text-align: center;
+  	font-family: 		$font-primary;
+	font-size: 1.5rem;
+	text-anchor: middle;
+	
+	height: 40px;
+	background-color: #ff00ff;
+	display: inline-block;
+
+}
+.onepage-pagination li a {
+	padding-top: 0.25rem;
+	padding-bottom: 0px;
+	display: block;
+	padding-left: .25rem;
+	padding-right: .25rem;
+
+}
+.onepage-pagination li a:before{
+  content: '';
+  position: absolute;
+ // width: 4px;
+ // height: 4px;
+  background: rgba(0,0,0,0.85);
+ //border-radius: 10px;
+ //-webkit-border-radius: 10px;
+ //-moz-border-radius: 10px;
+}
+
+.onepage-pagination li a.active:before{
+ // width: 10px;
+ // height: 10px;
+  background: none;
+  border: none;
+  margin-top: -4px;
+  left: 8px;
+}
+
+
+// a;ltered scripts I snatched from One page scroll
+
+/*
+
+if(settings.pagination == true) {
+  	  var pagination = document.createElement("ul");
+  	  pagination.setAttribute("class", "onepage-pagination");
+      pagination.setAttribute("id", "officialPagination");
+*/

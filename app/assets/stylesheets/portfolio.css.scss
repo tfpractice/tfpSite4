@@ -14,11 +14,55 @@
 //	background-color: #ff00ff;
 //}
 
+.homesection{
+	
+	
+	
+}
+
+.main-text{
+	
+	font-size: 		2rem;
+}
+
+
+#topHome{
+
+	.sectionsList{
+		position: absolute;
+		top: 45%;
+		left: 50%;
+		list-style-type: none;
+		text-align: center;
+		width: 200px;
+		padding: 0px;
+		margin-left: -100px;
+		
+
+		h1{
+			
+		}
+	}
+}
+#topContainer {
+	
+	//@include background(image-url('portfolioBackgrounds/frontpage_background_portrait_2060.jpg'),
+					//	);
+	background-image: url('frontpage_background_portrait_2060.jpg'), url("portfolioBackgrounds/fairest_body_2060_0.png"),url("portfolioBackgrounds/black_logo_0.svg");
+
+	background-size:	cover,contain,contain;
+	background-repeat: no-repeat;
+	background-position:  center center, bottom center, bottom center;
+	background-opactiy: 1.0, 1.0, 0.5;
+	max-width: 100%;
+}
+
+
 
 #artContainer{
 	//background: $magenta;
 	//background-image	:
-// @include background(//image-url("sectionBackgrounds/whiteHex1.svg"),
+@include background(image-url("portfolioBackgrounds/whiteHex1.svg"));
 //                      linear-gradient(bottom right, #600060, #ff00ff),
 //                      radial-gradient(#c00, #fff 100px)
  //                      );
@@ -26,7 +70,7 @@
  background-repeat: no-repeat; 
  background-position:  bottom right;
  color: $white;
- 	// background-size:	1000px, 1000px;
+ 	 background-size:	(33%, 33%);
 
 
  	#artDescription{
@@ -50,14 +94,14 @@ border-top: 1px solid #ffffff;
 
 #artHome{
 
-	background: -webkit-linear-gradient(bottom right, #600060, #ff00ff), -webkit-radial-gradient(#cc0000, #ffffff 100px);
-background: -moz-linear-gradient(bottom right, #600060, #ff00ff), -moz-radial-gradient(#cc0000, #ffffff 100px);
-background: -o-linear-gradient(bottom right, #600060, #ff00ff), -o-radial-gradient(#cc0000, #ffffff 100px);
+	background: -webkit-linear-gradient(bottom right, #ff00ff, #600060), -webkit-radial-gradient(#ffffff, #cc0000  100px);
+background: -moz-linear-gradient(bottom right, #ff00ff, #600060), -moz-radial-gradient(#ffffff, #cc0000 100px);
+background: -o-linear-gradient(bottom right, #ff00ff, #600060), -o-radial-gradient(#ffffff, #cc0000 100px);
 }
 
 #designContainer{
 	background-color	:#777;
- @include background(//image-url("sectionBackgrounds/hot_fruit_background_0.svg"),
+ @include background(image-url("portfolioBackgrounds/hot_fruit_background_0.svg"),
 
                    //linear-gradient(bottom right, #600060, #ff00ff),
                      radial-gradient(#ddd, #aaa 1000px)

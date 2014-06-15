@@ -4,12 +4,17 @@
 
 
 $  ->
-   console.log ("did this shit work?")
+   #$(".top-nav").scrollToFixed()
+
    $(".canvasDiv").hide()
+   $(".projectLink").click ->
+   	$(".pJDisplay").slideToggle()
 
    $(".skillsDiv").hover ->
    	curSVG = $(@).find(".canvasDiv")
    	curSVG.slideDown()
+
+   $(".menuItem")
    	
 
    

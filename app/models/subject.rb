@@ -4,6 +4,7 @@ class Subject < ActiveRecord::Base
 	has_many :skills, as: :skillable
 
 	scope :portfolio, -> {where(portfolio: true)}
+	scope :nonDev, -> {where.not(name: "development")}
 
 	rails_admin do
 	    configure :categories do

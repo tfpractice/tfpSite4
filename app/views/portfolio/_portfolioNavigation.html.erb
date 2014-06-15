@@ -1,0 +1,30 @@
+<header class= "home-head"><%= @title %></header>
+	<nav class = "top-nav-new" id = "home-top">
+		<ul class = "menu-list onepage-pagination">
+			<!--- this is the initial opening section navtag -->
+			<li class = "menuItem">
+				<a data-index= 1 href="#1" >
+					 Top 
+				</a>
+			</li>
+			
+			<% @subjects.portfolio.each_with_index do |subject, index| %>
+
+			
+			<li class = "menuItem">
+				<a data-index="<%= (index +2 ) %>" href="#<%= (index + 2) %>" >
+					<%= subject.name %>
+				</a>
+			</li>
+		
+			<%end%>
+			<li class = "menuItem" id = "archive"> 
+				<a data-index = 0 href = "#0" > 
+				archive
+			</a>
+				 </li>
+		
+		
+		</ul>
+
+	</nav>
