@@ -37,16 +37,31 @@
 .pJDisplay{
 //@include susy-grid-background;
 	@include columns(24);
-	@include box-flex(1);
+	//@include box-flex(1);
 
 }
  
+.thumbnailDiv {
+	 @include columns(6);
+ 	margin-left: columns(3);
+	
+	.thumbnail{
+		//width: 80px;
+	}
+}
 
  .imageSection{
 
 	@include columns(10);
-	margin-left: columns(6);
+	// margin-left: columns(6);
 	max-height:600px;
+		@include display-box;
+ 		@include box-orient(horizontal);
+  		@include box-align(stretch);
+  		display: inline-flex;
+
+
+
 
 	#slides {
 		@include display-box;
@@ -56,20 +71,33 @@
 		@include columns (10);
 		display: inline-block;
 
+	border-top: 1px solid #ffffff;
+	border-bottom: 1px solid #ffffff;
+	padding-top: 0.5rem;
+	padding-bottom: 0.5rem;
+	margin-left: columns(5);
+
 		img {
-			//@include box-flex(4);
+			@include box-flex(4);
 			max-width: 500px;
 		}
 
+
+
+
+
 		.imageDetails {
-			//@include box-flex(1);
+			@include box-flex(1);
 		}
 	}
+
 }
  
  .projectDescription{
 
 	@include columns(6);
+	float: right;
+	margin-right: 4rem;
 }
  
 

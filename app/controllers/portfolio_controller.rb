@@ -1,5 +1,5 @@
 class PortfolioController < ApplicationController
-	  before_action :set_subject, :set_project, :set_category, :set_project, :set_skill
+	  before_action :set_subject, :set_project, :set_category, :set_project, :set_image, :set_skill
 
     layout "portfolio"
 
@@ -26,7 +26,7 @@ end
 
 def show
     @subjects = Subject.includes(:projects, :categories).all
-    @projects = Project.includes(:categories).all
+    @projects = Project.includes(:categories, :images).all
     @categories = Category.includes(:projects).all
    # @skills = Skill.includes(:categories).all
     @skills = Skill.all
@@ -48,7 +48,7 @@ private
 
     end
     def set_project
-      @project = Project.includes(:categories).where(id: params[:id])
+      @project = Project.includes(:categories, :images).where(id: params[:id])
     end
     def set_category
       @category = Category.includes(:projects).where(id: params[:id])
@@ -56,6 +56,15 @@ private
      def set_skill
     #  @skill = Skill.includes(:categories).where(id: params[:id])
       @skill = Skill.where(id: params[:id])
+    end
+     # Use callbacks to share common setup or constraints between actions.
+    def set_image
+      @image = Image.where(id: params[:id])
+    end
+
+    # Never trust parameters from the scary internet, only allow the white list through.
+    def image_params
+      params.require(:image).permit(:title, :dimensions, :medium, :mainFilepath, :thumbnailFilepath, :productionDate, :project_id)
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

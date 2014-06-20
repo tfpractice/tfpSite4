@@ -2,21 +2,32 @@
  <% @project.uniq.each do |project| %>
 
 <div class = "imageSection"> 
-	<h1>images</h1>
+	<div class =  "thumbnailDiv">
+	<h1> thumbnails </h1>
+	<% project.images.each_with_index do |image, i| %>
+	<%= image_tag (image.thumbnailFilepath),size: "80x80", class: "thumbnail" %>
+	<% end %> 
+		</div>
+
 
 	<div id = "slides">
-	<% project.images.each do |image| %>
+		<%# image_tag ("hoodiesAndAHomeland/hoodiesSuburbs0.jpg") %>
+			<!-- <img src="assets/hoodiesAndAHomeland/hoodiesSuburbs0.jpg"> -->
+			<%# project.images %>
+	<% project.images.each_with_index do |image, i| %>
+	
+	<%= image_tag (image.mainFilepath), class: "projectImage", id: "projectImage" + "#{i}" %>
 
 <div class = "imageDetails">
 
 
-		<h1> <%= image.name 	%>	</h1>
+		<h1> <%= image.title 	%>	</h1>
 		<h1> <%= image.medium 	%>	</h1>
 		<h1> <%= image.dimensions %> 	</h1>
-		<h1> <%= image.year 	%>	</h1>
+		<h1> <%= image.productionDate 	%>	</h1>
 	</div>
 	
-		<%= image_tag "#{image.filepath}" %>
+		
 
 	
 

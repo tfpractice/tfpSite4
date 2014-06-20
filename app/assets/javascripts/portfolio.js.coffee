@@ -15,7 +15,23 @@ $  ->
    	curSVG.slideDown()
 
    $(".menuItem")
-   	
+
+   $(".projectLink").click ->
+   	images = $("#slides > .projectImage")
+   	console.log(images)
+
+   #images = $("#slides > img")
+   #console.log(images)
+#
+   #for image in images
+   #	console.log(image)
+
+
+   #images.each(index, image) ->
+   #	 images.fadeOut()
+   #	 $("#projectImage" + )
+#
+
 
    
    
