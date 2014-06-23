@@ -48,12 +48,12 @@
 	
 	//@include background(image-url('portfolioBackgrounds/frontpage_background_portrait_2060.jpg'),
 					//	);
-	background-image: url('frontpage_background_portrait_2060.jpg'), url("portfolioBackgrounds/fairest_body_2060_0.png"),url("portfolioBackgrounds/black_logo_0.svg");
+	background-image: url("portfolioBackgrounds/fairest_body_2060_0.png"),url("portfolioBackgrounds/black_logo_0.svg");
 
-	background-size:	cover,contain,contain;
+	background-size:	contain,contain;
 	background-repeat: no-repeat;
-	background-position:  center center, bottom center, bottom center;
-	background-opactiy: 1.0, 1.0, 0.5;
+	background-position:  bottom center, bottom center;
+	background-opactiy:  1.0, 0.5;
 	max-width: 100%;
 }
 
