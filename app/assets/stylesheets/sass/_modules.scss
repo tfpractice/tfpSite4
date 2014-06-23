@@ -10,7 +10,7 @@
 	//height: 5rem;
 }
 
-text {
+ text{
 	font-family: 		$font-primary;
 	font-size: 2rem;
 	text-anchor: middle;
@@ -46,13 +46,22 @@ text {
 .menuItem  {
 
 	font-family: 		$font-primary;
-	font-size: 2rem;
+	font-size: 1rem;
+	font-weight: 	300;
 	text-anchor: middle;
 	
 	height: 40px;
-	background-color: #ff00ff;
+	background-color: rgba(255,0,255, 0.5);
 	display: inline-block;
 
+}
+.navLink{
+
+	color: #ffffff;
+
+	&:after{
+		color: #000000;
+	}
 }
 
 ////----weird nav offset fix
@@ -85,7 +94,6 @@ text {
 	text-anchor: middle;
 	
 	height: 40px;
-	background-color: #ff00ff;
 	display: inline-block;
 
 }

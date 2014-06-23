@@ -163,4 +163,18 @@ background: radial-gradient(#dddddd, #aaaaaa 1000px);
 	background-color: #000000;
 }
 
+#resumeContainer{
+	 @include background(image-url("resume0.png"));
+	  background-size:	contain;
+	  background-repeat: no-repeat;
+	background-position:  center;
+}
 
+.navLink{
+
+	color: #ffffff;
+
+	&:after{
+		color: #000000;
+	}
+}

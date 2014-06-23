@@ -15,6 +15,9 @@ $  ->
    	curSVG.slideDown()
 
    $(".menuItem")
+   $("#archiveLink").click (event)->
+      event.preventDefault()
+      window.open("http://tfpractice.tumblr.com/", "archive")
 
  # $(".projectLink").click ->
  #  	images = $("#slides > .projectImage")

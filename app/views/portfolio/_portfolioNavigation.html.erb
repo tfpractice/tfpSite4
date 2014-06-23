@@ -3,8 +3,8 @@
 		<ul class = "menu-list onepage-pagination">
 			<!--- this is the initial opening section navtag -->
 			<li class = "menuItem">
-				<a data-index= 1 href="#1" >
-					 Top 
+				<a class = "navLink" data-index= 1 href="#1" >
+					 TOP 
 				</a>
 			</li>
 			
@@ -12,15 +12,25 @@
 
 			
 			<li class = "menuItem">
-				<a data-index="<%= (index +2 ) %>" href="#<%= (index + 2) %>" >
-					<%= subject.name %>
+				<a class = "navLink" data-index="<%= (index +2 ) %>" href="#<%= (index + 2) %>" >
+					<%= subject.name.upcase %>
 				</a>
 			</li>
 		
 			<%end%>
+
+
+			<li class = "menuItem">
+				<a class = "navLink" data-index= 5 href="#5" >
+					RÉSUMÉ
+				</a>
+			</li>
+		
+
+
 			<li class = "menuItem" id = "archive"> 
-				<a data-index = 0 href = "#0" > 
-				archive
+				<a class = "navLink" href = "http://tfpractice.tumblr.com/" id = "archiveLink" > 
+				ARCHIVE
 			</a>
 				 </li>
 		
