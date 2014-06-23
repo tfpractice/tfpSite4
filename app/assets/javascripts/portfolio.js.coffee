@@ -16,9 +16,9 @@ $  ->
 
    $(".menuItem")
 
-   $(".projectLink").click ->
-   	images = $("#slides > .projectImage")
-   	console.log(images)
+ # $(".projectLink").click ->
+ #  	images = $("#slides > .projectImage")
+  # 	console.log(images)
 
    #images = $("#slides > img")
    #console.log(images)

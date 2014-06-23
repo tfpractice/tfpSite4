@@ -37,68 +37,103 @@
 .pJDisplay{
 //@include susy-grid-background;
 	@include columns(24);
+//	@include susy-grid-background;
 	//@include box-flex(1);
 
-}
- 
+
+
+
+
+ .imageSection{
+
+
+	@include columns(16);
+//	@include susy-grid-background;
+	// margin-left: columns(6);
+	max-height:2000px;
+		@include display-box;
+ 		@include box-orient(horizontal);
+  		@include box-align(stretch);
+  		display: inline-flex;
+
 .thumbnailDiv {
-	 @include columns(6);
- 	margin-left: columns(3);
+ //@include columns(4);
+ 	width: columns(4, 16);
+ 	margin-left: columns(1, 16);
 	
 	.thumbnail{
 		//width: 80px;
 	}
 }
 
- .imageSection{
 
-	@include columns(10);
-	// margin-left: columns(6);
-	max-height:600px;
+	#slideContainer {
 		@include display-box;
- 		@include box-orient(horizontal);
-  		@include box-align(stretch);
-  		display: inline-flex;
-
-
-
-
-	#slides {
-		@include display-box;
- 		@include box-orient(horizontal);
-  		@include box-align(stretch);
-  		@include box-direction(reverse);
-		@include columns (10);
+ 		//@include box-orient(horizontal);
+  		//@include box-align(stretch);
+  		//@include box-direction(reverse);
+		//@include columns(12);
+		width: columns(10, 16);
+		margin-left: columns(1, 16);
 		display: inline-block;
 
-	border-top: 1px solid #ffffff;
-	border-bottom: 1px solid #ffffff;
-	padding-top: 0.5rem;
-	padding-bottom: 0.5rem;
-	margin-left: columns(5);
+	
+	//margin-left: columns(5);
 
 		img {
-			@include box-flex(4);
-			max-width: 500px;
+			//@include box-flex(4);
+			border-top: 1px solid #ffffff;
+			border-bottom: 1px solid #ffffff;
+			padding-top: 0.5rem;
+			padding-bottom: 0.5rem;
+			border-bottom: 1px solid #ffffff;
+			width: auto;
+			height: auto;
+			margin: auto;
+			//max-height: 60%;
 		}
-
-
-
-
-
-		.imageDetails {
-			@include box-flex(1);
-		}
+		
 	}
+
+	.imageDetails {
+			//@include box-flex(1);
+			padding-bottom: 0.5rem;
+			border-bottom: 1px solid #ffffff;
+			text-align: center;
+		}
 
 }
  
  .projectDescription{
 
-	@include columns(6);
+	@include columns(6,24);
 	float: right;
 	margin-right: 4rem;
+}
+
 }
  
 
 }
+
+//taken from the original situation 
+//.flexslider .slides > li {
+//	position: relative;
+//	//display: block; -webkit-backface-visibility: hidden;
+//	} /* Hide the slides before the JS is loaded. Avoids image jumping */
+
+.flexslider .slides img {max-width: 100%;
+// max-height:100%;
+ display: block;}
+.flexslider {
+	background-color: transparent;
+	border: none;
+	box-shadow: none;
+}
+
+//.flexslider .slides > li { 
+//  @include transition(opacity 1s ease);
+//}
+
+
+

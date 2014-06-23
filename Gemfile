@@ -55,6 +55,9 @@ gem 'd3js-rails'
 ###fucking tooltips for dynamic text
 gem "d3-tip-rails"
 
+#flexslidertime
+#gem 'flexslider', :git => 'https://github.com/constantm/Flexslider-2-Rails-Gem.git'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

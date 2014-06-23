@@ -10,34 +10,48 @@
 		</div>
 
 
-	<div id = "slides">
-		<%# image_tag ("hoodiesAndAHomeland/hoodiesSuburbs0.jpg") %>
-			<!-- <img src="assets/hoodiesAndAHomeland/hoodiesSuburbs0.jpg"> -->
-			<%# project.images %>
-	<% project.images.each_with_index do |image, i| %>
-	
-	<%= image_tag (image.mainFilepath), class: "projectImage", id: "projectImage" + "#{i}" %>
-
-<div class = "imageDetails">
-
-
-		<h1> <%= image.title 	%>	</h1>
-		<h1> <%= image.medium 	%>	</h1>
-		<h1> <%= image.dimensions %> 	</h1>
-		<h1> <%= image.productionDate 	%>	</h1>
-	</div>
-	
-		
-
-	
-
-
-		
+	<div id = "slideContainer">
+		<div class = "flexslider">
+			<%# image_tag ("hoodiesAndAHomeland/hoodiesSuburbs0.jpg") %>
+					<!-- <img src="assets/hoodiesAndAHomeland/hoodiesSuburbs0.jpg"> -->
+					<%# project.images %>
+				<ul class = "slides">
+			<% project.images.each_with_index do |image, i| %>
 			
+			
+				<li>
+					<%= image_tag (image.mainFilepath), class: "projectImage", id: "projectImage" + "#{i}" %>
+						<div class = "imageDetails">
+								<p> <%= "#{image.title} #{image.medium}, #{image.productionDate},  #{image.dimensions} "%>	</p>
+						
+						</div>
+				</li>
+				
+			
+				<% end %> 
+				</ul>
+			</div>
+<!--
+			<div class = "imageDetails">
 
-			<% end %> 
+		<%# project.images.each_with_index do |image, i| %>
+				<h1> <%#= image.title 	%>	</h1>
+				<h1> <%#= image.medium 	%>	</h1>
+				<h1> <%#= image.dimensions %> 	</h1>
+				<h1> <%#= image.productionDate 	%>	</h1>
+			
+				
+					
+		
+			<%# end %> 
 			</div>
+		-->
+	</div>
+
+	
 			</div>
+
+
 	 <div class = "projectDescription">
 	<h1> <%= project.name %> </h1>
 	<p> <%= project.description %> </p>
