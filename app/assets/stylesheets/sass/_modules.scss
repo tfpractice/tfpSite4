@@ -43,7 +43,11 @@
 //
 //}
 
-.menuItem  {
+.menu-list{
+	//@include display-box;
+
+
+	.menuItem  {
 
 	font-family: 		$font-primary;
 	font-size: 1rem;
@@ -62,7 +66,15 @@
 	&:after{
 		color: #000000;
 	}
+#logoIcon{
+	padding-top: none;
+	#topIcon{
+		height: 1rem;
+	}
+
 }
+
+}}
 
 ////----weird nav offset fix
 

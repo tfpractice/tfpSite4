@@ -17,14 +17,17 @@
 
 
 
-						<%category.projects.nonDev.each do |project| %>
-						<%# subject.projects.portfolio.uniq.each do |project| %>
-						<% @project= project %>
-						<%= link_to "#{project.name}", project_path(@project, format: :js), remote: true, class: "projectLink" %>
-
-
-						<%#end%>
-						<%end%>
+						
+							<%category.projects.nonDev.each do |project| %>
+												<%# subject.projects.portfolio.uniq.each do |project| %>
+												<% @project= project %>
+												<%= link_to (image_tag(project.linkfilepath, class: "projectIcon", size: "80x80")), project_path(@project, format: :js), remote: true, class: "projectLink" %>
+												
+						
+						
+												<%#end%>
+												<%end%>
+											
 					</span>
 					</ul>
 							

@@ -1,7 +1,7 @@
 
  <% @project.uniq.each do |project| %>
 
-<div class = "imageSection"> 
+<div class = "imageSection" id = "<%= project.name + 'ImageSection' %>" > 
 	<div class =  "thumbnailDiv">
 	<h1> thumbnails </h1>
 	<% project.images.each_with_index do |image, i| %>
@@ -15,11 +15,11 @@
 			<%# image_tag ("hoodiesAndAHomeland/hoodiesSuburbs0.jpg") %>
 					<!-- <img src="assets/hoodiesAndAHomeland/hoodiesSuburbs0.jpg"> -->
 					<%# project.images %>
-				<ul class = "slides">
+				<ul class = "slides" id = "<%= project.name + 'Slides' %>">
 			<% project.images.each_with_index do |image, i| %>
 			
 			
-				<li>
+				<li class = "imageListItem">
 					<%= image_tag (image.mainFilepath), class: "projectImage", id: "projectImage" + "#{i}" %>
 						<div class = "imageDetails">
 								<p> <%= "#{image.title} #{image.medium}, #{image.productionDate},  #{image.dimensions} "%>	</p>

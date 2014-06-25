@@ -82,23 +82,29 @@
 
 		img {
 			//@include box-flex(4);
-			border-top: 1px solid #ffffff;
-			border-bottom: 1px solid #ffffff;
-			padding-top: 0.5rem;
-			padding-bottom: 0.5rem;
-			border-bottom: 1px solid #ffffff;
+		//	border-top: 1px solid #ffffff;
+		//	border-bottom: 1px solid #ffffff;
+	//	padding-top: 0.5rem;
+	//	padding-bottom: 0.5rem;
+//			border-bottom: 1px solid #ffffff;
 			width: auto;
 			height: auto;
 			margin: auto;
-			//max-height: 60%;
+			max-height: 60%;
+			margin-bottom: 0.5rem;
 		}
+
+		//.projectImage{
+//
+		//margin-bottom: 0.5rem;
+		//}
 		
 	}
 
 	.imageDetails {
 			//@include box-flex(1);
 			padding-bottom: 0.5rem;
-			border-bottom: 1px solid #ffffff;
+			//border-bottom: 1px solid #ffffff;
 			text-align: center;
 		}
 
@@ -129,6 +135,10 @@
 	background-color: transparent;
 	border: none;
 	box-shadow: none;
+}
+
+#boywolfSlides img{
+	background-color: #ffffff;
 }
 
 //.flexslider .slides > li { 

@@ -6,7 +6,7 @@
 			<h1 class = "sectionName" id = "<%= subject.name + "Name"%>  "> 
 				<%= subject.name.upcase%> </h1>
 
-			<p class = "description" id = "<%= subject.name + "Description" %>" >
+			<p class = "subjectDescription" id = "<%= subject.name + "Description" %>" >
 				<%= subject.description %> 
 				<% a = subject.categories.uniq.map do |category| %>
 				<% raw("<span class = 'categorySpan' id = '#{category.name.downcase}Span' >" + category.name.html_safe + "</span>") %> 

@@ -4,15 +4,26 @@
 
 
 $  ->
-   #$(".top-nav").scrollToFixed()
 
+   #$(".top-nav").scrollToFixed()
+   $(".subjectDescription").hide()
    $(".canvasDiv").hide()
+
+
    $(".projectLink").click ->
-   	$(".pJDisplay").slideToggle()
+      if $(".pJDisplay .imageSection").is(":visible")
+         console.log("shit is empty")
+         $(".pJDisplay").slideToggle()
+      else
+         $(".pJDisplay").slideDown()
 
    $(".skillsDiv").hover ->
    	curSVG = $(@).find(".canvasDiv")
    	curSVG.slideDown()
+
+   $(".skillsDiv").click ->
+      curSVG = $(@).find(".canvasDiv")
+      curSVG.slideToggle()
 
    $(".menuItem")
    $("#archiveLink").click (event)->
