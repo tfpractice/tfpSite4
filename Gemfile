@@ -55,7 +55,12 @@ gem 'd3js-rails'
 ###fucking tooltips for dynamic text
 gem "d3-tip-rails"
 
-gem 'sprockets_better_errors'
+
+####sprockets
+
+#gem 'sprockets-rails', :require => 'sprockets/railtie'
+
+#gem 'sprockets_better_errors'
 #flexslidertime
 #gem 'flexslider', :git => 'https://github.com/constantm/Flexslider-2-Rails-Gem.git'
 
