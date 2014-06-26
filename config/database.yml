@@ -75,11 +75,12 @@ test:
 #
 # You can use this database configuration with:
 #
-   production:
-     url: <%= ENV['DATABASE_URL'] %>
+#   production:
+#     
 #
 production:
   <<: *default
   database: tfpSite4_production
   username: tfpSite4
   password: <%= ENV['TFPSITE4_DATABASE_PASSWORD'] %>
+  url: <%= ENV['DATABASE_URL'] %>
