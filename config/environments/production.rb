@@ -60,6 +60,9 @@ Rails.application.configure do
   # Precompile additional assets.
   # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
   #######TRYING THIS OUT!!!! ######
+Rails.application.config.assets.precompile += %w( flexslider.css, onepage-scroll.css.scss )
+Rails.application.config.assets.precompile += %w( jquery.flexslider-min.js, onepagescroll.js, jquery-scrolltofixed-min.js )
+
 ###    config.assets.paths << Rails.root.join("vendor", "assets", "javascripts")
 ###    config.assets.paths << Rails.root.join("vendor", "assets", "stylesheets")
 
