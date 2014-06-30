@@ -6,7 +6,6 @@
 $  ->
 
    #$(".top-nav").scrollToFixed()
-   $(".projectIcon").hide()
    $(".subjectDescription").hide()
    $(".canvasDiv").hide()
 
