@@ -5,6 +5,7 @@ class Subject < ActiveRecord::Base
 
 	scope :portfolio, -> {where(portfolio: true)}
 	scope :nonDev, -> {where.not(name: "development")}
+	#scope :alphabetical, -> sort_by{|subject| subject.downcase}
 
 	rails_admin do
 	    configure :categories do

@@ -19,7 +19,8 @@
 		</div><!--//subjectSummary-->	
 
 		<div class = "presentation"> 
-			<% subject.categories.uniq.each do |category| %>
+			<% sortedCategories = subject.categories.uniq.sort_by {|category| category.projects.size} %>
+			<% sortedCategories.each do |category| %>
 				<% @category = category %>
 		
 				<%= render 'portfolio/category', object: @category %>

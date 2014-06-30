@@ -7,8 +7,9 @@
 					 <%= image_tag "white_logo_icon_0.svg", size: "55x40", id: "topIcon"%>
 				</a>
 			</li>
-			
-			<% @subjects.portfolio.each_with_index do |subject, index| %>
+			<% sortedSubjects = @subjects.portfolio.sort_by {|subject| subject.name.downcase } %>
+
+			<% sortedSubjects.each_with_index do |subject, index| %>
 
 			
 			<li class = "menuItem">

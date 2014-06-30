@@ -28,9 +28,9 @@
 
 .categoryDiv{
 	margin-top:		$topDistance;
-	@include columns(5);
+	@include columns(5.5);
 	//gutter-position: before;
-	margin-left: columns(1);
+	margin-left: columns(0.5);
 }
 
 
