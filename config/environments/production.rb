@@ -20,7 +20,8 @@ Rails.application.configure do
   # config.action_dispatch.rack_cache = true
 
   # Disable Rails's static asset server (Apache or nginx will already do this).
-  config.serve_static_assets = false
+ config.serve_static_assets = false
+  #config.serve_static_assets = true
 
   # Compress JavaScripts and CSS.
   config.assets.js_compressor = :uglifier
@@ -28,6 +29,7 @@ Rails.application.configure do
 
   # Do not fallback to assets pipeline if a precompiled asset is missed.
   config.assets.compile = false
+  #config.assets.compile = true
 
   # Generate digests for assets URLs.
   config.assets.digest = true
@@ -60,8 +62,15 @@ Rails.application.configure do
   # Precompile additional assets.
   # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
   #######TRYING THIS OUT!!!! ######
-Rails.application.config.assets.precompile += %w( flexslider.css, onepage-scroll.css.scss )
-Rails.application.config.assets.precompile += %w( jquery.flexslider-min.js, onepagescroll.js, jquery-scrolltofixed-min.js )
+#Rails.application.config.assets.precompile += %w( flexslider.css )
+Rails.application.config.assets.precompile += %w( flexslider )
+Rails.application.config.assets.precompile += %w(  onepage-scroll)
+Rails.application.config.assets.precompile += %w( jquery.flexslider-min)
+Rails.application.config.assets.precompile += %w( onepagescroll )
+Rails.application.config.assets.precompile += %w(  jquery-scrolltofixed-min )
+
+#Rails.application.config.assets.precompile += ['flexslider.css', 'onepage-scroll.css.scss']
+#Rails.application.config.assets.precompile += ['jquery.flexslider-min.js', 'onepagescroll.js', 'jquery-scrolltofixed-min.js']
 
 ###    config.assets.paths << Rails.root.join("vendor", "assets", "javascripts")
 ###    config.assets.paths << Rails.root.join("vendor", "assets", "stylesheets")
