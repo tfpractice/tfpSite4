@@ -11,11 +11,17 @@ $  ->
 
 
    $(".projectLink").click ->
-      if $(".pJDisplay .imageSection").is(":visible")
-         console.log("shit is empty")
-         $(".pJDisplay").slideToggle()
-      else
-         $(".pJDisplay").slideDown()
+      currentContents = @this.find(".pJDisplay .pJContents")
+      currentDisplay = @this.find(".pJDisplay")
+     # if currentContents.is(":visible")
+       #  currentDisplay.css("height","40%")
+         #currentDisplay.slideUp()
+   #   else if $(".pJDisplay .pJContents").css("display", "none")
+    #     $(".pJDisplay").slideDown()
+   #   else
+         #$(".pJDisplay").slideUp()
+         #$(".pJDisplay").slideDown()
+       #  $(".pJDisplay").slideToggle()
 
    $(".skillsDiv").hover ->
    	curSVG = $(@).find(".canvasDiv")

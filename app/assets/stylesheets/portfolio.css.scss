@@ -48,7 +48,7 @@
 	
 	//@include background(image-url('portfolioBackgrounds/frontpage_background_portrait_2060.jpg'),
 					//	);
-	background-image: url("portfolioBackgrounds/fairest_body_2060_0.png"),url("portfolioBackgrounds/black_logo_0.svg");
+	background-image: url("portfolioBackgrounds/fairest_body_2060_1.png"),url("portfolioBackgrounds/black_logo_0.svg");
 
 	background-size:	contain,contain;
 	background-repeat: no-repeat;
@@ -62,7 +62,7 @@
 #artContainer{
 	//background: $magenta;
 	//background-image	:
-@include background(image-url("portfolioBackgrounds/whiteHex1.svg"));
+@include background(image-url("portfolioBackgrounds/whiteHex2.svg"));
 //                      linear-gradient(bottom right, #600060, #ff00ff),
 //                      radial-gradient(#c00, #fff 100px)
  //                      );
@@ -70,7 +70,7 @@
  background-repeat: no-repeat; 
  background-position:  bottom right;
  color: $white;
- 	 background-size:	(33%, 33%);
+ 	 background-size:	(28%, 28%);
 
 
  	#artDescription{

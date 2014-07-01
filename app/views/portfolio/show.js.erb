@@ -1,11 +1,12 @@
 $( document ).ready(function() {
 
 
-
+$(".pJDisplay").slideToggle();
 $(".pJDisplay").html("<%= j (render(partial: 'portfolio/project')) %>");
+
 $('.flexslider').flexslider({
  	animation: "slide",
- 	thumbCaptions: true,
+ 	thumbCaptions: true
  	//smoothHeight: true
  });
 
