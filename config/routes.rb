@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  
+    resources :images, only: [:index, :show], controller: 'portfolio'
     resources :projects, only: [:index, :show], controller: 'portfolio'
     resources :categories, only: [:index, :show], controller: 'portfolio'
     resources :skills, only: [:index, :show], controller: 'portfolio'
