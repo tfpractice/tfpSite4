@@ -4,6 +4,8 @@
 
 @import "base";
 @import "susy";
+@import "breakpoint";
+@import "responsiveBreakpoints";
 
 
 		
@@ -11,13 +13,34 @@
 
 //-----------
 
+#titleSection {
+
+	margin-left: 	columns(1);
+	
+
+	#pageTitle{
+	//	margin-top:		$topDistance;
+		padding-bottom: 0.5rem;
+		padding-top: 0.5rem;
+		font-size: 2rem;
+		border-top: 	1px solid black;
+		border-bottom: 	1px solid black;
+		width: 			columns(8,24);
+
+		.slashDelimiter{
+			color:		#ff00ff;
+		}
+
+	}
+
+}
+
 .subjectContainer {
   @include container;
  // @include susy-grid-background;
   height: 100%;
 
-
-
+  
   .sectionSummary {
 	@include columns(4);
 	margin-top:		$topDistance;
@@ -33,7 +56,10 @@
 	margin-left: columns(0.5);
 }
 
+.presentation{
+	margin-right: 2.5rem;
 
+}
 .pJDisplay{
 //@include susy-grid-background;
 	@include columns(24);
@@ -148,6 +174,15 @@
 //.flexslider .slides > li { 
 //  @include transition(opacity 1s ease);
 //}
+
+
+
+
+//////////// BREAKPOINTS //////////
+
+
+
+
 
 
 

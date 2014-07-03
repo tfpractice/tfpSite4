@@ -6,13 +6,18 @@
 $  ->
 
    #$(".top-nav").scrollToFixed()
+   $("#titleSection").hide()
+   #window.onload ->
+   $("#titleSection").slideDown(800)
+
+
    $(".subjectDescription").hide()
    $(".canvasDiv").hide()
 
 
    $(".projectLink").click ->
-      currentContents = @this.find(".pJDisplay .pJContents")
-      currentDisplay = @this.find(".pJDisplay")
+      currentContents = $(@).find(".pJDisplay .pJContents")
+      currentDisplay = $(@).find(".pJDisplay")
      # if currentContents.is(":visible")
        #  currentDisplay.css("height","40%")
          #currentDisplay.slideUp()

@@ -29,6 +29,9 @@ GEM
       tzinfo (~> 1.1)
     arel (5.0.1.20140414130214)
     bcrypt (3.1.7)
+    breakpoint (2.0.7)
+      compass (>= 0.12.1)
+      sass (>= 3.2.0)
     builder (3.2.2)
     chunky_png (1.2.9)
     coffee-rails (4.0.1)
@@ -182,6 +185,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  breakpoint
   coffee-rails (~> 4.0.0)
   compass-rails
   compass-susy-plugin

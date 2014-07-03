@@ -47,7 +47,7 @@ gem 'compass-susy-plugin'
 
 ###maybenot because the compass-rails gem uses susy 1 and the susy gem is v 2
 #gem "susy"
-
+gem "breakpoint"
 
 ####d3js rails vs d3js IDK why I think this may be a mistake
 gem 'd3js-rails'

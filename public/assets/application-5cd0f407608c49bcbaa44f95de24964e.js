@@ -20020,3349 +20020,6 @@ return jQuery;
   };
 
 }).call(this);
-$(function(){
-  var toggles = $('.toggle a'),
-      codes = $('.code');
-  
-  toggles.on("click", function(event){
-    event.preventDefault();
-    var $this = $(this);
-    
-    if (!$this.hasClass("active")) {
-      toggles.removeClass("active");
-      $this.addClass("active");
-      codes.hide().filter(this.hash).show();
-    }
-  });
-  toggles.first().click();
-});
-var Froogaloop=function(){function e(c){return new e.fn.init(c)}function g(c,b,a){if(!a.contentWindow.postMessage)return!1;var d=a.getAttribute("src").split("?")[0],c=JSON.stringify({method:c,value:b});a.contentWindow.postMessage(c,d)}function i(c){var b,a;try{b=JSON.parse(c.data),a=b.event||b.method}catch(l){}"ready"==a&&!h&&(h=!0);if(c.origin!=j)return!1;var c=b.value,e=b.data,f=""===f?null:b.player_id;b=f?d[f][a]:d[a];a=[];if(!b)return!1;void 0!==c&&a.push(c);e&&a.push(e);f&&a.push(f);return 0<
-a.length?b.apply(null,a):b.call()}function k(c,b,a){a?(d[a]||(d[a]={}),d[a][c]=b):d[c]=b}var d={},h=!1,j="";e.fn=e.prototype={element:null,init:function(c){"string"===typeof c&&(c=document.getElementById(c));this.element=c;for(var c=this.element.getAttribute("src").split("/"),b="",a=0,d=c.length;a<d;a++){if(3>a)b+=c[a];else break;2>a&&(b+="/")}j=b;return this},api:function(c,b){if(!this.element||!c)return!1;var a=this.element,d=""!==a.id?a.id:null,e=!b||!b.constructor||!b.call||!b.apply?b:null,f=
-b&&b.constructor&&b.call&&b.apply?b:null;f&&k(c,f,d);g(c,e,a);return this},addEvent:function(c,b){if(!this.element)return!1;var a=this.element,d=""!==a.id?a.id:null;k(c,b,d);"ready"!=c?g("addEventListener",c,a):"ready"==c&&h&&b.call(null,d);return this},removeEvent:function(c){if(!this.element)return!1;var b=this.element,a;a:{if((a=""!==b.id?b.id:null)&&d[a]){if(!d[a][c]){a=!1;break a}d[a][c]=null}else{if(!d[c]){a=!1;break a}d[c]=null}a=!0}"ready"!=c&&a&&g("removeEventListener",c,b)}};e.fn.init.prototype=
-e.fn;window.addEventListener?window.addEventListener("message",i,!1):window.attachEvent("onmessage",i,!1);return window.Froogaloop=window.$f=e}();
-/*
- * jQuery Easing v1.3 - http://gsgd.co.uk/sandbox/jquery/easing/
- *
- * Uses the built in easing capabilities added In jQuery 1.1
- * to offer multiple easing options
- *
- * TERMS OF USE - jQuery Easing
- * 
- * Open source under the BSD License. 
- * 
- * Copyright Â© 2008 George McGinley Smith
- * All rights reserved.
- * 
- * Redistribution and use in source and binary forms, with or without modification, 
- * are permitted provided that the following conditions are met:
- * 
- * Redistributions of source code must retain the above copyright notice, this list of 
- * conditions and the following disclaimer.
- * Redistributions in binary form must reproduce the above copyright notice, this list 
- * of conditions and the following disclaimer in the documentation and/or other materials 
- * provided with the distribution.
- * 
- * Neither the name of the author nor the names of contributors may be used to endorse 
- * or promote products derived from this software without specific prior written permission.
- * 
- * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY 
- * EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
- * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE
- *  COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
- *  EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE
- *  GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED 
- * AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
- *  NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED 
- * OF THE POSSIBILITY OF SUCH DAMAGE. 
- *
-*/
-
-// t: current time, b: begInnIng value, c: change In value, d: duration
-jQuery.easing['jswing'] = jQuery.easing['swing'];
-
-jQuery.extend( jQuery.easing,
-{
-	def: 'easeOutQuad',
-	swing: function (x, t, b, c, d) {
-		//alert(jQuery.easing.default);
-		return jQuery.easing[jQuery.easing.def](x, t, b, c, d);
-	},
-	easeInQuad: function (x, t, b, c, d) {
-		return c*(t/=d)*t + b;
-	},
-	easeOutQuad: function (x, t, b, c, d) {
-		return -c *(t/=d)*(t-2) + b;
-	},
-	easeInOutQuad: function (x, t, b, c, d) {
-		if ((t/=d/2) < 1) return c/2*t*t + b;
-		return -c/2 * ((--t)*(t-2) - 1) + b;
-	},
-	easeInCubic: function (x, t, b, c, d) {
-		return c*(t/=d)*t*t + b;
-	},
-	easeOutCubic: function (x, t, b, c, d) {
-		return c*((t=t/d-1)*t*t + 1) + b;
-	},
-	easeInOutCubic: function (x, t, b, c, d) {
-		if ((t/=d/2) < 1) return c/2*t*t*t + b;
-		return c/2*((t-=2)*t*t + 2) + b;
-	},
-	easeInQuart: function (x, t, b, c, d) {
-		return c*(t/=d)*t*t*t + b;
-	},
-	easeOutQuart: function (x, t, b, c, d) {
-		return -c * ((t=t/d-1)*t*t*t - 1) + b;
-	},
-	easeInOutQuart: function (x, t, b, c, d) {
-		if ((t/=d/2) < 1) return c/2*t*t*t*t + b;
-		return -c/2 * ((t-=2)*t*t*t - 2) + b;
-	},
-	easeInQuint: function (x, t, b, c, d) {
-		return c*(t/=d)*t*t*t*t + b;
-	},
-	easeOutQuint: function (x, t, b, c, d) {
-		return c*((t=t/d-1)*t*t*t*t + 1) + b;
-	},
-	easeInOutQuint: function (x, t, b, c, d) {
-		if ((t/=d/2) < 1) return c/2*t*t*t*t*t + b;
-		return c/2*((t-=2)*t*t*t*t + 2) + b;
-	},
-	easeInSine: function (x, t, b, c, d) {
-		return -c * Math.cos(t/d * (Math.PI/2)) + c + b;
-	},
-	easeOutSine: function (x, t, b, c, d) {
-		return c * Math.sin(t/d * (Math.PI/2)) + b;
-	},
-	easeInOutSine: function (x, t, b, c, d) {
-		return -c/2 * (Math.cos(Math.PI*t/d) - 1) + b;
-	},
-	easeInExpo: function (x, t, b, c, d) {
-		return (t==0) ? b : c * Math.pow(2, 10 * (t/d - 1)) + b;
-	},
-	easeOutExpo: function (x, t, b, c, d) {
-		return (t==d) ? b+c : c * (-Math.pow(2, -10 * t/d) + 1) + b;
-	},
-	easeInOutExpo: function (x, t, b, c, d) {
-		if (t==0) return b;
-		if (t==d) return b+c;
-		if ((t/=d/2) < 1) return c/2 * Math.pow(2, 10 * (t - 1)) + b;
-		return c/2 * (-Math.pow(2, -10 * --t) + 2) + b;
-	},
-	easeInCirc: function (x, t, b, c, d) {
-		return -c * (Math.sqrt(1 - (t/=d)*t) - 1) + b;
-	},
-	easeOutCirc: function (x, t, b, c, d) {
-		return c * Math.sqrt(1 - (t=t/d-1)*t) + b;
-	},
-	easeInOutCirc: function (x, t, b, c, d) {
-		if ((t/=d/2) < 1) return -c/2 * (Math.sqrt(1 - t*t) - 1) + b;
-		return c/2 * (Math.sqrt(1 - (t-=2)*t) + 1) + b;
-	},
-	easeInElastic: function (x, t, b, c, d) {
-		var s=1.70158;var p=0;var a=c;
-		if (t==0) return b;  if ((t/=d)==1) return b+c;  if (!p) p=d*.3;
-		if (a < Math.abs(c)) { a=c; var s=p/4; }
-		else var s = p/(2*Math.PI) * Math.asin (c/a);
-		return -(a*Math.pow(2,10*(t-=1)) * Math.sin( (t*d-s)*(2*Math.PI)/p )) + b;
-	},
-	easeOutElastic: function (x, t, b, c, d) {
-		var s=1.70158;var p=0;var a=c;
-		if (t==0) return b;  if ((t/=d)==1) return b+c;  if (!p) p=d*.3;
-		if (a < Math.abs(c)) { a=c; var s=p/4; }
-		else var s = p/(2*Math.PI) * Math.asin (c/a);
-		return a*Math.pow(2,-10*t) * Math.sin( (t*d-s)*(2*Math.PI)/p ) + c + b;
-	},
-	easeInOutElastic: function (x, t, b, c, d) {
-		var s=1.70158;var p=0;var a=c;
-		if (t==0) return b;  if ((t/=d/2)==2) return b+c;  if (!p) p=d*(.3*1.5);
-		if (a < Math.abs(c)) { a=c; var s=p/4; }
-		else var s = p/(2*Math.PI) * Math.asin (c/a);
-		if (t < 1) return -.5*(a*Math.pow(2,10*(t-=1)) * Math.sin( (t*d-s)*(2*Math.PI)/p )) + b;
-		return a*Math.pow(2,-10*(t-=1)) * Math.sin( (t*d-s)*(2*Math.PI)/p )*.5 + c + b;
-	},
-	easeInBack: function (x, t, b, c, d, s) {
-		if (s == undefined) s = 1.70158;
-		return c*(t/=d)*t*((s+1)*t - s) + b;
-	},
-	easeOutBack: function (x, t, b, c, d, s) {
-		if (s == undefined) s = 1.70158;
-		return c*((t=t/d-1)*t*((s+1)*t + s) + 1) + b;
-	},
-	easeInOutBack: function (x, t, b, c, d, s) {
-		if (s == undefined) s = 1.70158; 
-		if ((t/=d/2) < 1) return c/2*(t*t*(((s*=(1.525))+1)*t - s)) + b;
-		return c/2*((t-=2)*t*(((s*=(1.525))+1)*t + s) + 2) + b;
-	},
-	easeInBounce: function (x, t, b, c, d) {
-		return c - jQuery.easing.easeOutBounce (x, d-t, 0, c, d) + b;
-	},
-	easeOutBounce: function (x, t, b, c, d) {
-		if ((t/=d) < (1/2.75)) {
-			return c*(7.5625*t*t) + b;
-		} else if (t < (2/2.75)) {
-			return c*(7.5625*(t-=(1.5/2.75))*t + .75) + b;
-		} else if (t < (2.5/2.75)) {
-			return c*(7.5625*(t-=(2.25/2.75))*t + .9375) + b;
-		} else {
-			return c*(7.5625*(t-=(2.625/2.75))*t + .984375) + b;
-		}
-	},
-	easeInOutBounce: function (x, t, b, c, d) {
-		if (t < d/2) return jQuery.easing.easeInBounce (x, t*2, 0, c, d) * .5 + b;
-		return jQuery.easing.easeOutBounce (x, t*2-d, 0, c, d) * .5 + c*.5 + b;
-	}
-});
-
-/*
- *
- * TERMS OF USE - EASING EQUATIONS
- * 
- * Open source under the BSD License. 
- * 
- * Copyright Â© 2001 Robert Penner
- * All rights reserved.
- * 
- * Redistribution and use in source and binary forms, with or without modification, 
- * are permitted provided that the following conditions are met:
- * 
- * Redistributions of source code must retain the above copyright notice, this list of 
- * conditions and the following disclaimer.
- * Redistributions in binary form must reproduce the above copyright notice, this list 
- * of conditions and the following disclaimer in the documentation and/or other materials 
- * provided with the distribution.
- * 
- * Neither the name of the author nor the names of contributors may be used to endorse 
- * or promote products derived from this software without specific prior written permission.
- * 
- * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY 
- * EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
- * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE
- *  COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
- *  EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE
- *  GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED 
- * AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
- *  NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED 
- * OF THE POSSIBILITY OF SUCH DAMAGE. 
- *
- */
-;
-/*global jQuery */
-/*! 
-* FitVids 1.0
-*
-* Copyright 2011, Chris Coyier - http://css-tricks.com + Dave Rupert - http://daverupert.com
-* Credit to Thierry Koblentz - http://www.alistapart.com/articles/creating-intrinsic-ratios-for-video/
-* Released under the WTFPL license - http://sam.zoy.org/wtfpl/
-*
-* Date: Thu Sept 01 18:00:00 2011 -0500
-*/
-
-(function(a){a.fn.fitVids=function(b){var c={customSelector:null},d=document.createElement("div"),e=document.getElementsByTagName("base")[0]||document.getElementsByTagName("script")[0];return d.className="fit-vids-style",d.innerHTML="&shy;<style>               .fluid-width-video-wrapper {                 width: 100%;                              position: relative;                       padding: 0;                            }                                                                                   .fluid-width-video-wrapper iframe,        .fluid-width-video-wrapper object,        .fluid-width-video-wrapper embed {           position: absolute;                       top: 0;                                   left: 0;                                  width: 100%;                              height: 100%;                          }                                       </style>",e.parentNode.insertBefore(d,e),b&&a.extend(c,b),this.each(function(){var b=["iframe[src^='http://player.vimeo.com']","iframe[src^='http://www.youtube.com']","iframe[src^='https://www.youtube.com']","iframe[src^='http://www.kickstarter.com']","iframe[src^='http://fast.wistia.com']","object","embed"];c.customSelector&&b.push(c.customSelector);var d=a(this).find(b.join(","));d.each(function(){var b=a(this);if(this.tagName.toLowerCase()=="embed"&&b.parent("object").length||b.parent(".fluid-width-video-wrapper").length)return;var c=this.tagName.toLowerCase()=="object"?b.attr("height"):b.height(),d=c/b.width();if(!b.attr("id")){var e="fitvid"+Math.floor(Math.random()*999999);b.attr("id",e)}b.wrap('<div class="fluid-width-video-wrapper"></div>').parent(".fluid-width-video-wrapper").css("padding-top",d*100+"%"),b.removeAttr("height").removeAttr("width")})})}})(jQuery)
-;
-/*! Copyright (c) 2011 Brandon Aaron (http://brandonaaron.net)
- * Licensed under the MIT License (LICENSE.txt).
- *
- * Thanks to: http://adomas.org/javascript-mouse-wheel/ for some pointers.
- * Thanks to: Mathias Bank(http://www.mathias-bank.de) for a scope bug fix.
- * Thanks to: Seamus Leahy for adding deltaX and deltaY
- *
- * Version: 3.0.6
- * 
- * Requires: 1.2.2+
- */
-
-
-(function($) {
-
-var types = ['DOMMouseScroll', 'mousewheel'];
-
-if ($.event.fixHooks) {
-    for ( var i=types.length; i; ) {
-        $.event.fixHooks[ types[--i] ] = $.event.mouseHooks;
-    }
-}
-
-$.event.special.mousewheel = {
-    setup: function() {
-        if ( this.addEventListener ) {
-            for ( var i=types.length; i; ) {
-                this.addEventListener( types[--i], handler, false );
-            }
-        } else {
-            this.onmousewheel = handler;
-        }
-    },
-    
-    teardown: function() {
-        if ( this.removeEventListener ) {
-            for ( var i=types.length; i; ) {
-                this.removeEventListener( types[--i], handler, false );
-            }
-        } else {
-            this.onmousewheel = null;
-        }
-    }
-};
-
-$.fn.extend({
-    mousewheel: function(fn) {
-        return fn ? this.bind("mousewheel", fn) : this.trigger("mousewheel");
-    },
-    
-    unmousewheel: function(fn) {
-        return this.unbind("mousewheel", fn);
-    }
-});
-
-
-function handler(event) {
-    var orgEvent = event || window.event, args = [].slice.call( arguments, 1 ), delta = 0, returnValue = true, deltaX = 0, deltaY = 0;
-    event = $.event.fix(orgEvent);
-    event.type = "mousewheel";
-    
-    // Old school scrollwheel delta
-    if ( orgEvent.wheelDelta ) { delta = orgEvent.wheelDelta/120; }
-    if ( orgEvent.detail     ) { delta = -orgEvent.detail/3; }
-    
-    // New school multidimensional scroll (touchpads) deltas
-    deltaY = delta;
-    
-    // Gecko
-    if ( orgEvent.axis !== undefined && orgEvent.axis === orgEvent.HORIZONTAL_AXIS ) {
-        deltaY = 0;
-        deltaX = -1*delta;
-    }
-    
-    // Webkit
-    if ( orgEvent.wheelDeltaY !== undefined ) { deltaY = orgEvent.wheelDeltaY/120; }
-    if ( orgEvent.wheelDeltaX !== undefined ) { deltaX = -1*orgEvent.wheelDeltaX/120; }
-    
-    // Add event and delta to the front of the arguments
-    args.unshift(event, delta, deltaX, deltaY);
-    
-    return ($.event.dispatch || $.event.handle).apply(this, args);
-}
-
-})(jQuery);
-/* Modernizr 2.0.6 (Custom Build) | MIT & BSD */
-
-;window.Modernizr=function(a,b,c){function D(a,b){var c=a.charAt(0).toUpperCase()+a.substr(1),d=(a+" "+o.join(c+" ")+c).split(" ");return C(d,b)}function C(a,b){for(var d in a)if(k[a[d]]!==c)return b=="pfx"?a[d]:!0;return!1}function B(a,b){return!!~(""+a).indexOf(b)}function A(a,b){return typeof a===b}function z(a,b){return y(n.join(a+";")+(b||""))}function y(a){k.cssText=a}var d="2.0.6",e={},f=!0,g=b.documentElement,h=b.head||b.getElementsByTagName("head")[0],i="modernizr",j=b.createElement(i),k=j.style,l,m=Object.prototype.toString,n=" -webkit- -moz- -o- -ms- -khtml- ".split(" "),o="Webkit Moz O ms Khtml".split(" "),p={},q={},r={},s=[],t=function(a,c,d,e){var f,h,j,k=b.createElement("div");if(parseInt(d,10))while(d--)j=b.createElement("div"),j.id=e?e[d]:i+(d+1),k.appendChild(j);f=["&shy;","<style>",a,"</style>"].join(""),k.id=i,k.innerHTML+=f,g.appendChild(k),h=c(k,a),k.parentNode.removeChild(k);return!!h},u=function(b){if(a.matchMedia)return matchMedia(b).matches;var c;t("@media "+b+" { #"+i+" { position: absolute; } }",function(b){c=(a.getComputedStyle?getComputedStyle(b,null):b.currentStyle).position=="absolute"});return c},v,w={}.hasOwnProperty,x;!A(w,c)&&!A(w.call,c)?x=function(a,b){return w.call(a,b)}:x=function(a,b){return b in a&&A(a.constructor.prototype[b],c)},p.rgba=function(){y("background-color:rgba(150,255,150,.5)");return B(k.backgroundColor,"rgba")},p.boxshadow=function(){return D("boxShadow")},p.csstransitions=function(){return D("transitionProperty")};for(var E in p)x(p,E)&&(v=E.toLowerCase(),e[v]=p[E](),s.push((e[v]?"":"no-")+v));e.addTest=function(a,b){if(typeof a=="object")for(var d in a)x(a,d)&&e.addTest(d,a[d]);else{a=a.toLowerCase();if(e[a]!==c)return;b=typeof b=="boolean"?b:!!b(),g.className+=" "+(b?"":"no-")+a,e[a]=b}return e},y(""),j=l=null,a.attachEvent&&function(){var a=b.createElement("div");a.innerHTML="<elem></elem>";return a.childNodes.length!==1}()&&function(a,b){function s(a){var b=-1;while(++b<g)a.createElement(f[b])}a.iepp=a.iepp||{};var d=a.iepp,e=d.html5elements||"abbr|article|aside|audio|canvas|datalist|details|figcaption|figure|footer|header|hgroup|mark|meter|nav|output|progress|section|summary|time|video",f=e.split("|"),g=f.length,h=new RegExp("(^|\\s)("+e+")","gi"),i=new RegExp("<(/*)("+e+")","gi"),j=/^\s*[\{\}]\s*$/,k=new RegExp("(^|[^\\n]*?\\s)("+e+")([^\\n]*)({[\\n\\w\\W]*?})","gi"),l=b.createDocumentFragment(),m=b.documentElement,n=m.firstChild,o=b.createElement("body"),p=b.createElement("style"),q=/print|all/,r;d.getCSS=function(a,b){if(a+""===c)return"";var e=-1,f=a.length,g,h=[];while(++e<f){g=a[e];if(g.disabled)continue;b=g.media||b,q.test(b)&&h.push(d.getCSS(g.imports,b),g.cssText),b="all"}return h.join("")},d.parseCSS=function(a){var b=[],c;while((c=k.exec(a))!=null)b.push(((j.exec(c[1])?"\n":c[1])+c[2]+c[3]).replace(h,"$1.iepp_$2")+c[4]);return b.join("\n")},d.writeHTML=function(){var a=-1;r=r||b.body;while(++a<g){var c=b.getElementsByTagName(f[a]),d=c.length,e=-1;while(++e<d)c[e].className.indexOf("iepp_")<0&&(c[e].className+=" iepp_"+f[a])}l.appendChild(r),m.appendChild(o),o.className=r.className,o.id=r.id,o.innerHTML=r.innerHTML.replace(i,"<$1font")},d._beforePrint=function(){p.styleSheet.cssText=d.parseCSS(d.getCSS(b.styleSheets,"all")),d.writeHTML()},d.restoreHTML=function(){o.innerHTML="",m.removeChild(o),m.appendChild(r)},d._afterPrint=function(){d.restoreHTML(),p.styleSheet.cssText=""},s(b),s(l);d.disablePP||(n.insertBefore(p,n.firstChild),p.media="print",p.className="iepp-printshim",a.attachEvent("onbeforeprint",d._beforePrint),a.attachEvent("onafterprint",d._afterPrint))}(a,b),e._version=d,e._prefixes=n,e._domPrefixes=o,e.mq=u,e.testProp=function(a){return C([a])},e.testAllProps=D,e.testStyles=t,g.className=g.className.replace(/\bno-js\b/,"")+(f?" js "+s.join(" "):"");return e}(this,this.document),function(a,b){function u(){r(!0)}a.respond={},respond.update=function(){},respond.mediaQueriesSupported=b;if(!b){var c=a.document,d=c.documentElement,e=[],f=[],g=[],h={},i=30,j=c.getElementsByTagName("head")[0]||d,k=j.getElementsByTagName("link"),l=[],m=function(){var b=k,c=b.length,d=0,e,f,g,i;for(;d<c;d++)e=b[d],f=e.href,g=e.media,i=e.rel&&e.rel.toLowerCase()==="stylesheet",!!f&&i&&!h[f]&&(!/^([a-zA-Z]+?:(\/\/)?(www\.)?)/.test(f)||f.replace(RegExp.$1,"").split("/")[0]===a.location.host?l.push({href:f,media:g}):h[f]=!0);n()},n=function(){if(l.length){var a=l.shift();s(a.href,function(b){o(b,a.href,a.media),h[a.href]=!0,n()})}},o=function(a,b,c){var d=a.match(/@media[^\{]+\{([^\{\}]+\{[^\}\{]+\})+/gi),g=d&&d.length||0,b=b.substring(0,b.lastIndexOf("/")),h=function(a){return a.replace(/(url\()['"]?([^\/\)'"][^:\)'"]+)['"]?(\))/g,"$1"+b+"$2$3")},i=!g&&c,j=0,k,l,m,n,o;b.length&&(b+="/"),i&&(g=1);for(;j<g;j++){k=0,i?(l=c,f.push(h(a))):(l=d[j].match(/@media ([^\{]+)\{([\S\s]+?)$/)&&RegExp.$1,f.push(RegExp.$2&&h(RegExp.$2))),n=l.split(","),o=n.length;for(;k<o;k++)m=n[k],e.push({media:m.match(/(only\s+)?([a-zA-Z]+)(\sand)?/)&&RegExp.$2,rules:f.length-1,minw:m.match(/\(min\-width:[\s]*([\s]*[0-9]+)px[\s]*\)/)&&parseFloat(RegExp.$1),maxw:m.match(/\(max\-width:[\s]*([\s]*[0-9]+)px[\s]*\)/)&&parseFloat(RegExp.$1)})}r()},p,q,r=function(a){var b="clientWidth",h=d[b],l=c.compatMode==="CSS1Compat"&&h||c.body[b]||h,m={},n=c.createDocumentFragment(),o=k[k.length-1],s=(new Date).getTime();if(a&&p&&s-p<i)clearTimeout(q),q=setTimeout(r,i);else{p=s;for(var t in e){var u=e[t];if(!u.minw&&!u.maxw||(!u.minw||u.minw&&l>=u.minw)&&(!u.maxw||u.maxw&&l<=u.maxw))m[u.media]||(m[u.media]=[]),m[u.media].push(f[u.rules])}for(var t in g)g[t]&&g[t].parentNode===j&&j.removeChild(g[t]);for(var t in m){var v=c.createElement("style"),w=m[t].join("\n");v.type="text/css",v.media=t,v.styleSheet?v.styleSheet.cssText=w:v.appendChild(c.createTextNode(w)),n.appendChild(v),g.push(v)}j.insertBefore(n,o.nextSibling)}},s=function(a,b){var c=t();if(!!c){c.open("GET",a,!0),c.onreadystatechange=function(){c.readyState==4&&(c.status==200||c.status==304)&&b(c.responseText)};if(c.readyState==4)return;c.send()}},t=function(){var a=!1,b=[function(){return new ActiveXObject("Microsoft.XMLHTTP")},function(){return new XMLHttpRequest}],c=b.length;while(c--){try{a=b[c]()}catch(d){continue}break}return function(){return a}}();m(),respond.update=m,a.addEventListener?a.addEventListener("resize",u,!1):a.attachEvent&&a.attachEvent("onresize",u)}}(this,Modernizr.mq("only all")),function(a,b,c){function k(a){return!a||a=="loaded"||a=="complete"}function j(){var a=1,b=-1;while(p.length- ++b)if(p[b].s&&!(a=p[b].r))break;a&&g()}function i(a){var c=b.createElement("script"),d;c.src=a.s,c.onreadystatechange=c.onload=function(){!d&&k(c.readyState)&&(d=1,j(),c.onload=c.onreadystatechange=null)},m(function(){d||(d=1,j())},H.errorTimeout),a.e?c.onload():n.parentNode.insertBefore(c,n)}function h(a){var c=b.createElement("link"),d;c.href=a.s,c.rel="stylesheet",c.type="text/css";if(!a.e&&(w||r)){var e=function(a){m(function(){if(!d)try{a.sheet.cssRules.length?(d=1,j()):e(a)}catch(b){b.code==1e3||b.message=="security"||b.message=="denied"?(d=1,m(function(){j()},0)):e(a)}},0)};e(c)}else c.onload=function(){d||(d=1,m(function(){j()},0))},a.e&&c.onload();m(function(){d||(d=1,j())},H.errorTimeout),!a.e&&n.parentNode.insertBefore(c,n)}function g(){var a=p.shift();q=1,a?a.t?m(function(){a.t=="c"?h(a):i(a)},0):(a(),j()):q=0}function f(a,c,d,e,f,h){function i(){!o&&k(l.readyState)&&(r.r=o=1,!q&&j(),l.onload=l.onreadystatechange=null,m(function(){u.removeChild(l)},0))}var l=b.createElement(a),o=0,r={t:d,s:c,e:h};l.src=l.data=c,!s&&(l.style.display="none"),l.width=l.height="0",a!="object"&&(l.type=d),l.onload=l.onreadystatechange=i,a=="img"?l.onerror=i:a=="script"&&(l.onerror=function(){r.e=r.r=1,g()}),p.splice(e,0,r),u.insertBefore(l,s?null:n),m(function(){o||(u.removeChild(l),r.r=r.e=o=1,j())},H.errorTimeout)}function e(a,b,c){var d=b=="c"?z:y;q=0,b=b||"j",C(a)?f(d,a,b,this.i++,l,c):(p.splice(this.i++,0,a),p.length==1&&g());return this}function d(){var a=H;a.loader={load:e,i:0};return a}var l=b.documentElement,m=a.setTimeout,n=b.getElementsByTagName("script")[0],o={}.toString,p=[],q=0,r="MozAppearance"in l.style,s=r&&!!b.createRange().compareNode,t=r&&!s,u=s?l:n.parentNode,v=a.opera&&o.call(a.opera)=="[object Opera]",w="webkitAppearance"in l.style,x=w&&"async"in b.createElement("script"),y=r?"object":v||x?"img":"script",z=w?"img":y,A=Array.isArray||function(a){return o.call(a)=="[object Array]"},B=function(a){return Object(a)===a},C=function(a){return typeof a=="string"},D=function(a){return o.call(a)=="[object Function]"},E=[],F={},G,H;H=function(a){function f(a){var b=a.split("!"),c=E.length,d=b.pop(),e=b.length,f={url:d,origUrl:d,prefixes:b},g,h;for(h=0;h<e;h++)g=F[b[h]],g&&(f=g(f));for(h=0;h<c;h++)f=E[h](f);return f}function e(a,b,e,g,h){var i=f(a),j=i.autoCallback;if(!i.bypass){b&&(b=D(b)?b:b[a]||b[g]||b[a.split("/").pop().split("?")[0]]);if(i.instead)return i.instead(a,b,e,g,h);e.load(i.url,i.forceCSS||!i.forceJS&&/css$/.test(i.url)?"c":c,i.noexec),(D(b)||D(j))&&e.load(function(){d(),b&&b(i.origUrl,h,g),j&&j(i.origUrl,h,g)})}}function b(a,b){function c(a){if(C(a))e(a,h,b,0,d);else if(B(a))for(i in a)a.hasOwnProperty(i)&&e(a[i],h,b,i,d)}var d=!!a.test,f=d?a.yep:a.nope,g=a.load||a.both,h=a.callback,i;c(f),c(g),a.complete&&b.load(a.complete)}var g,h,i=this.yepnope.loader;if(C(a))e(a,0,i,0);else if(A(a))for(g=0;g<a.length;g++)h=a[g],C(h)?e(h,0,i,0):A(h)?H(h):B(h)&&b(h,i);else B(a)&&b(a,i)},H.addPrefix=function(a,b){F[a]=b},H.addFilter=function(a){E.push(a)},H.errorTimeout=1e4,b.readyState==null&&b.addEventListener&&(b.readyState="loading",b.addEventListener("DOMContentLoaded",G=function(){b.removeEventListener("DOMContentLoaded",G,0),b.readyState="complete"},0)),a.yepnope=d()}(this,this.document),Modernizr.load=function(){yepnope.apply(window,[].slice.call(arguments,0))};
-/**
- * SyntaxHighlighter
- * http://alexgorbatchev.com/SyntaxHighlighter
- *
- * SyntaxHighlighter is donationware. If you are using it, please donate.
- * http://alexgorbatchev.com/SyntaxHighlighter/donate.html
- *
- * @version
- * 3.0.83 (July 02 2010)
- * 
- * @copyright
- * Copyright (C) 2004-2010 Alex Gorbatchev.
- *
- * @license
- * Dual licensed under the MIT and GPL licenses.
- */
-
-;(function()
-{
-	// CommonJS
-	typeof(require) != 'undefined' ? SyntaxHighlighter = require('shCore').SyntaxHighlighter : null;
-
-	function Brush()
-	{
-		function getKeywordsCSS(str)
-		{
-			return '\\b([a-z_]|)' + str.replace(/ /g, '(?=:)\\b|\\b([a-z_\\*]|\\*|)') + '(?=:)\\b';
-		};
-	
-		function getValuesCSS(str)
-		{
-			return '\\b' + str.replace(/ /g, '(?!-)(?!:)\\b|\\b()') + '\:\\b';
-		};
-
-		var keywords =	'ascent azimuth background-attachment background-color background-image background-position ' +
-						'background-repeat background baseline bbox border-collapse border-color border-spacing border-style border-top ' +
-						'border-right border-bottom border-left border-top-color border-right-color border-bottom-color border-left-color ' +
-						'border-top-style border-right-style border-bottom-style border-left-style border-top-width border-right-width ' +
-						'border-bottom-width border-left-width border-width border bottom cap-height caption-side centerline clear clip color ' +
-						'content counter-increment counter-reset cue-after cue-before cue cursor definition-src descent direction display ' +
-						'elevation empty-cells float font-size-adjust font-family font-size font-stretch font-style font-variant font-weight font ' +
-						'height left letter-spacing line-height list-style-image list-style-position list-style-type list-style margin-top ' +
-						'margin-right margin-bottom margin-left margin marker-offset marks mathline max-height max-width min-height min-width orphans ' +
-						'outline-color outline-style outline-width outline overflow padding-top padding-right padding-bottom padding-left padding page ' +
-						'page-break-after page-break-before page-break-inside pause pause-after pause-before pitch pitch-range play-during position ' +
-						'quotes right richness size slope src speak-header speak-numeral speak-punctuation speak speech-rate stemh stemv stress ' +
-						'table-layout text-align top text-decoration text-indent text-shadow text-transform unicode-bidi unicode-range units-per-em ' +
-						'vertical-align visibility voice-family volume white-space widows width widths word-spacing x-height z-index';
-
-		var values =	'above absolute all always aqua armenian attr aural auto avoid baseline behind below bidi-override black blink block blue bold bolder '+
-						'both bottom braille capitalize caption center center-left center-right circle close-quote code collapse compact condensed '+
-						'continuous counter counters crop cross crosshair cursive dashed decimal decimal-leading-zero default digits disc dotted double '+
-						'embed embossed e-resize expanded extra-condensed extra-expanded fantasy far-left far-right fast faster fixed format fuchsia '+
-						'gray green groove handheld hebrew help hidden hide high higher icon inline-table inline inset inside invert italic '+
-						'justify landscape large larger left-side left leftwards level lighter lime line-through list-item local loud lower-alpha '+
-						'lowercase lower-greek lower-latin lower-roman lower low ltr marker maroon medium message-box middle mix move narrower '+
-						'navy ne-resize no-close-quote none no-open-quote no-repeat normal nowrap n-resize nw-resize oblique olive once open-quote outset '+
-						'outside overline pointer portrait pre print projection purple red relative repeat repeat-x repeat-y rgb ridge right right-side '+
-						'rightwards rtl run-in screen scroll semi-condensed semi-expanded separate se-resize show silent silver slower slow '+
-						'small small-caps small-caption smaller soft solid speech spell-out square s-resize static status-bar sub super sw-resize '+
-						'table-caption table-cell table-column table-column-group table-footer-group table-header-group table-row table-row-group teal '+
-						'text-bottom text-top thick thin top transparent tty tv ultra-condensed ultra-expanded underline upper-alpha uppercase upper-latin '+
-						'upper-roman url visible wait white wider w-resize x-fast x-high x-large x-loud x-low x-slow x-small x-soft xx-large xx-small yellow';
-
-		var fonts =		'[mM]onospace [tT]ahoma [vV]erdana [aA]rial [hH]elvetica [sS]ans-serif [sS]erif [cC]ourier mono sans serif';
-	
-		this.regexList = [
-			{ regex: SyntaxHighlighter.regexLib.multiLineCComments,		css: 'comments' },	// multiline comments
-			{ regex: SyntaxHighlighter.regexLib.doubleQuotedString,		css: 'string' },	// double quoted strings
-			{ regex: SyntaxHighlighter.regexLib.singleQuotedString,		css: 'string' },	// single quoted strings
-			{ regex: /\#[a-fA-F0-9]{3,6}/g,								css: 'value' },		// html colors
-			{ regex: /(-?\d+)(\.\d+)?(px|em|pt|\:|\%|)/g,				css: 'value' },		// sizes
-			{ regex: /!important/g,										css: 'color3' },	// !important
-			{ regex: new RegExp(getKeywordsCSS(keywords), 'gm'),		css: 'keyword' },	// keywords
-			{ regex: new RegExp(getValuesCSS(values), 'g'),				css: 'value' },		// values
-			{ regex: new RegExp(this.getKeywords(fonts), 'g'),			css: 'color1' }		// fonts
-			];
-
-		this.forHtmlScript({ 
-			left: /(&lt;|<)\s*style.*?(&gt;|>)/gi, 
-			right: /(&lt;|<)\/\s*style\s*(&gt;|>)/gi 
-			});
-	};
-
-	Brush.prototype	= new SyntaxHighlighter.Highlighter();
-	Brush.aliases	= ['css'];
-
-	SyntaxHighlighter.brushes.CSS = Brush;
-
-	// CommonJS
-	typeof(exports) != 'undefined' ? exports.Brush = Brush : null;
-})();
-/**
- * SyntaxHighlighter
- * http://alexgorbatchev.com/SyntaxHighlighter
- *
- * SyntaxHighlighter is donationware. If you are using it, please donate.
- * http://alexgorbatchev.com/SyntaxHighlighter/donate.html
- *
- * @version
- * 3.0.83 (July 02 2010)
- * 
- * @copyright
- * Copyright (C) 2004-2010 Alex Gorbatchev.
- *
- * @license
- * Dual licensed under the MIT and GPL licenses.
- */
-
-;(function()
-{
-	// CommonJS
-	typeof(require) != 'undefined' ? SyntaxHighlighter = require('shCore').SyntaxHighlighter : null;
-
-	function Brush()
-	{
-		var keywords =	'break case catch continue ' +
-						'default delete do else false  ' +
-						'for function if in instanceof ' +
-						'new null return super switch ' +
-						'this throw true try typeof var while with'
-						;
-
-		var r = SyntaxHighlighter.regexLib;
-		
-		this.regexList = [
-			{ regex: r.multiLineDoubleQuotedString,					css: 'string' },			// double quoted strings
-			{ regex: r.multiLineSingleQuotedString,					css: 'string' },			// single quoted strings
-			{ regex: r.singleLineCComments,							css: 'comments' },			// one line comments
-			{ regex: r.multiLineCComments,							css: 'comments' },			// multiline comments
-			{ regex: /\s*#.*/gm,									css: 'preprocessor' },		// preprocessor tags like #region and #endregion
-			{ regex: new RegExp(this.getKeywords(keywords), 'gm'),	css: 'keyword' }			// keywords
-			];
-	
-		this.forHtmlScript(r.scriptScriptTags);
-	};
-
-	Brush.prototype	= new SyntaxHighlighter.Highlighter();
-	Brush.aliases	= ['js', 'jscript', 'javascript'];
-
-	SyntaxHighlighter.brushes.JScript = Brush;
-
-	// CommonJS
-	typeof(exports) != 'undefined' ? exports.Brush = Brush : null;
-})();
-/**
- * SyntaxHighlighter
- * http://alexgorbatchev.com/SyntaxHighlighter
- *
- * SyntaxHighlighter is donationware. If you are using it, please donate.
- * http://alexgorbatchev.com/SyntaxHighlighter/donate.html
- *
- * @version
- * 3.0.83 (July 02 2010)
- * 
- * @copyright
- * Copyright (C) 2004-2010 Alex Gorbatchev.
- *
- * @license
- * Dual licensed under the MIT and GPL licenses.
- */
-
-;(function()
-{
-	// CommonJS
-	typeof(require) != 'undefined' ? SyntaxHighlighter = require('shCore').SyntaxHighlighter : null;
-
-	function Brush()
-	{
-		function process(match, regexInfo)
-		{
-			var constructor = SyntaxHighlighter.Match,
-				code = match[0],
-				tag = new XRegExp('(&lt;|<)[\\s\\/\\?]*(?<name>[:\\w-\\.]+)', 'xg').exec(code),
-				result = []
-				;
-		
-			if (match.attributes != null) 
-			{
-				var attributes,
-					regex = new XRegExp('(?<name> [\\w:\\-\\.]+)' +
-										'\\s*=\\s*' +
-										'(?<value> ".*?"|\'.*?\'|\\w+)',
-										'xg');
-
-				while ((attributes = regex.exec(code)) != null) 
-				{
-					result.push(new constructor(attributes.name, match.index + attributes.index, 'color1'));
-					result.push(new constructor(attributes.value, match.index + attributes.index + attributes[0].indexOf(attributes.value), 'string'));
-				}
-			}
-
-			if (tag != null)
-				result.push(
-					new constructor(tag.name, match.index + tag[0].indexOf(tag.name), 'keyword')
-				);
-
-			return result;
-		}
-	
-		this.regexList = [
-			{ regex: new XRegExp('(\\&lt;|<)\\!\\[[\\w\\s]*?\\[(.|\\s)*?\\]\\](\\&gt;|>)', 'gm'),			css: 'color2' },	// <![ ... [ ... ]]>
-			{ regex: SyntaxHighlighter.regexLib.xmlComments,												css: 'comments' },	// <!-- ... -->
-			{ regex: new XRegExp('(&lt;|<)[\\s\\/\\?]*(\\w+)(?<attributes>.*?)[\\s\\/\\?]*(&gt;|>)', 'sg'), func: process }
-		];
-	};
-
-	Brush.prototype	= new SyntaxHighlighter.Highlighter();
-	Brush.aliases	= ['xml', 'xhtml', 'xslt', 'html'];
-
-	SyntaxHighlighter.brushes.Xml = Brush;
-
-	// CommonJS
-	typeof(exports) != 'undefined' ? exports.Brush = Brush : null;
-})();
-/**
- * SyntaxHighlighter
- * http://alexgorbatchev.com/SyntaxHighlighter
- *
- * SyntaxHighlighter is donationware. If you are using it, please donate.
- * http://alexgorbatchev.com/SyntaxHighlighter/donate.html
- *
- * @version
- * 3.0.83 (July 02 2010)
- * 
- * @copyright
- * Copyright (C) 2004-2010 Alex Gorbatchev.
- *
- * @license
- * Dual licensed under the MIT and GPL licenses.
- */
-
-eval(function(p,a,c,k,e,d){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a)>35?String.fromCharCode(c+29):c.toString(36))};if(!''.replace(/^/,String)){while(c--){d[e(c)]=k[c]||e(c)}k=[function(e){return d[e]}];e=function(){return'\\w+'};c=1};while(c--){if(k[c]){p=p.replace(new RegExp('\\b'+e(c)+'\\b','g'),k[c])}}return p}('K M;I(M)1S 2U("2a\'t 4k M 4K 2g 3l 4G 4H");(6(){6 r(f,e){I(!M.1R(f))1S 3m("3s 15 4R");K a=f.1w;f=M(f.1m,t(f)+(e||""));I(a)f.1w={1m:a.1m,19:a.19?a.19.1a(0):N};H f}6 t(f){H(f.1J?"g":"")+(f.4s?"i":"")+(f.4p?"m":"")+(f.4v?"x":"")+(f.3n?"y":"")}6 B(f,e,a,b){K c=u.L,d,h,g;v=R;5K{O(;c--;){g=u[c];I(a&g.3r&&(!g.2p||g.2p.W(b))){g.2q.12=e;I((h=g.2q.X(f))&&h.P===e){d={3k:g.2b.W(b,h,a),1C:h};1N}}}}5v(i){1S i}5q{v=11}H d}6 p(f,e,a){I(3b.Z.1i)H f.1i(e,a);O(a=a||0;a<f.L;a++)I(f[a]===e)H a;H-1}M=6(f,e){K a=[],b=M.1B,c=0,d,h;I(M.1R(f)){I(e!==1d)1S 3m("2a\'t 5r 5I 5F 5B 5C 15 5E 5p");H r(f)}I(v)1S 2U("2a\'t W 3l M 59 5m 5g 5x 5i");e=e||"";O(d={2N:11,19:[],2K:6(g){H e.1i(g)>-1},3d:6(g){e+=g}};c<f.L;)I(h=B(f,c,b,d)){a.U(h.3k);c+=h.1C[0].L||1}Y I(h=n.X.W(z[b],f.1a(c))){a.U(h[0]);c+=h[0].L}Y{h=f.3a(c);I(h==="[")b=M.2I;Y I(h==="]")b=M.1B;a.U(h);c++}a=15(a.1K(""),n.Q.W(e,w,""));a.1w={1m:f,19:d.2N?d.19:N};H a};M.3v="1.5.0";M.2I=1;M.1B=2;K C=/\\$(?:(\\d\\d?|[$&`\'])|{([$\\w]+)})/g,w=/[^5h]+|([\\s\\S])(?=[\\s\\S]*\\1)/g,A=/^(?:[?*+]|{\\d+(?:,\\d*)?})\\??/,v=11,u=[],n={X:15.Z.X,1A:15.Z.1A,1C:1r.Z.1C,Q:1r.Z.Q,1e:1r.Z.1e},x=n.X.W(/()??/,"")[1]===1d,D=6(){K f=/^/g;n.1A.W(f,"");H!f.12}(),y=6(){K f=/x/g;n.Q.W("x",f,"");H!f.12}(),E=15.Z.3n!==1d,z={};z[M.2I]=/^(?:\\\\(?:[0-3][0-7]{0,2}|[4-7][0-7]?|x[\\29-26-f]{2}|u[\\29-26-f]{4}|c[A-3o-z]|[\\s\\S]))/;z[M.1B]=/^(?:\\\\(?:0(?:[0-3][0-7]{0,2}|[4-7][0-7]?)?|[1-9]\\d*|x[\\29-26-f]{2}|u[\\29-26-f]{4}|c[A-3o-z]|[\\s\\S])|\\(\\?[:=!]|[?*+]\\?|{\\d+(?:,\\d*)?}\\??)/;M.1h=6(f,e,a,b){u.U({2q:r(f,"g"+(E?"y":"")),2b:e,3r:a||M.1B,2p:b||N})};M.2n=6(f,e){K a=f+"/"+(e||"");H M.2n[a]||(M.2n[a]=M(f,e))};M.3c=6(f){H r(f,"g")};M.5l=6(f){H f.Q(/[-[\\]{}()*+?.,\\\\^$|#\\s]/g,"\\\\$&")};M.5e=6(f,e,a,b){e=r(e,"g"+(b&&E?"y":""));e.12=a=a||0;f=e.X(f);H b?f&&f.P===a?f:N:f};M.3q=6(){M.1h=6(){1S 2U("2a\'t 55 1h 54 3q")}};M.1R=6(f){H 53.Z.1q.W(f)==="[2m 15]"};M.3p=6(f,e,a,b){O(K c=r(e,"g"),d=-1,h;h=c.X(f);){a.W(b,h,++d,f,c);c.12===h.P&&c.12++}I(e.1J)e.12=0};M.57=6(f,e){H 6 a(b,c){K d=e[c].1I?e[c]:{1I:e[c]},h=r(d.1I,"g"),g=[],i;O(i=0;i<b.L;i++)M.3p(b[i],h,6(k){g.U(d.3j?k[d.3j]||"":k[0])});H c===e.L-1||!g.L?g:a(g,c+1)}([f],0)};15.Z.1p=6(f,e){H J.X(e[0])};15.Z.W=6(f,e){H J.X(e)};15.Z.X=6(f){K e=n.X.1p(J,14),a;I(e){I(!x&&e.L>1&&p(e,"")>-1){a=15(J.1m,n.Q.W(t(J),"g",""));n.Q.W(f.1a(e.P),a,6(){O(K c=1;c<14.L-2;c++)I(14[c]===1d)e[c]=1d})}I(J.1w&&J.1w.19)O(K b=1;b<e.L;b++)I(a=J.1w.19[b-1])e[a]=e[b];!D&&J.1J&&!e[0].L&&J.12>e.P&&J.12--}H e};I(!D)15.Z.1A=6(f){(f=n.X.W(J,f))&&J.1J&&!f[0].L&&J.12>f.P&&J.12--;H!!f};1r.Z.1C=6(f){M.1R(f)||(f=15(f));I(f.1J){K e=n.1C.1p(J,14);f.12=0;H e}H f.X(J)};1r.Z.Q=6(f,e){K a=M.1R(f),b,c;I(a&&1j e.58()==="3f"&&e.1i("${")===-1&&y)H n.Q.1p(J,14);I(a){I(f.1w)b=f.1w.19}Y f+="";I(1j e==="6")c=n.Q.W(J,f,6(){I(b){14[0]=1f 1r(14[0]);O(K d=0;d<b.L;d++)I(b[d])14[0][b[d]]=14[d+1]}I(a&&f.1J)f.12=14[14.L-2]+14[0].L;H e.1p(N,14)});Y{c=J+"";c=n.Q.W(c,f,6(){K d=14;H n.Q.W(e,C,6(h,g,i){I(g)5b(g){24"$":H"$";24"&":H d[0];24"`":H d[d.L-1].1a(0,d[d.L-2]);24"\'":H d[d.L-1].1a(d[d.L-2]+d[0].L);5a:i="";g=+g;I(!g)H h;O(;g>d.L-3;){i=1r.Z.1a.W(g,-1)+i;g=1Q.3i(g/10)}H(g?d[g]||"":"$")+i}Y{g=+i;I(g<=d.L-3)H d[g];g=b?p(b,i):-1;H g>-1?d[g+1]:h}})})}I(a&&f.1J)f.12=0;H c};1r.Z.1e=6(f,e){I(!M.1R(f))H n.1e.1p(J,14);K a=J+"",b=[],c=0,d,h;I(e===1d||+e<0)e=5D;Y{e=1Q.3i(+e);I(!e)H[]}O(f=M.3c(f);d=f.X(a);){I(f.12>c){b.U(a.1a(c,d.P));d.L>1&&d.P<a.L&&3b.Z.U.1p(b,d.1a(1));h=d[0].L;c=f.12;I(b.L>=e)1N}f.12===d.P&&f.12++}I(c===a.L){I(!n.1A.W(f,"")||h)b.U("")}Y b.U(a.1a(c));H b.L>e?b.1a(0,e):b};M.1h(/\\(\\?#[^)]*\\)/,6(f){H n.1A.W(A,f.2S.1a(f.P+f[0].L))?"":"(?:)"});M.1h(/\\((?!\\?)/,6(){J.19.U(N);H"("});M.1h(/\\(\\?<([$\\w]+)>/,6(f){J.19.U(f[1]);J.2N=R;H"("});M.1h(/\\\\k<([\\w$]+)>/,6(f){K e=p(J.19,f[1]);H e>-1?"\\\\"+(e+1)+(3R(f.2S.3a(f.P+f[0].L))?"":"(?:)"):f[0]});M.1h(/\\[\\^?]/,6(f){H f[0]==="[]"?"\\\\b\\\\B":"[\\\\s\\\\S]"});M.1h(/^\\(\\?([5A]+)\\)/,6(f){J.3d(f[1]);H""});M.1h(/(?:\\s+|#.*)+/,6(f){H n.1A.W(A,f.2S.1a(f.P+f[0].L))?"":"(?:)"},M.1B,6(){H J.2K("x")});M.1h(/\\./,6(){H"[\\\\s\\\\S]"},M.1B,6(){H J.2K("s")})})();1j 2e!="1d"&&(2e.M=M);K 1v=6(){6 r(a,b){a.1l.1i(b)!=-1||(a.1l+=" "+b)}6 t(a){H a.1i("3e")==0?a:"3e"+a}6 B(a){H e.1Y.2A[t(a)]}6 p(a,b,c){I(a==N)H N;K d=c!=R?a.3G:[a.2G],h={"#":"1c",".":"1l"}[b.1o(0,1)]||"3h",g,i;g=h!="3h"?b.1o(1):b.5u();I((a[h]||"").1i(g)!=-1)H a;O(a=0;d&&a<d.L&&i==N;a++)i=p(d[a],b,c);H i}6 C(a,b){K c={},d;O(d 2g a)c[d]=a[d];O(d 2g b)c[d]=b[d];H c}6 w(a,b,c,d){6 h(g){g=g||1P.5y;I(!g.1F){g.1F=g.52;g.3N=6(){J.5w=11}}c.W(d||1P,g)}a.3g?a.3g("4U"+b,h):a.4y(b,h,11)}6 A(a,b){K c=e.1Y.2j,d=N;I(c==N){c={};O(K h 2g e.1U){K g=e.1U[h];d=g.4x;I(d!=N){g.1V=h.4w();O(g=0;g<d.L;g++)c[d[g]]=h}}e.1Y.2j=c}d=e.1U[c[a]];d==N&&b!=11&&1P.1X(e.13.1x.1X+(e.13.1x.3E+a));H d}6 v(a,b){O(K c=a.1e("\\n"),d=0;d<c.L;d++)c[d]=b(c[d],d);H c.1K("\\n")}6 u(a,b){I(a==N||a.L==0||a=="\\n")H a;a=a.Q(/</g,"&1y;");a=a.Q(/ {2,}/g,6(c){O(K d="",h=0;h<c.L-1;h++)d+=e.13.1W;H d+" "});I(b!=N)a=v(a,6(c){I(c.L==0)H"";K d="";c=c.Q(/^(&2s;| )+/,6(h){d=h;H""});I(c.L==0)H d;H d+\'<17 1g="\'+b+\'">\'+c+"</17>"});H a}6 n(a,b){a.1e("\\n");O(K c="",d=0;d<50;d++)c+="                    ";H a=v(a,6(h){I(h.1i("\\t")==-1)H h;O(K g=0;(g=h.1i("\\t"))!=-1;)h=h.1o(0,g)+c.1o(0,b-g%b)+h.1o(g+1,h.L);H h})}6 x(a){H a.Q(/^\\s+|\\s+$/g,"")}6 D(a,b){I(a.P<b.P)H-1;Y I(a.P>b.P)H 1;Y I(a.L<b.L)H-1;Y I(a.L>b.L)H 1;H 0}6 y(a,b){6 c(k){H k[0]}O(K d=N,h=[],g=b.2D?b.2D:c;(d=b.1I.X(a))!=N;){K i=g(d,b);I(1j i=="3f")i=[1f e.2L(i,d.P,b.23)];h=h.1O(i)}H h}6 E(a){K b=/(.*)((&1G;|&1y;).*)/;H a.Q(e.3A.3M,6(c){K d="",h=N;I(h=b.X(c)){c=h[1];d=h[2]}H\'<a 2h="\'+c+\'">\'+c+"</a>"+d})}6 z(){O(K a=1E.36("1k"),b=[],c=0;c<a.L;c++)a[c].3s=="20"&&b.U(a[c]);H b}6 f(a){a=a.1F;K b=p(a,".20",R);a=p(a,".3O",R);K c=1E.4i("3t");I(!(!a||!b||p(a,"3t"))){B(b.1c);r(b,"1m");O(K d=a.3G,h=[],g=0;g<d.L;g++)h.U(d[g].4z||d[g].4A);h=h.1K("\\r");c.39(1E.4D(h));a.39(c);c.2C();c.4C();w(c,"4u",6(){c.2G.4E(c);b.1l=b.1l.Q("1m","")})}}I(1j 3F!="1d"&&1j M=="1d")M=3F("M").M;K e={2v:{"1g-27":"","2i-1s":1,"2z-1s-2t":11,1M:N,1t:N,"42-45":R,"43-22":4,1u:R,16:R,"3V-17":R,2l:11,"41-40":R,2k:11,"1z-1k":11},13:{1W:"&2s;",2M:R,46:11,44:11,34:"4n",1x:{21:"4o 1m",2P:"?",1X:"1v\\n\\n",3E:"4r\'t 4t 1D O: ",4g:"4m 4B\'t 51 O 1z-1k 4F: ",37:\'<!4T 1z 4S "-//4V//3H 4W 1.0 4Z//4Y" "1Z://2y.3L.3K/4X/3I/3H/3I-4P.4J"><1z 4I="1Z://2y.3L.3K/4L/5L"><3J><4N 1Z-4M="5G-5M" 6K="2O/1z; 6J=6I-8" /><1t>6L 1v</1t></3J><3B 1L="25-6M:6Q,6P,6O,6N-6F;6y-2f:#6x;2f:#6w;25-22:6v;2O-3D:3C;"><T 1L="2O-3D:3C;3w-32:1.6z;"><T 1L="25-22:6A-6E;">1v</T><T 1L="25-22:.6C;3w-6B:6R;"><T>3v 3.0.76 (72 73 3x)</T><T><a 2h="1Z://3u.2w/1v" 1F="38" 1L="2f:#3y">1Z://3u.2w/1v</a></T><T>70 17 6U 71.</T><T>6T 6X-3x 6Y 6D.</T></T><T>6t 61 60 J 1k, 5Z <a 2h="6u://2y.62.2w/63-66/65?64=5X-5W&5P=5O" 1L="2f:#3y">5R</a> 5V <2R/>5U 5T 5S!</T></T></3B></1z>\'}},1Y:{2j:N,2A:{}},1U:{},3A:{6n:/\\/\\*[\\s\\S]*?\\*\\//2c,6m:/\\/\\/.*$/2c,6l:/#.*$/2c,6k:/"([^\\\\"\\n]|\\\\.)*"/g,6o:/\'([^\\\\\'\\n]|\\\\.)*\'/g,6p:1f M(\'"([^\\\\\\\\"]|\\\\\\\\.)*"\',"3z"),6s:1f M("\'([^\\\\\\\\\']|\\\\\\\\.)*\'","3z"),6q:/(&1y;|<)!--[\\s\\S]*?--(&1G;|>)/2c,3M:/\\w+:\\/\\/[\\w-.\\/?%&=:@;]*/g,6a:{18:/(&1y;|<)\\?=?/g,1b:/\\?(&1G;|>)/g},69:{18:/(&1y;|<)%=?/g,1b:/%(&1G;|>)/g},6d:{18:/(&1y;|<)\\s*1k.*?(&1G;|>)/2T,1b:/(&1y;|<)\\/\\s*1k\\s*(&1G;|>)/2T}},16:{1H:6(a){6 b(i,k){H e.16.2o(i,k,e.13.1x[k])}O(K c=\'<T 1g="16">\',d=e.16.2x,h=d.2X,g=0;g<h.L;g++)c+=(d[h[g]].1H||b)(a,h[g]);c+="</T>";H c},2o:6(a,b,c){H\'<2W><a 2h="#" 1g="6e 6h\'+b+" "+b+\'">\'+c+"</a></2W>"},2b:6(a){K b=a.1F,c=b.1l||"";b=B(p(b,".20",R).1c);K d=6(h){H(h=15(h+"6f(\\\\w+)").X(c))?h[1]:N}("6g");b&&d&&e.16.2x[d].2B(b);a.3N()},2x:{2X:["21","2P"],21:{1H:6(a){I(a.V("2l")!=R)H"";K b=a.V("1t");H e.16.2o(a,"21",b?b:e.13.1x.21)},2B:6(a){a=1E.6j(t(a.1c));a.1l=a.1l.Q("47","")}},2P:{2B:6(){K a="68=0";a+=", 18="+(31.30-33)/2+", 32="+(31.2Z-2Y)/2+", 30=33, 2Z=2Y";a=a.Q(/^,/,"");a=1P.6Z("","38",a);a.2C();K b=a.1E;b.6W(e.13.1x.37);b.6V();a.2C()}}}},35:6(a,b){K c;I(b)c=[b];Y{c=1E.36(e.13.34);O(K d=[],h=0;h<c.L;h++)d.U(c[h]);c=d}c=c;d=[];I(e.13.2M)c=c.1O(z());I(c.L===0)H d;O(h=0;h<c.L;h++){O(K g=c[h],i=a,k=c[h].1l,j=3W 0,l={},m=1f M("^\\\\[(?<2V>(.*?))\\\\]$"),s=1f M("(?<27>[\\\\w-]+)\\\\s*:\\\\s*(?<1T>[\\\\w-%#]+|\\\\[.*?\\\\]|\\".*?\\"|\'.*?\')\\\\s*;?","g");(j=s.X(k))!=N;){K o=j.1T.Q(/^[\'"]|[\'"]$/g,"");I(o!=N&&m.1A(o)){o=m.X(o);o=o.2V.L>0?o.2V.1e(/\\s*,\\s*/):[]}l[j.27]=o}g={1F:g,1n:C(i,l)};g.1n.1D!=N&&d.U(g)}H d},1M:6(a,b){K c=J.35(a,b),d=N,h=e.13;I(c.L!==0)O(K g=0;g<c.L;g++){b=c[g];K i=b.1F,k=b.1n,j=k.1D,l;I(j!=N){I(k["1z-1k"]=="R"||e.2v["1z-1k"]==R){d=1f e.4l(j);j="4O"}Y I(d=A(j))d=1f d;Y 6H;l=i.3X;I(h.2M){l=l;K m=x(l),s=11;I(m.1i("<![6G[")==0){m=m.4h(9);s=R}K o=m.L;I(m.1i("]]\\>")==o-3){m=m.4h(0,o-3);s=R}l=s?m:l}I((i.1t||"")!="")k.1t=i.1t;k.1D=j;d.2Q(k);b=d.2F(l);I((i.1c||"")!="")b.1c=i.1c;i.2G.74(b,i)}}},2E:6(a){w(1P,"4k",6(){e.1M(a)})}};e.2E=e.2E;e.1M=e.1M;e.2L=6(a,b,c){J.1T=a;J.P=b;J.L=a.L;J.23=c;J.1V=N};e.2L.Z.1q=6(){H J.1T};e.4l=6(a){6 b(j,l){O(K m=0;m<j.L;m++)j[m].P+=l}K c=A(a),d,h=1f e.1U.5Y,g=J,i="2F 1H 2Q".1e(" ");I(c!=N){d=1f c;O(K k=0;k<i.L;k++)(6(){K j=i[k];g[j]=6(){H h[j].1p(h,14)}})();d.28==N?1P.1X(e.13.1x.1X+(e.13.1x.4g+a)):h.2J.U({1I:d.28.17,2D:6(j){O(K l=j.17,m=[],s=d.2J,o=j.P+j.18.L,F=d.28,q,G=0;G<s.L;G++){q=y(l,s[G]);b(q,o);m=m.1O(q)}I(F.18!=N&&j.18!=N){q=y(j.18,F.18);b(q,j.P);m=m.1O(q)}I(F.1b!=N&&j.1b!=N){q=y(j.1b,F.1b);b(q,j.P+j[0].5Q(j.1b));m=m.1O(q)}O(j=0;j<m.L;j++)m[j].1V=c.1V;H m}})}};e.4j=6(){};e.4j.Z={V:6(a,b){K c=J.1n[a];c=c==N?b:c;K d={"R":R,"11":11}[c];H d==N?c:d},3Y:6(a){H 1E.4i(a)},4c:6(a,b){K c=[];I(a!=N)O(K d=0;d<a.L;d++)I(1j a[d]=="2m")c=c.1O(y(b,a[d]));H J.4e(c.6b(D))},4e:6(a){O(K b=0;b<a.L;b++)I(a[b]!==N)O(K c=a[b],d=c.P+c.L,h=b+1;h<a.L&&a[b]!==N;h++){K g=a[h];I(g!==N)I(g.P>d)1N;Y I(g.P==c.P&&g.L>c.L)a[b]=N;Y I(g.P>=c.P&&g.P<d)a[h]=N}H a},4d:6(a){K b=[],c=2u(J.V("2i-1s"));v(a,6(d,h){b.U(h+c)});H b},3U:6(a){K b=J.V("1M",[]);I(1j b!="2m"&&b.U==N)b=[b];a:{a=a.1q();K c=3W 0;O(c=c=1Q.6c(c||0,0);c<b.L;c++)I(b[c]==a){b=c;1N a}b=-1}H b!=-1},2r:6(a,b,c){a=["1s","6i"+b,"P"+a,"6r"+(b%2==0?1:2).1q()];J.3U(b)&&a.U("67");b==0&&a.U("1N");H\'<T 1g="\'+a.1K(" ")+\'">\'+c+"</T>"},3Q:6(a,b){K c="",d=a.1e("\\n").L,h=2u(J.V("2i-1s")),g=J.V("2z-1s-2t");I(g==R)g=(h+d-1).1q().L;Y I(3R(g)==R)g=0;O(K i=0;i<d;i++){K k=b?b[i]:h+i,j;I(k==0)j=e.13.1W;Y{j=g;O(K l=k.1q();l.L<j;)l="0"+l;j=l}a=j;c+=J.2r(i,k,a)}H c},49:6(a,b){a=x(a);K c=a.1e("\\n");J.V("2z-1s-2t");K d=2u(J.V("2i-1s"));a="";O(K h=J.V("1D"),g=0;g<c.L;g++){K i=c[g],k=/^(&2s;|\\s)+/.X(i),j=N,l=b?b[g]:d+g;I(k!=N){j=k[0].1q();i=i.1o(j.L);j=j.Q(" ",e.13.1W)}i=x(i);I(i.L==0)i=e.13.1W;a+=J.2r(g,l,(j!=N?\'<17 1g="\'+h+\' 5N">\'+j+"</17>":"")+i)}H a},4f:6(a){H a?"<4a>"+a+"</4a>":""},4b:6(a,b){6 c(l){H(l=l?l.1V||g:g)?l+" ":""}O(K d=0,h="",g=J.V("1D",""),i=0;i<b.L;i++){K k=b[i],j;I(!(k===N||k.L===0)){j=c(k);h+=u(a.1o(d,k.P-d),j+"48")+u(k.1T,j+k.23);d=k.P+k.L+(k.75||0)}}h+=u(a.1o(d),c()+"48");H h},1H:6(a){K b="",c=["20"],d;I(J.V("2k")==R)J.1n.16=J.1n.1u=11;1l="20";J.V("2l")==R&&c.U("47");I((1u=J.V("1u"))==11)c.U("6S");c.U(J.V("1g-27"));c.U(J.V("1D"));a=a.Q(/^[ ]*[\\n]+|[\\n]*[ ]*$/g,"").Q(/\\r/g," ");b=J.V("43-22");I(J.V("42-45")==R)a=n(a,b);Y{O(K h="",g=0;g<b;g++)h+=" ";a=a.Q(/\\t/g,h)}a=a;a:{b=a=a;h=/<2R\\s*\\/?>|&1y;2R\\s*\\/?&1G;/2T;I(e.13.46==R)b=b.Q(h,"\\n");I(e.13.44==R)b=b.Q(h,"");b=b.1e("\\n");h=/^\\s*/;g=4Q;O(K i=0;i<b.L&&g>0;i++){K k=b[i];I(x(k).L!=0){k=h.X(k);I(k==N){a=a;1N a}g=1Q.4q(k[0].L,g)}}I(g>0)O(i=0;i<b.L;i++)b[i]=b[i].1o(g);a=b.1K("\\n")}I(1u)d=J.4d(a);b=J.4c(J.2J,a);b=J.4b(a,b);b=J.49(b,d);I(J.V("41-40"))b=E(b);1j 2H!="1d"&&2H.3S&&2H.3S.1C(/5s/)&&c.U("5t");H b=\'<T 1c="\'+t(J.1c)+\'" 1g="\'+c.1K(" ")+\'">\'+(J.V("16")?e.16.1H(J):"")+\'<3Z 5z="0" 5H="0" 5J="0">\'+J.4f(J.V("1t"))+"<3T><3P>"+(1u?\'<2d 1g="1u">\'+J.3Q(a)+"</2d>":"")+\'<2d 1g="17"><T 1g="3O">\'+b+"</T></2d></3P></3T></3Z></T>"},2F:6(a){I(a===N)a="";J.17=a;K b=J.3Y("T");b.3X=J.1H(a);J.V("16")&&w(p(b,".16"),"5c",e.16.2b);J.V("3V-17")&&w(p(b,".17"),"56",f);H b},2Q:6(a){J.1c=""+1Q.5d(1Q.5n()*5k).1q();e.1Y.2A[t(J.1c)]=J;J.1n=C(e.2v,a||{});I(J.V("2k")==R)J.1n.16=J.1n.1u=11},5j:6(a){a=a.Q(/^\\s+|\\s+$/g,"").Q(/\\s+/g,"|");H"\\\\b(?:"+a+")\\\\b"},5f:6(a){J.28={18:{1I:a.18,23:"1k"},1b:{1I:a.1b,23:"1k"},17:1f M("(?<18>"+a.18.1m+")(?<17>.*?)(?<1b>"+a.1b.1m+")","5o")}}};H e}();1j 2e!="1d"&&(2e.1v=1v);',62,441,'||||||function|||||||||||||||||||||||||||||||||||||return|if|this|var|length|XRegExp|null|for|index|replace|true||div|push|getParam|call|exec|else|prototype||false|lastIndex|config|arguments|RegExp|toolbar|code|left|captureNames|slice|right|id|undefined|split|new|class|addToken|indexOf|typeof|script|className|source|params|substr|apply|toString|String|line|title|gutter|SyntaxHighlighter|_xregexp|strings|lt|html|test|OUTSIDE_CLASS|match|brush|document|target|gt|getHtml|regex|global|join|style|highlight|break|concat|window|Math|isRegExp|throw|value|brushes|brushName|space|alert|vars|http|syntaxhighlighter|expandSource|size|css|case|font|Fa|name|htmlScript|dA|can|handler|gm|td|exports|color|in|href|first|discoveredBrushes|light|collapse|object|cache|getButtonHtml|trigger|pattern|getLineHtml|nbsp|numbers|parseInt|defaults|com|items|www|pad|highlighters|execute|focus|func|all|getDiv|parentNode|navigator|INSIDE_CLASS|regexList|hasFlag|Match|useScriptTags|hasNamedCapture|text|help|init|br|input|gi|Error|values|span|list|250|height|width|screen|top|500|tagName|findElements|getElementsByTagName|aboutDialog|_blank|appendChild|charAt|Array|copyAsGlobal|setFlag|highlighter_|string|attachEvent|nodeName|floor|backref|output|the|TypeError|sticky|Za|iterate|freezeTokens|scope|type|textarea|alexgorbatchev|version|margin|2010|005896|gs|regexLib|body|center|align|noBrush|require|childNodes|DTD|xhtml1|head|org|w3|url|preventDefault|container|tr|getLineNumbersHtml|isNaN|userAgent|tbody|isLineHighlighted|quick|void|innerHTML|create|table|links|auto|smart|tab|stripBrs|tabs|bloggerMode|collapsed|plain|getCodeLinesHtml|caption|getMatchesHtml|findMatches|figureOutLineNumbers|removeNestedMatches|getTitleHtml|brushNotHtmlScript|substring|createElement|Highlighter|load|HtmlScript|Brush|pre|expand|multiline|min|Can|ignoreCase|find|blur|extended|toLowerCase|aliases|addEventListener|innerText|textContent|wasn|select|createTextNode|removeChild|option|same|frame|xmlns|dtd|twice|1999|equiv|meta|htmlscript|transitional|1E3|expected|PUBLIC|DOCTYPE|on|W3C|XHTML|TR|EN|Transitional||configured|srcElement|Object|after|run|dblclick|matchChain|valueOf|constructor|default|switch|click|round|execAt|forHtmlScript|token|gimy|functions|getKeywords|1E6|escape|within|random|sgi|another|finally|supply|MSIE|ie|toUpperCase|catch|returnValue|definition|event|border|imsx|constructing|one|Infinity|from|when|Content|cellpadding|flags|cellspacing|try|xhtml|Type|spaces|2930402|hosted_button_id|lastIndexOf|donate|active|development|keep|to|xclick|_s|Xml|please|like|you|paypal|cgi|cmd|webscr|bin|highlighted|scrollbars|aspScriptTags|phpScriptTags|sort|max|scriptScriptTags|toolbar_item|_|command|command_|number|getElementById|doubleQuotedString|singleLinePerlComments|singleLineCComments|multiLineCComments|singleQuotedString|multiLineDoubleQuotedString|xmlComments|alt|multiLineSingleQuotedString|If|https|1em|000|fff|background|5em|xx|bottom|75em|Gorbatchev|large|serif|CDATA|continue|utf|charset|content|About|family|sans|Helvetica|Arial|Geneva|3em|nogutter|Copyright|syntax|close|write|2004|Alex|open|JavaScript|highlighter|July|02|replaceChild|offset|83'.split('|'),0,{}))
-;
-/*
- * jQuery FlexSlider v2.2.2
- * Copyright 2012 WooThemes
- * Contributing Author: Tyler Smith
- */
-
-!function(a){a.flexslider=function(b,c){var d=a(b);d.vars=a.extend({},a.flexslider.defaults,c);var j,e=d.vars.namespace,f=window.navigator&&window.navigator.msPointerEnabled&&window.MSGesture,g=("ontouchstart"in window||f||window.DocumentTouch&&document instanceof DocumentTouch)&&d.vars.touch,h="click touchend MSPointerUp",i="",k="vertical"===d.vars.direction,l=d.vars.reverse,m=d.vars.itemWidth>0,n="fade"===d.vars.animation,o=""!==d.vars.asNavFor,p={},q=!0;a.data(b,"flexslider",d),p={init:function(){d.animating=!1,d.currentSlide=parseInt(d.vars.startAt?d.vars.startAt:0,10),isNaN(d.currentSlide)&&(d.currentSlide=0),d.animatingTo=d.currentSlide,d.atEnd=0===d.currentSlide||d.currentSlide===d.last,d.containerSelector=d.vars.selector.substr(0,d.vars.selector.search(" ")),d.slides=a(d.vars.selector,d),d.container=a(d.containerSelector,d),d.count=d.slides.length,d.syncExists=a(d.vars.sync).length>0,"slide"===d.vars.animation&&(d.vars.animation="swing"),d.prop=k?"top":"marginLeft",d.args={},d.manualPause=!1,d.stopped=!1,d.started=!1,d.startTimeout=null,d.transitions=!d.vars.video&&!n&&d.vars.useCSS&&function(){var a=document.createElement("div"),b=["perspectiveProperty","WebkitPerspective","MozPerspective","OPerspective","msPerspective"];for(var c in b)if(void 0!==a.style[b[c]])return d.pfx=b[c].replace("Perspective","").toLowerCase(),d.prop="-"+d.pfx+"-transform",!0;return!1}(),d.ensureAnimationEnd="",""!==d.vars.controlsContainer&&(d.controlsContainer=a(d.vars.controlsContainer).length>0&&a(d.vars.controlsContainer)),""!==d.vars.manualControls&&(d.manualControls=a(d.vars.manualControls).length>0&&a(d.vars.manualControls)),d.vars.randomize&&(d.slides.sort(function(){return Math.round(Math.random())-.5}),d.container.empty().append(d.slides)),d.doMath(),d.setup("init"),d.vars.controlNav&&p.controlNav.setup(),d.vars.directionNav&&p.directionNav.setup(),d.vars.keyboard&&(1===a(d.containerSelector).length||d.vars.multipleKeyboard)&&a(document).bind("keyup",function(a){var b=a.keyCode;if(!d.animating&&(39===b||37===b)){var c=39===b?d.getTarget("next"):37===b?d.getTarget("prev"):!1;d.flexAnimate(c,d.vars.pauseOnAction)}}),d.vars.mousewheel&&d.bind("mousewheel",function(a,b){a.preventDefault();var f=0>b?d.getTarget("next"):d.getTarget("prev");d.flexAnimate(f,d.vars.pauseOnAction)}),d.vars.pausePlay&&p.pausePlay.setup(),d.vars.slideshow&&d.vars.pauseInvisible&&p.pauseInvisible.init(),d.vars.slideshow&&(d.vars.pauseOnHover&&d.hover(function(){d.manualPlay||d.manualPause||d.pause()},function(){d.manualPause||d.manualPlay||d.stopped||d.play()}),d.vars.pauseInvisible&&p.pauseInvisible.isHidden()||(d.vars.initDelay>0?d.startTimeout=setTimeout(d.play,d.vars.initDelay):d.play())),o&&p.asNav.setup(),g&&d.vars.touch&&p.touch(),(!n||n&&d.vars.smoothHeight)&&a(window).bind("resize orientationchange focus",p.resize),d.find("img").attr("draggable","false"),setTimeout(function(){d.vars.start(d)},200)},asNav:{setup:function(){d.asNav=!0,d.animatingTo=Math.floor(d.currentSlide/d.move),d.currentItem=d.currentSlide,d.slides.removeClass(e+"active-slide").eq(d.currentItem).addClass(e+"active-slide"),f?(b._slider=d,d.slides.each(function(){var b=this;b._gesture=new MSGesture,b._gesture.target=b,b.addEventListener("MSPointerDown",function(a){a.preventDefault(),a.currentTarget._gesture&&a.currentTarget._gesture.addPointer(a.pointerId)},!1),b.addEventListener("MSGestureTap",function(b){b.preventDefault();var c=a(this),e=c.index();a(d.vars.asNavFor).data("flexslider").animating||c.hasClass("active")||(d.direction=d.currentItem<e?"next":"prev",d.flexAnimate(e,d.vars.pauseOnAction,!1,!0,!0))})})):d.slides.on(h,function(b){b.preventDefault();var c=a(this),f=c.index(),g=c.offset().left-a(d).scrollLeft();0>=g&&c.hasClass(e+"active-slide")?d.flexAnimate(d.getTarget("prev"),!0):a(d.vars.asNavFor).data("flexslider").animating||c.hasClass(e+"active-slide")||(d.direction=d.currentItem<f?"next":"prev",d.flexAnimate(f,d.vars.pauseOnAction,!1,!0,!0))})}},controlNav:{setup:function(){d.manualControls?p.controlNav.setupManual():p.controlNav.setupPaging()},setupPaging:function(){var f,g,b="thumbnails"===d.vars.controlNav?"control-thumbs":"control-paging",c=1;if(d.controlNavScaffold=a('<ol class="'+e+"control-nav "+e+b+'"></ol>'),d.pagingCount>1)for(var j=0;j<d.pagingCount;j++){if(g=d.slides.eq(j),f="thumbnails"===d.vars.controlNav?'<img src="'+g.attr("data-thumb")+'"/>':"<a>"+c+"</a>","thumbnails"===d.vars.controlNav&&!0===d.vars.thumbCaptions){var k=g.attr("data-thumbcaption");""!=k&&void 0!=k&&(f+='<span class="'+e+'caption">'+k+"</span>")}d.controlNavScaffold.append("<li>"+f+"</li>"),c++}d.controlsContainer?a(d.controlsContainer).append(d.controlNavScaffold):d.append(d.controlNavScaffold),p.controlNav.set(),p.controlNav.active(),d.controlNavScaffold.delegate("a, img",h,function(b){if(b.preventDefault(),""===i||i===b.type){var c=a(this),f=d.controlNav.index(c);c.hasClass(e+"active")||(d.direction=f>d.currentSlide?"next":"prev",d.flexAnimate(f,d.vars.pauseOnAction))}""===i&&(i=b.type),p.setToClearWatchedEvent()})},setupManual:function(){d.controlNav=d.manualControls,p.controlNav.active(),d.controlNav.bind(h,function(b){if(b.preventDefault(),""===i||i===b.type){var c=a(this),f=d.controlNav.index(c);c.hasClass(e+"active")||(d.direction=f>d.currentSlide?"next":"prev",d.flexAnimate(f,d.vars.pauseOnAction))}""===i&&(i=b.type),p.setToClearWatchedEvent()})},set:function(){var b="thumbnails"===d.vars.controlNav?"img":"a";d.controlNav=a("."+e+"control-nav li "+b,d.controlsContainer?d.controlsContainer:d)},active:function(){d.controlNav.removeClass(e+"active").eq(d.animatingTo).addClass(e+"active")},update:function(b,c){d.pagingCount>1&&"add"===b?d.controlNavScaffold.append(a("<li><a>"+d.count+"</a></li>")):1===d.pagingCount?d.controlNavScaffold.find("li").remove():d.controlNav.eq(c).closest("li").remove(),p.controlNav.set(),d.pagingCount>1&&d.pagingCount!==d.controlNav.length?d.update(c,b):p.controlNav.active()}},directionNav:{setup:function(){var b=a('<ul class="'+e+'direction-nav"><li><a class="'+e+'prev" href="#">'+d.vars.prevText+'</a></li><li><a class="'+e+'next" href="#">'+d.vars.nextText+"</a></li></ul>");d.controlsContainer?(a(d.controlsContainer).append(b),d.directionNav=a("."+e+"direction-nav li a",d.controlsContainer)):(d.append(b),d.directionNav=a("."+e+"direction-nav li a",d)),p.directionNav.update(),d.directionNav.bind(h,function(b){b.preventDefault();var c;(""===i||i===b.type)&&(c=a(this).hasClass(e+"next")?d.getTarget("next"):d.getTarget("prev"),d.flexAnimate(c,d.vars.pauseOnAction)),""===i&&(i=b.type),p.setToClearWatchedEvent()})},update:function(){var a=e+"disabled";1===d.pagingCount?d.directionNav.addClass(a).attr("tabindex","-1"):d.vars.animationLoop?d.directionNav.removeClass(a).removeAttr("tabindex"):0===d.animatingTo?d.directionNav.removeClass(a).filter("."+e+"prev").addClass(a).attr("tabindex","-1"):d.animatingTo===d.last?d.directionNav.removeClass(a).filter("."+e+"next").addClass(a).attr("tabindex","-1"):d.directionNav.removeClass(a).removeAttr("tabindex")}},pausePlay:{setup:function(){var b=a('<div class="'+e+'pauseplay"><a></a></div>');d.controlsContainer?(d.controlsContainer.append(b),d.pausePlay=a("."+e+"pauseplay a",d.controlsContainer)):(d.append(b),d.pausePlay=a("."+e+"pauseplay a",d)),p.pausePlay.update(d.vars.slideshow?e+"pause":e+"play"),d.pausePlay.bind(h,function(b){b.preventDefault(),(""===i||i===b.type)&&(a(this).hasClass(e+"pause")?(d.manualPause=!0,d.manualPlay=!1,d.pause()):(d.manualPause=!1,d.manualPlay=!0,d.play())),""===i&&(i=b.type),p.setToClearWatchedEvent()})},update:function(a){"play"===a?d.pausePlay.removeClass(e+"pause").addClass(e+"play").html(d.vars.playText):d.pausePlay.removeClass(e+"play").addClass(e+"pause").html(d.vars.pauseText)}},touch:function(){function r(f){d.animating?f.preventDefault():(window.navigator.msPointerEnabled||1===f.touches.length)&&(d.pause(),g=k?d.h:d.w,i=Number(new Date),o=f.touches[0].pageX,p=f.touches[0].pageY,e=m&&l&&d.animatingTo===d.last?0:m&&l?d.limit-(d.itemW+d.vars.itemMargin)*d.move*d.animatingTo:m&&d.currentSlide===d.last?d.limit:m?(d.itemW+d.vars.itemMargin)*d.move*d.currentSlide:l?(d.last-d.currentSlide+d.cloneOffset)*g:(d.currentSlide+d.cloneOffset)*g,a=k?p:o,c=k?o:p,b.addEventListener("touchmove",s,!1),b.addEventListener("touchend",t,!1))}function s(b){o=b.touches[0].pageX,p=b.touches[0].pageY,h=k?a-p:a-o,j=k?Math.abs(h)<Math.abs(o-c):Math.abs(h)<Math.abs(p-c);var f=500;(!j||Number(new Date)-i>f)&&(b.preventDefault(),!n&&d.transitions&&(d.vars.animationLoop||(h/=0===d.currentSlide&&0>h||d.currentSlide===d.last&&h>0?Math.abs(h)/g+2:1),d.setProps(e+h,"setTouch")))}function t(){if(b.removeEventListener("touchmove",s,!1),d.animatingTo===d.currentSlide&&!j&&null!==h){var k=l?-h:h,m=k>0?d.getTarget("next"):d.getTarget("prev");d.canAdvance(m)&&(Number(new Date)-i<550&&Math.abs(k)>50||Math.abs(k)>g/2)?d.flexAnimate(m,d.vars.pauseOnAction):n||d.flexAnimate(d.currentSlide,d.vars.pauseOnAction,!0)}b.removeEventListener("touchend",t,!1),a=null,c=null,h=null,e=null}function u(a){a.stopPropagation(),d.animating?a.preventDefault():(d.pause(),b._gesture.addPointer(a.pointerId),q=0,g=k?d.h:d.w,i=Number(new Date),e=m&&l&&d.animatingTo===d.last?0:m&&l?d.limit-(d.itemW+d.vars.itemMargin)*d.move*d.animatingTo:m&&d.currentSlide===d.last?d.limit:m?(d.itemW+d.vars.itemMargin)*d.move*d.currentSlide:l?(d.last-d.currentSlide+d.cloneOffset)*g:(d.currentSlide+d.cloneOffset)*g)}function v(a){a.stopPropagation();var c=a.target._slider;if(c){var d=-a.translationX,f=-a.translationY;return q+=k?f:d,h=q,j=k?Math.abs(q)<Math.abs(-d):Math.abs(q)<Math.abs(-f),a.detail===a.MSGESTURE_FLAG_INERTIA?(setImmediate(function(){b._gesture.stop()}),void 0):((!j||Number(new Date)-i>500)&&(a.preventDefault(),!n&&c.transitions&&(c.vars.animationLoop||(h=q/(0===c.currentSlide&&0>q||c.currentSlide===c.last&&q>0?Math.abs(q)/g+2:1)),c.setProps(e+h,"setTouch"))),void 0)}}function w(b){b.stopPropagation();var d=b.target._slider;if(d){if(d.animatingTo===d.currentSlide&&!j&&null!==h){var f=l?-h:h,k=f>0?d.getTarget("next"):d.getTarget("prev");d.canAdvance(k)&&(Number(new Date)-i<550&&Math.abs(f)>50||Math.abs(f)>g/2)?d.flexAnimate(k,d.vars.pauseOnAction):n||d.flexAnimate(d.currentSlide,d.vars.pauseOnAction,!0)}a=null,c=null,h=null,e=null,q=0}}var a,c,e,g,h,i,j=!1,o=0,p=0,q=0;f?(b.style.msTouchAction="none",b._gesture=new MSGesture,b._gesture.target=b,b.addEventListener("MSPointerDown",u,!1),b._slider=d,b.addEventListener("MSGestureChange",v,!1),b.addEventListener("MSGestureEnd",w,!1)):b.addEventListener("touchstart",r,!1)},resize:function(){!d.animating&&d.is(":visible")&&(m||d.doMath(),n?p.smoothHeight():m?(d.slides.width(d.computedW),d.update(d.pagingCount),d.setProps()):k?(d.viewport.height(d.h),d.setProps(d.h,"setTotal")):(d.vars.smoothHeight&&p.smoothHeight(),d.newSlides.width(d.computedW),d.setProps(d.computedW,"setTotal")))},smoothHeight:function(a){if(!k||n){var b=n?d:d.viewport;a?b.animate({height:d.slides.eq(d.animatingTo).height()},a):b.height(d.slides.eq(d.animatingTo).height())}},sync:function(b){var c=a(d.vars.sync).data("flexslider"),e=d.animatingTo;switch(b){case"animate":c.flexAnimate(e,d.vars.pauseOnAction,!1,!0);break;case"play":c.playing||c.asNav||c.play();break;case"pause":c.pause()}},uniqueID:function(b){return b.find("[id]").each(function(){var b=a(this);b.attr("id",b.attr("id")+"_clone")}),b},pauseInvisible:{visProp:null,init:function(){var a=["webkit","moz","ms","o"];if("hidden"in document)return"hidden";for(var b=0;b<a.length;b++)a[b]+"Hidden"in document&&(p.pauseInvisible.visProp=a[b]+"Hidden");if(p.pauseInvisible.visProp){var c=p.pauseInvisible.visProp.replace(/[H|h]idden/,"")+"visibilitychange";document.addEventListener(c,function(){p.pauseInvisible.isHidden()?d.startTimeout?clearTimeout(d.startTimeout):d.pause():d.started?d.play():d.vars.initDelay>0?setTimeout(d.play,d.vars.initDelay):d.play()})}},isHidden:function(){return document[p.pauseInvisible.visProp]||!1}},setToClearWatchedEvent:function(){clearTimeout(j),j=setTimeout(function(){i=""},3e3)}},d.flexAnimate=function(b,c,f,h,i){if(d.vars.animationLoop||b===d.currentSlide||(d.direction=b>d.currentSlide?"next":"prev"),o&&1===d.pagingCount&&(d.direction=d.currentItem<b?"next":"prev"),!d.animating&&(d.canAdvance(b,i)||f)&&d.is(":visible")){if(o&&h){var j=a(d.vars.asNavFor).data("flexslider");if(d.atEnd=0===b||b===d.count-1,j.flexAnimate(b,!0,!1,!0,i),d.direction=d.currentItem<b?"next":"prev",j.direction=d.direction,Math.ceil((b+1)/d.visible)-1===d.currentSlide||0===b)return d.currentItem=b,d.slides.removeClass(e+"active-slide").eq(b).addClass(e+"active-slide"),!1;d.currentItem=b,d.slides.removeClass(e+"active-slide").eq(b).addClass(e+"active-slide"),b=Math.floor(b/d.visible)}if(d.animating=!0,d.animatingTo=b,c&&d.pause(),d.vars.before(d),d.syncExists&&!i&&p.sync("animate"),d.vars.controlNav&&p.controlNav.active(),m||d.slides.removeClass(e+"active-slide").eq(b).addClass(e+"active-slide"),d.atEnd=0===b||b===d.last,d.vars.directionNav&&p.directionNav.update(),b===d.last&&(d.vars.end(d),d.vars.animationLoop||d.pause()),n)g?(d.slides.eq(d.currentSlide).css({opacity:0,zIndex:1}),d.slides.eq(b).css({opacity:1,zIndex:2}),d.wrapup(q)):(d.slides.eq(d.currentSlide).css({zIndex:1}).animate({opacity:0},d.vars.animationSpeed,d.vars.easing),d.slides.eq(b).css({zIndex:2}).animate({opacity:1},d.vars.animationSpeed,d.vars.easing,d.wrapup));else{var r,s,t,q=k?d.slides.filter(":first").height():d.computedW;m?(r=d.vars.itemMargin,t=(d.itemW+r)*d.move*d.animatingTo,s=t>d.limit&&1!==d.visible?d.limit:t):s=0===d.currentSlide&&b===d.count-1&&d.vars.animationLoop&&"next"!==d.direction?l?(d.count+d.cloneOffset)*q:0:d.currentSlide===d.last&&0===b&&d.vars.animationLoop&&"prev"!==d.direction?l?0:(d.count+1)*q:l?(d.count-1-b+d.cloneOffset)*q:(b+d.cloneOffset)*q,d.setProps(s,"",d.vars.animationSpeed),d.transitions?(d.vars.animationLoop&&d.atEnd||(d.animating=!1,d.currentSlide=d.animatingTo),d.container.unbind("webkitTransitionEnd transitionend"),d.container.bind("webkitTransitionEnd transitionend",function(){clearTimeout(d.ensureAnimationEnd),d.wrapup(q)}),clearTimeout(d.ensureAnimationEnd),d.ensureAnimationEnd=setTimeout(function(){d.wrapup(q)},d.vars.animationSpeed+100)):d.container.animate(d.args,d.vars.animationSpeed,d.vars.easing,function(){d.wrapup(q)})}d.vars.smoothHeight&&p.smoothHeight(d.vars.animationSpeed)}},d.wrapup=function(a){n||m||(0===d.currentSlide&&d.animatingTo===d.last&&d.vars.animationLoop?d.setProps(a,"jumpEnd"):d.currentSlide===d.last&&0===d.animatingTo&&d.vars.animationLoop&&d.setProps(a,"jumpStart")),d.animating=!1,d.currentSlide=d.animatingTo,d.vars.after(d)},d.animateSlides=function(){!d.animating&&q&&d.flexAnimate(d.getTarget("next"))},d.pause=function(){clearInterval(d.animatedSlides),d.animatedSlides=null,d.playing=!1,d.vars.pausePlay&&p.pausePlay.update("play"),d.syncExists&&p.sync("pause")},d.play=function(){d.playing&&clearInterval(d.animatedSlides),d.animatedSlides=d.animatedSlides||setInterval(d.animateSlides,d.vars.slideshowSpeed),d.started=d.playing=!0,d.vars.pausePlay&&p.pausePlay.update("pause"),d.syncExists&&p.sync("play")},d.stop=function(){d.pause(),d.stopped=!0},d.canAdvance=function(a,b){var c=o?d.pagingCount-1:d.last;return b?!0:o&&d.currentItem===d.count-1&&0===a&&"prev"===d.direction?!0:o&&0===d.currentItem&&a===d.pagingCount-1&&"next"!==d.direction?!1:a!==d.currentSlide||o?d.vars.animationLoop?!0:d.atEnd&&0===d.currentSlide&&a===c&&"next"!==d.direction?!1:d.atEnd&&d.currentSlide===c&&0===a&&"next"===d.direction?!1:!0:!1},d.getTarget=function(a){return d.direction=a,"next"===a?d.currentSlide===d.last?0:d.currentSlide+1:0===d.currentSlide?d.last:d.currentSlide-1},d.setProps=function(a,b,c){var e=function(){var c=a?a:(d.itemW+d.vars.itemMargin)*d.move*d.animatingTo,e=function(){if(m)return"setTouch"===b?a:l&&d.animatingTo===d.last?0:l?d.limit-(d.itemW+d.vars.itemMargin)*d.move*d.animatingTo:d.animatingTo===d.last?d.limit:c;switch(b){case"setTotal":return l?(d.count-1-d.currentSlide+d.cloneOffset)*a:(d.currentSlide+d.cloneOffset)*a;case"setTouch":return l?a:a;case"jumpEnd":return l?a:d.count*a;case"jumpStart":return l?d.count*a:a;default:return a}}();return-1*e+"px"}();d.transitions&&(e=k?"translate3d(0,"+e+",0)":"translate3d("+e+",0,0)",c=void 0!==c?c/1e3+"s":"0s",d.container.css("-"+d.pfx+"-transition-duration",c),d.container.css("transition-duration",c)),d.args[d.prop]=e,(d.transitions||void 0===c)&&d.container.css(d.args),d.container.css("transform",e)},d.setup=function(b){if(n)d.slides.css({width:"100%","float":"left",marginRight:"-100%",position:"relative"}),"init"===b&&(g?d.slides.css({opacity:0,display:"block",webkitTransition:"opacity "+d.vars.animationSpeed/1e3+"s ease",zIndex:1}).eq(d.currentSlide).css({opacity:1,zIndex:2}):d.slides.css({opacity:0,display:"block",zIndex:1}).eq(d.currentSlide).css({zIndex:2}).animate({opacity:1},d.vars.animationSpeed,d.vars.easing)),d.vars.smoothHeight&&p.smoothHeight();else{var c,f;"init"===b&&(d.viewport=a('<div class="'+e+'viewport"></div>').css({overflow:"hidden",position:"relative"}).appendTo(d).append(d.container),d.cloneCount=0,d.cloneOffset=0,l&&(f=a.makeArray(d.slides).reverse(),d.slides=a(f),d.container.empty().append(d.slides))),d.vars.animationLoop&&!m&&(d.cloneCount=2,d.cloneOffset=1,"init"!==b&&d.container.find(".clone").remove(),p.uniqueID(d.slides.first().clone().addClass("clone").attr("aria-hidden","true")).appendTo(d.container),p.uniqueID(d.slides.last().clone().addClass("clone").attr("aria-hidden","true")).prependTo(d.container)),d.newSlides=a(d.vars.selector,d),c=l?d.count-1-d.currentSlide+d.cloneOffset:d.currentSlide+d.cloneOffset,k&&!m?(d.container.height(200*(d.count+d.cloneCount)+"%").css("position","absolute").width("100%"),setTimeout(function(){d.newSlides.css({display:"block"}),d.doMath(),d.viewport.height(d.h),d.setProps(c*d.h,"init")},"init"===b?100:0)):(d.container.width(200*(d.count+d.cloneCount)+"%"),d.setProps(c*d.computedW,"init"),setTimeout(function(){d.doMath(),d.newSlides.css({width:d.computedW,"float":"left",display:"block"}),d.vars.smoothHeight&&p.smoothHeight()},"init"===b?100:0))}m||d.slides.removeClass(e+"active-slide").eq(d.currentSlide).addClass(e+"active-slide"),d.vars.init(d)},d.doMath=function(){var a=d.slides.first(),b=d.vars.itemMargin,c=d.vars.minItems,e=d.vars.maxItems;d.w=void 0===d.viewport?d.width():d.viewport.width(),d.h=a.height(),d.boxPadding=a.outerWidth()-a.width(),m?(d.itemT=d.vars.itemWidth+b,d.minW=c?c*d.itemT:d.w,d.maxW=e?e*d.itemT-b:d.w,d.itemW=d.minW>d.w?(d.w-b*(c-1))/c:d.maxW<d.w?(d.w-b*(e-1))/e:d.vars.itemWidth>d.w?d.w:d.vars.itemWidth,d.visible=Math.floor(d.w/d.itemW),d.move=d.vars.move>0&&d.vars.move<d.visible?d.vars.move:d.visible,d.pagingCount=Math.ceil((d.count-d.visible)/d.move+1),d.last=d.pagingCount-1,d.limit=1===d.pagingCount?0:d.vars.itemWidth>d.w?d.itemW*(d.count-1)+b*(d.count-1):(d.itemW+b)*d.count-d.w-b):(d.itemW=d.w,d.pagingCount=d.count,d.last=d.count-1),d.computedW=d.itemW-d.boxPadding},d.update=function(a,b){d.doMath(),m||(a<d.currentSlide?d.currentSlide+=1:a<=d.currentSlide&&0!==a&&(d.currentSlide-=1),d.animatingTo=d.currentSlide),d.vars.controlNav&&!d.manualControls&&("add"===b&&!m||d.pagingCount>d.controlNav.length?p.controlNav.update("add"):("remove"===b&&!m||d.pagingCount<d.controlNav.length)&&(m&&d.currentSlide>d.last&&(d.currentSlide-=1,d.animatingTo-=1),p.controlNav.update("remove",d.last))),d.vars.directionNav&&p.directionNav.update()},d.addSlide=function(b,c){var e=a(b);d.count+=1,d.last=d.count-1,k&&l?void 0!==c?d.slides.eq(d.count-c).after(e):d.container.prepend(e):void 0!==c?d.slides.eq(c).before(e):d.container.append(e),d.update(c,"add"),d.slides=a(d.vars.selector+":not(.clone)",d),d.setup(),d.vars.added(d)},d.removeSlide=function(b){var c=isNaN(b)?d.slides.index(a(b)):b;d.count-=1,d.last=d.count-1,isNaN(b)?a(b,d.slides).remove():k&&l?d.slides.eq(d.last).remove():d.slides.eq(b).remove(),d.doMath(),d.update(c,"remove"),d.slides=a(d.vars.selector+":not(.clone)",d),d.setup(),d.vars.removed(d)},p.init()},a(window).blur(function(){focused=!1}).focus(function(){focused=!0}),a.flexslider.defaults={namespace:"flex-",selector:".slides > li",animation:"fade",easing:"swing",direction:"horizontal",reverse:!1,animationLoop:!0,smoothHeight:!1,startAt:0,slideshow:!0,slideshowSpeed:7e3,animationSpeed:600,initDelay:0,randomize:!1,thumbCaptions:!1,pauseOnAction:!0,pauseOnHover:!1,pauseInvisible:!0,useCSS:!0,touch:!0,video:!1,controlNav:!0,directionNav:!0,prevText:"Previous",nextText:"Next",keyboard:!0,multipleKeyboard:!1,mousewheel:!1,pausePlay:!1,pauseText:"Pause",playText:"Play",controlsContainer:"",manualControls:"",sync:"",asNavFor:"",itemWidth:0,itemMargin:0,minItems:1,maxItems:0,move:0,allowOneSlide:!0,start:function(){},before:function(){},after:function(){},end:function(){},added:function(){},removed:function(){},init:function(){}},a.fn.flexslider=function(b){if(void 0===b&&(b={}),"object"==typeof b)return this.each(function(){var c=a(this),d=b.selector?b.selector:".slides > li",e=c.find(d);1===e.length&&b.allowOneSlide===!0||0===e.length?(e.fadeIn(400),b.start&&b.start(c)):void 0===c.data("flexslider")&&new a.flexslider(this,b)});var c=a(this).data("flexslider");switch(b){case"play":c.play();break;case"pause":c.pause();break;case"stop":c.stop();break;case"next":c.flexAnimate(c.getTarget("next"),!0);break;case"prev":case"previous":c.flexAnimate(c.getTarget("prev"),!0);break;default:"number"==typeof b&&c.flexAnimate(b,!0)}}}(jQuery);
-/*
- * jQuery FlexSlider v2.2.2
- * Copyright 2012 WooThemes
- * Contributing Author: Tyler Smith
- */
-
-;
-(function ($) {
-
-  //FlexSlider: Object Instance
-  $.flexslider = function(el, options) {
-    var slider = $(el);
-
-    // making variables public
-    slider.vars = $.extend({}, $.flexslider.defaults, options);
-
-    var namespace = slider.vars.namespace,
-        msGesture = window.navigator && window.navigator.msPointerEnabled && window.MSGesture,
-        touch = (( "ontouchstart" in window ) || msGesture || window.DocumentTouch && document instanceof DocumentTouch) && slider.vars.touch,
-        // depricating this idea, as devices are being released with both of these events
-        //eventType = (touch) ? "touchend" : "click",
-        eventType = "click touchend MSPointerUp keyup",
-        watchedEvent = "",
-        watchedEventClearTimer,
-        vertical = slider.vars.direction === "vertical",
-        reverse = slider.vars.reverse,
-        carousel = (slider.vars.itemWidth > 0),
-        fade = slider.vars.animation === "fade",
-        asNav = slider.vars.asNavFor !== "",
-        methods = {},
-        focused = true;
-
-    // Store a reference to the slider object
-    $.data(el, "flexslider", slider);
-
-    // Private slider methods
-    methods = {
-      init: function() {
-        slider.animating = false;
-        // Get current slide and make sure it is a number
-        slider.currentSlide = parseInt( ( slider.vars.startAt ? slider.vars.startAt : 0), 10 );
-        if ( isNaN( slider.currentSlide ) ) slider.currentSlide = 0;
-        slider.animatingTo = slider.currentSlide;
-        slider.atEnd = (slider.currentSlide === 0 || slider.currentSlide === slider.last);
-        slider.containerSelector = slider.vars.selector.substr(0,slider.vars.selector.search(' '));
-        slider.slides = $(slider.vars.selector, slider);
-        slider.container = $(slider.containerSelector, slider);
-        slider.count = slider.slides.length;
-        // SYNC:
-        slider.syncExists = $(slider.vars.sync).length > 0;
-        // SLIDE:
-        if (slider.vars.animation === "slide") slider.vars.animation = "swing";
-        slider.prop = (vertical) ? "top" : "marginLeft";
-        slider.args = {};
-        // SLIDESHOW:
-        slider.manualPause = false;
-        slider.stopped = false;
-        //PAUSE WHEN INVISIBLE
-        slider.started = false;
-        slider.startTimeout = null;
-        // TOUCH/USECSS:
-        slider.transitions = !slider.vars.video && !fade && slider.vars.useCSS && (function() {
-          var obj = document.createElement('div'),
-              props = ['perspectiveProperty', 'WebkitPerspective', 'MozPerspective', 'OPerspective', 'msPerspective'];
-          for (var i in props) {
-            if ( obj.style[ props[i] ] !== undefined ) {
-              slider.pfx = props[i].replace('Perspective','').toLowerCase();
-              slider.prop = "-" + slider.pfx + "-transform";
-              return true;
-            }
-          }
-          return false;
-        }());
-        slider.ensureAnimationEnd = '';
-        // CONTROLSCONTAINER:
-        if (slider.vars.controlsContainer !== "") slider.controlsContainer = $(slider.vars.controlsContainer).length > 0 && $(slider.vars.controlsContainer);
-        // MANUAL:
-        if (slider.vars.manualControls !== "") slider.manualControls = $(slider.vars.manualControls).length > 0 && $(slider.vars.manualControls);
-
-        // RANDOMIZE:
-        if (slider.vars.randomize) {
-          slider.slides.sort(function() { return (Math.round(Math.random())-0.5); });
-          slider.container.empty().append(slider.slides);
-        }
-
-        slider.doMath();
-
-        // INIT
-        slider.setup("init");
-
-        // CONTROLNAV:
-        if (slider.vars.controlNav) methods.controlNav.setup();
-
-        // DIRECTIONNAV:
-        if (slider.vars.directionNav) methods.directionNav.setup();
-
-        // KEYBOARD:
-        if (slider.vars.keyboard && ($(slider.containerSelector).length === 1 || slider.vars.multipleKeyboard)) {
-          $(document).bind('keyup', function(event) {
-            var keycode = event.keyCode;
-            if (!slider.animating && (keycode === 39 || keycode === 37)) {
-              var target = (keycode === 39) ? slider.getTarget('next') :
-                           (keycode === 37) ? slider.getTarget('prev') : false;
-              slider.flexAnimate(target, slider.vars.pauseOnAction);
-            }
-          });
-        }
-        // MOUSEWHEEL:
-        if (slider.vars.mousewheel) {
-          slider.bind('mousewheel', function(event, delta, deltaX, deltaY) {
-            event.preventDefault();
-            var target = (delta < 0) ? slider.getTarget('next') : slider.getTarget('prev');
-            slider.flexAnimate(target, slider.vars.pauseOnAction);
-          });
-        }
-
-        // PAUSEPLAY
-        if (slider.vars.pausePlay) methods.pausePlay.setup();
-
-        //PAUSE WHEN INVISIBLE
-        if (slider.vars.slideshow && slider.vars.pauseInvisible) methods.pauseInvisible.init();
-
-        // SLIDSESHOW
-        if (slider.vars.slideshow) {
-          if (slider.vars.pauseOnHover) {
-            slider.hover(function() {
-              if (!slider.manualPlay && !slider.manualPause) slider.pause();
-            }, function() {
-              if (!slider.manualPause && !slider.manualPlay && !slider.stopped) slider.play();
-            });
-          }
-          // initialize animation
-          //If we're visible, or we don't use PageVisibility API
-          if(!slider.vars.pauseInvisible || !methods.pauseInvisible.isHidden()) {
-            (slider.vars.initDelay > 0) ? slider.startTimeout = setTimeout(slider.play, slider.vars.initDelay) : slider.play();
-          }
-        }
-
-        // ASNAV:
-        if (asNav) methods.asNav.setup();
-
-        // TOUCH
-        if (touch && slider.vars.touch) methods.touch();
-
-        // FADE&&SMOOTHHEIGHT || SLIDE:
-        if (!fade || (fade && slider.vars.smoothHeight)) $(window).bind("resize orientationchange focus", methods.resize);
-
-        slider.find("img").attr("draggable", "false");
-
-        // API: start() Callback
-        setTimeout(function(){
-          slider.vars.start(slider);
-        }, 200);
-      },
-      asNav: {
-        setup: function() {
-          slider.asNav = true;
-          slider.animatingTo = Math.floor(slider.currentSlide/slider.move);
-          slider.currentItem = slider.currentSlide;
-          slider.slides.removeClass(namespace + "active-slide").eq(slider.currentItem).addClass(namespace + "active-slide");
-          if(!msGesture){
-              slider.slides.on(eventType, function(e){
-                e.preventDefault();
-                var $slide = $(this),
-                    target = $slide.index();
-                var posFromLeft = $slide.offset().left - $(slider).scrollLeft(); // Find position of slide relative to left of slider container
-                if( posFromLeft <= 0 && $slide.hasClass( namespace + 'active-slide' ) ) {
-                  slider.flexAnimate(slider.getTarget("prev"), true);
-                } else if (!$(slider.vars.asNavFor).data('flexslider').animating && !$slide.hasClass(namespace + "active-slide")) {
-                  slider.direction = (slider.currentItem < target) ? "next" : "prev";
-                  slider.flexAnimate(target, slider.vars.pauseOnAction, false, true, true);
-                }
-              });
-          }else{
-              el._slider = slider;
-              slider.slides.each(function (){
-                  var that = this;
-                  that._gesture = new MSGesture();
-                  that._gesture.target = that;
-                  that.addEventListener("MSPointerDown", function (e){
-                      e.preventDefault();
-                      if(e.currentTarget._gesture)
-                          e.currentTarget._gesture.addPointer(e.pointerId);
-                  }, false);
-                  that.addEventListener("MSGestureTap", function (e){
-                      e.preventDefault();
-                      var $slide = $(this),
-                          target = $slide.index();
-                      if (!$(slider.vars.asNavFor).data('flexslider').animating && !$slide.hasClass('active')) {
-                          slider.direction = (slider.currentItem < target) ? "next" : "prev";
-                          slider.flexAnimate(target, slider.vars.pauseOnAction, false, true, true);
-                      }
-                  });
-              });
-          }
-        }
-      },
-      controlNav: {
-        setup: function() {
-          if (!slider.manualControls) {
-            methods.controlNav.setupPaging();
-          } else { // MANUALCONTROLS:
-            methods.controlNav.setupManual();
-          }
-        },
-        setupPaging: function() {
-          var type = (slider.vars.controlNav === "thumbnails") ? 'control-thumbs' : 'control-paging',
-              j = 1,
-              item,
-              slide;
-
-          slider.controlNavScaffold = $('<ol class="'+ namespace + 'control-nav ' + namespace + type + '"></ol>');
-
-          if (slider.pagingCount > 1) {
-            for (var i = 0; i < slider.pagingCount; i++) {
-              slide = slider.slides.eq(i);
-              item = (slider.vars.controlNav === "thumbnails") ? '<img src="' + slide.attr( 'data-thumb' ) + '"/>' : '<a>' + j + '</a>';
-              if ( 'thumbnails' === slider.vars.controlNav && true === slider.vars.thumbCaptions ) {
-                var captn = slide.attr( 'data-thumbcaption' );
-                if ( '' != captn && undefined != captn ) item += '<span class="' + namespace + 'caption">' + captn + '</span>';
-              }
-              slider.controlNavScaffold.append('<li>' + item + '</li>');
-              j++;
-            }
-          }
-
-          // CONTROLSCONTAINER:
-          (slider.controlsContainer) ? $(slider.controlsContainer).append(slider.controlNavScaffold) : slider.append(slider.controlNavScaffold);
-          methods.controlNav.set();
-
-          methods.controlNav.active();
-
-          slider.controlNavScaffold.delegate('a, img', eventType, function(event) {
-            event.preventDefault();
-
-            if (watchedEvent === "" || watchedEvent === event.type) {
-              var $this = $(this),
-                  target = slider.controlNav.index($this);
-
-              if (!$this.hasClass(namespace + 'active')) {
-                slider.direction = (target > slider.currentSlide) ? "next" : "prev";
-                slider.flexAnimate(target, slider.vars.pauseOnAction);
-              }
-            }
-
-            // setup flags to prevent event duplication
-            if (watchedEvent === "") {
-              watchedEvent = event.type;
-            }
-            methods.setToClearWatchedEvent();
-
-          });
-        },
-        setupManual: function() {
-          slider.controlNav = slider.manualControls;
-          methods.controlNav.active();
-
-          slider.controlNav.bind(eventType, function(event) {
-            event.preventDefault();
-
-            if (watchedEvent === "" || watchedEvent === event.type) {
-              var $this = $(this),
-                  target = slider.controlNav.index($this);
-
-              if (!$this.hasClass(namespace + 'active')) {
-                (target > slider.currentSlide) ? slider.direction = "next" : slider.direction = "prev";
-                slider.flexAnimate(target, slider.vars.pauseOnAction);
-              }
-            }
-
-            // setup flags to prevent event duplication
-            if (watchedEvent === "") {
-              watchedEvent = event.type;
-            }
-            methods.setToClearWatchedEvent();
-          });
-        },
-        set: function() {
-          var selector = (slider.vars.controlNav === "thumbnails") ? 'img' : 'a';
-          slider.controlNav = $('.' + namespace + 'control-nav li ' + selector, (slider.controlsContainer) ? slider.controlsContainer : slider);
-        },
-        active: function() {
-          slider.controlNav.removeClass(namespace + "active").eq(slider.animatingTo).addClass(namespace + "active");
-        },
-        update: function(action, pos) {
-          if (slider.pagingCount > 1 && action === "add") {
-            slider.controlNavScaffold.append($('<li><a>' + slider.count + '</a></li>'));
-          } else if (slider.pagingCount === 1) {
-            slider.controlNavScaffold.find('li').remove();
-          } else {
-            slider.controlNav.eq(pos).closest('li').remove();
-          }
-          methods.controlNav.set();
-          (slider.pagingCount > 1 && slider.pagingCount !== slider.controlNav.length) ? slider.update(pos, action) : methods.controlNav.active();
-        }
-      },
-      directionNav: {
-        setup: function() {
-          var directionNavScaffold = $('<ul class="' + namespace + 'direction-nav"><li><a class="' + namespace + 'prev" href="#">' + slider.vars.prevText + '</a></li><li><a class="' + namespace + 'next" href="#">' + slider.vars.nextText + '</a></li></ul>');
-
-          // CONTROLSCONTAINER:
-          if (slider.controlsContainer) {
-            $(slider.controlsContainer).append(directionNavScaffold);
-            slider.directionNav = $('.' + namespace + 'direction-nav li a', slider.controlsContainer);
-          } else {
-            slider.append(directionNavScaffold);
-            slider.directionNav = $('.' + namespace + 'direction-nav li a', slider);
-          }
-
-          methods.directionNav.update();
-
-          slider.directionNav.bind(eventType, function(event) {
-            event.preventDefault();
-            var target;
-
-            if (watchedEvent === "" || watchedEvent === event.type) {
-              target = ($(this).hasClass(namespace + 'next')) ? slider.getTarget('next') : slider.getTarget('prev');
-              slider.flexAnimate(target, slider.vars.pauseOnAction);
-            }
-
-            // setup flags to prevent event duplication
-            if (watchedEvent === "") {
-              watchedEvent = event.type;
-            }
-            methods.setToClearWatchedEvent();
-          });
-        },
-        update: function() {
-          var disabledClass = namespace + 'disabled';
-          if (slider.pagingCount === 1) {
-            slider.directionNav.addClass(disabledClass).attr('tabindex', '-1');
-          } else if (!slider.vars.animationLoop) {
-            if (slider.animatingTo === 0) {
-              slider.directionNav.removeClass(disabledClass).filter('.' + namespace + "prev").addClass(disabledClass).attr('tabindex', '-1');
-            } else if (slider.animatingTo === slider.last) {
-              slider.directionNav.removeClass(disabledClass).filter('.' + namespace + "next").addClass(disabledClass).attr('tabindex', '-1');
-            } else {
-              slider.directionNav.removeClass(disabledClass).removeAttr('tabindex');
-            }
-          } else {
-            slider.directionNav.removeClass(disabledClass).removeAttr('tabindex');
-          }
-        }
-      },
-      pausePlay: {
-        setup: function() {
-          var pausePlayScaffold = $('<div class="' + namespace + 'pauseplay"><a></a></div>');
-
-          // CONTROLSCONTAINER:
-          if (slider.controlsContainer) {
-            slider.controlsContainer.append(pausePlayScaffold);
-            slider.pausePlay = $('.' + namespace + 'pauseplay a', slider.controlsContainer);
-          } else {
-            slider.append(pausePlayScaffold);
-            slider.pausePlay = $('.' + namespace + 'pauseplay a', slider);
-          }
-
-          methods.pausePlay.update((slider.vars.slideshow) ? namespace + 'pause' : namespace + 'play');
-
-          slider.pausePlay.bind(eventType, function(event) {
-            event.preventDefault();
-
-            if (watchedEvent === "" || watchedEvent === event.type) {
-              if ($(this).hasClass(namespace + 'pause')) {
-                slider.manualPause = true;
-                slider.manualPlay = false;
-                slider.pause();
-              } else {
-                slider.manualPause = false;
-                slider.manualPlay = true;
-                slider.play();
-              }
-            }
-
-            // setup flags to prevent event duplication
-            if (watchedEvent === "") {
-              watchedEvent = event.type;
-            }
-            methods.setToClearWatchedEvent();
-          });
-        },
-        update: function(state) {
-          (state === "play") ? slider.pausePlay.removeClass(namespace + 'pause').addClass(namespace + 'play').html(slider.vars.playText) : slider.pausePlay.removeClass(namespace + 'play').addClass(namespace + 'pause').html(slider.vars.pauseText);
-        }
-      },
-      touch: function() {
-        var startX,
-          startY,
-          offset,
-          cwidth,
-          dx,
-          startT,
-          scrolling = false,
-          localX = 0,
-          localY = 0,
-          accDx = 0;
-
-        if(!msGesture){
-            el.addEventListener('touchstart', onTouchStart, false);
-
-            function onTouchStart(e) {
-              if (slider.animating) {
-                e.preventDefault();
-              } else if ( ( window.navigator.msPointerEnabled ) || e.touches.length === 1 ) {
-                slider.pause();
-                // CAROUSEL:
-                cwidth = (vertical) ? slider.h : slider. w;
-                startT = Number(new Date());
-                // CAROUSEL:
-
-                // Local vars for X and Y points.
-                localX = e.touches[0].pageX;
-                localY = e.touches[0].pageY;
-
-                offset = (carousel && reverse && slider.animatingTo === slider.last) ? 0 :
-                         (carousel && reverse) ? slider.limit - (((slider.itemW + slider.vars.itemMargin) * slider.move) * slider.animatingTo) :
-                         (carousel && slider.currentSlide === slider.last) ? slider.limit :
-                         (carousel) ? ((slider.itemW + slider.vars.itemMargin) * slider.move) * slider.currentSlide :
-                         (reverse) ? (slider.last - slider.currentSlide + slider.cloneOffset) * cwidth : (slider.currentSlide + slider.cloneOffset) * cwidth;
-                startX = (vertical) ? localY : localX;
-                startY = (vertical) ? localX : localY;
-
-                el.addEventListener('touchmove', onTouchMove, false);
-                el.addEventListener('touchend', onTouchEnd, false);
-              }
-            }
-
-            function onTouchMove(e) {
-              // Local vars for X and Y points.
-
-              localX = e.touches[0].pageX;
-              localY = e.touches[0].pageY;
-
-              dx = (vertical) ? startX - localY : startX - localX;
-              scrolling = (vertical) ? (Math.abs(dx) < Math.abs(localX - startY)) : (Math.abs(dx) < Math.abs(localY - startY));
-
-              var fxms = 500;
-
-              if ( ! scrolling || Number( new Date() ) - startT > fxms ) {
-                e.preventDefault();
-                if (!fade && slider.transitions) {
-                  if (!slider.vars.animationLoop) {
-                    dx = dx/((slider.currentSlide === 0 && dx < 0 || slider.currentSlide === slider.last && dx > 0) ? (Math.abs(dx)/cwidth+2) : 1);
-                  }
-                  slider.setProps(offset + dx, "setTouch");
-                }
-              }
-            }
-
-            function onTouchEnd(e) {
-              // finish the touch by undoing the touch session
-              el.removeEventListener('touchmove', onTouchMove, false);
-
-              if (slider.animatingTo === slider.currentSlide && !scrolling && !(dx === null)) {
-                var updateDx = (reverse) ? -dx : dx,
-                    target = (updateDx > 0) ? slider.getTarget('next') : slider.getTarget('prev');
-
-                if (slider.canAdvance(target) && (Number(new Date()) - startT < 550 && Math.abs(updateDx) > 50 || Math.abs(updateDx) > cwidth/2)) {
-                  slider.flexAnimate(target, slider.vars.pauseOnAction);
-                } else {
-                  if (!fade) slider.flexAnimate(slider.currentSlide, slider.vars.pauseOnAction, true);
-                }
-              }
-              el.removeEventListener('touchend', onTouchEnd, false);
-
-              startX = null;
-              startY = null;
-              dx = null;
-              offset = null;
-            }
-        }else{
-            el.style.msTouchAction = "none";
-            el._gesture = new MSGesture();
-            el._gesture.target = el;
-            el.addEventListener("MSPointerDown", onMSPointerDown, false);
-            el._slider = slider;
-            el.addEventListener("MSGestureChange", onMSGestureChange, false);
-            el.addEventListener("MSGestureEnd", onMSGestureEnd, false);
-
-            function onMSPointerDown(e){
-                e.stopPropagation();
-                if (slider.animating) {
-                    e.preventDefault();
-                }else{
-                    slider.pause();
-                    el._gesture.addPointer(e.pointerId);
-                    accDx = 0;
-                    cwidth = (vertical) ? slider.h : slider. w;
-                    startT = Number(new Date());
-                    // CAROUSEL:
-
-                    offset = (carousel && reverse && slider.animatingTo === slider.last) ? 0 :
-                        (carousel && reverse) ? slider.limit - (((slider.itemW + slider.vars.itemMargin) * slider.move) * slider.animatingTo) :
-                            (carousel && slider.currentSlide === slider.last) ? slider.limit :
-                                (carousel) ? ((slider.itemW + slider.vars.itemMargin) * slider.move) * slider.currentSlide :
-                                    (reverse) ? (slider.last - slider.currentSlide + slider.cloneOffset) * cwidth : (slider.currentSlide + slider.cloneOffset) * cwidth;
-                }
-            }
-
-            function onMSGestureChange(e) {
-                e.stopPropagation();
-                var slider = e.target._slider;
-                if(!slider){
-                    return;
-                }
-                var transX = -e.translationX,
-                    transY = -e.translationY;
-
-                //Accumulate translations.
-                accDx = accDx + ((vertical) ? transY : transX);
-                dx = accDx;
-                scrolling = (vertical) ? (Math.abs(accDx) < Math.abs(-transX)) : (Math.abs(accDx) < Math.abs(-transY));
-
-                if(e.detail === e.MSGESTURE_FLAG_INERTIA){
-                    setImmediate(function (){
-                        el._gesture.stop();
-                    });
-
-                    return;
-                }
-
-                if (!scrolling || Number(new Date()) - startT > 500) {
-                    e.preventDefault();
-                    if (!fade && slider.transitions) {
-                        if (!slider.vars.animationLoop) {
-                            dx = accDx / ((slider.currentSlide === 0 && accDx < 0 || slider.currentSlide === slider.last && accDx > 0) ? (Math.abs(accDx) / cwidth + 2) : 1);
-                        }
-                        slider.setProps(offset + dx, "setTouch");
-                    }
-                }
-            }
-
-            function onMSGestureEnd(e) {
-                e.stopPropagation();
-                var slider = e.target._slider;
-                if(!slider){
-                    return;
-                }
-                if (slider.animatingTo === slider.currentSlide && !scrolling && !(dx === null)) {
-                    var updateDx = (reverse) ? -dx : dx,
-                        target = (updateDx > 0) ? slider.getTarget('next') : slider.getTarget('prev');
-
-                    if (slider.canAdvance(target) && (Number(new Date()) - startT < 550 && Math.abs(updateDx) > 50 || Math.abs(updateDx) > cwidth/2)) {
-                        slider.flexAnimate(target, slider.vars.pauseOnAction);
-                    } else {
-                        if (!fade) slider.flexAnimate(slider.currentSlide, slider.vars.pauseOnAction, true);
-                    }
-                }
-
-                startX = null;
-                startY = null;
-                dx = null;
-                offset = null;
-                accDx = 0;
-            }
-        }
-      },
-      resize: function() {
-        if (!slider.animating && slider.is(':visible')) {
-          if (!carousel) slider.doMath();
-
-          if (fade) {
-            // SMOOTH HEIGHT:
-            methods.smoothHeight();
-          } else if (carousel) { //CAROUSEL:
-            slider.slides.width(slider.computedW);
-            slider.update(slider.pagingCount);
-            slider.setProps();
-          }
-          else if (vertical) { //VERTICAL:
-            slider.viewport.height(slider.h);
-            slider.setProps(slider.h, "setTotal");
-          } else {
-            // SMOOTH HEIGHT:
-            if (slider.vars.smoothHeight) methods.smoothHeight();
-            slider.newSlides.width(slider.computedW);
-            slider.setProps(slider.computedW, "setTotal");
-          }
-        }
-      },
-      smoothHeight: function(dur) {
-        if (!vertical || fade) {
-          var $obj = (fade) ? slider : slider.viewport;
-          (dur) ? $obj.animate({"height": slider.slides.eq(slider.animatingTo).height()}, dur) : $obj.height(slider.slides.eq(slider.animatingTo).height());
-        }
-      },
-      sync: function(action) {
-        var $obj = $(slider.vars.sync).data("flexslider"),
-            target = slider.animatingTo;
-
-        switch (action) {
-          case "animate": $obj.flexAnimate(target, slider.vars.pauseOnAction, false, true); break;
-          case "play": if (!$obj.playing && !$obj.asNav) { $obj.play(); } break;
-          case "pause": $obj.pause(); break;
-        }
-      },
-      uniqueID: function($clone) {
-        $clone.find( '[id]' ).each(function() {
-          var $this = $(this);
-          $this.attr( 'id', $this.attr( 'id' ) + '_clone' );
-        });
-        return $clone;
-      },
-      pauseInvisible: {
-        visProp: null,
-        init: function() {
-          var prefixes = ['webkit','moz','ms','o'];
-
-          if ('hidden' in document) return 'hidden';
-          for (var i = 0; i < prefixes.length; i++) {
-            if ((prefixes[i] + 'Hidden') in document)
-            methods.pauseInvisible.visProp = prefixes[i] + 'Hidden';
-          }
-          if (methods.pauseInvisible.visProp) {
-            var evtname = methods.pauseInvisible.visProp.replace(/[H|h]idden/,'') + 'visibilitychange';
-            document.addEventListener(evtname, function() {
-              if (methods.pauseInvisible.isHidden()) {
-                if(slider.startTimeout) clearTimeout(slider.startTimeout); //If clock is ticking, stop timer and prevent from starting while invisible
-                else slider.pause(); //Or just pause
-              }
-              else {
-                if(slider.started) slider.play(); //Initiated before, just play
-                else (slider.vars.initDelay > 0) ? setTimeout(slider.play, slider.vars.initDelay) : slider.play(); //Didn't init before: simply init or wait for it
-              }
-            });
-          }
-        },
-        isHidden: function() {
-          return document[methods.pauseInvisible.visProp] || false;
-        }
-      },
-      setToClearWatchedEvent: function() {
-        clearTimeout(watchedEventClearTimer);
-        watchedEventClearTimer = setTimeout(function() {
-          watchedEvent = "";
-        }, 3000);
-      }
-    };
-
-    // public methods
-    slider.flexAnimate = function(target, pause, override, withSync, fromNav) {
-      if (!slider.vars.animationLoop && target !== slider.currentSlide) {
-        slider.direction = (target > slider.currentSlide) ? "next" : "prev";
-      }
-
-      if (asNav && slider.pagingCount === 1) slider.direction = (slider.currentItem < target) ? "next" : "prev";
-
-      if (!slider.animating && (slider.canAdvance(target, fromNav) || override) && slider.is(":visible")) {
-        if (asNav && withSync) {
-          var master = $(slider.vars.asNavFor).data('flexslider');
-          slider.atEnd = target === 0 || target === slider.count - 1;
-          master.flexAnimate(target, true, false, true, fromNav);
-          slider.direction = (slider.currentItem < target) ? "next" : "prev";
-          master.direction = slider.direction;
-
-          if (Math.ceil((target + 1)/slider.visible) - 1 !== slider.currentSlide && target !== 0) {
-            slider.currentItem = target;
-            slider.slides.removeClass(namespace + "active-slide").eq(target).addClass(namespace + "active-slide");
-            target = Math.floor(target/slider.visible);
-          } else {
-            slider.currentItem = target;
-            slider.slides.removeClass(namespace + "active-slide").eq(target).addClass(namespace + "active-slide");
-            return false;
-          }
-        }
-
-        slider.animating = true;
-        slider.animatingTo = target;
-
-        // SLIDESHOW:
-        if (pause) slider.pause();
-
-        // API: before() animation Callback
-        slider.vars.before(slider);
-
-        // SYNC:
-        if (slider.syncExists && !fromNav) methods.sync("animate");
-
-        // CONTROLNAV
-        if (slider.vars.controlNav) methods.controlNav.active();
-
-        // !CAROUSEL:
-        // CANDIDATE: slide active class (for add/remove slide)
-        if (!carousel) slider.slides.removeClass(namespace + 'active-slide').eq(target).addClass(namespace + 'active-slide');
-
-        // INFINITE LOOP:
-        // CANDIDATE: atEnd
-        slider.atEnd = target === 0 || target === slider.last;
-
-        // DIRECTIONNAV:
-        if (slider.vars.directionNav) methods.directionNav.update();
-
-        if (target === slider.last) {
-          // API: end() of cycle Callback
-          slider.vars.end(slider);
-          // SLIDESHOW && !INFINITE LOOP:
-          if (!slider.vars.animationLoop) slider.pause();
-        }
-
-        // SLIDE:
-        if (!fade) {
-          var dimension = (vertical) ? slider.slides.filter(':first').height() : slider.computedW,
-              margin, slideString, calcNext;
-
-          // INFINITE LOOP / REVERSE:
-          if (carousel) {
-            //margin = (slider.vars.itemWidth > slider.w) ? slider.vars.itemMargin * 2 : slider.vars.itemMargin;
-            margin = slider.vars.itemMargin;
-            calcNext = ((slider.itemW + margin) * slider.move) * slider.animatingTo;
-            slideString = (calcNext > slider.limit && slider.visible !== 1) ? slider.limit : calcNext;
-          } else if (slider.currentSlide === 0 && target === slider.count - 1 && slider.vars.animationLoop && slider.direction !== "next") {
-            slideString = (reverse) ? (slider.count + slider.cloneOffset) * dimension : 0;
-          } else if (slider.currentSlide === slider.last && target === 0 && slider.vars.animationLoop && slider.direction !== "prev") {
-            slideString = (reverse) ? 0 : (slider.count + 1) * dimension;
-          } else {
-            slideString = (reverse) ? ((slider.count - 1) - target + slider.cloneOffset) * dimension : (target + slider.cloneOffset) * dimension;
-          }
-          slider.setProps(slideString, "", slider.vars.animationSpeed);
-          if (slider.transitions) {
-            if (!slider.vars.animationLoop || !slider.atEnd) {
-              slider.animating = false;
-              slider.currentSlide = slider.animatingTo;
-            }
-            
-            // Unbind previous transitionEnd events and re-bind new transitionEnd event
-            slider.container.unbind("webkitTransitionEnd transitionend");
-            slider.container.bind("webkitTransitionEnd transitionend", function() {
-              clearTimeout(slider.ensureAnimationEnd);
-              slider.wrapup(dimension);
-            });
-
-            // Insurance for the ever-so-fickle transitionEnd event
-            clearTimeout(slider.ensureAnimationEnd);
-            slider.ensureAnimationEnd = setTimeout(function() {
-              slider.wrapup(dimension);
-            }, slider.vars.animationSpeed + 100);
-
-          } else {
-            slider.container.animate(slider.args, slider.vars.animationSpeed, slider.vars.easing, function(){
-              slider.wrapup(dimension);
-            });
-          }
-        } else { // FADE:
-          if (!touch) {
-            //slider.slides.eq(slider.currentSlide).fadeOut(slider.vars.animationSpeed, slider.vars.easing);
-            //slider.slides.eq(target).fadeIn(slider.vars.animationSpeed, slider.vars.easing, slider.wrapup);
-
-            slider.slides.eq(slider.currentSlide).css({"zIndex": 1}).animate({"opacity": 0}, slider.vars.animationSpeed, slider.vars.easing);
-            slider.slides.eq(target).css({"zIndex": 2}).animate({"opacity": 1}, slider.vars.animationSpeed, slider.vars.easing, slider.wrapup);
-
-          } else {
-            slider.slides.eq(slider.currentSlide).css({ "opacity": 0, "zIndex": 1 });
-            slider.slides.eq(target).css({ "opacity": 1, "zIndex": 2 });
-            slider.wrapup(dimension);
-          }
-        }
-        // SMOOTH HEIGHT:
-        if (slider.vars.smoothHeight) methods.smoothHeight(slider.vars.animationSpeed);
-      }
-    };
-    slider.wrapup = function(dimension) {
-      // SLIDE:
-      if (!fade && !carousel) {
-        if (slider.currentSlide === 0 && slider.animatingTo === slider.last && slider.vars.animationLoop) {
-          slider.setProps(dimension, "jumpEnd");
-        } else if (slider.currentSlide === slider.last && slider.animatingTo === 0 && slider.vars.animationLoop) {
-          slider.setProps(dimension, "jumpStart");
-        }
-      }
-      slider.animating = false;
-      slider.currentSlide = slider.animatingTo;
-      // API: after() animation Callback
-      slider.vars.after(slider);
-    };
-
-    // SLIDESHOW:
-    slider.animateSlides = function() {
-      if (!slider.animating && focused ) slider.flexAnimate(slider.getTarget("next"));
-    };
-    // SLIDESHOW:
-    slider.pause = function() {
-      clearInterval(slider.animatedSlides);
-      slider.animatedSlides = null;
-      slider.playing = false;
-      // PAUSEPLAY:
-      if (slider.vars.pausePlay) methods.pausePlay.update("play");
-      // SYNC:
-      if (slider.syncExists) methods.sync("pause");
-    };
-    // SLIDESHOW:
-    slider.play = function() {
-      if (slider.playing) clearInterval(slider.animatedSlides);
-      slider.animatedSlides = slider.animatedSlides || setInterval(slider.animateSlides, slider.vars.slideshowSpeed);
-      slider.started = slider.playing = true;
-      // PAUSEPLAY:
-      if (slider.vars.pausePlay) methods.pausePlay.update("pause");
-      // SYNC:
-      if (slider.syncExists) methods.sync("play");
-    };
-    // STOP:
-    slider.stop = function () {
-      slider.pause();
-      slider.stopped = true;
-    };
-    slider.canAdvance = function(target, fromNav) {
-      // ASNAV:
-      var last = (asNav) ? slider.pagingCount - 1 : slider.last;
-      return (fromNav) ? true :
-             (asNav && slider.currentItem === slider.count - 1 && target === 0 && slider.direction === "prev") ? true :
-             (asNav && slider.currentItem === 0 && target === slider.pagingCount - 1 && slider.direction !== "next") ? false :
-             (target === slider.currentSlide && !asNav) ? false :
-             (slider.vars.animationLoop) ? true :
-             (slider.atEnd && slider.currentSlide === 0 && target === last && slider.direction !== "next") ? false :
-             (slider.atEnd && slider.currentSlide === last && target === 0 && slider.direction === "next") ? false :
-             true;
-    };
-    slider.getTarget = function(dir) {
-      slider.direction = dir;
-      if (dir === "next") {
-        return (slider.currentSlide === slider.last) ? 0 : slider.currentSlide + 1;
-      } else {
-        return (slider.currentSlide === 0) ? slider.last : slider.currentSlide - 1;
-      }
-    };
-
-    // SLIDE:
-    slider.setProps = function(pos, special, dur) {
-      var target = (function() {
-        var posCheck = (pos) ? pos : ((slider.itemW + slider.vars.itemMargin) * slider.move) * slider.animatingTo,
-            posCalc = (function() {
-              if (carousel) {
-                return (special === "setTouch") ? pos :
-                       (reverse && slider.animatingTo === slider.last) ? 0 :
-                       (reverse) ? slider.limit - (((slider.itemW + slider.vars.itemMargin) * slider.move) * slider.animatingTo) :
-                       (slider.animatingTo === slider.last) ? slider.limit : posCheck;
-              } else {
-                switch (special) {
-                  case "setTotal": return (reverse) ? ((slider.count - 1) - slider.currentSlide + slider.cloneOffset) * pos : (slider.currentSlide + slider.cloneOffset) * pos;
-                  case "setTouch": return (reverse) ? pos : pos;
-                  case "jumpEnd": return (reverse) ? pos : slider.count * pos;
-                  case "jumpStart": return (reverse) ? slider.count * pos : pos;
-                  default: return pos;
-                }
-              }
-            }());
-
-            return (posCalc * -1) + "px";
-          }());
-
-      if (slider.transitions) {
-        target = (vertical) ? "translate3d(0," + target + ",0)" : "translate3d(" + target + ",0,0)";
-        dur = (dur !== undefined) ? (dur/1000) + "s" : "0s";
-        slider.container.css("-" + slider.pfx + "-transition-duration", dur);
-         slider.container.css("transition-duration", dur);
-      }
-
-      slider.args[slider.prop] = target;
-      if (slider.transitions || dur === undefined) slider.container.css(slider.args);
-
-      slider.container.css('transform',target);
-    };
-
-    slider.setup = function(type) {
-      // SLIDE:
-      if (!fade) {
-        var sliderOffset, arr;
-
-        if (type === "init") {
-          slider.viewport = $('<div class="' + namespace + 'viewport"></div>').css({"overflow": "hidden", "position": "relative"}).appendTo(slider).append(slider.container);
-          // INFINITE LOOP:
-          slider.cloneCount = 0;
-          slider.cloneOffset = 0;
-          // REVERSE:
-          if (reverse) {
-            arr = $.makeArray(slider.slides).reverse();
-            slider.slides = $(arr);
-            slider.container.empty().append(slider.slides);
-          }
-        }
-        // INFINITE LOOP && !CAROUSEL:
-        if (slider.vars.animationLoop && !carousel) {
-          slider.cloneCount = 2;
-          slider.cloneOffset = 1;
-          // clear out old clones
-          if (type !== "init") slider.container.find('.clone').remove();
-          // slider.container.append(slider.slides.first().clone().addClass('clone').attr('aria-hidden', 'true')).prepend(slider.slides.last().clone().addClass('clone').attr('aria-hidden', 'true'));
-		      methods.uniqueID( slider.slides.first().clone().addClass('clone').attr('aria-hidden', 'true') ).appendTo( slider.container );
-		      methods.uniqueID( slider.slides.last().clone().addClass('clone').attr('aria-hidden', 'true') ).prependTo( slider.container );
-        }
-        slider.newSlides = $(slider.vars.selector, slider);
-
-        sliderOffset = (reverse) ? slider.count - 1 - slider.currentSlide + slider.cloneOffset : slider.currentSlide + slider.cloneOffset;
-        // VERTICAL:
-        if (vertical && !carousel) {
-          slider.container.height((slider.count + slider.cloneCount) * 200 + "%").css("position", "absolute").width("100%");
-          setTimeout(function(){
-            slider.newSlides.css({"display": "block"});
-            slider.doMath();
-            slider.viewport.height(slider.h);
-            slider.setProps(sliderOffset * slider.h, "init");
-          }, (type === "init") ? 100 : 0);
-        } else {
-          slider.container.width((slider.count + slider.cloneCount) * 200 + "%");
-          slider.setProps(sliderOffset * slider.computedW, "init");
-          setTimeout(function(){
-            slider.doMath();
-            slider.newSlides.css({"width": slider.computedW, "float": "left", "display": "block"});
-            // SMOOTH HEIGHT:
-            if (slider.vars.smoothHeight) methods.smoothHeight();
-          }, (type === "init") ? 100 : 0);
-        }
-      } else { // FADE:
-        slider.slides.css({"width": "100%", "float": "left", "marginRight": "-100%", "position": "relative"});
-        if (type === "init") {
-          if (!touch) {
-            //slider.slides.eq(slider.currentSlide).fadeIn(slider.vars.animationSpeed, slider.vars.easing);
-            if (slider.vars.fadeFirstSlide == false) {
-              slider.slides.css({ "opacity": 0, "display": "block", "zIndex": 1 }).eq(slider.currentSlide).css({"zIndex": 2}).css({"opacity": 1});
-            } else {
-              slider.slides.css({ "opacity": 0, "display": "block", "zIndex": 1 }).eq(slider.currentSlide).css({"zIndex": 2}).animate({"opacity": 1},slider.vars.animationSpeed,slider.vars.easing);
-            }
-          } else {
-            slider.slides.css({ "opacity": 0, "display": "block", "webkitTransition": "opacity " + slider.vars.animationSpeed / 1000 + "s ease", "zIndex": 1 }).eq(slider.currentSlide).css({ "opacity": 1, "zIndex": 2});
-          }
-        }
-        // SMOOTH HEIGHT:
-        if (slider.vars.smoothHeight) methods.smoothHeight();
-      }
-      // !CAROUSEL:
-      // CANDIDATE: active slide
-      if (!carousel) slider.slides.removeClass(namespace + "active-slide").eq(slider.currentSlide).addClass(namespace + "active-slide");
-
-      //FlexSlider: init() Callback
-      slider.vars.init(slider);
-    };
-
-    slider.doMath = function() {
-      var slide = slider.slides.first(),
-          slideMargin = slider.vars.itemMargin,
-          minItems = slider.vars.minItems,
-          maxItems = slider.vars.maxItems;
-
-      slider.w = (slider.viewport===undefined) ? slider.width() : slider.viewport.width();
-      slider.h = slide.height();
-      slider.boxPadding = slide.outerWidth() - slide.width();
-
-      // CAROUSEL:
-      if (carousel) {
-        slider.itemT = slider.vars.itemWidth + slideMargin;
-        slider.minW = (minItems) ? minItems * slider.itemT : slider.w;
-        slider.maxW = (maxItems) ? (maxItems * slider.itemT) - slideMargin : slider.w;
-        slider.itemW = (slider.minW > slider.w) ? (slider.w - (slideMargin * (minItems - 1)))/minItems :
-                       (slider.maxW < slider.w) ? (slider.w - (slideMargin * (maxItems - 1)))/maxItems :
-                       (slider.vars.itemWidth > slider.w) ? slider.w : slider.vars.itemWidth;
-
-        slider.visible = Math.floor(slider.w/(slider.itemW));
-        slider.move = (slider.vars.move > 0 && slider.vars.move < slider.visible ) ? slider.vars.move : slider.visible;
-        slider.pagingCount = Math.ceil(((slider.count - slider.visible)/slider.move) + 1);
-        slider.last =  slider.pagingCount - 1;
-        slider.limit = (slider.pagingCount === 1) ? 0 :
-                       (slider.vars.itemWidth > slider.w) ? (slider.itemW * (slider.count - 1)) + (slideMargin * (slider.count - 1)) : ((slider.itemW + slideMargin) * slider.count) - slider.w - slideMargin;
-      } else {
-        slider.itemW = slider.w;
-        slider.pagingCount = slider.count;
-        slider.last = slider.count - 1;
-      }
-      slider.computedW = slider.itemW - slider.boxPadding;
-    };
-
-    slider.update = function(pos, action) {
-      slider.doMath();
-
-      // update currentSlide and slider.animatingTo if necessary
-      if (!carousel) {
-        if (pos < slider.currentSlide) {
-          slider.currentSlide += 1;
-        } else if (pos <= slider.currentSlide && pos !== 0) {
-          slider.currentSlide -= 1;
-        }
-        slider.animatingTo = slider.currentSlide;
-      }
-
-      // update controlNav
-      if (slider.vars.controlNav && !slider.manualControls) {
-        if ((action === "add" && !carousel) || slider.pagingCount > slider.controlNav.length) {
-          methods.controlNav.update("add");
-        } else if ((action === "remove" && !carousel) || slider.pagingCount < slider.controlNav.length) {
-          if (carousel && slider.currentSlide > slider.last) {
-            slider.currentSlide -= 1;
-            slider.animatingTo -= 1;
-          }
-          methods.controlNav.update("remove", slider.last);
-        }
-      }
-      // update directionNav
-      if (slider.vars.directionNav) methods.directionNav.update();
-
-    };
-
-    slider.addSlide = function(obj, pos) {
-      var $obj = $(obj);
-
-      slider.count += 1;
-      slider.last = slider.count - 1;
-
-      // append new slide
-      if (vertical && reverse) {
-        (pos !== undefined) ? slider.slides.eq(slider.count - pos).after($obj) : slider.container.prepend($obj);
-      } else {
-        (pos !== undefined) ? slider.slides.eq(pos).before($obj) : slider.container.append($obj);
-      }
-
-      // update currentSlide, animatingTo, controlNav, and directionNav
-      slider.update(pos, "add");
-
-      // update slider.slides
-      slider.slides = $(slider.vars.selector + ':not(.clone)', slider);
-      // re-setup the slider to accomdate new slide
-      slider.setup();
-
-      //FlexSlider: added() Callback
-      slider.vars.added(slider);
-    };
-    slider.removeSlide = function(obj) {
-      var pos = (isNaN(obj)) ? slider.slides.index($(obj)) : obj;
-
-      // update count
-      slider.count -= 1;
-      slider.last = slider.count - 1;
-
-      // remove slide
-      if (isNaN(obj)) {
-        $(obj, slider.slides).remove();
-      } else {
-        (vertical && reverse) ? slider.slides.eq(slider.last).remove() : slider.slides.eq(obj).remove();
-      }
-
-      // update currentSlide, animatingTo, controlNav, and directionNav
-      slider.doMath();
-      slider.update(pos, "remove");
-
-      // update slider.slides
-      slider.slides = $(slider.vars.selector + ':not(.clone)', slider);
-      // re-setup the slider to accomdate new slide
-      slider.setup();
-
-      // FlexSlider: removed() Callback
-      slider.vars.removed(slider);
-    };
-
-    //FlexSlider: Initialize
-    methods.init();
-  };
-
-  // Ensure the slider isn't focussed if the window loses focus.
-  $( window ).blur( function ( e ) {
-    focused = false;
-  }).focus( function ( e ) {
-    focused = true;
-  });
-
-  //FlexSlider: Default Settings
-  $.flexslider.defaults = {
-    namespace: "flex-",             //{NEW} String: Prefix string attached to the class of every element generated by the plugin
-    selector: ".slides > li",       //{NEW} Selector: Must match a simple pattern. '{container} > {slide}' -- Ignore pattern at your own peril
-    animation: "fade",              //String: Select your animation type, "fade" or "slide"
-    easing: "swing",                //{NEW} String: Determines the easing method used in jQuery transitions. jQuery easing plugin is supported!
-    direction: "horizontal",        //String: Select the sliding direction, "horizontal" or "vertical"
-    reverse: false,                 //{NEW} Boolean: Reverse the animation direction
-    animationLoop: true,            //Boolean: Should the animation loop? If false, directionNav will received "disable" classes at either end
-    smoothHeight: false,            //{NEW} Boolean: Allow height of the slider to animate smoothly in horizontal mode
-    startAt: 0,                     //Integer: The slide that the slider should start on. Array notation (0 = first slide)
-    slideshow: true,                //Boolean: Animate slider automatically
-    slideshowSpeed: 7000,           //Integer: Set the speed of the slideshow cycling, in milliseconds
-    animationSpeed: 600,            //Integer: Set the speed of animations, in milliseconds
-    initDelay: 0,                   //{NEW} Integer: Set an initialization delay, in milliseconds
-    randomize: false,               //Boolean: Randomize slide order
-    fadeFirstSlide: true,           //Boolean: Fade in the first slide when animation type is "fade"
-    thumbCaptions: false,           //Boolean: Whether or not to put captions on thumbnails when using the "thumbnails" controlNav.
-
-    // Usability features
-    pauseOnAction: true,            //Boolean: Pause the slideshow when interacting with control elements, highly recommended.
-    pauseOnHover: false,            //Boolean: Pause the slideshow when hovering over slider, then resume when no longer hovering
-    pauseInvisible: true,   		//{NEW} Boolean: Pause the slideshow when tab is invisible, resume when visible. Provides better UX, lower CPU usage.
-    useCSS: true,                   //{NEW} Boolean: Slider will use CSS3 transitions if available
-    touch: true,                    //{NEW} Boolean: Allow touch swipe navigation of the slider on touch-enabled devices
-    video: false,                   //{NEW} Boolean: If using video in the slider, will prevent CSS3 3D Transforms to avoid graphical glitches
-
-    // Primary Controls
-    controlNav: true,               //Boolean: Create navigation for paging control of each clide? Note: Leave true for manualControls usage
-    directionNav: true,             //Boolean: Create navigation for previous/next navigation? (true/false)
-    prevText: "Previous",           //String: Set the text for the "previous" directionNav item
-    nextText: "Next",               //String: Set the text for the "next" directionNav item
-
-    // Secondary Navigation
-    keyboard: true,                 //Boolean: Allow slider navigating via keyboard left/right keys
-    multipleKeyboard: false,        //{NEW} Boolean: Allow keyboard navigation to affect multiple sliders. Default behavior cuts out keyboard navigation with more than one slider present.
-    mousewheel: false,              //{UPDATED} Boolean: Requires jquery.mousewheel.js (https://github.com/brandonaaron/jquery-mousewheel) - Allows slider navigating via mousewheel
-    pausePlay: false,               //Boolean: Create pause/play dynamic element
-    pauseText: "Pause",             //String: Set the text for the "pause" pausePlay item
-    playText: "Play",               //String: Set the text for the "play" pausePlay item
-
-    // Special properties
-    controlsContainer: "",          //{UPDATED} jQuery Object/Selector: Declare which container the navigation elements should be appended too. Default container is the FlexSlider element. Example use would be $(".flexslider-container"). Property is ignored if given element is not found.
-    manualControls: "",             //{UPDATED} jQuery Object/Selector: Declare custom control navigation. Examples would be $(".flex-control-nav li") or "#tabs-nav li img", etc. The number of elements in your controlNav should match the number of slides/tabs.
-    sync: "",                       //{NEW} Selector: Mirror the actions performed on this slider with another slider. Use with care.
-    asNavFor: "",                   //{NEW} Selector: Internal property exposed for turning the slider into a thumbnail navigation for another slider
-
-    // Carousel Options
-    itemWidth: 0,                   //{NEW} Integer: Box-model width of individual carousel items, including horizontal borders and padding.
-    itemMargin: 0,                  //{NEW} Integer: Margin between carousel items.
-    minItems: 1,                    //{NEW} Integer: Minimum number of carousel items that should be visible. Items will resize fluidly when below this.
-    maxItems: 0,                    //{NEW} Integer: Maxmimum number of carousel items that should be visible. Items will resize fluidly when above this limit.
-    move: 0,                        //{NEW} Integer: Number of carousel items that should move on animation. If 0, slider will move all visible items.
-    allowOneSlide: true,           //{NEW} Boolean: Whether or not to allow a slider comprised of a single slide
-
-    // Callback API
-    start: function(){},            //Callback: function(slider) - Fires when the slider loads the first slide
-    before: function(){},           //Callback: function(slider) - Fires asynchronously with each slider animation
-    after: function(){},            //Callback: function(slider) - Fires after each slider animation completes
-    end: function(){},              //Callback: function(slider) - Fires when the slider reaches the last slide (asynchronous)
-    added: function(){},            //{NEW} Callback: function(slider) - Fires after a slide is added
-    removed: function(){},           //{NEW} Callback: function(slider) - Fires after a slide is removed
-    init: function() {}             //{NEW} Callback: function(slider) - Fires after the slider is initially setup
-  };
-
-  //FlexSlider: Plugin Function
-  $.fn.flexslider = function(options) {
-    if (options === undefined) options = {};
-
-    if (typeof options === "object") {
-      return this.each(function() {
-        var $this = $(this),
-            selector = (options.selector) ? options.selector : ".slides > li",
-            $slides = $this.find(selector);
-
-      if ( ( $slides.length === 1 && options.allowOneSlide === true ) || $slides.length === 0 ) {
-          $slides.fadeIn(400);
-          if (options.start) options.start($this);
-        } else if ($this.data('flexslider') === undefined) {
-          new $.flexslider(this, options);
-        }
-      });
-    } else {
-      // Helper strings to quickly perform functions on the slider
-      var $slider = $(this).data('flexslider');
-      switch (options) {
-        case "play": $slider.play(); break;
-        case "pause": $slider.pause(); break;
-        case "stop": $slider.stop(); break;
-        case "next": $slider.flexAnimate($slider.getTarget("next"), true); break;
-        case "prev":
-        case "previous": $slider.flexAnimate($slider.getTarget("prev"), true); break;
-        default: if (typeof options === "number") $slider.flexAnimate(options, true);
-      }
-    }
-  };
-})(jQuery);
-(function(a){a.isScrollToFixed=function(b){return !!a(b).data("ScrollToFixed")};a.ScrollToFixed=function(d,i){var l=this;l.$el=a(d);l.el=d;l.$el.data("ScrollToFixed",l);var c=false;var G=l.$el;var H;var E;var e;var y;var D=0;var q=0;var j=-1;var f=-1;var t=null;var z;var g;function u(){G.trigger("preUnfixed.ScrollToFixed");k();G.trigger("unfixed.ScrollToFixed");f=-1;D=G.offset().top;q=G.offset().left;if(l.options.offsets){q+=(G.offset().left-G.position().left)}if(j==-1){j=q}H=G.css("position");c=true;if(l.options.bottom!=-1){G.trigger("preFixed.ScrollToFixed");w();G.trigger("fixed.ScrollToFixed")}}function n(){var I=l.options.limit;if(!I){return 0}if(typeof(I)==="function"){return I.apply(G)}return I}function p(){return H==="fixed"}function x(){return H==="absolute"}function h(){return !(p()||x())}function w(){if(!p()){t.css({display:G.css("display"),width:G.outerWidth(true),height:G.outerHeight(true),"float":G.css("float")});cssOptions={"z-index":l.options.zIndex,position:"fixed",top:l.options.bottom==-1?s():"",bottom:l.options.bottom==-1?"":l.options.bottom,"margin-left":"0px"};if(!l.options.dontSetWidth){cssOptions.width=G.width()}G.css(cssOptions);G.addClass(l.options.baseClassName);if(l.options.className){G.addClass(l.options.className)}H="fixed"}}function b(){var J=n();var I=q;if(l.options.removeOffsets){I="";J=J-D}cssOptions={position:"absolute",top:J,left:I,"margin-left":"0px",bottom:""};if(!l.options.dontSetWidth){cssOptions.width=G.width()}G.css(cssOptions);H="absolute"}function k(){if(!h()){f=-1;t.css("display","none");G.css({"z-index":y,width:"",position:E,left:"",top:e,"margin-left":""});G.removeClass("scroll-to-fixed-fixed");if(l.options.className){G.removeClass(l.options.className)}H=null}}function v(I){if(I!=f){G.css("left",q-I);f=I}}function s(){var I=l.options.marginTop;if(!I){return 0}if(typeof(I)==="function"){return I.apply(G)}return I}function A(){if(!a.isScrollToFixed(G)){return}var K=c;if(!c){u()}else{if(h()){D=G.offset().top;q=G.offset().left}}var I=a(window).scrollLeft();var L=a(window).scrollTop();var J=n();if(l.options.minWidth&&a(window).width()<l.options.minWidth){if(!h()||!K){o();G.trigger("preUnfixed.ScrollToFixed");k();G.trigger("unfixed.ScrollToFixed")}}else{if(l.options.maxWidth&&a(window).width()>l.options.maxWidth){if(!h()||!K){o();G.trigger("preUnfixed.ScrollToFixed");k();G.trigger("unfixed.ScrollToFixed")}}else{if(l.options.bottom==-1){if(J>0&&L>=J-s()){if(!x()||!K){o();G.trigger("preAbsolute.ScrollToFixed");b();G.trigger("unfixed.ScrollToFixed")}}else{if(L>=D-s()){if(!p()||!K){o();G.trigger("preFixed.ScrollToFixed");w();f=-1;G.trigger("fixed.ScrollToFixed")}v(I)}else{if(!h()||!K){o();G.trigger("preUnfixed.ScrollToFixed");k();G.trigger("unfixed.ScrollToFixed")}}}}else{if(J>0){if(L+a(window).height()-G.outerHeight(true)>=J-(s()||-m())){if(p()){o();G.trigger("preUnfixed.ScrollToFixed");if(E==="absolute"){b()}else{k()}G.trigger("unfixed.ScrollToFixed")}}else{if(!p()){o();G.trigger("preFixed.ScrollToFixed");w()}v(I);G.trigger("fixed.ScrollToFixed")}}else{v(I)}}}}}function m(){if(!l.options.bottom){return 0}return l.options.bottom}function o(){var I=G.css("position");if(I=="absolute"){G.trigger("postAbsolute.ScrollToFixed")}else{if(I=="fixed"){G.trigger("postFixed.ScrollToFixed")}else{G.trigger("postUnfixed.ScrollToFixed")}}}var C=function(I){if(G.is(":visible")){c=false;A()}};var F=function(I){(!!window.requestAnimationFrame)?requestAnimationFrame(A):A()};var B=function(){var J=document.body;if(document.createElement&&J&&J.appendChild&&J.removeChild){var L=document.createElement("div");if(!L.getBoundingClientRect){return null}L.innerHTML="x";L.style.cssText="position:fixed;top:100px;";J.appendChild(L);var M=J.style.height,N=J.scrollTop;J.style.height="3000px";J.scrollTop=500;var I=L.getBoundingClientRect().top;J.style.height=M;var K=(I===100);J.removeChild(L);J.scrollTop=N;return K}return null};var r=function(I){I=I||window.event;if(I.preventDefault){I.preventDefault()}I.returnValue=false};l.init=function(){l.options=a.extend({},a.ScrollToFixed.defaultOptions,i);y=G.css("z-index");l.$el.css("z-index",l.options.zIndex);t=a("<div />");H=G.css("position");E=G.css("position");e=G.css("top");if(h()){l.$el.after(t)}a(window).bind("resize.ScrollToFixed",C);a(window).bind("scroll.ScrollToFixed",F);if("ontouchmove" in window){a(window).bind("touchmove.ScrollToFixed",A)}if(l.options.preFixed){G.bind("preFixed.ScrollToFixed",l.options.preFixed)}if(l.options.postFixed){G.bind("postFixed.ScrollToFixed",l.options.postFixed)}if(l.options.preUnfixed){G.bind("preUnfixed.ScrollToFixed",l.options.preUnfixed)}if(l.options.postUnfixed){G.bind("postUnfixed.ScrollToFixed",l.options.postUnfixed)}if(l.options.preAbsolute){G.bind("preAbsolute.ScrollToFixed",l.options.preAbsolute)}if(l.options.postAbsolute){G.bind("postAbsolute.ScrollToFixed",l.options.postAbsolute)}if(l.options.fixed){G.bind("fixed.ScrollToFixed",l.options.fixed)}if(l.options.unfixed){G.bind("unfixed.ScrollToFixed",l.options.unfixed)}if(l.options.spacerClass){t.addClass(l.options.spacerClass)}G.bind("resize.ScrollToFixed",function(){t.height(G.height())});G.bind("scroll.ScrollToFixed",function(){G.trigger("preUnfixed.ScrollToFixed");k();G.trigger("unfixed.ScrollToFixed");A()});G.bind("detach.ScrollToFixed",function(I){r(I);G.trigger("preUnfixed.ScrollToFixed");k();G.trigger("unfixed.ScrollToFixed");a(window).unbind("resize.ScrollToFixed",C);a(window).unbind("scroll.ScrollToFixed",F);G.unbind(".ScrollToFixed");t.remove();l.$el.removeData("ScrollToFixed")});C()};l.init()};a.ScrollToFixed.defaultOptions={marginTop:0,limit:0,bottom:-1,zIndex:1000,baseClassName:"scroll-to-fixed-fixed"};a.fn.scrollToFixed=function(b){return this.each(function(){(new a.ScrollToFixed(this,b))})}})(jQuery);
-/*
- * ScrollToFixed
- * https://github.com/bigspotteddog/ScrollToFixed
- * 
- * Copyright (c) 2011 Joseph Cava-Lynch
- * MIT license
- */
-
-(function($) {
-    $.isScrollToFixed = function(el) {
-        return !!$(el).data('ScrollToFixed');
-    };
-
-    $.ScrollToFixed = function(el, options) {
-        // To avoid scope issues, use 'base' instead of 'this' to reference this
-        // class from internal events and functions.
-        var base = this;
-
-        // Access to jQuery and DOM versions of element.
-        base.$el = $(el);
-        base.el = el;
-
-        // Add a reverse reference to the DOM object.
-        base.$el.data('ScrollToFixed', base);
-
-        // A flag so we know if the scroll has been reset.
-        var isReset = false;
-
-        // The element that was given to us to fix if scrolled above the top of
-        // the page.
-        var target = base.$el;
-
-        var position;
-        var originalPosition;
-        var originalOffsetTop;
-        var originalZIndex;
-
-        // The offset top of the element when resetScroll was called. This is
-        // used to determine if we have scrolled past the top of the element.
-        var offsetTop = 0;
-
-        // The offset left of the element when resetScroll was called. This is
-        // used to move the element left or right relative to the horizontal
-        // scroll.
-        var offsetLeft = 0;
-        var originalOffsetLeft = -1;
-
-        // This last offset used to move the element horizontally. This is used
-        // to determine if we need to move the element because we would not want
-        // to do that for no reason.
-        var lastOffsetLeft = -1;
-
-        // This is the element used to fill the void left by the target element
-        // when it goes fixed; otherwise, everything below it moves up the page.
-        var spacer = null;
-
-        var spacerClass;
-
-        var className;
-
-        // Capture the original offsets for the target element. This needs to be
-        // called whenever the page size changes or when the page is first
-        // scrolled. For some reason, calling this before the page is first
-        // scrolled causes the element to become fixed too late.
-        function resetScroll() {
-            // Set the element to it original positioning.
-            target.trigger('preUnfixed.ScrollToFixed');
-            setUnfixed();
-            target.trigger('unfixed.ScrollToFixed');
-
-            // Reset the last offset used to determine if the page has moved
-            // horizontally.
-            lastOffsetLeft = -1;
-
-            // Capture the offset top of the target element.
-            offsetTop = target.offset().top;
-
-            // Capture the offset left of the target element.
-            offsetLeft = target.offset().left;
-
-            // If the offsets option is on, alter the left offset.
-            if (base.options.offsets) {
-                offsetLeft += (target.offset().left - target.position().left);
-            }
-
-            if (originalOffsetLeft == -1) {
-                originalOffsetLeft = offsetLeft;
-            }
-
-            position = target.css('position');
-
-            // Set that this has been called at least once.
-            isReset = true;
-
-            if (base.options.bottom != -1) {
-                target.trigger('preFixed.ScrollToFixed');
-                setFixed();
-                target.trigger('fixed.ScrollToFixed');
-            }
-        }
-
-        function getLimit() {
-            var limit = base.options.limit;
-            if (!limit) return 0;
-
-            if (typeof(limit) === 'function') {
-                return limit.apply(target);
-            }
-            return limit;
-        }
-
-        // Returns whether the target element is fixed or not.
-        function isFixed() {
-            return position === 'fixed';
-        }
-
-        // Returns whether the target element is absolute or not.
-        function isAbsolute() {
-            return position === 'absolute';
-        }
-
-        function isUnfixed() {
-            return !(isFixed() || isAbsolute());
-        }
-
-        // Sets the target element to fixed. Also, sets the spacer to fill the
-        // void left by the target element.
-        function setFixed() {
-            // Only fix the target element and the spacer if we need to.
-            if (!isFixed()) {
-                // Set the spacer to fill the height and width of the target
-                // element, then display it.
-                spacer.css({
-                    'display' : target.css('display'),
-                    'width' : target.outerWidth(true),
-                    'height' : target.outerHeight(true),
-                    'float' : target.css('float')
-                });
-
-                // Set the target element to fixed and set its width so it does
-                // not fill the rest of the page horizontally. Also, set its top
-                // to the margin top specified in the options.
-
-                cssOptions={
-                    'z-index' : base.options.zIndex,
-                    'position' : 'fixed',
-                    'top' : base.options.bottom == -1?getMarginTop():'',
-                    'bottom' : base.options.bottom == -1?'':base.options.bottom,
-                    'margin-left' : '0px'
-                }
-                if (!base.options.dontSetWidth){ cssOptions['width']=target.width(); };
-
-                target.css(cssOptions);
-                
-                target.addClass(base.options.baseClassName);
-                
-                if (base.options.className) {
-                    target.addClass(base.options.className);
-                }
-
-                position = 'fixed';
-            }
-        }
-
-        function setAbsolute() {
-
-            var top = getLimit();
-            var left = offsetLeft;
-
-            if (base.options.removeOffsets) {
-                left = '';
-                top = top - offsetTop;
-            }
-
-            cssOptions={
-              'position' : 'absolute',
-              'top' : top,
-              'left' : left,
-              'margin-left' : '0px',
-              'bottom' : ''
-            }
-            if (!base.options.dontSetWidth){ cssOptions['width']=target.width(); };
-
-            target.css(cssOptions);
-
-            position = 'absolute';
-        }
-
-        // Sets the target element back to unfixed. Also, hides the spacer.
-        function setUnfixed() {
-            // Only unfix the target element and the spacer if we need to.
-            if (!isUnfixed()) {
-                lastOffsetLeft = -1;
-
-                // Hide the spacer now that the target element will fill the
-                // space.
-                spacer.css('display', 'none');
-
-                // Remove the style attributes that were added to the target.
-                // This will reverse the target back to the its original style.
-                target.css({
-                    'z-index' : originalZIndex,
-                    'width' : '',
-                    'position' : originalPosition,
-                    'left' : '',
-                    'top' : originalOffsetTop,
-                    'margin-left' : ''
-                });
-
-                target.removeClass('scroll-to-fixed-fixed');
-
-                if (base.options.className) {
-                    target.removeClass(base.options.className);
-                }
-
-                position = null;
-            }
-        }
-
-        // Moves the target element left or right relative to the horizontal
-        // scroll position.
-        function setLeft(x) {
-            // Only if the scroll is not what it was last time we did this.
-            if (x != lastOffsetLeft) {
-                // Move the target element horizontally relative to its original
-                // horizontal position.
-                target.css('left', offsetLeft - x);
-
-                // Hold the last horizontal position set.
-                lastOffsetLeft = x;
-            }
-        }
-
-        function getMarginTop() {
-            var marginTop = base.options.marginTop;
-            if (!marginTop) return 0;
-
-            if (typeof(marginTop) === 'function') {
-                return marginTop.apply(target);
-            }
-            return marginTop;
-        }
-
-        // Checks to see if we need to do something based on new scroll position
-        // of the page.
-        function checkScroll() {
-            if (!$.isScrollToFixed(target)) return;
-            var wasReset = isReset;
-
-            // If resetScroll has not yet been called, call it. This only
-            // happens once.
-            if (!isReset) {
-                resetScroll();
-            } else if (isUnfixed()) {
-                // if the offset has changed since the last scroll,
-                // we need to get it again.
-
-                // Capture the offset top of the target element.
-                offsetTop = target.offset().top;
-
-                // Capture the offset left of the target element.
-                offsetLeft = target.offset().left;
-            }
-
-            // Grab the current horizontal scroll position.
-            var x = $(window).scrollLeft();
-
-            // Grab the current vertical scroll position.
-            var y = $(window).scrollTop();
-
-            // Get the limit, if there is one.
-            var limit = getLimit();
-
-            // If the vertical scroll position, plus the optional margin, would
-            // put the target element at the specified limit, set the target
-            // element to absolute.
-            if (base.options.minWidth && $(window).width() < base.options.minWidth) {
-                if (!isUnfixed() || !wasReset) {
-                    postPosition();
-                    target.trigger('preUnfixed.ScrollToFixed');
-                    setUnfixed();
-                    target.trigger('unfixed.ScrollToFixed');
-                }
-            } else if (base.options.maxWidth && $(window).width() > base.options.maxWidth) {
-                if (!isUnfixed() || !wasReset) {
-                    postPosition();
-                    target.trigger('preUnfixed.ScrollToFixed');
-                    setUnfixed();
-                    target.trigger('unfixed.ScrollToFixed');
-                }
-            } else if (base.options.bottom == -1) {
-                // If the vertical scroll position, plus the optional margin, would
-                // put the target element at the specified limit, set the target
-                // element to absolute.
-                if (limit > 0 && y >= limit - getMarginTop()) {
-                    if (!isAbsolute() || !wasReset) {
-                        postPosition();
-                        target.trigger('preAbsolute.ScrollToFixed');
-                        setAbsolute();
-                        target.trigger('unfixed.ScrollToFixed');
-                    }
-                // If the vertical scroll position, plus the optional margin, would
-                // put the target element above the top of the page, set the target
-                // element to fixed.
-                } else if (y >= offsetTop - getMarginTop()) {
-                    if (!isFixed() || !wasReset) {
-                        postPosition();
-                        target.trigger('preFixed.ScrollToFixed');
-
-                        // Set the target element to fixed.
-                        setFixed();
-
-                        // Reset the last offset left because we just went fixed.
-                        lastOffsetLeft = -1;
-
-                        target.trigger('fixed.ScrollToFixed');
-                    }
-                    // If the page has been scrolled horizontally as well, move the
-                    // target element accordingly.
-                    setLeft(x);
-                } else {
-                    // Set the target element to unfixed, placing it where it was
-                    // before.
-                    if (!isUnfixed() || !wasReset) {
-                        postPosition();
-                        target.trigger('preUnfixed.ScrollToFixed');
-                        setUnfixed();
-                        target.trigger('unfixed.ScrollToFixed');
-                    }
-                }
-            } else {
-                if (limit > 0) {
-                    if (y + $(window).height() - target.outerHeight(true) >= limit - (getMarginTop() || -getBottom())) {
-                        if (isFixed()) {
-                            postPosition();
-                            target.trigger('preUnfixed.ScrollToFixed');
-
-                            if (originalPosition === 'absolute') {
-                                setAbsolute();
-                            } else {
-                                setUnfixed();
-                            }
-
-                            target.trigger('unfixed.ScrollToFixed');
-                        }
-                    } else {
-                        if (!isFixed()) {
-                            postPosition();
-                            target.trigger('preFixed.ScrollToFixed');
-                            setFixed();
-                        }
-                        setLeft(x);
-                        target.trigger('fixed.ScrollToFixed');
-                    }
-                } else {
-                    setLeft(x);
-                }
-            }
-        }
-
-        function getBottom() {
-            if (!base.options.bottom) return 0;
-            return base.options.bottom;
-        }
-
-        function postPosition() {
-            var position = target.css('position');
-
-            if (position == 'absolute') {
-                target.trigger('postAbsolute.ScrollToFixed');
-            } else if (position == 'fixed') {
-                target.trigger('postFixed.ScrollToFixed');
-            } else {
-                target.trigger('postUnfixed.ScrollToFixed');
-            }
-        }
-
-        var windowResize = function(event) {
-            // Check if the element is visible before updating it's position, which
-            // improves behavior with responsive designs where this element is hidden.
-            if(target.is(':visible')) {
-                isReset = false;
-                checkScroll();
-            }
-        }
-
-        var windowScroll = function(event) {
-            (!!window.requestAnimationFrame) ? requestAnimationFrame(checkScroll) : checkScroll();
-        }
-
-        // From: http://kangax.github.com/cft/#IS_POSITION_FIXED_SUPPORTED
-        var isPositionFixedSupported = function() {
-            var container = document.body;
-
-            if (document.createElement && container && container.appendChild && container.removeChild) {
-                var el = document.createElement('div');
-
-                if (!el.getBoundingClientRect) return null;
-
-                el.innerHTML = 'x';
-                el.style.cssText = 'position:fixed;top:100px;';
-                container.appendChild(el);
-
-                var originalHeight = container.style.height,
-                originalScrollTop = container.scrollTop;
-
-                container.style.height = '3000px';
-                container.scrollTop = 500;
-
-                var elementTop = el.getBoundingClientRect().top;
-                container.style.height = originalHeight;
-
-                var isSupported = (elementTop === 100);
-                container.removeChild(el);
-                container.scrollTop = originalScrollTop;
-
-                return isSupported;
-            }
-
-            return null;
-        }
-
-        var preventDefault = function(e) {
-            e = e || window.event;
-            if (e.preventDefault) {
-                e.preventDefault();
-            }
-            e.returnValue = false;
-        }
-
-        // Initializes this plugin. Captures the options passed in, turns this
-        // off for devices that do not support fixed position, adds the spacer,
-        // and binds to the window scroll and resize events.
-        base.init = function() {
-            // Capture the options for this plugin.
-            base.options = $.extend({}, $.ScrollToFixed.defaultOptions, options);
-
-            originalZIndex = target.css('z-index')
-
-            // Turn off this functionality for devices that do not support it.
-            // if (!(base.options && base.options.dontCheckForPositionFixedSupport)) {
-            //     var fixedSupported = isPositionFixedSupported();
-            //     if (!fixedSupported) return;
-            // }
-
-            // Put the target element on top of everything that could be below
-            // it. This reduces flicker when the target element is transitioning
-            // to fixed.
-            base.$el.css('z-index', base.options.zIndex);
-
-            // Create a spacer element to fill the void left by the target
-            // element when it goes fixed.
-            spacer = $('<div />');
-
-            position = target.css('position');
-            originalPosition = target.css('position');
-
-            originalOffsetTop = target.css('top');
-
-            // Place the spacer right after the target element.
-            if (isUnfixed()) base.$el.after(spacer);
-
-            // Reset the target element offsets when the window is resized, then
-            // check to see if we need to fix or unfix the target element.
-            $(window).bind('resize.ScrollToFixed', windowResize);
-
-            // When the window scrolls, check to see if we need to fix or unfix
-            // the target element.
-            $(window).bind('scroll.ScrollToFixed', windowScroll);
-
-            // For touch devices, call checkScroll directlly rather than
-            // rAF wrapped windowScroll to animate the element
-            if ('ontouchmove' in window) {
-              $(window).bind('touchmove.ScrollToFixed', checkScroll);
-            }
-
-            if (base.options.preFixed) {
-                target.bind('preFixed.ScrollToFixed', base.options.preFixed);
-            }
-            if (base.options.postFixed) {
-                target.bind('postFixed.ScrollToFixed', base.options.postFixed);
-            }
-            if (base.options.preUnfixed) {
-                target.bind('preUnfixed.ScrollToFixed', base.options.preUnfixed);
-            }
-            if (base.options.postUnfixed) {
-                target.bind('postUnfixed.ScrollToFixed', base.options.postUnfixed);
-            }
-            if (base.options.preAbsolute) {
-                target.bind('preAbsolute.ScrollToFixed', base.options.preAbsolute);
-            }
-            if (base.options.postAbsolute) {
-                target.bind('postAbsolute.ScrollToFixed', base.options.postAbsolute);
-            }
-            if (base.options.fixed) {
-                target.bind('fixed.ScrollToFixed', base.options.fixed);
-            }
-            if (base.options.unfixed) {
-                target.bind('unfixed.ScrollToFixed', base.options.unfixed);
-            }
-
-            if (base.options.spacerClass) {
-                spacer.addClass(base.options.spacerClass);
-            }
-
-            target.bind('resize.ScrollToFixed', function() {
-                spacer.height(target.height());
-            });
-
-            target.bind('scroll.ScrollToFixed', function() {
-                target.trigger('preUnfixed.ScrollToFixed');
-                setUnfixed();
-                target.trigger('unfixed.ScrollToFixed');
-                checkScroll();
-            });
-
-            target.bind('detach.ScrollToFixed', function(ev) {
-                preventDefault(ev);
-
-                target.trigger('preUnfixed.ScrollToFixed');
-                setUnfixed();
-                target.trigger('unfixed.ScrollToFixed');
-
-                $(window).unbind('resize.ScrollToFixed', windowResize);
-                $(window).unbind('scroll.ScrollToFixed', windowScroll);
-
-                target.unbind('.ScrollToFixed');
-
-                //remove spacer from dom
-                spacer.remove();
-
-                base.$el.removeData('ScrollToFixed');
-            });
-
-            // Reset everything.
-            windowResize();
-        };
-
-        // Initialize the plugin.
-        base.init();
-    };
-
-    // Sets the option defaults.
-    $.ScrollToFixed.defaultOptions = {
-        marginTop : 0,
-        limit : 0,
-        bottom : -1,
-        zIndex : 1000,
-        baseClassName: 'scroll-to-fixed-fixed'
-    };
-
-    // Returns enhanced elements that will fix to the top of the page when the
-    // page is scrolled.
-    $.fn.scrollToFixed = function(options) {
-        return this.each(function() {
-            (new $.ScrollToFixed(this, options));
-        });
-    };
-})(jQuery);
-/* ===========================================================
- * onepagescroll.js v1.2.2
- * ===========================================================
- * Copyright 2014 Pete Rojwongsuriya.
- * http://www.thepetedesign.com
- *
- * Create an Apple-like website that let user scroll
- * one page at a time
- *
- * Credit: Eike Send for the awesome swipe event
- * https://github.com/peachananr/purejs-onepage-scroll
- * 
- * License: GPL v3
- *
- * ========================================================== */
-
-	
-function onePageScroll(element, options) {
-  
-  var defaults = {
-	    	sectionContainer: "section",
-	    	easing: "ease",
-	    	animationTime: 1000,
-	    	pagination: true,
-	    	updateURL: false,
-	    	keyboard: true,
-	    	beforeMove: null,
-	    	afterMove: null,
-	    	loop: false,
-	    	responsiveFallback: false
-	    },
-	    _root = this,
-	    settings = Object.extend({}, defaults, options),
-	    el = document.querySelector(element),
-	    sections = document.querySelectorAll(settings.sectionContainer),
-	    total = sections.length,
-	    status = "off",
-	    topPos = 0,
-	    lastAnimation = 0,
-	    quietPeriod = 500,
-	    paginationList = "",
-	    body = document.querySelector("body");
-  
-  this.init = function() { 
-    /*-------------------------------------------*/
-    /*  Prepare Everything                       */
-    /*-------------------------------------------*/
-    
-  	_addClass(el, "onepage-wrapper")
-  	el.style.position = "relative";
-    
-  	for( var i = 0; i < sections.length; i++){
-  	  _addClass(sections[i], "ops-section")
-  	  sections[i].dataset.index = i + 1;
-  	  topPos = topPos + 100;
-    
-  	  if(settings.pagination == true) {
-  			paginationList += "<li><a data-index='" + (i + 1) + "' href='#" + (i + 1) + "'></a></li>";
-  		}
-    }
-    
-  	_swipeEvents(el);
-  	document.addEventListener("swipeDown",  function(event){
-  	  if (!_hasClass(body, "disabled-onepage-scroll")) event.preventDefault();
-  		moveUp(el);
-  	});
-  	document.addEventListener("swipeUp", function(event){
-  		if (!_hasClass(body, "disabled-onepage-scroll")) event.preventDefault();
-  		moveDown(el);
-  	});
-    
-  	// Create Pagination and Display Them
-    
-  	if(settings.pagination == true) {
-  	  var pagination = document.createElement("ul");
-  	  pagination.setAttribute("class", "onepage-pagination");
-    
-  	  body.appendChild(pagination)
-  		pagination.innerHTML = paginationList;
-  		var posTop = (document.querySelector(".onepage-pagination").offsetHeight / 2) * -1;
-  		document.querySelector(".onepage-pagination").style.marginTop = posTop;
-  	}
-    
-  	if(window.location.hash != "" && window.location.hash != "#1") {
-  		var init_index =  window.location.hash.replace("#", ""),
-  		    next = document.querySelector(settings.sectionContainer + "[data-index='" + (init_index) + "']"),
-  		    next_index = next.dataset.index;
-    
-  		_addClass( document.querySelector(settings.sectionContainer + "[data-index='" + init_index + "']") ,"active")
-  		_addClass(body, "viewing-page-"+ init_index)
-  		if(settings.pagination == true) _addClass(document.querySelector(".onepage-pagination li a" + "[data-index='" + init_index + "']"), "active");
-    
-  		if(next) {
-  			_addClass(next, "active")
-  			if(settings.pagination == true) _addClass(document.querySelector(".onepage-pagination li a" + "[data-index='" + init_index + "']"), "active");
-    
-  			body.className = body.className.replace(/\bviewing-page-\d.*?\b/g, '');
-  			_addClass(body, "viewing-page-" + next_index)
-  			if (history.replaceState && settings.updateURL == true) {
-  				var href = window.location.href.substr(0,window.location.href.indexOf('#')) + "#" + (init_index);
-  				history.pushState( {}, document.title, href );
-  			}
-  		}
-  		var pos = ((init_index - 1) * 100) * -1;
-  		_transformPage(el, settings, pos, init_index);
-    
-  	}else{
-  	  _addClass(document.querySelector(settings.sectionContainer + "[data-index='1']"), "active");
-  	  _addClass(body, "viewing-page-1");
-  		if(settings.pagination == true) _addClass(document.querySelector(".onepage-pagination li a[data-index='1']"), "active");
-  	}
-    
-  	_paginationHandler = function() {
-      var page_index = this.dataset.index;
-  		moveTo(el, page_index);
-  	}
-    
-    
-  	if(settings.pagination == true)  {
-  	  var pagination_links = document.querySelectorAll(".onepage-pagination li a");
-    
-  	  for( var i = 0; i < pagination_links.length; i++){
-    	  pagination_links[i].addEventListener('click', _paginationHandler);
-      }
-  	}
-    
-  	_mouseWheelHandler = function(event) {
-  		event.preventDefault();
-  		var delta = event.wheelDelta || -event.detail;
-  		if (!_hasClass(body, "disabled-onepage-scroll")) _init_scroll(event, delta);
-  	}
-    
-  	document.addEventListener('mousewheel', _mouseWheelHandler);
-  	document.addEventListener('DOMMouseScroll', _mouseWheelHandler);
-    
-    
-  	if(settings.responsiveFallback != false) {
-  	  window.onresize = function(){
-  			_responsive();
-  		}
-    
-  		_responsive();
-  	}
-    
-    _keydownHandler = function(e) {
-  		var tag = e.target.tagName.toLowerCase();
-    
-  		if (!_hasClass(body, "disabled-onepage-scroll")) {
-  			switch(e.which) {
-  				case 38:
-  					if (tag != 'input' && tag != 'textarea') moveUp(el)
-  					break;
-  				case 40:
-  					if (tag != 'input' && tag != 'textarea') moveDown(el)
-  					break;
-  				default: return;
-  			}
-  		}
-  		return false;
-  	}
-    
-  	if(settings.keyboard == true) {
-  		document.onkeydown = _keydownHandler;
-  	}
-  	return false;
-  }
-  
-  /*-------------------------------------------------------*/
-  /*  Private Functions                                    */
-  /*-------------------------------------------------------*/
-  /*------------------------------------------------*/
-  /*  Credit: Eike Send for the awesome swipe event */
-  /*------------------------------------------------*/
-  _swipeEvents = function(el){
-  	var startX,
-  		startY;
-  
-    document.addEventListener("touchstart", touchstart);  
-  
-  	function touchstart(event) {
-  		var touches = event.touches;
-  		if (touches && touches.length) {
-  			startX = touches[0].pageX;
-  			startY = touches[0].pageY;
-  			document.addEventListener("touchmove", touchmove);
-  		}
-  	}
-  
-  	function touchmove(event) {
-  		var touches = event.touches;
-  		if (touches && touches.length) {
-  		  event.preventDefault();
-  			var deltaX = startX - touches[0].pageX;
-  			var deltaY = startY - touches[0].pageY;
-  
-  			if (deltaX >= 50) {
-  			  var event = new Event('swipeLeft');
-  			  document.dispatchEvent(event);
-  			}
-  			if (deltaX <= -50) {
-  			  var event = new Event('swipeRight');
-  			  document.dispatchEvent(event);
-  			}
-  			if (deltaY >= 50) {
-  			  var event = new Event('swipeUp');
-  			  document.dispatchEvent(event);
-  			}
-  			if (deltaY <= -50) {
-  			  var event = new Event('swipeDown');
-  			  document.dispatchEvent(event);
-  			}
-  
-  			if (Math.abs(deltaX) >= 50 || Math.abs(deltaY) >= 50) {
-  				document.removeEventListener('touchmove', touchmove);
-  			}
-  		}
-  	}
-  
-  };
-  /*-----------------------------------------------------------*/
-	/*  Utility to add/remove class easily with javascript       */
-	/*-----------------------------------------------------------*/
-
-  _trim = function(str) {
-      return str.replace(/^\s\s*/, '').replace(/\s\s*$/, '');
-  }
-
-  _hasClass = function(ele,cls) {
-    if (ele.className) {
-      return ele.className.match(new RegExp('(\\s|^)'+cls+'(\\s|$)'));
-    } else {
-      return ele.className = cls;
-    }
-  }
-
-  _addClass = function(ele,cls) {
-    if (!_hasClass(ele,cls)) ele.className += " "+cls;
-    ele.className = _trim(ele.className)
-  }
-
-  _removeClass = function(ele,cls) {
-    if (_hasClass(ele,cls)) {
-        var reg = new RegExp('(\\s|^)'+cls+'(\\s|$)');
-        ele.className=ele.className.replace(reg,' ');
-    }
-    ele.className = _trim(ele.className)
-  }
-
-  /*-----------------------------------------------------------*/
-	/*  Transtionend Normalizer by Modernizr                     */
-	/*-----------------------------------------------------------*/
-
-  _whichTransitionEvent = function(){
-    var t;
-    var el = document.createElement('fakeelement');
-    var transitions = {
-      'transition':'transitionend',
-      'OTransition':'oTransitionEnd',
-      'MozTransition':'transitionend',
-      'WebkitTransition':'webkitTransitionEnd'
-    }
-
-    for(t in transitions){
-        if( el.style[t] !== undefined ){
-            return transitions[t];
-        }
-    }
-  }
-
-  /*-----------------------------------------------------------*/
-	/*  Function to perform scroll to top animation              */
-	/*-----------------------------------------------------------*/
-
-  _scrollTo = function(element, to, duration) {
-    if (duration < 0) return;
-    var difference = to - element.scrollTop;
-    var perTick = difference / duration * 10;
-
-    setTimeout(function() {
-        element.scrollTop = element.scrollTop + perTick;
-        if (element.scrollTop == to) return;
-        _scrollTo(element, to, duration - 10);
-    }, 10);
-  }
-  
-  
-     
-  /*---------------------------------*/
-  /*  Function to transform the page */
-  /*---------------------------------*/
-  
-  _transformPage = function(el2, settings, pos, index, next_el) {
-    if (typeof settings.beforeMove == 'function') settings.beforeMove(index, next_el);
-    
-    var transformCSS = "-webkit-transform: translate3d(0, " + pos + "%, 0); -webkit-transition: -webkit-transform " + settings.animationTime + "ms " + settings.easing + "; -moz-transform: translate3d(0, " + pos + "%, 0); -moz-transition: -moz-transform " + settings.animationTime + "ms " + settings.easing + "; -ms-transform: translate3d(0, " + pos + "%, 0); -ms-transition: -ms-transform " + settings.animationTime + "ms " + settings.easing + "; transform: translate3d(0, " + pos + "%, 0); transition: transform " + settings.animationTime + "ms " + settings.easing + ";";
-    
-    el2.style.cssText = transformCSS;
-    
-    var transitionEnd = _whichTransitionEvent();
-     el2.addEventListener(transitionEnd, endAnimation, false);
-    
-    function endAnimation() {
-      if (typeof settings.afterMove == 'function') settings.afterMove(index, next_el);
-      el2.removeEventListener(transitionEnd, endAnimation)
-    }
-  }
-  
-  /*-------------------------------------------*/
-  /*  Responsive Fallback trigger              */
-  /*-------------------------------------------*/
-  
-  _responsive = function() {
-
-		if (document.body.clientWidth < settings.responsiveFallback) {
-			
-			_addClass(body, "disabled-onepage-scroll");
-			document.removeEventListener('mousewheel', _mouseWheelHandler);
-			document.removeEventListener('DOMMouseScroll', _mouseWheelHandler);
-			_swipeEvents(el);
-			document.removeEventListener("swipeDown");
-			document.removeEventListener("swipeUp");
-			
-		} else {
-		  
-		  if (_hasClass(body, "disabled-onepage-scroll")) {
-		    _removeClass(body, "disabled-onepage-scroll");
-		    _scrollTo(document.documentElement, 0, 2000);
-	    }
-      
-      
-
-			_swipeEvents(el);
-			document.addEventListener("swipeDown",  function(event){
-			  if (!_hasClass(body, "disabled-onepage-scroll")) event.preventDefault();
-				moveUp(el);
-			});
-			document.addEventListener("swipeUp", function(event){
-				if (!_hasClass(body, "disabled-onepage-scroll")) event.preventDefault();
-				moveDown(el);
-			});
-      
-      document.addEventListener('mousewheel', _mouseWheelHandler);
-  		document.addEventListener('DOMMouseScroll', _mouseWheelHandler);
-			
-		}
-	}
-	
-	/*-------------------------------------------*/
-  /*  Initialize scroll detection              */
-  /*-------------------------------------------*/
-  
-  _init_scroll = function(event, delta) {
-		var deltaOfInterest = delta,
-			timeNow = new Date().getTime();
-			
-		// Cancel scroll if currently animating or within quiet period
-		if(timeNow - lastAnimation < quietPeriod + settings.animationTime) {
-			event.preventDefault();
-			return;
-		}
-
-		if (deltaOfInterest < 0) {
-			moveDown(el)
-		} else {
-			moveUp(el)
-		}
-		
-		lastAnimation = timeNow;
-	}
-   
-  
-  /*-------------------------------------------------------*/
-  /*  Public Functions                                     */
-  /*-------------------------------------------------------*/
-  
-  /*---------------------------------*/
-  /*  Function to move down section  */
-  /*---------------------------------*/
-  
-   this.moveDown = function(el3) {
-    
-    if (typeof el3 == "string") el3 = document.querySelector(el3);
-    
-    var index = document.querySelector(settings.sectionContainer +".active").dataset.index,
-		    current = document.querySelector(settings.sectionContainer + "[data-index='" + index + "']"),
-		    next = document.querySelector(settings.sectionContainer + "[data-index='" + (parseInt(index) + 1) + "']");
-		    
-		    
-		if(!next) {
-			if (settings.loop == true) {
-				pos = 0;
-				next = document.querySelector(settings.sectionContainer + "[data-index='1']");
-			} else {
-				return
-			}
-
-		}else {
-			pos = (index * 100) * -1;
-		}
-		var next_index = next.dataset.index;
-		_removeClass(current, "active");
-		_addClass(next, "active");
-		
-		if(settings.pagination == true) {
-		  _removeClass(document.querySelector(".onepage-pagination li a" + "[data-index='" + index + "']"), "active");
-		  _addClass(document.querySelector(".onepage-pagination li a" + "[data-index='" + next_index + "']"), "active");
-		}
-
-		body.className = body.className.replace(/\bviewing-page-\d.*?\b/g, '');
-		_addClass(body, "viewing-page-"+ next_index);
-
-		if (history.replaceState && settings.updateURL == true) {
-			var href = window.location.href.substr(0,window.location.href.indexOf('#')) + "#" + (parseInt(index) + 1);
-			history.pushState( {}, document.title, href );
-		}
-		_transformPage(el3, settings, pos, next_index, next);
-	}
-	
-	/*---------------------------------*/
-  /*  Function to move up section    */
-  /*---------------------------------*/
-	
-	this.moveUp = function(el4) {
-	  
-	  if (typeof el4 == "string") el4 = document.querySelector(el4);
-	  
-	  var index = document.querySelector(settings.sectionContainer +".active").dataset.index,
-		    current = document.querySelector(settings.sectionContainer + "[data-index='" + index + "']"),
-		    next = document.querySelector(settings.sectionContainer + "[data-index='" + (parseInt(index) - 1) + "']");
-
-		if(!next) {
-			if (settings.loop == true) {
-				pos = ((total - 1) * 100) * -1;
-				next = document.querySelector(settings.sectionContainer + "[data-index='" + total + "']");
-			} else {
-				return
-			}
-		}else {
-			pos = ((next.dataset.index - 1) * 100) * -1;
-		}
-		var next_index = next.dataset.index;
-		_removeClass(current, "active")
-		_addClass(next, "active")
-		
-		if(settings.pagination == true) {
-		  _removeClass(document.querySelector(".onepage-pagination li a" + "[data-index='" + index + "']"), "active");
-		  _addClass(document.querySelector(".onepage-pagination li a" + "[data-index='" + next_index + "']"), "active");
-		}
-		body.className = body.className.replace(/\bviewing-page-\d.*?\b/g, '');
-		_addClass(body, "viewing-page-"+ next_index);
-
-		if (history.replaceState && settings.updateURL == true) {
-			var href = window.location.href.substr(0,window.location.href.indexOf('#')) + "#" + (parseInt(index) - 1);
-			history.pushState( {}, document.title, href );
-		}
-		_transformPage(el4, settings, pos, next_index, next);
-	}
-  
-  /*-------------------------------------------*/
-  /*  Function to move to specified section    */
-  /*-------------------------------------------*/
-  
-  this.moveTo = function(el5, page_index) {
-    
-    if (typeof el5 == "string") el5 = document.querySelector(el5);
-    
-		var current = document.querySelector(settings.sectionContainer + ".active"),
-		    next = document.querySelector(settings.sectionContainer + "[data-index='" + (page_index) + "']");
-		    
-		if(next) {
-		  var next_index = next.dataset.index;
-			_removeClass(current, "active");
-			_addClass(next, "active");
-			_removeClass(document.querySelector(".onepage-pagination li a" + ".active"), "active");
-			_addClass(document.querySelector(".onepage-pagination li a" + "[data-index='" + (page_index) + "']"), "active");
-
-			body.className = body.className.replace(/\bviewing-page-\d.*?\b/g, '');
-			_addClass(body, "viewing-page-"+ next_index);
-
-			pos = ((page_index - 1) * 100) * -1;
-
-			if (history.replaceState && settings.updateURL == true) {
-				var href = window.location.href.substr(0,window.location.href.indexOf('#')) + "#" + (parseInt(page_index) - 1);
-				history.pushState( {}, document.title, href );
-			}
-			_transformPage(el5, settings, pos, page_index, next);
-		}
-	}
-	
-  this.init();
-}
-
-/*------------------------------------------------*/
- /*  Ulitilities Method                            */
- /*------------------------------------------------*/
- 
- /*-----------------------------------------------------------*/
- /*  Function by John Resig to replicate extend functionality */
- /*-----------------------------------------------------------*/
- 
- Object.extend = function(orig){
-   if ( orig == null )
-     return orig;
- 
-   for ( var i = 1; i < arguments.length; i++ ) {
-     var obj = arguments[i];
-     if ( obj != null ) {
-       for ( var prop in obj ) {
-         var getter = obj.__lookupGetter__( prop ),
-             setter = obj.__lookupSetter__( prop );
- 
-         if ( getter || setter ) {
-           if ( getter )
-             orig.__defineGetter__( prop, getter );
-           if ( setter )
-             orig.__defineSetter__( prop, setter );
-         } else {
-           orig[ prop ] = obj[ prop ];
-         }
-       }
-     }
-   }
- 
-   return orig;
- };
-	
-
-/* ===========================================================
- * onepagescroll.js v1.2.2
- * ===========================================================
- * Copyright 2014 Pete Rojwongsuriya.
- * http://www.thepetedesign.com
- *
- * Create an Apple-like website that let user scroll
- * one page at a time
- *
- * Credit: Eike Send for the awesome swipe event
- * https://github.com/peachananr/purejs-onepage-scroll
- * 
- * License: GPL v3
- *
- * ========================================================== */
-
-	
-function onePageScroll(element, options) {
-  
-  var defaults = {
-	    	sectionContainer: "section",
-	    	easing: "ease",
-	    	animationTime: 1000,
-	    	pagination: true,
-	    	updateURL: false,
-	    	keyboard: true,
-	    	beforeMove: null,
-	    	afterMove: null,
-	    	loop: false,
-	    	responsiveFallback: false
-	    },
-	    _root = this,
-	    settings = Object.extend({}, defaults, options),
-	    el = document.querySelector(element),
-	    sections = document.querySelectorAll(settings.sectionContainer),
-	    total = sections.length,
-	    status = "off",
-	    topPos = 0,
-	    lastAnimation = 0,
-	    quietPeriod = 500,
-	    paginationList = "",
-	    body = document.querySelector("body");
-  
-  this.init = function() { 
-    /*-------------------------------------------*/
-    /*  Prepare Everything                       */
-    /*-------------------------------------------*/
-    
-  	_addClass(el, "onepage-wrapper")
-  	el.style.position = "relative";
-    
-  	for( var i = 0; i < sections.length; i++){
-  	  _addClass(sections[i], "ops-section")
-  	  sections[i].dataset.index = i + 1;
-  	  topPos = topPos + 100;
-    
-  	  if(settings.pagination == true) {
-  			paginationList += "<li><a data-index='" + (i + 1) + "' href='#" + (i + 1) + "'></a></li>";
-  		}
-    }
-    
-  	_swipeEvents(el);
-  	document.addEventListener("swipeDown",  function(event){
-  	  if (!_hasClass(body, "disabled-onepage-scroll")) event.preventDefault();
-  		moveUp(el);
-  	});
-  	document.addEventListener("swipeUp", function(event){
-  		if (!_hasClass(body, "disabled-onepage-scroll")) event.preventDefault();
-  		moveDown(el);
-  	});
-    
-  	// Create Pagination and Display Them
-    
-  	if(settings.pagination == true) {
-  	  var pagination = document.createElement("ul");
-  	  pagination.setAttribute("class", "onepage-pagination");
-      pagination.setAttribute("id", "officialPagination");
-    
-  	  body.appendChild(pagination)
-  		pagination.innerHTML = paginationList;
-  		var posTop = (document.querySelector(".onepage-pagination").offsetHeight / 2) * -1;
-  		document.querySelector(".onepage-pagination").style.marginTop = posTop;
-  	}
-    
-  	if(window.location.hash != "" && window.location.hash != "#1") {
-  		var init_index =  window.location.hash.replace("#", ""),
-  		    next = document.querySelector(settings.sectionContainer + "[data-index='" + (init_index) + "']"),
-  		    next_index = next.dataset.index;
-    
-  		_addClass( document.querySelector(settings.sectionContainer + "[data-index='" + init_index + "']") ,"active")
-  		_addClass(body, "viewing-page-"+ init_index)
-  		if(settings.pagination == true) _addClass(document.querySelector(".onepage-pagination li a" + "[data-index='" + init_index + "']"), "active");
-    
-  		if(next) {
-  			_addClass(next, "active")
-  			if(settings.pagination == true) _addClass(document.querySelector(".onepage-pagination li a" + "[data-index='" + init_index + "']"), "active");
-    
-  			body.className = body.className.replace(/\bviewing-page-\d.*?\b/g, '');
-  			_addClass(body, "viewing-page-" + next_index)
-  			if (history.replaceState && settings.updateURL == true) {
-  				var href = window.location.href.substr(0,window.location.href.indexOf('#')) + "#" + (init_index);
-  				history.pushState( {}, document.title, href );
-  			}
-  		}
-  		var pos = ((init_index - 1) * 100) * -1;
-  		_transformPage(el, settings, pos, init_index);
-    
-  	}else{
-  	  _addClass(document.querySelector(settings.sectionContainer + "[data-index='1']"), "active");
-  	  _addClass(body, "viewing-page-1");
-  		if(settings.pagination == true) _addClass(document.querySelector(".onepage-pagination li a[data-index='1']"), "active");
-  	}
-    
-  	_paginationHandler = function() {
-      var page_index = this.dataset.index;
-  		moveTo(el, page_index);
-  	}
-    
-    
-  	if(settings.pagination == true)  {
-  	  var pagination_links = document.querySelectorAll(".onepage-pagination li a");
-    
-  	  for( var i = 0; i < pagination_links.length; i++){
-    	  pagination_links[i].addEventListener('click', _paginationHandler);
-      }
-  	}
-    
-  	_mouseWheelHandler = function(event) {
-  		event.preventDefault();
-  		var delta = event.wheelDelta || -event.detail;
-  		if (!_hasClass(body, "disabled-onepage-scroll")) _init_scroll(event, delta);
-  	}
-    
-  	document.addEventListener('mousewheel', _mouseWheelHandler);
-  	document.addEventListener('DOMMouseScroll', _mouseWheelHandler);
-    
-    
-  	if(settings.responsiveFallback != false) {
-  	  window.onresize = function(){
-  			_responsive();
-  		}
-    
-  		_responsive();
-  	}
-    
-    _keydownHandler = function(e) {
-  		var tag = e.target.tagName.toLowerCase();
-    
-  		if (!_hasClass(body, "disabled-onepage-scroll")) {
-  			switch(e.which) {
-  				case 38:
-  					if (tag != 'input' && tag != 'textarea') moveUp(el)
-  					break;
-  				case 40:
-  					if (tag != 'input' && tag != 'textarea') moveDown(el)
-  					break;
-  				default: return;
-  			}
-  		}
-  		return false;
-  	}
-    
-  	if(settings.keyboard == true) {
-  		document.onkeydown = _keydownHandler;
-  	}
-  	return false;
-  }
-  
-  /*-------------------------------------------------------*/
-  /*  Private Functions                                    */
-  /*-------------------------------------------------------*/
-  /*------------------------------------------------*/
-  /*  Credit: Eike Send for the awesome swipe event */
-  /*------------------------------------------------*/
-  _swipeEvents = function(el){
-  	var startX,
-  		startY;
-  
-    document.addEventListener("touchstart", touchstart);  
-  
-  	function touchstart(event) {
-  		var touches = event.touches;
-  		if (touches && touches.length) {
-  			startX = touches[0].pageX;
-  			startY = touches[0].pageY;
-  			document.addEventListener("touchmove", touchmove);
-  		}
-  	}
-  
-  	function touchmove(event) {
-  		var touches = event.touches;
-  		if (touches && touches.length) {
-  		  event.preventDefault();
-  			var deltaX = startX - touches[0].pageX;
-  			var deltaY = startY - touches[0].pageY;
-  
-  			if (deltaX >= 50) {
-  			  var event = new Event('swipeLeft');
-  			  document.dispatchEvent(event);
-  			}
-  			if (deltaX <= -50) {
-  			  var event = new Event('swipeRight');
-  			  document.dispatchEvent(event);
-  			}
-  			if (deltaY >= 50) {
-  			  var event = new Event('swipeUp');
-  			  document.dispatchEvent(event);
-  			}
-  			if (deltaY <= -50) {
-  			  var event = new Event('swipeDown');
-  			  document.dispatchEvent(event);
-  			}
-  
-  			if (Math.abs(deltaX) >= 50 || Math.abs(deltaY) >= 50) {
-  				document.removeEventListener('touchmove', touchmove);
-  			}
-  		}
-  	}
-  
-  };
-  /*-----------------------------------------------------------*/
-	/*  Utility to add/remove class easily with javascript       */
-	/*-----------------------------------------------------------*/
-
-  _trim = function(str) {
-      return str.replace(/^\s\s*/, '').replace(/\s\s*$/, '');
-  }
-
-  _hasClass = function(ele,cls) {
-    if (ele.className) {
-      return ele.className.match(new RegExp('(\\s|^)'+cls+'(\\s|$)'));
-    } else {
-      return ele.className = cls;
-    }
-  }
-
-  _addClass = function(ele,cls) {
-    if (!_hasClass(ele,cls)) ele.className += " "+cls;
-    ele.className = _trim(ele.className)
-  }
-
-  _removeClass = function(ele,cls) {
-    if (_hasClass(ele,cls)) {
-        var reg = new RegExp('(\\s|^)'+cls+'(\\s|$)');
-        ele.className=ele.className.replace(reg,' ');
-    }
-    ele.className = _trim(ele.className)
-  }
-
-  /*-----------------------------------------------------------*/
-	/*  Transtionend Normalizer by Modernizr                     */
-	/*-----------------------------------------------------------*/
-
-  _whichTransitionEvent = function(){
-    var t;
-    var el = document.createElement('fakeelement');
-    var transitions = {
-      'transition':'transitionend',
-      'OTransition':'oTransitionEnd',
-      'MozTransition':'transitionend',
-      'WebkitTransition':'webkitTransitionEnd'
-    }
-
-    for(t in transitions){
-        if( el.style[t] !== undefined ){
-            return transitions[t];
-        }
-    }
-  }
-
-  /*-----------------------------------------------------------*/
-	/*  Function to perform scroll to top animation              */
-	/*-----------------------------------------------------------*/
-
-  _scrollTo = function(element, to, duration) {
-    if (duration < 0) return;
-    var difference = to - element.scrollTop;
-    var perTick = difference / duration * 10;
-
-    setTimeout(function() {
-        element.scrollTop = element.scrollTop + perTick;
-        if (element.scrollTop == to) return;
-        _scrollTo(element, to, duration - 10);
-    }, 10);
-  }
-  
-  
-     
-  /*---------------------------------*/
-  /*  Function to transform the page */
-  /*---------------------------------*/
-  
-  _transformPage = function(el2, settings, pos, index, next_el) {
-    if (typeof settings.beforeMove == 'function') settings.beforeMove(index, next_el);
-    
-    var transformCSS = "-webkit-transform: translate3d(0, " + pos + "%, 0); -webkit-transition: -webkit-transform " + settings.animationTime + "ms " + settings.easing + "; -moz-transform: translate3d(0, " + pos + "%, 0); -moz-transition: -moz-transform " + settings.animationTime + "ms " + settings.easing + "; -ms-transform: translate3d(0, " + pos + "%, 0); -ms-transition: -ms-transform " + settings.animationTime + "ms " + settings.easing + "; transform: translate3d(0, " + pos + "%, 0); transition: transform " + settings.animationTime + "ms " + settings.easing + ";";
-    
-    el2.style.cssText = transformCSS;
-    
-    var transitionEnd = _whichTransitionEvent();
-     el2.addEventListener(transitionEnd, endAnimation, false);
-    
-    function endAnimation() {
-      if (typeof settings.afterMove == 'function') settings.afterMove(index, next_el);
-      el2.removeEventListener(transitionEnd, endAnimation)
-    }
-  }
-  
-  /*-------------------------------------------*/
-  /*  Responsive Fallback trigger              */
-  /*-------------------------------------------*/
-  
-  _responsive = function() {
-
-		if (document.body.clientWidth < settings.responsiveFallback) {
-			
-			_addClass(body, "disabled-onepage-scroll");
-			document.removeEventListener('mousewheel', _mouseWheelHandler);
-			document.removeEventListener('DOMMouseScroll', _mouseWheelHandler);
-			_swipeEvents(el);
-			document.removeEventListener("swipeDown");
-			document.removeEventListener("swipeUp");
-			
-		} else {
-		  
-		  if (_hasClass(body, "disabled-onepage-scroll")) {
-		    _removeClass(body, "disabled-onepage-scroll");
-		    _scrollTo(document.documentElement, 0, 2000);
-	    }
-      
-      
-
-			_swipeEvents(el);
-			document.addEventListener("swipeDown",  function(event){
-			  if (!_hasClass(body, "disabled-onepage-scroll")) event.preventDefault();
-				moveUp(el);
-			});
-			document.addEventListener("swipeUp", function(event){
-				if (!_hasClass(body, "disabled-onepage-scroll")) event.preventDefault();
-				moveDown(el);
-			});
-      
-      document.addEventListener('mousewheel', _mouseWheelHandler);
-  		document.addEventListener('DOMMouseScroll', _mouseWheelHandler);
-			
-		}
-	}
-	
-	/*-------------------------------------------*/
-  /*  Initialize scroll detection              */
-  /*-------------------------------------------*/
-  
-  _init_scroll = function(event, delta) {
-		var deltaOfInterest = delta,
-			timeNow = new Date().getTime();
-			
-		// Cancel scroll if currently animating or within quiet period
-		if(timeNow - lastAnimation < quietPeriod + settings.animationTime) {
-			event.preventDefault();
-			return;
-		}
-
-		if (deltaOfInterest < 0) {
-			moveDown(el)
-		} else {
-			moveUp(el)
-		}
-		
-		lastAnimation = timeNow;
-	}
-   
-  
-  /*-------------------------------------------------------*/
-  /*  Public Functions                                     */
-  /*-------------------------------------------------------*/
-  
-  /*---------------------------------*/
-  /*  Function to move down section  */
-  /*---------------------------------*/
-  
-   this.moveDown = function(el3) {
-    
-    if (typeof el3 == "string") el3 = document.querySelector(el3);
-    
-    var index = document.querySelector(settings.sectionContainer +".active").dataset.index,
-		    current = document.querySelector(settings.sectionContainer + "[data-index='" + index + "']"),
-		    next = document.querySelector(settings.sectionContainer + "[data-index='" + (parseInt(index) + 1) + "']");
-		    
-		    
-		if(!next) {
-			if (settings.loop == true) {
-				pos = 0;
-				next = document.querySelector(settings.sectionContainer + "[data-index='1']");
-			} else {
-				return
-			}
-
-		}else {
-			pos = (index * 100) * -1;
-		}
-		var next_index = next.dataset.index;
-		_removeClass(current, "active");
-		_addClass(next, "active");
-		
-		if(settings.pagination == true) {
-		  _removeClass(document.querySelector(".onepage-pagination li a" + "[data-index='" + index + "']"), "active");
-		  _addClass(document.querySelector(".onepage-pagination li a" + "[data-index='" + next_index + "']"), "active");
-		}
-
-		body.className = body.className.replace(/\bviewing-page-\d.*?\b/g, '');
-		_addClass(body, "viewing-page-"+ next_index);
-
-		if (history.replaceState && settings.updateURL == true) {
-			var href = window.location.href.substr(0,window.location.href.indexOf('#')) + "#" + (parseInt(index) + 1);
-			history.pushState( {}, document.title, href );
-		}
-		_transformPage(el3, settings, pos, next_index, next);
-	}
-	
-	/*---------------------------------*/
-  /*  Function to move up section    */
-  /*---------------------------------*/
-	
-	this.moveUp = function(el4) {
-	  
-	  if (typeof el4 == "string") el4 = document.querySelector(el4);
-	  
-	  var index = document.querySelector(settings.sectionContainer +".active").dataset.index,
-		    current = document.querySelector(settings.sectionContainer + "[data-index='" + index + "']"),
-		    next = document.querySelector(settings.sectionContainer + "[data-index='" + (parseInt(index) - 1) + "']");
-
-		if(!next) {
-			if (settings.loop == true) {
-				pos = ((total - 1) * 100) * -1;
-				next = document.querySelector(settings.sectionContainer + "[data-index='" + total + "']");
-			} else {
-				return
-			}
-		}else {
-			pos = ((next.dataset.index - 1) * 100) * -1;
-		}
-		var next_index = next.dataset.index;
-		_removeClass(current, "active")
-		_addClass(next, "active")
-		
-		if(settings.pagination == true) {
-		  _removeClass(document.querySelector(".onepage-pagination li a" + "[data-index='" + index + "']"), "active");
-		  _addClass(document.querySelector(".onepage-pagination li a" + "[data-index='" + next_index + "']"), "active");
-		}
-		body.className = body.className.replace(/\bviewing-page-\d.*?\b/g, '');
-		_addClass(body, "viewing-page-"+ next_index);
-
-		if (history.replaceState && settings.updateURL == true) {
-			var href = window.location.href.substr(0,window.location.href.indexOf('#')) + "#" + (parseInt(index) - 1);
-			history.pushState( {}, document.title, href );
-		}
-		_transformPage(el4, settings, pos, next_index, next);
-	}
-  
-  /*-------------------------------------------*/
-  /*  Function to move to specified section    */
-  /*-------------------------------------------*/
-  
-  this.moveTo = function(el5, page_index) {
-    
-    if (typeof el5 == "string") el5 = document.querySelector(el5);
-    
-		var current = document.querySelector(settings.sectionContainer + ".active"),
-		    next = document.querySelector(settings.sectionContainer + "[data-index='" + (page_index) + "']");
-		    
-		if(next) {
-		  var next_index = next.dataset.index;
-			_removeClass(current, "active");
-			_addClass(next, "active");
-			_removeClass(document.querySelector(".onepage-pagination li a" + ".active"), "active");
-			_addClass(document.querySelector(".onepage-pagination li a" + "[data-index='" + (page_index) + "']"), "active");
-
-			body.className = body.className.replace(/\bviewing-page-\d.*?\b/g, '');
-			_addClass(body, "viewing-page-"+ next_index);
-
-			pos = ((page_index - 1) * 100) * -1;
-
-			if (history.replaceState && settings.updateURL == true) {
-				var href = window.location.href.substr(0,window.location.href.indexOf('#')) + "#" + (parseInt(page_index) - 1);
-				history.pushState( {}, document.title, href );
-			}
-			_transformPage(el5, settings, pos, page_index, next);
-		}
-	}
-	
-  this.init();
-}
-
-/*------------------------------------------------*/
- /*  Ulitilities Method                            */
- /*------------------------------------------------*/
- 
- /*-----------------------------------------------------------*/
- /*  Function by John Resig to replicate extend functionality */
- /*-----------------------------------------------------------*/
- 
- Object.extend = function(orig){
-   if ( orig == null )
-     return orig;
- 
-   for ( var i = 1; i < arguments.length; i++ ) {
-     var obj = arguments[i];
-     if ( obj != null ) {
-       for ( var prop in obj ) {
-         var getter = obj.__lookupGetter__( prop ),
-             setter = obj.__lookupSetter__( prop );
- 
-         if ( getter || setter ) {
-           if ( getter )
-             orig.__defineGetter__( prop, getter );
-           if ( setter )
-             orig.__defineSetter__( prop, setter );
-         } else {
-           orig[ prop ] = obj[ prop ];
-         }
-       }
-     }
-   }
- 
-   return orig;
- };
-	
-
-//function onePageScroll(e,t){var n={sectionContainer:"section",easing:"ease",animationTime:1e3,pagination:true,updateURL:false,keyboard:true,beforeMove:null,afterMove:null,loop:false,responsiveFallback:false},r=this,i=Object.extend({},n,t),s=document.querySelector(e),o=document.querySelectorAll(i.sectionContainer),u=o.length,a="off",f=0,l=0,c=500,h="",p=document.querySelector("body");this.init=function(){_addClass(s,"onepage-wrapper");s.style.position="relative";for(var e=0;e<o.length;e++){_addClass(o[e],"ops-section");o[e].dataset.index=e+1;f=f+100;if(i.pagination==true){h+="<li><a data-index='"+(e+1)+"' href='#"+(e+1)+"'></a></li>"}}_swipeEvents(s);document.addEventListener("swipeDown",function(e){if(!_hasClass(p,"disabled-onepage-scroll"))e.preventDefault();moveUp(s)});document.addEventListener("swipeUp",function(e){if(!_hasClass(p,"disabled-onepage-scroll"))e.preventDefault();moveDown(s)});if(i.pagination==true){var t=document.createElement("ul");t.setAttribute("class","onepage-pagination");p.appendChild(t);t.innerHTML=h;var n=document.querySelector(".onepage-pagination").offsetHeight/2*-1;document.querySelector(".onepage-pagination").style.marginTop=n}if(window.location.hash!=""&&window.location.hash!="#1"){var r=window.location.hash.replace("#",""),u=document.querySelector(i.sectionContainer+"[data-index='"+r+"']"),a=u.dataset.index;_addClass(document.querySelector(i.sectionContainer+"[data-index='"+r+"']"),"active");_addClass(p,"viewing-page-"+r);if(i.pagination==true)_addClass(document.querySelector(".onepage-pagination li a"+"[data-index='"+r+"']"),"active");if(u){_addClass(u,"active");if(i.pagination==true)_addClass(document.querySelector(".onepage-pagination li a"+"[data-index='"+r+"']"),"active");p.className=p.className.replace(/\bviewing-page-\d.*?\b/g,"");_addClass(p,"viewing-page-"+a);if(history.replaceState&&i.updateURL==true){var l=window.location.href.substr(0,window.location.href.indexOf("#"))+"#"+r;history.pushState({},document.title,l)}}var c=(r-1)*100*-1;_transformPage(s,i,c,r)}else{_addClass(document.querySelector(i.sectionContainer+"[data-index='1']"),"active");_addClass(p,"viewing-page-1");if(i.pagination==true)_addClass(document.querySelector(".onepage-pagination li a[data-index='1']"),"active")}_paginationHandler=function(){var e=this.dataset.index;moveTo(s,e)};if(i.pagination==true){var d=document.querySelectorAll(".onepage-pagination li a");for(var e=0;e<d.length;e++){d[e].addEventListener("click",_paginationHandler)}}_mouseWheelHandler=function(e){e.preventDefault();var t=e.wheelDelta||-e.detail;if(!_hasClass(p,"disabled-onepage-scroll"))_init_scroll(e,t)};document.addEventListener("mousewheel",_mouseWheelHandler);document.addEventListener("DOMMouseScroll",_mouseWheelHandler);if(i.responsiveFallback!=false){window.onresize=function(){_responsive()};_responsive()}_keydownHandler=function(e){var t=e.target.tagName.toLowerCase();if(!_hasClass(p,"disabled-onepage-scroll")){switch(e.which){case 38:if(t!="input"&&t!="textarea")moveUp(s);break;case 40:if(t!="input"&&t!="textarea")moveDown(s);break;default:return}}return false};if(i.keyboard==true){document.onkeydown=_keydownHandler}return false};_swipeEvents=function(e){function r(e){var r=e.touches;if(r&&r.length){t=r[0].pageX;n=r[0].pageY;document.addEventListener("touchmove",i)}}function i(e){var r=e.touches;if(r&&r.length){e.preventDefault();var s=t-r[0].pageX;var o=n-r[0].pageY;if(s>=50){var e=new Event("swipeLeft");document.dispatchEvent(e)}if(s<=-50){var e=new Event("swipeRight");document.dispatchEvent(e)}if(o>=50){var e=new Event("swipeUp");document.dispatchEvent(e)}if(o<=-50){var e=new Event("swipeDown");document.dispatchEvent(e)}if(Math.abs(s)>=50||Math.abs(o)>=50){document.removeEventListener("touchmove",i)}}}var t,n;document.addEventListener("touchstart",r)};_trim=function(e){return e.replace(/^\s\s*/,"").replace(/\s\s*$/,"")};_hasClass=function(e,t){if(e.className){return e.className.match(new RegExp("(\\s|^)"+t+"(\\s|$)"))}else{return e.className=t}};_addClass=function(e,t){if(!_hasClass(e,t))e.className+=" "+t;e.className=_trim(e.className)};_removeClass=function(e,t){if(_hasClass(e,t)){var n=new RegExp("(\\s|^)"+t+"(\\s|$)");e.className=e.className.replace(n," ")}e.className=_trim(e.className)};_whichTransitionEvent=function(){var e;var t=document.createElement("fakeelement");var n={transition:"transitionend",OTransition:"oTransitionEnd",MozTransition:"transitionend",WebkitTransition:"webkitTransitionEnd"};for(e in n){if(t.style[e]!==undefined){return n[e]}}};_scrollTo=function(e,t,n){if(n<0)return;var r=t-e.scrollTop;var i=r/n*10;setTimeout(function(){e.scrollTop=e.scrollTop+i;if(e.scrollTop==t)return;_scrollTo(e,t,n-10)},10)};_transformPage=function(e,t,n,r,i){function u(){if(typeof t.afterMove=="function")t.afterMove(r,i);e.removeEventListener(o,u)}if(typeof t.beforeMove=="function")t.beforeMove(r,i);var s="-webkit-transform: translate3d(0, "+n+"%, 0); -webkit-transition: -webkit-transform "+t.animationTime+"ms "+t.easing+"; -moz-transform: translate3d(0, "+n+"%, 0); -moz-transition: -moz-transform "+t.animationTime+"ms "+t.easing+"; -ms-transform: translate3d(0, "+n+"%, 0); -ms-transition: -ms-transform "+t.animationTime+"ms "+t.easing+"; transform: translate3d(0, "+n+"%, 0); transition: transform "+t.animationTime+"ms "+t.easing+";";e.style.cssText=s;var o=_whichTransitionEvent();e.addEventListener(o,u,false)};_responsive=function(){if(document.body.clientWidth<i.responsiveFallback){_addClass(p,"disabled-onepage-scroll");document.removeEventListener("mousewheel",_mouseWheelHandler);document.removeEventListener("DOMMouseScroll",_mouseWheelHandler);_swipeEvents(s);document.removeEventListener("swipeDown");document.removeEventListener("swipeUp")}else{if(_hasClass(p,"disabled-onepage-scroll")){_removeClass(p,"disabled-onepage-scroll");_scrollTo(document.documentElement,0,2e3)}_swipeEvents(s);document.addEventListener("swipeDown",function(e){if(!_hasClass(p,"disabled-onepage-scroll"))e.preventDefault();moveUp(s)});document.addEventListener("swipeUp",function(e){if(!_hasClass(p,"disabled-onepage-scroll"))e.preventDefault();moveDown(s)});document.addEventListener("mousewheel",_mouseWheelHandler);document.addEventListener("DOMMouseScroll",_mouseWheelHandler)}};_init_scroll=function(e,t){var n=t,r=(new Date).getTime();if(r-l<c+i.animationTime){e.preventDefault();return}if(n<0){moveDown(s)}else{moveUp(s)}l=r};this.moveDown=function(e){if(typeof e=="string")e=document.querySelector(e);var t=document.querySelector(i.sectionContainer+".active").dataset.index,n=document.querySelector(i.sectionContainer+"[data-index='"+t+"']"),r=document.querySelector(i.sectionContainer+"[data-index='"+(parseInt(t)+1)+"']");if(!r){if(i.loop==true){pos=0;r=document.querySelector(i.sectionContainer+"[data-index='1']")}else{return}}else{pos=t*100*-1}var s=r.dataset.index;_removeClass(n,"active");_addClass(r,"active");if(i.pagination==true){_removeClass(document.querySelector(".onepage-pagination li a"+"[data-index='"+t+"']"),"active");_addClass(document.querySelector(".onepage-pagination li a"+"[data-index='"+s+"']"),"active")}p.className=p.className.replace(/\bviewing-page-\d.*?\b/g,"");_addClass(p,"viewing-page-"+s);if(history.replaceState&&i.updateURL==true){var o=window.location.href.substr(0,window.location.href.indexOf("#"))+"#"+(parseInt(t)+1);history.pushState({},document.title,o)}_transformPage(e,i,pos,s,r)};this.moveUp=function(e){if(typeof e=="string")e=document.querySelector(e);var t=document.querySelector(i.sectionContainer+".active").dataset.index,n=document.querySelector(i.sectionContainer+"[data-index='"+t+"']"),r=document.querySelector(i.sectionContainer+"[data-index='"+(parseInt(t)-1)+"']");if(!r){if(i.loop==true){pos=(u-1)*100*-1;r=document.querySelector(i.sectionContainer+"[data-index='"+u+"']")}else{return}}else{pos=(r.dataset.index-1)*100*-1}var s=r.dataset.index;_removeClass(n,"active");_addClass(r,"active");if(i.pagination==true){_removeClass(document.querySelector(".onepage-pagination li a"+"[data-index='"+t+"']"),"active");_addClass(document.querySelector(".onepage-pagination li a"+"[data-index='"+s+"']"),"active")}p.className=p.className.replace(/\bviewing-page-\d.*?\b/g,"");_addClass(p,"viewing-page-"+s);if(history.replaceState&&i.updateURL==true){var o=window.location.href.substr(0,window.location.href.indexOf("#"))+"#"+(parseInt(t)-1);history.pushState({},document.title,o)}_transformPage(e,i,pos,s,r)};this.moveTo=function(e,t){if(typeof e=="string")e=document.querySelector(e);var n=document.querySelector(i.sectionContainer+".active"),r=document.querySelector(i.sectionContainer+"[data-index='"+t+"']");if(r){var s=r.dataset.index;_removeClass(n,"active");_addClass(r,"active");_removeClass(document.querySelector(".onepage-pagination li a"+".active"),"active");_addClass(document.querySelector(".onepage-pagination li a"+"[data-index='"+t+"']"),"active");p.className=p.className.replace(/\bviewing-page-\d.*?\b/g,"");_addClass(p,"viewing-page-"+s);pos=(t-1)*100*-1;if(history.replaceState&&i.updateURL==true){var o=window.location.href.substr(0,window.location.href.indexOf("#"))+"#"+(parseInt(t)-1);history.pushState({},document.title,o)}_transformPage(e,i,pos,t,r)}};this.init()}Object.extend=function(e){if(e==null)return e;for(var t=1;t<arguments.length;t++){var n=arguments[t];if(n!=null){for(var r in n){var i=n.__lookupGetter__(r),s=n.__lookupSetter__(r);if(i||s){if(i)e.__defineGetter__(r,i);if(s)e.__defineSetter__(r,s)}else{e[r]=n[r]}}}}return e}
-;
 (function() {
 
 
@@ -24517,7 +21174,7 @@ $(document).ready(function(){
 //$(window).load(function() {
 
 $('.flexslider').flexslider({
-	//smoothHeight: true
+	smoothHeight: true
 	
 });
 
@@ -24530,6 +21187,15 @@ $('.flexslider').flexslider({
 //
 //
 });
+
+(function(a){a.isScrollToFixed=function(b){return !!a(b).data("ScrollToFixed")};a.ScrollToFixed=function(d,i){var l=this;l.$el=a(d);l.el=d;l.$el.data("ScrollToFixed",l);var c=false;var G=l.$el;var H;var E;var e;var y;var D=0;var q=0;var j=-1;var f=-1;var t=null;var z;var g;function u(){G.trigger("preUnfixed.ScrollToFixed");k();G.trigger("unfixed.ScrollToFixed");f=-1;D=G.offset().top;q=G.offset().left;if(l.options.offsets){q+=(G.offset().left-G.position().left)}if(j==-1){j=q}H=G.css("position");c=true;if(l.options.bottom!=-1){G.trigger("preFixed.ScrollToFixed");w();G.trigger("fixed.ScrollToFixed")}}function n(){var I=l.options.limit;if(!I){return 0}if(typeof(I)==="function"){return I.apply(G)}return I}function p(){return H==="fixed"}function x(){return H==="absolute"}function h(){return !(p()||x())}function w(){if(!p()){t.css({display:G.css("display"),width:G.outerWidth(true),height:G.outerHeight(true),"float":G.css("float")});cssOptions={"z-index":l.options.zIndex,position:"fixed",top:l.options.bottom==-1?s():"",bottom:l.options.bottom==-1?"":l.options.bottom,"margin-left":"0px"};if(!l.options.dontSetWidth){cssOptions.width=G.width()}G.css(cssOptions);G.addClass(l.options.baseClassName);if(l.options.className){G.addClass(l.options.className)}H="fixed"}}function b(){var J=n();var I=q;if(l.options.removeOffsets){I="";J=J-D}cssOptions={position:"absolute",top:J,left:I,"margin-left":"0px",bottom:""};if(!l.options.dontSetWidth){cssOptions.width=G.width()}G.css(cssOptions);H="absolute"}function k(){if(!h()){f=-1;t.css("display","none");G.css({"z-index":y,width:"",position:E,left:"",top:e,"margin-left":""});G.removeClass("scroll-to-fixed-fixed");if(l.options.className){G.removeClass(l.options.className)}H=null}}function v(I){if(I!=f){G.css("left",q-I);f=I}}function s(){var I=l.options.marginTop;if(!I){return 0}if(typeof(I)==="function"){return I.apply(G)}return I}function A(){if(!a.isScrollToFixed(G)){return}var K=c;if(!c){u()}else{if(h()){D=G.offset().top;q=G.offset().left}}var I=a(window).scrollLeft();var L=a(window).scrollTop();var J=n();if(l.options.minWidth&&a(window).width()<l.options.minWidth){if(!h()||!K){o();G.trigger("preUnfixed.ScrollToFixed");k();G.trigger("unfixed.ScrollToFixed")}}else{if(l.options.maxWidth&&a(window).width()>l.options.maxWidth){if(!h()||!K){o();G.trigger("preUnfixed.ScrollToFixed");k();G.trigger("unfixed.ScrollToFixed")}}else{if(l.options.bottom==-1){if(J>0&&L>=J-s()){if(!x()||!K){o();G.trigger("preAbsolute.ScrollToFixed");b();G.trigger("unfixed.ScrollToFixed")}}else{if(L>=D-s()){if(!p()||!K){o();G.trigger("preFixed.ScrollToFixed");w();f=-1;G.trigger("fixed.ScrollToFixed")}v(I)}else{if(!h()||!K){o();G.trigger("preUnfixed.ScrollToFixed");k();G.trigger("unfixed.ScrollToFixed")}}}}else{if(J>0){if(L+a(window).height()-G.outerHeight(true)>=J-(s()||-m())){if(p()){o();G.trigger("preUnfixed.ScrollToFixed");if(E==="absolute"){b()}else{k()}G.trigger("unfixed.ScrollToFixed")}}else{if(!p()){o();G.trigger("preFixed.ScrollToFixed");w()}v(I);G.trigger("fixed.ScrollToFixed")}}else{v(I)}}}}}function m(){if(!l.options.bottom){return 0}return l.options.bottom}function o(){var I=G.css("position");if(I=="absolute"){G.trigger("postAbsolute.ScrollToFixed")}else{if(I=="fixed"){G.trigger("postFixed.ScrollToFixed")}else{G.trigger("postUnfixed.ScrollToFixed")}}}var C=function(I){if(G.is(":visible")){c=false;A()}};var F=function(I){(!!window.requestAnimationFrame)?requestAnimationFrame(A):A()};var B=function(){var J=document.body;if(document.createElement&&J&&J.appendChild&&J.removeChild){var L=document.createElement("div");if(!L.getBoundingClientRect){return null}L.innerHTML="x";L.style.cssText="position:fixed;top:100px;";J.appendChild(L);var M=J.style.height,N=J.scrollTop;J.style.height="3000px";J.scrollTop=500;var I=L.getBoundingClientRect().top;J.style.height=M;var K=(I===100);J.removeChild(L);J.scrollTop=N;return K}return null};var r=function(I){I=I||window.event;if(I.preventDefault){I.preventDefault()}I.returnValue=false};l.init=function(){l.options=a.extend({},a.ScrollToFixed.defaultOptions,i);y=G.css("z-index");l.$el.css("z-index",l.options.zIndex);t=a("<div />");H=G.css("position");E=G.css("position");e=G.css("top");if(h()){l.$el.after(t)}a(window).bind("resize.ScrollToFixed",C);a(window).bind("scroll.ScrollToFixed",F);if("ontouchmove" in window){a(window).bind("touchmove.ScrollToFixed",A)}if(l.options.preFixed){G.bind("preFixed.ScrollToFixed",l.options.preFixed)}if(l.options.postFixed){G.bind("postFixed.ScrollToFixed",l.options.postFixed)}if(l.options.preUnfixed){G.bind("preUnfixed.ScrollToFixed",l.options.preUnfixed)}if(l.options.postUnfixed){G.bind("postUnfixed.ScrollToFixed",l.options.postUnfixed)}if(l.options.preAbsolute){G.bind("preAbsolute.ScrollToFixed",l.options.preAbsolute)}if(l.options.postAbsolute){G.bind("postAbsolute.ScrollToFixed",l.options.postAbsolute)}if(l.options.fixed){G.bind("fixed.ScrollToFixed",l.options.fixed)}if(l.options.unfixed){G.bind("unfixed.ScrollToFixed",l.options.unfixed)}if(l.options.spacerClass){t.addClass(l.options.spacerClass)}G.bind("resize.ScrollToFixed",function(){t.height(G.height())});G.bind("scroll.ScrollToFixed",function(){G.trigger("preUnfixed.ScrollToFixed");k();G.trigger("unfixed.ScrollToFixed");A()});G.bind("detach.ScrollToFixed",function(I){r(I);G.trigger("preUnfixed.ScrollToFixed");k();G.trigger("unfixed.ScrollToFixed");a(window).unbind("resize.ScrollToFixed",C);a(window).unbind("scroll.ScrollToFixed",F);G.unbind(".ScrollToFixed");t.remove();l.$el.removeData("ScrollToFixed")});C()};l.init()};a.ScrollToFixed.defaultOptions={marginTop:0,limit:0,bottom:-1,zIndex:1000,baseClassName:"scroll-to-fixed-fixed"};a.fn.scrollToFixed=function(b){return this.each(function(){(new a.ScrollToFixed(this,b))})}})(jQuery);
+/*
+ * jQuery FlexSlider v2.2.2
+ * Copyright 2012 WooThemes
+ * Contributing Author: Tyler Smith
+ */
+
+!function(a){a.flexslider=function(b,c){var d=a(b);d.vars=a.extend({},a.flexslider.defaults,c);var j,e=d.vars.namespace,f=window.navigator&&window.navigator.msPointerEnabled&&window.MSGesture,g=("ontouchstart"in window||f||window.DocumentTouch&&document instanceof DocumentTouch)&&d.vars.touch,h="click touchend MSPointerUp",i="",k="vertical"===d.vars.direction,l=d.vars.reverse,m=d.vars.itemWidth>0,n="fade"===d.vars.animation,o=""!==d.vars.asNavFor,p={},q=!0;a.data(b,"flexslider",d),p={init:function(){d.animating=!1,d.currentSlide=parseInt(d.vars.startAt?d.vars.startAt:0,10),isNaN(d.currentSlide)&&(d.currentSlide=0),d.animatingTo=d.currentSlide,d.atEnd=0===d.currentSlide||d.currentSlide===d.last,d.containerSelector=d.vars.selector.substr(0,d.vars.selector.search(" ")),d.slides=a(d.vars.selector,d),d.container=a(d.containerSelector,d),d.count=d.slides.length,d.syncExists=a(d.vars.sync).length>0,"slide"===d.vars.animation&&(d.vars.animation="swing"),d.prop=k?"top":"marginLeft",d.args={},d.manualPause=!1,d.stopped=!1,d.started=!1,d.startTimeout=null,d.transitions=!d.vars.video&&!n&&d.vars.useCSS&&function(){var a=document.createElement("div"),b=["perspectiveProperty","WebkitPerspective","MozPerspective","OPerspective","msPerspective"];for(var c in b)if(void 0!==a.style[b[c]])return d.pfx=b[c].replace("Perspective","").toLowerCase(),d.prop="-"+d.pfx+"-transform",!0;return!1}(),d.ensureAnimationEnd="",""!==d.vars.controlsContainer&&(d.controlsContainer=a(d.vars.controlsContainer).length>0&&a(d.vars.controlsContainer)),""!==d.vars.manualControls&&(d.manualControls=a(d.vars.manualControls).length>0&&a(d.vars.manualControls)),d.vars.randomize&&(d.slides.sort(function(){return Math.round(Math.random())-.5}),d.container.empty().append(d.slides)),d.doMath(),d.setup("init"),d.vars.controlNav&&p.controlNav.setup(),d.vars.directionNav&&p.directionNav.setup(),d.vars.keyboard&&(1===a(d.containerSelector).length||d.vars.multipleKeyboard)&&a(document).bind("keyup",function(a){var b=a.keyCode;if(!d.animating&&(39===b||37===b)){var c=39===b?d.getTarget("next"):37===b?d.getTarget("prev"):!1;d.flexAnimate(c,d.vars.pauseOnAction)}}),d.vars.mousewheel&&d.bind("mousewheel",function(a,b){a.preventDefault();var f=0>b?d.getTarget("next"):d.getTarget("prev");d.flexAnimate(f,d.vars.pauseOnAction)}),d.vars.pausePlay&&p.pausePlay.setup(),d.vars.slideshow&&d.vars.pauseInvisible&&p.pauseInvisible.init(),d.vars.slideshow&&(d.vars.pauseOnHover&&d.hover(function(){d.manualPlay||d.manualPause||d.pause()},function(){d.manualPause||d.manualPlay||d.stopped||d.play()}),d.vars.pauseInvisible&&p.pauseInvisible.isHidden()||(d.vars.initDelay>0?d.startTimeout=setTimeout(d.play,d.vars.initDelay):d.play())),o&&p.asNav.setup(),g&&d.vars.touch&&p.touch(),(!n||n&&d.vars.smoothHeight)&&a(window).bind("resize orientationchange focus",p.resize),d.find("img").attr("draggable","false"),setTimeout(function(){d.vars.start(d)},200)},asNav:{setup:function(){d.asNav=!0,d.animatingTo=Math.floor(d.currentSlide/d.move),d.currentItem=d.currentSlide,d.slides.removeClass(e+"active-slide").eq(d.currentItem).addClass(e+"active-slide"),f?(b._slider=d,d.slides.each(function(){var b=this;b._gesture=new MSGesture,b._gesture.target=b,b.addEventListener("MSPointerDown",function(a){a.preventDefault(),a.currentTarget._gesture&&a.currentTarget._gesture.addPointer(a.pointerId)},!1),b.addEventListener("MSGestureTap",function(b){b.preventDefault();var c=a(this),e=c.index();a(d.vars.asNavFor).data("flexslider").animating||c.hasClass("active")||(d.direction=d.currentItem<e?"next":"prev",d.flexAnimate(e,d.vars.pauseOnAction,!1,!0,!0))})})):d.slides.on(h,function(b){b.preventDefault();var c=a(this),f=c.index(),g=c.offset().left-a(d).scrollLeft();0>=g&&c.hasClass(e+"active-slide")?d.flexAnimate(d.getTarget("prev"),!0):a(d.vars.asNavFor).data("flexslider").animating||c.hasClass(e+"active-slide")||(d.direction=d.currentItem<f?"next":"prev",d.flexAnimate(f,d.vars.pauseOnAction,!1,!0,!0))})}},controlNav:{setup:function(){d.manualControls?p.controlNav.setupManual():p.controlNav.setupPaging()},setupPaging:function(){var f,g,b="thumbnails"===d.vars.controlNav?"control-thumbs":"control-paging",c=1;if(d.controlNavScaffold=a('<ol class="'+e+"control-nav "+e+b+'"></ol>'),d.pagingCount>1)for(var j=0;j<d.pagingCount;j++){if(g=d.slides.eq(j),f="thumbnails"===d.vars.controlNav?'<img src="'+g.attr("data-thumb")+'"/>':"<a>"+c+"</a>","thumbnails"===d.vars.controlNav&&!0===d.vars.thumbCaptions){var k=g.attr("data-thumbcaption");""!=k&&void 0!=k&&(f+='<span class="'+e+'caption">'+k+"</span>")}d.controlNavScaffold.append("<li>"+f+"</li>"),c++}d.controlsContainer?a(d.controlsContainer).append(d.controlNavScaffold):d.append(d.controlNavScaffold),p.controlNav.set(),p.controlNav.active(),d.controlNavScaffold.delegate("a, img",h,function(b){if(b.preventDefault(),""===i||i===b.type){var c=a(this),f=d.controlNav.index(c);c.hasClass(e+"active")||(d.direction=f>d.currentSlide?"next":"prev",d.flexAnimate(f,d.vars.pauseOnAction))}""===i&&(i=b.type),p.setToClearWatchedEvent()})},setupManual:function(){d.controlNav=d.manualControls,p.controlNav.active(),d.controlNav.bind(h,function(b){if(b.preventDefault(),""===i||i===b.type){var c=a(this),f=d.controlNav.index(c);c.hasClass(e+"active")||(d.direction=f>d.currentSlide?"next":"prev",d.flexAnimate(f,d.vars.pauseOnAction))}""===i&&(i=b.type),p.setToClearWatchedEvent()})},set:function(){var b="thumbnails"===d.vars.controlNav?"img":"a";d.controlNav=a("."+e+"control-nav li "+b,d.controlsContainer?d.controlsContainer:d)},active:function(){d.controlNav.removeClass(e+"active").eq(d.animatingTo).addClass(e+"active")},update:function(b,c){d.pagingCount>1&&"add"===b?d.controlNavScaffold.append(a("<li><a>"+d.count+"</a></li>")):1===d.pagingCount?d.controlNavScaffold.find("li").remove():d.controlNav.eq(c).closest("li").remove(),p.controlNav.set(),d.pagingCount>1&&d.pagingCount!==d.controlNav.length?d.update(c,b):p.controlNav.active()}},directionNav:{setup:function(){var b=a('<ul class="'+e+'direction-nav"><li><a class="'+e+'prev" href="#">'+d.vars.prevText+'</a></li><li><a class="'+e+'next" href="#">'+d.vars.nextText+"</a></li></ul>");d.controlsContainer?(a(d.controlsContainer).append(b),d.directionNav=a("."+e+"direction-nav li a",d.controlsContainer)):(d.append(b),d.directionNav=a("."+e+"direction-nav li a",d)),p.directionNav.update(),d.directionNav.bind(h,function(b){b.preventDefault();var c;(""===i||i===b.type)&&(c=a(this).hasClass(e+"next")?d.getTarget("next"):d.getTarget("prev"),d.flexAnimate(c,d.vars.pauseOnAction)),""===i&&(i=b.type),p.setToClearWatchedEvent()})},update:function(){var a=e+"disabled";1===d.pagingCount?d.directionNav.addClass(a).attr("tabindex","-1"):d.vars.animationLoop?d.directionNav.removeClass(a).removeAttr("tabindex"):0===d.animatingTo?d.directionNav.removeClass(a).filter("."+e+"prev").addClass(a).attr("tabindex","-1"):d.animatingTo===d.last?d.directionNav.removeClass(a).filter("."+e+"next").addClass(a).attr("tabindex","-1"):d.directionNav.removeClass(a).removeAttr("tabindex")}},pausePlay:{setup:function(){var b=a('<div class="'+e+'pauseplay"><a></a></div>');d.controlsContainer?(d.controlsContainer.append(b),d.pausePlay=a("."+e+"pauseplay a",d.controlsContainer)):(d.append(b),d.pausePlay=a("."+e+"pauseplay a",d)),p.pausePlay.update(d.vars.slideshow?e+"pause":e+"play"),d.pausePlay.bind(h,function(b){b.preventDefault(),(""===i||i===b.type)&&(a(this).hasClass(e+"pause")?(d.manualPause=!0,d.manualPlay=!1,d.pause()):(d.manualPause=!1,d.manualPlay=!0,d.play())),""===i&&(i=b.type),p.setToClearWatchedEvent()})},update:function(a){"play"===a?d.pausePlay.removeClass(e+"pause").addClass(e+"play").html(d.vars.playText):d.pausePlay.removeClass(e+"play").addClass(e+"pause").html(d.vars.pauseText)}},touch:function(){function r(f){d.animating?f.preventDefault():(window.navigator.msPointerEnabled||1===f.touches.length)&&(d.pause(),g=k?d.h:d.w,i=Number(new Date),o=f.touches[0].pageX,p=f.touches[0].pageY,e=m&&l&&d.animatingTo===d.last?0:m&&l?d.limit-(d.itemW+d.vars.itemMargin)*d.move*d.animatingTo:m&&d.currentSlide===d.last?d.limit:m?(d.itemW+d.vars.itemMargin)*d.move*d.currentSlide:l?(d.last-d.currentSlide+d.cloneOffset)*g:(d.currentSlide+d.cloneOffset)*g,a=k?p:o,c=k?o:p,b.addEventListener("touchmove",s,!1),b.addEventListener("touchend",t,!1))}function s(b){o=b.touches[0].pageX,p=b.touches[0].pageY,h=k?a-p:a-o,j=k?Math.abs(h)<Math.abs(o-c):Math.abs(h)<Math.abs(p-c);var f=500;(!j||Number(new Date)-i>f)&&(b.preventDefault(),!n&&d.transitions&&(d.vars.animationLoop||(h/=0===d.currentSlide&&0>h||d.currentSlide===d.last&&h>0?Math.abs(h)/g+2:1),d.setProps(e+h,"setTouch")))}function t(){if(b.removeEventListener("touchmove",s,!1),d.animatingTo===d.currentSlide&&!j&&null!==h){var k=l?-h:h,m=k>0?d.getTarget("next"):d.getTarget("prev");d.canAdvance(m)&&(Number(new Date)-i<550&&Math.abs(k)>50||Math.abs(k)>g/2)?d.flexAnimate(m,d.vars.pauseOnAction):n||d.flexAnimate(d.currentSlide,d.vars.pauseOnAction,!0)}b.removeEventListener("touchend",t,!1),a=null,c=null,h=null,e=null}function u(a){a.stopPropagation(),d.animating?a.preventDefault():(d.pause(),b._gesture.addPointer(a.pointerId),q=0,g=k?d.h:d.w,i=Number(new Date),e=m&&l&&d.animatingTo===d.last?0:m&&l?d.limit-(d.itemW+d.vars.itemMargin)*d.move*d.animatingTo:m&&d.currentSlide===d.last?d.limit:m?(d.itemW+d.vars.itemMargin)*d.move*d.currentSlide:l?(d.last-d.currentSlide+d.cloneOffset)*g:(d.currentSlide+d.cloneOffset)*g)}function v(a){a.stopPropagation();var c=a.target._slider;if(c){var d=-a.translationX,f=-a.translationY;return q+=k?f:d,h=q,j=k?Math.abs(q)<Math.abs(-d):Math.abs(q)<Math.abs(-f),a.detail===a.MSGESTURE_FLAG_INERTIA?(setImmediate(function(){b._gesture.stop()}),void 0):((!j||Number(new Date)-i>500)&&(a.preventDefault(),!n&&c.transitions&&(c.vars.animationLoop||(h=q/(0===c.currentSlide&&0>q||c.currentSlide===c.last&&q>0?Math.abs(q)/g+2:1)),c.setProps(e+h,"setTouch"))),void 0)}}function w(b){b.stopPropagation();var d=b.target._slider;if(d){if(d.animatingTo===d.currentSlide&&!j&&null!==h){var f=l?-h:h,k=f>0?d.getTarget("next"):d.getTarget("prev");d.canAdvance(k)&&(Number(new Date)-i<550&&Math.abs(f)>50||Math.abs(f)>g/2)?d.flexAnimate(k,d.vars.pauseOnAction):n||d.flexAnimate(d.currentSlide,d.vars.pauseOnAction,!0)}a=null,c=null,h=null,e=null,q=0}}var a,c,e,g,h,i,j=!1,o=0,p=0,q=0;f?(b.style.msTouchAction="none",b._gesture=new MSGesture,b._gesture.target=b,b.addEventListener("MSPointerDown",u,!1),b._slider=d,b.addEventListener("MSGestureChange",v,!1),b.addEventListener("MSGestureEnd",w,!1)):b.addEventListener("touchstart",r,!1)},resize:function(){!d.animating&&d.is(":visible")&&(m||d.doMath(),n?p.smoothHeight():m?(d.slides.width(d.computedW),d.update(d.pagingCount),d.setProps()):k?(d.viewport.height(d.h),d.setProps(d.h,"setTotal")):(d.vars.smoothHeight&&p.smoothHeight(),d.newSlides.width(d.computedW),d.setProps(d.computedW,"setTotal")))},smoothHeight:function(a){if(!k||n){var b=n?d:d.viewport;a?b.animate({height:d.slides.eq(d.animatingTo).height()},a):b.height(d.slides.eq(d.animatingTo).height())}},sync:function(b){var c=a(d.vars.sync).data("flexslider"),e=d.animatingTo;switch(b){case"animate":c.flexAnimate(e,d.vars.pauseOnAction,!1,!0);break;case"play":c.playing||c.asNav||c.play();break;case"pause":c.pause()}},uniqueID:function(b){return b.find("[id]").each(function(){var b=a(this);b.attr("id",b.attr("id")+"_clone")}),b},pauseInvisible:{visProp:null,init:function(){var a=["webkit","moz","ms","o"];if("hidden"in document)return"hidden";for(var b=0;b<a.length;b++)a[b]+"Hidden"in document&&(p.pauseInvisible.visProp=a[b]+"Hidden");if(p.pauseInvisible.visProp){var c=p.pauseInvisible.visProp.replace(/[H|h]idden/,"")+"visibilitychange";document.addEventListener(c,function(){p.pauseInvisible.isHidden()?d.startTimeout?clearTimeout(d.startTimeout):d.pause():d.started?d.play():d.vars.initDelay>0?setTimeout(d.play,d.vars.initDelay):d.play()})}},isHidden:function(){return document[p.pauseInvisible.visProp]||!1}},setToClearWatchedEvent:function(){clearTimeout(j),j=setTimeout(function(){i=""},3e3)}},d.flexAnimate=function(b,c,f,h,i){if(d.vars.animationLoop||b===d.currentSlide||(d.direction=b>d.currentSlide?"next":"prev"),o&&1===d.pagingCount&&(d.direction=d.currentItem<b?"next":"prev"),!d.animating&&(d.canAdvance(b,i)||f)&&d.is(":visible")){if(o&&h){var j=a(d.vars.asNavFor).data("flexslider");if(d.atEnd=0===b||b===d.count-1,j.flexAnimate(b,!0,!1,!0,i),d.direction=d.currentItem<b?"next":"prev",j.direction=d.direction,Math.ceil((b+1)/d.visible)-1===d.currentSlide||0===b)return d.currentItem=b,d.slides.removeClass(e+"active-slide").eq(b).addClass(e+"active-slide"),!1;d.currentItem=b,d.slides.removeClass(e+"active-slide").eq(b).addClass(e+"active-slide"),b=Math.floor(b/d.visible)}if(d.animating=!0,d.animatingTo=b,c&&d.pause(),d.vars.before(d),d.syncExists&&!i&&p.sync("animate"),d.vars.controlNav&&p.controlNav.active(),m||d.slides.removeClass(e+"active-slide").eq(b).addClass(e+"active-slide"),d.atEnd=0===b||b===d.last,d.vars.directionNav&&p.directionNav.update(),b===d.last&&(d.vars.end(d),d.vars.animationLoop||d.pause()),n)g?(d.slides.eq(d.currentSlide).css({opacity:0,zIndex:1}),d.slides.eq(b).css({opacity:1,zIndex:2}),d.wrapup(q)):(d.slides.eq(d.currentSlide).css({zIndex:1}).animate({opacity:0},d.vars.animationSpeed,d.vars.easing),d.slides.eq(b).css({zIndex:2}).animate({opacity:1},d.vars.animationSpeed,d.vars.easing,d.wrapup));else{var r,s,t,q=k?d.slides.filter(":first").height():d.computedW;m?(r=d.vars.itemMargin,t=(d.itemW+r)*d.move*d.animatingTo,s=t>d.limit&&1!==d.visible?d.limit:t):s=0===d.currentSlide&&b===d.count-1&&d.vars.animationLoop&&"next"!==d.direction?l?(d.count+d.cloneOffset)*q:0:d.currentSlide===d.last&&0===b&&d.vars.animationLoop&&"prev"!==d.direction?l?0:(d.count+1)*q:l?(d.count-1-b+d.cloneOffset)*q:(b+d.cloneOffset)*q,d.setProps(s,"",d.vars.animationSpeed),d.transitions?(d.vars.animationLoop&&d.atEnd||(d.animating=!1,d.currentSlide=d.animatingTo),d.container.unbind("webkitTransitionEnd transitionend"),d.container.bind("webkitTransitionEnd transitionend",function(){clearTimeout(d.ensureAnimationEnd),d.wrapup(q)}),clearTimeout(d.ensureAnimationEnd),d.ensureAnimationEnd=setTimeout(function(){d.wrapup(q)},d.vars.animationSpeed+100)):d.container.animate(d.args,d.vars.animationSpeed,d.vars.easing,function(){d.wrapup(q)})}d.vars.smoothHeight&&p.smoothHeight(d.vars.animationSpeed)}},d.wrapup=function(a){n||m||(0===d.currentSlide&&d.animatingTo===d.last&&d.vars.animationLoop?d.setProps(a,"jumpEnd"):d.currentSlide===d.last&&0===d.animatingTo&&d.vars.animationLoop&&d.setProps(a,"jumpStart")),d.animating=!1,d.currentSlide=d.animatingTo,d.vars.after(d)},d.animateSlides=function(){!d.animating&&q&&d.flexAnimate(d.getTarget("next"))},d.pause=function(){clearInterval(d.animatedSlides),d.animatedSlides=null,d.playing=!1,d.vars.pausePlay&&p.pausePlay.update("play"),d.syncExists&&p.sync("pause")},d.play=function(){d.playing&&clearInterval(d.animatedSlides),d.animatedSlides=d.animatedSlides||setInterval(d.animateSlides,d.vars.slideshowSpeed),d.started=d.playing=!0,d.vars.pausePlay&&p.pausePlay.update("pause"),d.syncExists&&p.sync("play")},d.stop=function(){d.pause(),d.stopped=!0},d.canAdvance=function(a,b){var c=o?d.pagingCount-1:d.last;return b?!0:o&&d.currentItem===d.count-1&&0===a&&"prev"===d.direction?!0:o&&0===d.currentItem&&a===d.pagingCount-1&&"next"!==d.direction?!1:a!==d.currentSlide||o?d.vars.animationLoop?!0:d.atEnd&&0===d.currentSlide&&a===c&&"next"!==d.direction?!1:d.atEnd&&d.currentSlide===c&&0===a&&"next"===d.direction?!1:!0:!1},d.getTarget=function(a){return d.direction=a,"next"===a?d.currentSlide===d.last?0:d.currentSlide+1:0===d.currentSlide?d.last:d.currentSlide-1},d.setProps=function(a,b,c){var e=function(){var c=a?a:(d.itemW+d.vars.itemMargin)*d.move*d.animatingTo,e=function(){if(m)return"setTouch"===b?a:l&&d.animatingTo===d.last?0:l?d.limit-(d.itemW+d.vars.itemMargin)*d.move*d.animatingTo:d.animatingTo===d.last?d.limit:c;switch(b){case"setTotal":return l?(d.count-1-d.currentSlide+d.cloneOffset)*a:(d.currentSlide+d.cloneOffset)*a;case"setTouch":return l?a:a;case"jumpEnd":return l?a:d.count*a;case"jumpStart":return l?d.count*a:a;default:return a}}();return-1*e+"px"}();d.transitions&&(e=k?"translate3d(0,"+e+",0)":"translate3d("+e+",0,0)",c=void 0!==c?c/1e3+"s":"0s",d.container.css("-"+d.pfx+"-transition-duration",c),d.container.css("transition-duration",c)),d.args[d.prop]=e,(d.transitions||void 0===c)&&d.container.css(d.args),d.container.css("transform",e)},d.setup=function(b){if(n)d.slides.css({width:"100%","float":"left",marginRight:"-100%",position:"relative"}),"init"===b&&(g?d.slides.css({opacity:0,display:"block",webkitTransition:"opacity "+d.vars.animationSpeed/1e3+"s ease",zIndex:1}).eq(d.currentSlide).css({opacity:1,zIndex:2}):d.slides.css({opacity:0,display:"block",zIndex:1}).eq(d.currentSlide).css({zIndex:2}).animate({opacity:1},d.vars.animationSpeed,d.vars.easing)),d.vars.smoothHeight&&p.smoothHeight();else{var c,f;"init"===b&&(d.viewport=a('<div class="'+e+'viewport"></div>').css({overflow:"hidden",position:"relative"}).appendTo(d).append(d.container),d.cloneCount=0,d.cloneOffset=0,l&&(f=a.makeArray(d.slides).reverse(),d.slides=a(f),d.container.empty().append(d.slides))),d.vars.animationLoop&&!m&&(d.cloneCount=2,d.cloneOffset=1,"init"!==b&&d.container.find(".clone").remove(),p.uniqueID(d.slides.first().clone().addClass("clone").attr("aria-hidden","true")).appendTo(d.container),p.uniqueID(d.slides.last().clone().addClass("clone").attr("aria-hidden","true")).prependTo(d.container)),d.newSlides=a(d.vars.selector,d),c=l?d.count-1-d.currentSlide+d.cloneOffset:d.currentSlide+d.cloneOffset,k&&!m?(d.container.height(200*(d.count+d.cloneCount)+"%").css("position","absolute").width("100%"),setTimeout(function(){d.newSlides.css({display:"block"}),d.doMath(),d.viewport.height(d.h),d.setProps(c*d.h,"init")},"init"===b?100:0)):(d.container.width(200*(d.count+d.cloneCount)+"%"),d.setProps(c*d.computedW,"init"),setTimeout(function(){d.doMath(),d.newSlides.css({width:d.computedW,"float":"left",display:"block"}),d.vars.smoothHeight&&p.smoothHeight()},"init"===b?100:0))}m||d.slides.removeClass(e+"active-slide").eq(d.currentSlide).addClass(e+"active-slide"),d.vars.init(d)},d.doMath=function(){var a=d.slides.first(),b=d.vars.itemMargin,c=d.vars.minItems,e=d.vars.maxItems;d.w=void 0===d.viewport?d.width():d.viewport.width(),d.h=a.height(),d.boxPadding=a.outerWidth()-a.width(),m?(d.itemT=d.vars.itemWidth+b,d.minW=c?c*d.itemT:d.w,d.maxW=e?e*d.itemT-b:d.w,d.itemW=d.minW>d.w?(d.w-b*(c-1))/c:d.maxW<d.w?(d.w-b*(e-1))/e:d.vars.itemWidth>d.w?d.w:d.vars.itemWidth,d.visible=Math.floor(d.w/d.itemW),d.move=d.vars.move>0&&d.vars.move<d.visible?d.vars.move:d.visible,d.pagingCount=Math.ceil((d.count-d.visible)/d.move+1),d.last=d.pagingCount-1,d.limit=1===d.pagingCount?0:d.vars.itemWidth>d.w?d.itemW*(d.count-1)+b*(d.count-1):(d.itemW+b)*d.count-d.w-b):(d.itemW=d.w,d.pagingCount=d.count,d.last=d.count-1),d.computedW=d.itemW-d.boxPadding},d.update=function(a,b){d.doMath(),m||(a<d.currentSlide?d.currentSlide+=1:a<=d.currentSlide&&0!==a&&(d.currentSlide-=1),d.animatingTo=d.currentSlide),d.vars.controlNav&&!d.manualControls&&("add"===b&&!m||d.pagingCount>d.controlNav.length?p.controlNav.update("add"):("remove"===b&&!m||d.pagingCount<d.controlNav.length)&&(m&&d.currentSlide>d.last&&(d.currentSlide-=1,d.animatingTo-=1),p.controlNav.update("remove",d.last))),d.vars.directionNav&&p.directionNav.update()},d.addSlide=function(b,c){var e=a(b);d.count+=1,d.last=d.count-1,k&&l?void 0!==c?d.slides.eq(d.count-c).after(e):d.container.prepend(e):void 0!==c?d.slides.eq(c).before(e):d.container.append(e),d.update(c,"add"),d.slides=a(d.vars.selector+":not(.clone)",d),d.setup(),d.vars.added(d)},d.removeSlide=function(b){var c=isNaN(b)?d.slides.index(a(b)):b;d.count-=1,d.last=d.count-1,isNaN(b)?a(b,d.slides).remove():k&&l?d.slides.eq(d.last).remove():d.slides.eq(b).remove(),d.doMath(),d.update(c,"remove"),d.slides=a(d.vars.selector+":not(.clone)",d),d.setup(),d.vars.removed(d)},p.init()},a(window).blur(function(){focused=!1}).focus(function(){focused=!0}),a.flexslider.defaults={namespace:"flex-",selector:".slides > li",animation:"fade",easing:"swing",direction:"horizontal",reverse:!1,animationLoop:!0,smoothHeight:!1,startAt:0,slideshow:!0,slideshowSpeed:7e3,animationSpeed:600,initDelay:0,randomize:!1,thumbCaptions:!1,pauseOnAction:!0,pauseOnHover:!1,pauseInvisible:!0,useCSS:!0,touch:!0,video:!1,controlNav:!0,directionNav:!0,prevText:"Previous",nextText:"Next",keyboard:!0,multipleKeyboard:!1,mousewheel:!1,pausePlay:!1,pauseText:"Pause",playText:"Play",controlsContainer:"",manualControls:"",sync:"",asNavFor:"",itemWidth:0,itemMargin:0,minItems:1,maxItems:0,move:0,allowOneSlide:!0,start:function(){},before:function(){},after:function(){},end:function(){},added:function(){},removed:function(){},init:function(){}},a.fn.flexslider=function(b){if(void 0===b&&(b={}),"object"==typeof b)return this.each(function(){var c=a(this),d=b.selector?b.selector:".slides > li",e=c.find(d);1===e.length&&b.allowOneSlide===!0||0===e.length?(e.fadeIn(400),b.start&&b.start(c)):void 0===c.data("flexslider")&&new a.flexslider(this,b)});var c=a(this).data("flexslider");switch(b){case"play":c.play();break;case"pause":c.pause();break;case"stop":c.stop();break;case"next":c.flexAnimate(c.getTarget("next"),!0);break;case"prev":case"previous":c.flexAnimate(c.getTarget("prev"),!0);break;default:"number"==typeof b&&c.flexAnimate(b,!0)}}}(jQuery);
 $(document).ready(function (){ 
 
  onePageScroll(".onePageScroll", {
@@ -24556,17 +21222,544 @@ $(document).ready(function (){
 
 
 });
+/* ===========================================================
+ * onepagescroll.js v1.2.2
+ * ===========================================================
+ * Copyright 2014 Pete Rojwongsuriya.
+ * http://www.thepetedesign.com
+ *
+ * Create an Apple-like website that let user scroll
+ * one page at a time
+ *
+ * Credit: Eike Send for the awesome swipe event
+ * https://github.com/peachananr/purejs-onepage-scroll
+ * 
+ * License: GPL v3
+ *
+ * ========================================================== */
+
+	
+function onePageScroll(element, options) {
+  
+  var defaults = {
+	    	sectionContainer: "section",
+	    	easing: "ease",
+	    	animationTime: 1000,
+	    	pagination: true,
+	    	updateURL: false,
+	    	keyboard: true,
+	    	beforeMove: null,
+	    	afterMove: null,
+	    	loop: false,
+	    	responsiveFallback: false
+	    },
+	    _root = this,
+	    settings = Object.extend({}, defaults, options),
+	    el = document.querySelector(element),
+	    sections = document.querySelectorAll(settings.sectionContainer),
+	    total = sections.length,
+	    status = "off",
+	    topPos = 0,
+	    lastAnimation = 0,
+	    quietPeriod = 500,
+	    paginationList = "",
+	    body = document.querySelector("body");
+  
+  this.init = function() { 
+    /*-------------------------------------------*/
+    /*  Prepare Everything                       */
+    /*-------------------------------------------*/
+    
+  	_addClass(el, "onepage-wrapper")
+  	el.style.position = "relative";
+    
+  	for( var i = 0; i < sections.length; i++){
+  	  _addClass(sections[i], "ops-section")
+  	  sections[i].dataset.index = i + 1;
+  	  topPos = topPos + 100;
+    
+  	  if(settings.pagination == true) {
+  			paginationList += "<li><a data-index='" + (i + 1) + "' href='#" + (i + 1) + "'></a></li>";
+  		}
+    }
+    
+  	_swipeEvents(el);
+  	document.addEventListener("swipeDown",  function(event){
+  	  if (!_hasClass(body, "disabled-onepage-scroll")) event.preventDefault();
+  		moveUp(el);
+  	});
+  	document.addEventListener("swipeUp", function(event){
+  		if (!_hasClass(body, "disabled-onepage-scroll")) event.preventDefault();
+  		moveDown(el);
+  	});
+    
+  	// Create Pagination and Display Them
+    
+  	if(settings.pagination == true) {
+  	  var pagination = document.createElement("ul");
+  	  pagination.setAttribute("class", "onepage-pagination");
+      pagination.setAttribute("id", "officialPagination");
+    
+  	  body.appendChild(pagination)
+  		pagination.innerHTML = paginationList;
+  		var posTop = (document.querySelector(".onepage-pagination").offsetHeight / 2) * -1;
+  		document.querySelector(".onepage-pagination").style.marginTop = posTop;
+  	}
+    
+  	if(window.location.hash != "" && window.location.hash != "#1") {
+  		var init_index =  window.location.hash.replace("#", ""),
+  		    next = document.querySelector(settings.sectionContainer + "[data-index='" + (init_index) + "']"),
+  		    next_index = next.dataset.index;
+    
+  		_addClass( document.querySelector(settings.sectionContainer + "[data-index='" + init_index + "']") ,"active")
+  		_addClass(body, "viewing-page-"+ init_index)
+  		if(settings.pagination == true) _addClass(document.querySelector(".onepage-pagination li a" + "[data-index='" + init_index + "']"), "active");
+    
+  		if(next) {
+  			_addClass(next, "active")
+  			if(settings.pagination == true) _addClass(document.querySelector(".onepage-pagination li a" + "[data-index='" + init_index + "']"), "active");
+    
+  			body.className = body.className.replace(/\bviewing-page-\d.*?\b/g, '');
+  			_addClass(body, "viewing-page-" + next_index)
+  			if (history.replaceState && settings.updateURL == true) {
+  				var href = window.location.href.substr(0,window.location.href.indexOf('#')) + "#" + (init_index);
+  				history.pushState( {}, document.title, href );
+  			}
+  		}
+  		var pos = ((init_index - 1) * 100) * -1;
+  		_transformPage(el, settings, pos, init_index);
+    
+  	}else{
+  	  _addClass(document.querySelector(settings.sectionContainer + "[data-index='1']"), "active");
+  	  _addClass(body, "viewing-page-1");
+  		if(settings.pagination == true) _addClass(document.querySelector(".onepage-pagination li a[data-index='1']"), "active");
+  	}
+    
+  	_paginationHandler = function() {
+      var page_index = this.dataset.index;
+  		moveTo(el, page_index);
+  	}
+    
+    
+  	if(settings.pagination == true)  {
+  	  var pagination_links = document.querySelectorAll(".onepage-pagination li a");
+    
+  	  for( var i = 0; i < pagination_links.length; i++){
+    	  pagination_links[i].addEventListener('click', _paginationHandler);
+      }
+  	}
+    
+  	_mouseWheelHandler = function(event) {
+  		event.preventDefault();
+  		var delta = event.wheelDelta || -event.detail;
+  		if (!_hasClass(body, "disabled-onepage-scroll")) _init_scroll(event, delta);
+  	}
+    
+  	document.addEventListener('mousewheel', _mouseWheelHandler);
+  	document.addEventListener('DOMMouseScroll', _mouseWheelHandler);
+    
+    
+  	if(settings.responsiveFallback != false) {
+  	  window.onresize = function(){
+  			_responsive();
+  		}
+    
+  		_responsive();
+  	}
+    
+    _keydownHandler = function(e) {
+  		var tag = e.target.tagName.toLowerCase();
+    
+  		if (!_hasClass(body, "disabled-onepage-scroll")) {
+  			switch(e.which) {
+  				case 38:
+  					if (tag != 'input' && tag != 'textarea') moveUp(el)
+  					break;
+  				case 40:
+  					if (tag != 'input' && tag != 'textarea') moveDown(el)
+  					break;
+  				default: return;
+  			}
+  		}
+  		return false;
+  	}
+    
+  	if(settings.keyboard == true) {
+  		document.onkeydown = _keydownHandler;
+  	}
+  	return false;
+  }
+  
+  /*-------------------------------------------------------*/
+  /*  Private Functions                                    */
+  /*-------------------------------------------------------*/
+  /*------------------------------------------------*/
+  /*  Credit: Eike Send for the awesome swipe event */
+  /*------------------------------------------------*/
+  _swipeEvents = function(el){
+  	var startX,
+  		startY;
+  
+    document.addEventListener("touchstart", touchstart);  
+  
+  	function touchstart(event) {
+  		var touches = event.touches;
+  		if (touches && touches.length) {
+  			startX = touches[0].pageX;
+  			startY = touches[0].pageY;
+  			document.addEventListener("touchmove", touchmove);
+  		}
+  	}
+  
+  	function touchmove(event) {
+  		var touches = event.touches;
+  		if (touches && touches.length) {
+  		  event.preventDefault();
+  			var deltaX = startX - touches[0].pageX;
+  			var deltaY = startY - touches[0].pageY;
+  
+  			if (deltaX >= 50) {
+  			  var event = new Event('swipeLeft');
+  			  document.dispatchEvent(event);
+  			}
+  			if (deltaX <= -50) {
+  			  var event = new Event('swipeRight');
+  			  document.dispatchEvent(event);
+  			}
+  			if (deltaY >= 50) {
+  			  var event = new Event('swipeUp');
+  			  document.dispatchEvent(event);
+  			}
+  			if (deltaY <= -50) {
+  			  var event = new Event('swipeDown');
+  			  document.dispatchEvent(event);
+  			}
+  
+  			if (Math.abs(deltaX) >= 50 || Math.abs(deltaY) >= 50) {
+  				document.removeEventListener('touchmove', touchmove);
+  			}
+  		}
+  	}
+  
+  };
+  /*-----------------------------------------------------------*/
+	/*  Utility to add/remove class easily with javascript       */
+	/*-----------------------------------------------------------*/
+
+  _trim = function(str) {
+      return str.replace(/^\s\s*/, '').replace(/\s\s*$/, '');
+  }
+
+  _hasClass = function(ele,cls) {
+    if (ele.className) {
+      return ele.className.match(new RegExp('(\\s|^)'+cls+'(\\s|$)'));
+    } else {
+      return ele.className = cls;
+    }
+  }
+
+  _addClass = function(ele,cls) {
+    if (!_hasClass(ele,cls)) ele.className += " "+cls;
+    ele.className = _trim(ele.className)
+  }
+
+  _removeClass = function(ele,cls) {
+    if (_hasClass(ele,cls)) {
+        var reg = new RegExp('(\\s|^)'+cls+'(\\s|$)');
+        ele.className=ele.className.replace(reg,' ');
+    }
+    ele.className = _trim(ele.className)
+  }
+
+  /*-----------------------------------------------------------*/
+	/*  Transtionend Normalizer by Modernizr                     */
+	/*-----------------------------------------------------------*/
+
+  _whichTransitionEvent = function(){
+    var t;
+    var el = document.createElement('fakeelement');
+    var transitions = {
+      'transition':'transitionend',
+      'OTransition':'oTransitionEnd',
+      'MozTransition':'transitionend',
+      'WebkitTransition':'webkitTransitionEnd'
+    }
+
+    for(t in transitions){
+        if( el.style[t] !== undefined ){
+            return transitions[t];
+        }
+    }
+  }
+
+  /*-----------------------------------------------------------*/
+	/*  Function to perform scroll to top animation              */
+	/*-----------------------------------------------------------*/
+
+  _scrollTo = function(element, to, duration) {
+    if (duration < 0) return;
+    var difference = to - element.scrollTop;
+    var perTick = difference / duration * 10;
+
+    setTimeout(function() {
+        element.scrollTop = element.scrollTop + perTick;
+        if (element.scrollTop == to) return;
+        _scrollTo(element, to, duration - 10);
+    }, 10);
+  }
+  
+  
+     
+  /*---------------------------------*/
+  /*  Function to transform the page */
+  /*---------------------------------*/
+  
+  _transformPage = function(el2, settings, pos, index, next_el) {
+    if (typeof settings.beforeMove == 'function') settings.beforeMove(index, next_el);
+    
+    var transformCSS = "-webkit-transform: translate3d(0, " + pos + "%, 0); -webkit-transition: -webkit-transform " + settings.animationTime + "ms " + settings.easing + "; -moz-transform: translate3d(0, " + pos + "%, 0); -moz-transition: -moz-transform " + settings.animationTime + "ms " + settings.easing + "; -ms-transform: translate3d(0, " + pos + "%, 0); -ms-transition: -ms-transform " + settings.animationTime + "ms " + settings.easing + "; transform: translate3d(0, " + pos + "%, 0); transition: transform " + settings.animationTime + "ms " + settings.easing + ";";
+    
+    el2.style.cssText = transformCSS;
+    
+    var transitionEnd = _whichTransitionEvent();
+     el2.addEventListener(transitionEnd, endAnimation, false);
+    
+    function endAnimation() {
+      if (typeof settings.afterMove == 'function') settings.afterMove(index, next_el);
+      el2.removeEventListener(transitionEnd, endAnimation)
+    }
+  }
+  
+  /*-------------------------------------------*/
+  /*  Responsive Fallback trigger              */
+  /*-------------------------------------------*/
+  
+  _responsive = function() {
+
+		if (document.body.clientWidth < settings.responsiveFallback) {
+			
+			_addClass(body, "disabled-onepage-scroll");
+			document.removeEventListener('mousewheel', _mouseWheelHandler);
+			document.removeEventListener('DOMMouseScroll', _mouseWheelHandler);
+			_swipeEvents(el);
+			document.removeEventListener("swipeDown");
+			document.removeEventListener("swipeUp");
+			
+		} else {
+		  
+		  if (_hasClass(body, "disabled-onepage-scroll")) {
+		    _removeClass(body, "disabled-onepage-scroll");
+		    _scrollTo(document.documentElement, 0, 2000);
+	    }
+      
+      
+
+			_swipeEvents(el);
+			document.addEventListener("swipeDown",  function(event){
+			  if (!_hasClass(body, "disabled-onepage-scroll")) event.preventDefault();
+				moveUp(el);
+			});
+			document.addEventListener("swipeUp", function(event){
+				if (!_hasClass(body, "disabled-onepage-scroll")) event.preventDefault();
+				moveDown(el);
+			});
+      
+      document.addEventListener('mousewheel', _mouseWheelHandler);
+  		document.addEventListener('DOMMouseScroll', _mouseWheelHandler);
+			
+		}
+	}
+	
+	/*-------------------------------------------*/
+  /*  Initialize scroll detection              */
+  /*-------------------------------------------*/
+  
+  _init_scroll = function(event, delta) {
+		var deltaOfInterest = delta,
+			timeNow = new Date().getTime();
+			
+		// Cancel scroll if currently animating or within quiet period
+		if(timeNow - lastAnimation < quietPeriod + settings.animationTime) {
+			event.preventDefault();
+			return;
+		}
+
+		if (deltaOfInterest < 0) {
+			moveDown(el)
+		} else {
+			moveUp(el)
+		}
+		
+		lastAnimation = timeNow;
+	}
+   
+  
+  /*-------------------------------------------------------*/
+  /*  Public Functions                                     */
+  /*-------------------------------------------------------*/
+  
+  /*---------------------------------*/
+  /*  Function to move down section  */
+  /*---------------------------------*/
+  
+   this.moveDown = function(el3) {
+    
+    if (typeof el3 == "string") el3 = document.querySelector(el3);
+    
+    var index = document.querySelector(settings.sectionContainer +".active").dataset.index,
+		    current = document.querySelector(settings.sectionContainer + "[data-index='" + index + "']"),
+		    next = document.querySelector(settings.sectionContainer + "[data-index='" + (parseInt(index) + 1) + "']");
+		    
+		    
+		if(!next) {
+			if (settings.loop == true) {
+				pos = 0;
+				next = document.querySelector(settings.sectionContainer + "[data-index='1']");
+			} else {
+				return
+			}
+
+		}else {
+			pos = (index * 100) * -1;
+		}
+		var next_index = next.dataset.index;
+		_removeClass(current, "active");
+		_addClass(next, "active");
+		
+		if(settings.pagination == true) {
+		  _removeClass(document.querySelector(".onepage-pagination li a" + "[data-index='" + index + "']"), "active");
+		  _addClass(document.querySelector(".onepage-pagination li a" + "[data-index='" + next_index + "']"), "active");
+		}
+
+		body.className = body.className.replace(/\bviewing-page-\d.*?\b/g, '');
+		_addClass(body, "viewing-page-"+ next_index);
+
+		if (history.replaceState && settings.updateURL == true) {
+			var href = window.location.href.substr(0,window.location.href.indexOf('#')) + "#" + (parseInt(index) + 1);
+			history.pushState( {}, document.title, href );
+		}
+		_transformPage(el3, settings, pos, next_index, next);
+	}
+	
+	/*---------------------------------*/
+  /*  Function to move up section    */
+  /*---------------------------------*/
+	
+	this.moveUp = function(el4) {
+	  
+	  if (typeof el4 == "string") el4 = document.querySelector(el4);
+	  
+	  var index = document.querySelector(settings.sectionContainer +".active").dataset.index,
+		    current = document.querySelector(settings.sectionContainer + "[data-index='" + index + "']"),
+		    next = document.querySelector(settings.sectionContainer + "[data-index='" + (parseInt(index) - 1) + "']");
+
+		if(!next) {
+			if (settings.loop == true) {
+				pos = ((total - 1) * 100) * -1;
+				next = document.querySelector(settings.sectionContainer + "[data-index='" + total + "']");
+			} else {
+				return
+			}
+		}else {
+			pos = ((next.dataset.index - 1) * 100) * -1;
+		}
+		var next_index = next.dataset.index;
+		_removeClass(current, "active")
+		_addClass(next, "active")
+		
+		if(settings.pagination == true) {
+		  _removeClass(document.querySelector(".onepage-pagination li a" + "[data-index='" + index + "']"), "active");
+		  _addClass(document.querySelector(".onepage-pagination li a" + "[data-index='" + next_index + "']"), "active");
+		}
+		body.className = body.className.replace(/\bviewing-page-\d.*?\b/g, '');
+		_addClass(body, "viewing-page-"+ next_index);
+
+		if (history.replaceState && settings.updateURL == true) {
+			var href = window.location.href.substr(0,window.location.href.indexOf('#')) + "#" + (parseInt(index) - 1);
+			history.pushState( {}, document.title, href );
+		}
+		_transformPage(el4, settings, pos, next_index, next);
+	}
+  
+  /*-------------------------------------------*/
+  /*  Function to move to specified section    */
+  /*-------------------------------------------*/
+  
+  this.moveTo = function(el5, page_index) {
+    
+    if (typeof el5 == "string") el5 = document.querySelector(el5);
+    
+		var current = document.querySelector(settings.sectionContainer + ".active"),
+		    next = document.querySelector(settings.sectionContainer + "[data-index='" + (page_index) + "']");
+		    
+		if(next) {
+		  var next_index = next.dataset.index;
+			_removeClass(current, "active");
+			_addClass(next, "active");
+			_removeClass(document.querySelector(".onepage-pagination li a" + ".active"), "active");
+			_addClass(document.querySelector(".onepage-pagination li a" + "[data-index='" + (page_index) + "']"), "active");
+
+			body.className = body.className.replace(/\bviewing-page-\d.*?\b/g, '');
+			_addClass(body, "viewing-page-"+ next_index);
+
+			pos = ((page_index - 1) * 100) * -1;
+
+			if (history.replaceState && settings.updateURL == true) {
+				var href = window.location.href.substr(0,window.location.href.indexOf('#')) + "#" + (parseInt(page_index) - 1);
+				history.pushState( {}, document.title, href );
+			}
+			_transformPage(el5, settings, pos, page_index, next);
+		}
+	}
+	
+  this.init();
+}
+
+/*------------------------------------------------*/
+ /*  Ulitilities Method                            */
+ /*------------------------------------------------*/
+ 
+ /*-----------------------------------------------------------*/
+ /*  Function by John Resig to replicate extend functionality */
+ /*-----------------------------------------------------------*/
+ 
+ Object.extend = function(orig){
+   if ( orig == null )
+     return orig;
+ 
+   for ( var i = 1; i < arguments.length; i++ ) {
+     var obj = arguments[i];
+     if ( obj != null ) {
+       for ( var prop in obj ) {
+         var getter = obj.__lookupGetter__( prop ),
+             setter = obj.__lookupSetter__( prop );
+ 
+         if ( getter || setter ) {
+           if ( getter )
+             orig.__defineGetter__( prop, getter );
+           if ( setter )
+             orig.__defineSetter__( prop, setter );
+         } else {
+           orig[ prop ] = obj[ prop ];
+         }
+       }
+     }
+   }
+ 
+   return orig;
+ };
+	
+
 (function() {
   $(function() {
+    $("#titleSection").hide();
+    $("#titleSection").slideDown(800);
     $(".subjectDescription").hide();
     $(".canvasDiv").hide();
     $(".projectLink").click(function() {
-      if ($(".pJDisplay .imageSection").is(":visible")) {
-        console.log("shit is empty");
-        return $(".pJDisplay").slideToggle();
-      } else {
-        return $(".pJDisplay").slideDown();
-      }
+      var currentContents, currentDisplay;
+      currentContents = $(this).find(".pJDisplay .pJContents");
+      return currentDisplay = $(this).find(".pJDisplay");
     });
     $(".skillsDiv").hover(function() {
       var curSVG;
@@ -24626,4 +21819,6 @@ $(document).ready(function (){
 
 
 }); */
+
+
 ;
