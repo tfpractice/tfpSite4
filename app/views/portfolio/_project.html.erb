@@ -5,7 +5,8 @@
 	<div class =  "thumbnailDiv">
 	<h1> thumbnails </h1>
 	<% project.images.each_with_index do |image, i| %>
-	<%= image_tag (image.mainFilepath),size: "80x80", class: "thumbnail" %>
+
+	<%= link_to (image_tag (image.thumbnailFilepath),size: "80x80", class: "thumbnail"), "assets/#{image.mainFilepath}", target: "_blank" %>
 	<% end %> 
 		</div>
 
