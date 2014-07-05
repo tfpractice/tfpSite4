@@ -10,12 +10,12 @@ $ipodHorizontal		: 30em;
 $ipadVertical		: 48em;
 $ipadHorizontal		: 64em;
 $macbookVertical	: 50em;
-$macbookHorizontal	: 80em;
+$macbookHorizontal	: 82em;
 
 
 
 
-@include breakpoint($ipadHorizontal $macbookHorizontal){
+@include breakpoint($ipodHorizontal $macbookHorizontal){
   	h1 {
   		font-size: 1rem;
   	}

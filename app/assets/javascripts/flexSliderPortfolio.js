@@ -2,17 +2,12 @@ $(document).ready(function(){
 //$(window).load(function() {
 
 $('.flexslider').flexslider({
-	smoothHeight: true
+	smoothHeight: true,
+	thumbCaptions: true
+
 	
 });
 
-//var images = $(".projectImage");
-//
-//	images.each(function(index){
-//
-//		console.log($(this);
-//	})
-//
-//
+
 });
 
