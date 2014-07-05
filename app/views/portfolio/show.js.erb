@@ -1,7 +1,7 @@
 $( document ).ready(function() {
 
 
-$(".pJDisplay").slideToggle();
+//$(".pJDisplay").slideToggle();
 $(".pJDisplay").html("<%= j (render(partial: 'portfolio/project')) %>");
 
 $('.flexslider').flexslider({
@@ -9,5 +9,10 @@ $('.flexslider').flexslider({
  	//smoothHeight: true
  });
 
+//var slider = $('#.flexslider').data('flexslider');
+//
+//	slider.resize();
 
+
+$(window).resize();
 });

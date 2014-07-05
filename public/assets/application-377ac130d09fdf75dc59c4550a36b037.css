@@ -1,0 +1,2938 @@
+/* Welcome to Compass. Use this file to write IE specific override styles.
+ * Import this file using the following HTML or equivalent:
+ * <!--[if IE]>
+ *   <link href="/stylesheets/ie.css" media="screen, projection" rel="stylesheet" type="text/css" />
+ * <![endif]--> */
+
+/* line 1, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/onepage-scroll.css.scss */
+body, html {
+  margin: 0;
+  overflow: hidden;
+  -webkit-transition: opacity 400ms;
+  -moz-transition: opacity 400ms;
+  transition: opacity 400ms;
+}
+
+/* line 9, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/onepage-scroll.css.scss */
+body, .onepage-wrapper, html {
+  display: block;
+  position: static;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* line 17, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/onepage-scroll.css.scss */
+.onepage-wrapper {
+  width: 100%;
+  height: 100%;
+  display: block;
+  position: relative;
+  padding: 0;
+  -webkit-transform-style: preserve-3d;
+}
+
+/* line 26, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/onepage-scroll.css.scss */
+.onepage-wrapper .ops-section {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+/* line 72, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/onepage-scroll.css.scss */
+.disabled-onepage-scroll, .disabled-onepage-scroll .wrapper {
+  overflow: auto;
+}
+
+/* line 76, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/onepage-scroll.css.scss */
+.disabled-onepage-scroll .onepage-wrapper .ops-section {
+  position: relative !important;
+  top: auto !important;
+}
+
+/* line 80, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/onepage-scroll.css.scss */
+.disabled-onepage-scroll .onepage-wrapper {
+  -webkit-transform: none !important;
+  -moz-transform: none !important;
+  transform: none !important;
+  -ms-transform: none !important;
+  min-height: 100%;
+}
+
+/* line 89, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/onepage-scroll.css.scss */
+.disabled-onepage-scroll .onepage-pagination {
+  display: none;
+}
+
+/* line 93, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/onepage-scroll.css.scss */
+body.disabled-onepage-scroll, .disabled-onepage-scroll .onepage-wrapper, html {
+  position: inherit;
+}
+@import url("http://fonts.googleapis.com/css?family=Ubuntu:300,400,500,300italic,400italic|Josefin+Sans|Open+Sans|Raleway");
+@import url("http://fonts.googleapis.com/css?family=Ubuntu:300,400,500,300italic,400italic|Josefin+Sans|Open+Sans|Raleway");
+@import url("http://fonts.googleapis.com/css?family=Ubuntu:300,400,500,300italic,400italic|Josefin+Sans|Open+Sans|Raleway");
+@import url("http://fonts.googleapis.com/css?family=Ubuntu:300,400,500,300italic,400italic|Josefin+Sans|Open+Sans|Raleway");
+@import url("http://fonts.googleapis.com/css?family=Ubuntu:300,400,500,300italic,400italic|Josefin+Sans|Open+Sans|Raleway");
+@import url("http://fonts.googleapis.com/css?family=Ubuntu:300,400,500,300italic,400italic|Josefin+Sans|Open+Sans|Raleway");
+/* line 20, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_base.scss */
+h1 {
+  font-family: Ubuntu, serif;
+}
+
+/* line 24, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_base.scss */
+h2 {
+  font-family: Ubuntu, serif;
+  font-weight: 300;
+}
+
+/* line 30, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_base.scss */
+p {
+  font-family: Raleway, serif;
+}
+
+/* Layout ------------------------------------------------------------------*/
+/* line 20, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_base.scss */
+h1 {
+  font-family: Ubuntu, serif;
+}
+
+/* line 24, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_base.scss */
+h2 {
+  font-family: Ubuntu, serif;
+  font-weight: 300;
+}
+
+/* line 30, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_base.scss */
+p {
+  font-family: Raleway, serif;
+}
+
+/* line 20, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_base.scss */
+h1 {
+  font-family: Ubuntu, serif;
+}
+
+/* line 24, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_base.scss */
+h2 {
+  font-family: Ubuntu, serif;
+  font-weight: 300;
+}
+
+/* line 30, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_base.scss */
+p {
+  font-family: Raleway, serif;
+}
+
+@media (min-width: 30em) and (max-width: 82em) {
+  /* line 19, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_responsiveBreakpoints.scss */
+  h1 {
+    font-size: 1rem;
+  }
+
+  /* line 22, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_responsiveBreakpoints.scss */
+  p, .menu-list .navLink {
+    font-size: 0.75rem;
+  }
+
+  /* line 25, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_responsiveBreakpoints.scss */
+  .projectIcon {
+    width: 16.66667%;
+    height: 16.66667%;
+    margin-left: 1em;
+  }
+}
+@media (min-width: 82em) {
+  /* line 37, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_responsiveBreakpoints.scss */
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  /* line 40, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_responsiveBreakpoints.scss */
+  p {
+    font-size: 1rem;
+  }
+}
+/* line 17, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
+#titleSection {
+  margin-left: 3.30579%;
+}
+/* line 22, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
+#titleSection #pageTitle {
+  padding-bottom: 0.5rem;
+  padding-top: 0.5rem;
+  font-size: 2rem;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  width: 32.77311%;
+}
+/* line 31, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
+#titleSection #pageTitle .slashDelimiter {
+  color: #ff00ff;
+}
+
+/* line 39, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
+.subjectContainer {
+  *zoom: 1;
+  margin: auto;
+  width: 121em;
+  max-width: 100%;
+  height: 100%;
+}
+/* line 38, /Users/tfpractice/.rbenv/versions/2.1.0/lib/ruby/gems/2.1.0/gems/compass-0.12.6/frameworks/compass/stylesheets/compass/utilities/general/_clearfix.scss */
+.subjectContainer:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+/* line 45, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
+.subjectContainer .sectionSummary {
+  display: inline;
+  float: left;
+  width: 15.70248%;
+  margin-right: 0.82645%;
+  margin-top: 3rem;
+  margin-left: 3.30579%;
+}
+/* line 53, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
+.subjectContainer .categoryDiv {
+  margin-top: 3rem;
+  display: inline;
+  float: left;
+  width: 22.31405%;
+  margin-right: 0.82645%;
+  margin-left: 1.65289%;
+}
+/* line 60, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
+.subjectContainer .presentation {
+  margin-right: 2.5rem;
+}
+/* line 64, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
+.subjectContainer .pJDisplay {
+  display: inline;
+  float: left;
+  width: 98.34711%;
+  margin-right: 0.82645%;
+}
+/* line 74, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
+.subjectContainer .pJDisplay .imageSection {
+  display: inline;
+  float: left;
+  width: 65.28926%;
+  margin-right: 0.82645%;
+  max-height: 2000px;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-box;
+  display: box;
+  -webkit-box-orient: horizontal;
+  -moz-box-orient: horizontal;
+  -ms-box-orient: horizontal;
+  box-orient: horizontal;
+  -webkit-box-align: stretch;
+  -moz-box-align: stretch;
+  -ms-box-align: stretch;
+  box-align: stretch;
+  display: inline-flex;
+}
+/* line 86, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
+.subjectContainer .pJDisplay .imageSection .thumbnailDiv {
+  width: 24.05063%;
+  margin-left: 5.06329%;
+}
+/* line 97, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
+.subjectContainer .pJDisplay .imageSection #slideContainer {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-box;
+  display: box;
+  width: 62.02532%;
+  margin-left: 5.06329%;
+  display: inline-block;
+}
+/* line 109, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
+.subjectContainer .pJDisplay .imageSection #slideContainer .imageListItem {
+  width: auto;
+}
+/* line 115, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
+.subjectContainer .pJDisplay .imageSection #slideContainer img {
+  width: auto;
+  height: auto;
+  margin: auto;
+  max-height: 60%;
+  margin-bottom: 0.5rem;
+}
+/* line 136, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
+.subjectContainer .pJDisplay .imageSection .imageDetails {
+  padding-bottom: 0.5rem;
+  text-align: center;
+}
+/* line 145, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
+.subjectContainer .pJDisplay .projectDescription {
+  display: inline;
+  float: left;
+  width: 24.36975%;
+  margin-right: 0.84034%;
+  float: right;
+  margin-right: 4rem;
+}
+
+/* line 163, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
+.flexslider .slides img {
+  max-width: 100%;
+  display: block;
+}
+
+/* line 166, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
+.flexslider {
+  background-color: transparent;
+  border: none;
+  box-shadow: none;
+}
+
+/* line 172, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
+#boywolfSlides img {
+  background-color: #ffffff;
+}
+
+/* line 20, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_base.scss */
+h1 {
+  font-family: Ubuntu, serif;
+}
+
+/* line 24, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_base.scss */
+h2 {
+  font-family: Ubuntu, serif;
+  font-weight: 300;
+}
+
+/* line 30, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_base.scss */
+p {
+  font-family: Raleway, serif;
+}
+
+/* Layout ------------------------------------------------------------------*/
+/* line 20, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_base.scss */
+h1 {
+  font-family: Ubuntu, serif;
+}
+
+/* line 24, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_base.scss */
+h2 {
+  font-family: Ubuntu, serif;
+  font-weight: 300;
+}
+
+/* line 30, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_base.scss */
+p {
+  font-family: Raleway, serif;
+}
+
+/* line 20, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_base.scss */
+h1 {
+  font-family: Ubuntu, serif;
+}
+
+/* line 24, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_base.scss */
+h2 {
+  font-family: Ubuntu, serif;
+  font-weight: 300;
+}
+
+/* line 30, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_base.scss */
+p {
+  font-family: Raleway, serif;
+}
+
+@media (min-width: 30em) and (max-width: 82em) {
+  /* line 19, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_responsiveBreakpoints.scss */
+  h1 {
+    font-size: 1rem;
+  }
+
+  /* line 22, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_responsiveBreakpoints.scss */
+  p, .menu-list .navLink {
+    font-size: 0.75rem;
+  }
+
+  /* line 25, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_responsiveBreakpoints.scss */
+  .projectIcon {
+    width: 16.66667%;
+    height: 16.66667%;
+    margin-left: 1em;
+  }
+}
+@media (min-width: 82em) {
+  /* line 37, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_responsiveBreakpoints.scss */
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  /* line 40, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_responsiveBreakpoints.scss */
+  p {
+    font-size: 1rem;
+  }
+}
+/* line 17, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
+#titleSection {
+  margin-left: 3.30579%;
+}
+/* line 22, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
+#titleSection #pageTitle {
+  padding-bottom: 0.5rem;
+  padding-top: 0.5rem;
+  font-size: 2rem;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  width: 32.77311%;
+}
+/* line 31, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
+#titleSection #pageTitle .slashDelimiter {
+  color: #ff00ff;
+}
+
+/* line 39, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
+.subjectContainer {
+  *zoom: 1;
+  margin: auto;
+  width: 121em;
+  max-width: 100%;
+  height: 100%;
+}
+/* line 38, /Users/tfpractice/.rbenv/versions/2.1.0/lib/ruby/gems/2.1.0/gems/compass-0.12.6/frameworks/compass/stylesheets/compass/utilities/general/_clearfix.scss */
+.subjectContainer:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+/* line 45, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
+.subjectContainer .sectionSummary {
+  display: inline;
+  float: left;
+  width: 15.70248%;
+  margin-right: 0.82645%;
+  margin-top: 3rem;
+  margin-left: 3.30579%;
+}
+/* line 53, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
+.subjectContainer .categoryDiv {
+  margin-top: 3rem;
+  display: inline;
+  float: left;
+  width: 22.31405%;
+  margin-right: 0.82645%;
+  margin-left: 1.65289%;
+}
+/* line 60, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
+.subjectContainer .presentation {
+  margin-right: 2.5rem;
+}
+/* line 64, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
+.subjectContainer .pJDisplay {
+  display: inline;
+  float: left;
+  width: 98.34711%;
+  margin-right: 0.82645%;
+}
+/* line 74, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
+.subjectContainer .pJDisplay .imageSection {
+  display: inline;
+  float: left;
+  width: 65.28926%;
+  margin-right: 0.82645%;
+  max-height: 2000px;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-box;
+  display: box;
+  -webkit-box-orient: horizontal;
+  -moz-box-orient: horizontal;
+  -ms-box-orient: horizontal;
+  box-orient: horizontal;
+  -webkit-box-align: stretch;
+  -moz-box-align: stretch;
+  -ms-box-align: stretch;
+  box-align: stretch;
+  display: inline-flex;
+}
+/* line 86, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
+.subjectContainer .pJDisplay .imageSection .thumbnailDiv {
+  width: 24.05063%;
+  margin-left: 5.06329%;
+}
+/* line 97, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
+.subjectContainer .pJDisplay .imageSection #slideContainer {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-box;
+  display: box;
+  width: 62.02532%;
+  margin-left: 5.06329%;
+  display: inline-block;
+}
+/* line 109, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
+.subjectContainer .pJDisplay .imageSection #slideContainer .imageListItem {
+  width: auto;
+}
+/* line 115, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
+.subjectContainer .pJDisplay .imageSection #slideContainer img {
+  width: auto;
+  height: auto;
+  margin: auto;
+  max-height: 60%;
+  margin-bottom: 0.5rem;
+}
+/* line 136, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
+.subjectContainer .pJDisplay .imageSection .imageDetails {
+  padding-bottom: 0.5rem;
+  text-align: center;
+}
+/* line 145, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
+.subjectContainer .pJDisplay .projectDescription {
+  display: inline;
+  float: left;
+  width: 24.36975%;
+  margin-right: 0.84034%;
+  float: right;
+  margin-right: 4rem;
+}
+
+/* line 163, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
+.flexslider .slides img {
+  max-width: 100%;
+  display: block;
+}
+
+/* line 166, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
+.flexslider {
+  background-color: transparent;
+  border: none;
+  box-shadow: none;
+}
+
+/* line 172, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
+#boywolfSlides img {
+  background-color: #ffffff;
+}
+
+/* line 9, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_modules.scss */
+.skillsDiv {
+  text-align: center;
+}
+
+/* line 15, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_modules.scss */
+text {
+  font-family: Ubuntu, serif;
+  font-size: 2rem;
+  text-anchor: middle;
+  background: #000;
+  max-width: 3rem;
+  word-wrap: break-word;
+}
+
+/* line 26, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_modules.scss */
+.canvasDiv {
+  border-top: 1px solid #00ff00;
+  border-bottom: 1px solid #00ff00;
+}
+
+/* line 54, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_modules.scss */
+.menu-list .menuItem {
+  font-family: Ubuntu, serif;
+  font-size: 1rem;
+  font-weight: 300;
+  text-anchor: middle;
+  height: 40px;
+  background-color: rgba(255, 0, 255, 0.5);
+  display: table-row;
+}
+/* line 66, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_modules.scss */
+.menu-list .navLink {
+  color: #ffffff;
+}
+/* line 70, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_modules.scss */
+.menu-list .navLink:after {
+  color: #000000;
+}
+/* line 73, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_modules.scss */
+.menu-list .navLink #logoIcon {
+  padding-top: none;
+}
+/* line 75, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_modules.scss */
+.menu-list .navLink #logoIcon #topIcon {
+  height: 1rem;
+}
+
+/* line 91, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_modules.scss */
+#officialPagination {
+  display: none;
+}
+
+/* line 96, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_modules.scss */
+.onepage-pagination {
+  position: absolute;
+  right: 1%;
+  top: 1%;
+  z-index: 5;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* line 105, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_modules.scss */
+.onepage-pagination li {
+  padding: 0;
+  text-align: center;
+  font-family: Ubuntu, serif;
+  font-size: 1.5rem;
+  text-anchor: middle;
+  height: 40px;
+  display: inline-block;
+}
+
+/* line 116, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_modules.scss */
+.onepage-pagination li a {
+  padding-top: 0.25rem;
+  padding-bottom: 0px;
+  display: block;
+  padding-left: .25rem;
+  padding-right: .25rem;
+}
+
+/* line 124, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_modules.scss */
+.onepage-pagination li a:before {
+  content: '';
+  position: absolute;
+  background: rgba(0, 0, 0, 0.85);
+}
+
+/* line 135, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_modules.scss */
+.onepage-pagination li a.active:before {
+  background: none;
+  border: none;
+  margin-top: -4px;
+  left: 8px;
+}
+
+/*
+
+if(settings.pagination == true) {
+  	  var pagination = document.createElement("ul");
+  	  pagination.setAttribute("class", "onepage-pagination");
+      pagination.setAttribute("id", "officialPagination");
+*/
+/* Layout ------------------------------------------------------------------*/
+/* 
+.container {
+  @include container;
+  @include susy-grid-background;
+}
+
+*/
+/* line 23, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/portfolio.css.scss */
+.main-text {
+  font-size: 2rem;
+}
+
+/* line 31, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/portfolio.css.scss */
+#topHome .sectionsList {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  list-style-type: none;
+  text-align: center;
+  width: 200px;
+  padding: 0px;
+  margin-left: -100px;
+}
+
+/* line 47, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/portfolio.css.scss */
+#topContainer {
+  background-image: url("portfolioBackgrounds/fairest_body_2060_1.png"), url("portfolioBackgrounds/black_logo_0.svg");
+  background-size: contain,contain;
+  background-repeat: no-repeat;
+  background-position: bottom center, bottom center;
+  background-opactiy: 1.0, 0.5;
+  max-width: 100%;
+  padding-top: 1rem;
+}
+
+/* line 63, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/portfolio.css.scss */
+#artContainer {
+  background: url(/assets/portfolioBackgrounds/whiteHex2.svg);
+  background-repeat: no-repeat;
+  background-position: bottom right;
+  color: white;
+  background-size: 28%, 28%;
+}
+/* line 77, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/portfolio.css.scss */
+#artContainer #artDescription {
+  border-top: 1px solid #ffffff;
+  border-bottom: 1px solid #ffffff;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+/* line 85, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/portfolio.css.scss */
+#artContainer .imageListItem {
+  border-top: 1px solid #ffffff;
+  border-bottom: 1px solid #ffffff;
+  padding-top: 0.5rem;
+}
+/* line 95, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/portfolio.css.scss */
+#artContainer .imageDetails {
+  padding-bottom: 0.5rem;
+  border-top: 1px solid #ffffff;
+  text-align: center;
+}
+
+/* line 110, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/portfolio.css.scss */
+#artHome {
+  background: -webkit-linear-gradient(bottom right, magenta, #600060), -webkit-radial-gradient(white, #cc0000 100px);
+  background: -moz-linear-gradient(bottom right, magenta, #600060), -moz-radial-gradient(white, #cc0000 100px);
+  background: -o-linear-gradient(bottom right, magenta, #600060), -o-radial-gradient(white, #cc0000 100px);
+}
+
+/* line 117, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/portfolio.css.scss */
+#designContainer {
+  background-color: #777;
+  background: url(/assets/portfolioBackgrounds/hot_fruit_background_0.svg), -webkit-gradient(radial, 50% 50%, 0, 50% 50%, 1000, color-stop(0%, #dddddd), color-stop(100%, #aaaaaa));
+  background: url(/assets/portfolioBackgrounds/hot_fruit_background_0.svg), -webkit-radial-gradient(#dddddd, #aaaaaa 1000px);
+  background: url(/assets/portfolioBackgrounds/hot_fruit_background_0.svg), -moz-radial-gradient(#dddddd, #aaaaaa 1000px);
+  background: url(/assets/portfolioBackgrounds/hot_fruit_background_0.svg), -o-radial-gradient(#dddddd, #aaaaaa 1000px);
+  background: url(/assets/portfolioBackgrounds/hot_fruit_background_0.svg), radial-gradient(#dddddd, #aaaaaa 1000px);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+/* line 128, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/portfolio.css.scss */
+#designContainer .imageListItem {
+  border-top: 1px solid #000000;
+  border-bottom: 1px solid #000000;
+  padding-top: 0.5rem;
+}
+/* line 136, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/portfolio.css.scss */
+#designContainer .imageDetails {
+  padding-bottom: 0.5rem;
+  border-top: 1px solid #000000;
+  text-align: center;
+}
+/* line 142, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/portfolio.css.scss */
+#designContainer #designDescription {
+  border-top: 1px solid #000000;
+  border-bottom: 1px solid #000000;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+/* line 151, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/portfolio.css.scss */
+#designHome {
+  background: -webkit-gradient(radial, 50% 50%, 0, 50% 50%, 1000, color-stop(0%, #dddddd), color-stop(100%, #aaaaaa));
+  background: -webkit-radial-gradient(#dddddd, #aaaaaa 1000px);
+  background: -moz-radial-gradient(#dddddd, #aaaaaa 1000px);
+  background: -o-radial-gradient(#dddddd, #aaaaaa 1000px);
+  background: radial-gradient(#dddddd, #aaaaaa 1000px);
+}
+
+/* line 161, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/portfolio.css.scss */
+#developmentContainer {
+  background-color: black;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  color: #00ff00;
+}
+/* line 175, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/portfolio.css.scss */
+#developmentContainer #developmentDescription {
+  border-top: 1px solid #00ff00;
+  border-bottom: 1px solid #00ff00;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+/* line 184, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/portfolio.css.scss */
+#developmentHome {
+  background-color: #000000;
+}
+
+/* line 188, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/portfolio.css.scss */
+#resumeContainer {
+  background: url(/assets/resume0.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+/* line 195, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/portfolio.css.scss */
+.projectIcon {
+  width: 25.92593%;
+  height: 25.92593%;
+  margin-left: 1em;
+}
+/* Welcome to Compass. Use this file to define print styles.
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/print.css" media="print" rel="stylesheet" type="text/css" /> */
+
+@import url("http://fonts.googleapis.com/css?family=Ubuntu:300,400,500,300italic,400italic|Josefin+Sans|Open+Sans|Raleway");
+/* line 20, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_base.scss */
+h1 {
+  font-family: Ubuntu, serif;
+}
+
+/* line 24, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_base.scss */
+h2 {
+  font-family: Ubuntu, serif;
+  font-weight: 300;
+}
+
+/* line 30, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_base.scss */
+p {
+  font-family: Raleway, serif;
+}
+/* Layout ------------------------------------------------------------------*/
+@import url("http://fonts.googleapis.com/css?family=Ubuntu:300,400,500,300italic,400italic|Josefin+Sans|Open+Sans|Raleway");
+@import url("http://fonts.googleapis.com/css?family=Ubuntu:300,400,500,300italic,400italic|Josefin+Sans|Open+Sans|Raleway");
+/* line 20, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_base.scss */
+h1 {
+  font-family: Ubuntu, serif;
+}
+
+/* line 24, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_base.scss */
+h2 {
+  font-family: Ubuntu, serif;
+  font-weight: 300;
+}
+
+/* line 30, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_base.scss */
+p {
+  font-family: Raleway, serif;
+}
+
+/* line 20, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_base.scss */
+h1 {
+  font-family: Ubuntu, serif;
+}
+
+/* line 24, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_base.scss */
+h2 {
+  font-family: Ubuntu, serif;
+  font-weight: 300;
+}
+
+/* line 30, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_base.scss */
+p {
+  font-family: Raleway, serif;
+}
+
+@media (min-width: 30em) and (max-width: 82em) {
+  /* line 19, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_responsiveBreakpoints.scss */
+  h1 {
+    font-size: 1rem;
+  }
+
+  /* line 22, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_responsiveBreakpoints.scss */
+  p, .menu-list .navLink {
+    font-size: 0.75rem;
+  }
+
+  /* line 25, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_responsiveBreakpoints.scss */
+  .projectIcon {
+    width: 16.66667%;
+    height: 16.66667%;
+    margin-left: 1em;
+  }
+}
+@media (min-width: 82em) {
+  /* line 37, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_responsiveBreakpoints.scss */
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  /* line 40, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_responsiveBreakpoints.scss */
+  p {
+    font-size: 1rem;
+  }
+}
+/* line 17, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
+#titleSection {
+  margin-left: 3.30579%;
+}
+/* line 22, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
+#titleSection #pageTitle {
+  padding-bottom: 0.5rem;
+  padding-top: 0.5rem;
+  font-size: 2rem;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  width: 32.77311%;
+}
+/* line 31, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
+#titleSection #pageTitle .slashDelimiter {
+  color: #ff00ff;
+}
+
+/* line 39, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
+.subjectContainer {
+  *zoom: 1;
+  margin: auto;
+  width: 121em;
+  max-width: 100%;
+  height: 100%;
+}
+/* line 38, /Users/tfpractice/.rbenv/versions/2.1.0/lib/ruby/gems/2.1.0/gems/compass-0.12.6/frameworks/compass/stylesheets/compass/utilities/general/_clearfix.scss */
+.subjectContainer:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+/* line 45, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
+.subjectContainer .sectionSummary {
+  display: inline;
+  float: left;
+  width: 15.70248%;
+  margin-right: 0.82645%;
+  margin-top: 3rem;
+  margin-left: 3.30579%;
+}
+/* line 53, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
+.subjectContainer .categoryDiv {
+  margin-top: 3rem;
+  display: inline;
+  float: left;
+  width: 22.31405%;
+  margin-right: 0.82645%;
+  margin-left: 1.65289%;
+}
+/* line 60, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
+.subjectContainer .presentation {
+  margin-right: 2.5rem;
+}
+/* line 64, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
+.subjectContainer .pJDisplay {
+  display: inline;
+  float: left;
+  width: 98.34711%;
+  margin-right: 0.82645%;
+}
+/* line 74, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
+.subjectContainer .pJDisplay .imageSection {
+  display: inline;
+  float: left;
+  width: 65.28926%;
+  margin-right: 0.82645%;
+  max-height: 2000px;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-box;
+  display: box;
+  -webkit-box-orient: horizontal;
+  -moz-box-orient: horizontal;
+  -ms-box-orient: horizontal;
+  box-orient: horizontal;
+  -webkit-box-align: stretch;
+  -moz-box-align: stretch;
+  -ms-box-align: stretch;
+  box-align: stretch;
+  display: inline-flex;
+}
+/* line 86, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
+.subjectContainer .pJDisplay .imageSection .thumbnailDiv {
+  width: 24.05063%;
+  margin-left: 5.06329%;
+}
+/* line 97, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
+.subjectContainer .pJDisplay .imageSection #slideContainer {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-box;
+  display: box;
+  width: 62.02532%;
+  margin-left: 5.06329%;
+  display: inline-block;
+}
+/* line 109, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
+.subjectContainer .pJDisplay .imageSection #slideContainer .imageListItem {
+  width: auto;
+}
+/* line 115, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
+.subjectContainer .pJDisplay .imageSection #slideContainer img {
+  width: auto;
+  height: auto;
+  margin: auto;
+  max-height: 60%;
+  margin-bottom: 0.5rem;
+}
+/* line 136, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
+.subjectContainer .pJDisplay .imageSection .imageDetails {
+  padding-bottom: 0.5rem;
+  text-align: center;
+}
+/* line 145, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
+.subjectContainer .pJDisplay .projectDescription {
+  display: inline;
+  float: left;
+  width: 24.36975%;
+  margin-right: 0.84034%;
+  float: right;
+  margin-right: 4rem;
+}
+
+/* line 163, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
+.flexslider .slides img {
+  max-width: 100%;
+  display: block;
+}
+
+/* line 166, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
+.flexslider {
+  background-color: transparent;
+  border: none;
+  box-shadow: none;
+}
+
+/* line 172, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
+#boywolfSlides img {
+  background-color: #ffffff;
+}
+@import url("http://fonts.googleapis.com/css?family=Ubuntu:300,400,500,300italic,400italic|Josefin+Sans|Open+Sans|Raleway");
+@import url("http://fonts.googleapis.com/css?family=Ubuntu:300,400,500,300italic,400italic|Josefin+Sans|Open+Sans|Raleway");
+@import url("http://fonts.googleapis.com/css?family=Ubuntu:300,400,500,300italic,400italic|Josefin+Sans|Open+Sans|Raleway");
+/* line 20, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_base.scss */
+h1 {
+  font-family: Ubuntu, serif;
+}
+
+/* line 24, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_base.scss */
+h2 {
+  font-family: Ubuntu, serif;
+  font-weight: 300;
+}
+
+/* line 30, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_base.scss */
+p {
+  font-family: Raleway, serif;
+}
+
+/* Layout ------------------------------------------------------------------*/
+/* line 20, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_base.scss */
+h1 {
+  font-family: Ubuntu, serif;
+}
+
+/* line 24, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_base.scss */
+h2 {
+  font-family: Ubuntu, serif;
+  font-weight: 300;
+}
+
+/* line 30, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_base.scss */
+p {
+  font-family: Raleway, serif;
+}
+
+/* line 20, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_base.scss */
+h1 {
+  font-family: Ubuntu, serif;
+}
+
+/* line 24, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_base.scss */
+h2 {
+  font-family: Ubuntu, serif;
+  font-weight: 300;
+}
+
+/* line 30, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_base.scss */
+p {
+  font-family: Raleway, serif;
+}
+
+@media (min-width: 30em) and (max-width: 82em) {
+  /* line 19, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_responsiveBreakpoints.scss */
+  h1 {
+    font-size: 1rem;
+  }
+
+  /* line 22, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_responsiveBreakpoints.scss */
+  p, .menu-list .navLink {
+    font-size: 0.75rem;
+  }
+
+  /* line 25, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_responsiveBreakpoints.scss */
+  .projectIcon {
+    width: 16.66667%;
+    height: 16.66667%;
+    margin-left: 1em;
+  }
+}
+@media (min-width: 82em) {
+  /* line 37, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_responsiveBreakpoints.scss */
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  /* line 40, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_responsiveBreakpoints.scss */
+  p {
+    font-size: 1rem;
+  }
+}
+/* line 17, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
+#titleSection {
+  margin-left: 3.30579%;
+}
+/* line 22, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
+#titleSection #pageTitle {
+  padding-bottom: 0.5rem;
+  padding-top: 0.5rem;
+  font-size: 2rem;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  width: 32.77311%;
+}
+/* line 31, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
+#titleSection #pageTitle .slashDelimiter {
+  color: #ff00ff;
+}
+
+/* line 39, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
+.subjectContainer {
+  *zoom: 1;
+  margin: auto;
+  width: 121em;
+  max-width: 100%;
+  height: 100%;
+}
+/* line 38, /Users/tfpractice/.rbenv/versions/2.1.0/lib/ruby/gems/2.1.0/gems/compass-0.12.6/frameworks/compass/stylesheets/compass/utilities/general/_clearfix.scss */
+.subjectContainer:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+/* line 45, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
+.subjectContainer .sectionSummary {
+  display: inline;
+  float: left;
+  width: 15.70248%;
+  margin-right: 0.82645%;
+  margin-top: 3rem;
+  margin-left: 3.30579%;
+}
+/* line 53, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
+.subjectContainer .categoryDiv {
+  margin-top: 3rem;
+  display: inline;
+  float: left;
+  width: 22.31405%;
+  margin-right: 0.82645%;
+  margin-left: 1.65289%;
+}
+/* line 60, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
+.subjectContainer .presentation {
+  margin-right: 2.5rem;
+}
+/* line 64, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
+.subjectContainer .pJDisplay {
+  display: inline;
+  float: left;
+  width: 98.34711%;
+  margin-right: 0.82645%;
+}
+/* line 74, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
+.subjectContainer .pJDisplay .imageSection {
+  display: inline;
+  float: left;
+  width: 65.28926%;
+  margin-right: 0.82645%;
+  max-height: 2000px;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-box;
+  display: box;
+  -webkit-box-orient: horizontal;
+  -moz-box-orient: horizontal;
+  -ms-box-orient: horizontal;
+  box-orient: horizontal;
+  -webkit-box-align: stretch;
+  -moz-box-align: stretch;
+  -ms-box-align: stretch;
+  box-align: stretch;
+  display: inline-flex;
+}
+/* line 86, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
+.subjectContainer .pJDisplay .imageSection .thumbnailDiv {
+  width: 24.05063%;
+  margin-left: 5.06329%;
+}
+/* line 97, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
+.subjectContainer .pJDisplay .imageSection #slideContainer {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-box;
+  display: box;
+  width: 62.02532%;
+  margin-left: 5.06329%;
+  display: inline-block;
+}
+/* line 109, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
+.subjectContainer .pJDisplay .imageSection #slideContainer .imageListItem {
+  width: auto;
+}
+/* line 115, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
+.subjectContainer .pJDisplay .imageSection #slideContainer img {
+  width: auto;
+  height: auto;
+  margin: auto;
+  max-height: 60%;
+  margin-bottom: 0.5rem;
+}
+/* line 136, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
+.subjectContainer .pJDisplay .imageSection .imageDetails {
+  padding-bottom: 0.5rem;
+  text-align: center;
+}
+/* line 145, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
+.subjectContainer .pJDisplay .projectDescription {
+  display: inline;
+  float: left;
+  width: 24.36975%;
+  margin-right: 0.84034%;
+  float: right;
+  margin-right: 4rem;
+}
+
+/* line 163, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
+.flexslider .slides img {
+  max-width: 100%;
+  display: block;
+}
+
+/* line 166, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
+.flexslider {
+  background-color: transparent;
+  border: none;
+  box-shadow: none;
+}
+
+/* line 172, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
+#boywolfSlides img {
+  background-color: #ffffff;
+}
+
+/* line 9, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_modules.scss */
+.skillsDiv {
+  text-align: center;
+}
+
+/* line 15, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_modules.scss */
+text {
+  font-family: Ubuntu, serif;
+  font-size: 2rem;
+  text-anchor: middle;
+  background: #000;
+  max-width: 3rem;
+  word-wrap: break-word;
+}
+
+/* line 26, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_modules.scss */
+.canvasDiv {
+  border-top: 1px solid #00ff00;
+  border-bottom: 1px solid #00ff00;
+}
+
+/* line 54, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_modules.scss */
+.menu-list .menuItem {
+  font-family: Ubuntu, serif;
+  font-size: 1rem;
+  font-weight: 300;
+  text-anchor: middle;
+  height: 40px;
+  background-color: rgba(255, 0, 255, 0.5);
+  display: table-row;
+}
+/* line 66, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_modules.scss */
+.menu-list .navLink {
+  color: #ffffff;
+}
+/* line 70, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_modules.scss */
+.menu-list .navLink:after {
+  color: #000000;
+}
+/* line 73, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_modules.scss */
+.menu-list .navLink #logoIcon {
+  padding-top: none;
+}
+/* line 75, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_modules.scss */
+.menu-list .navLink #logoIcon #topIcon {
+  height: 1rem;
+}
+
+/* line 91, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_modules.scss */
+#officialPagination {
+  display: none;
+}
+
+/* line 96, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_modules.scss */
+.onepage-pagination {
+  position: absolute;
+  right: 1%;
+  top: 1%;
+  z-index: 5;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* line 105, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_modules.scss */
+.onepage-pagination li {
+  padding: 0;
+  text-align: center;
+  font-family: Ubuntu, serif;
+  font-size: 1.5rem;
+  text-anchor: middle;
+  height: 40px;
+  display: inline-block;
+}
+
+/* line 116, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_modules.scss */
+.onepage-pagination li a {
+  padding-top: 0.25rem;
+  padding-bottom: 0px;
+  display: block;
+  padding-left: .25rem;
+  padding-right: .25rem;
+}
+
+/* line 124, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_modules.scss */
+.onepage-pagination li a:before {
+  content: '';
+  position: absolute;
+  background: rgba(0, 0, 0, 0.85);
+}
+
+/* line 135, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_modules.scss */
+.onepage-pagination li a.active:before {
+  background: none;
+  border: none;
+  margin-top: -4px;
+  left: 8px;
+}
+
+/*
+
+if(settings.pagination == true) {
+  	  var pagination = document.createElement("ul");
+  	  pagination.setAttribute("class", "onepage-pagination");
+      pagination.setAttribute("id", "officialPagination");
+*/
+@import url("http://fonts.googleapis.com/css?family=Ubuntu:300,400,500,300italic,400italic|Josefin+Sans|Open+Sans|Raleway");
+/* line 20, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_base.scss */
+h1 {
+  font-family: Ubuntu, serif;
+}
+
+/* line 24, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_base.scss */
+h2 {
+  font-family: Ubuntu, serif;
+  font-weight: 300;
+}
+
+/* line 30, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_base.scss */
+p {
+  font-family: Raleway, serif;
+}
+
+@media (min-width: 30em) and (max-width: 82em) {
+  /* line 19, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_responsiveBreakpoints.scss */
+  h1 {
+    font-size: 1rem;
+  }
+
+  /* line 22, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_responsiveBreakpoints.scss */
+  p, .menu-list .navLink {
+    font-size: 0.75rem;
+  }
+
+  /* line 25, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_responsiveBreakpoints.scss */
+  .projectIcon {
+    width: 16.66667%;
+    height: 16.66667%;
+    margin-left: 1em;
+  }
+}
+@media (min-width: 82em) {
+  /* line 37, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_responsiveBreakpoints.scss */
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  /* line 40, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_responsiveBreakpoints.scss */
+  p {
+    font-size: 1rem;
+  }
+}
+/*
+ * jQuery FlexSlider v2.2.0
+ * http://www.woothemes.com/flexslider/
+ *
+ * Copyright 2012 WooThemes
+ * Free to use under the GPLv2 license.
+ * http://www.gnu.org/licenses/gpl-2.0.html
+ *
+ * Contributing author: Tyler Smith (@mbmufffin)
+ */
+/* Browser Resets
+*********************************/
+/* line 19, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/flexslider.scss */
+.flex-container a:active,
+.flexslider a:active,
+.flex-container a:focus,
+.flexslider a:focus {
+  outline: none;
+}
+
+/* line 22, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/flexslider.scss */
+.slides,
+.flex-control-nav,
+.flex-direction-nav {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* Icon Fonts
+*********************************/
+/* Font-face Icons */
+@font-face {
+  font-family: 'flexslider-icon';
+  src: url("fonts/flexslider-icon.eot");
+  src: url("fonts/flexslider-icon.eot?#iefix") format("embedded-opentype"), url("fonts/flexslider-icon.woff") format("woff"), url("fonts/flexslider-icon.ttf") format("truetype"), url("fonts/flexslider-icon.svg#flexslider-icon") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* FlexSlider Necessary Styles
+*********************************/
+/* line 40, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/flexslider.scss */
+.flexslider {
+  margin: 0;
+  padding: 0;
+}
+
+/* line 41, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/flexslider.scss */
+.flexslider .slides > li {
+  display: none;
+  -webkit-backface-visibility: hidden;
+}
+
+/* Hide the slides before the JS is loaded. Avoids image jumping */
+/* line 42, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/flexslider.scss */
+.flexslider .slides img {
+  width: 100%;
+  display: block;
+}
+
+/* line 43, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/flexslider.scss */
+.flex-pauseplay span {
+  text-transform: capitalize;
+}
+
+/* Clearfix for the .slides element */
+/* line 46, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/flexslider.scss */
+.slides:after {
+  content: "\0020";
+  display: block;
+  clear: both;
+  visibility: hidden;
+  line-height: 0;
+  height: 0;
+}
+
+/* line 47, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/flexslider.scss */
+html[xmlns] .slides {
+  display: block;
+}
+
+/* line 48, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/flexslider.scss */
+* html .slides {
+  height: 1%;
+}
+
+/* No JavaScript Fallback */
+/* If you are not using another script, such as Modernizr, make sure you
+ * include js that eliminates this class on page load */
+/* line 53, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/flexslider.scss */
+.no-js .slides > li:first-child {
+  display: block;
+}
+
+/* FlexSlider Default Theme
+*********************************/
+/* line 57, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/flexslider.scss */
+.flexslider {
+  margin: 0 0 60px;
+  background: #fff;
+  border: 4px solid #fff;
+  position: relative;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -o-border-radius: 4px;
+  border-radius: 4px;
+  -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+  -o-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+  zoom: 1;
+}
+
+/* line 58, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/flexslider.scss */
+.flex-viewport {
+  max-height: 2000px;
+  -webkit-transition: all 1s ease;
+  -moz-transition: all 1s ease;
+  -o-transition: all 1s ease;
+  transition: all 1s ease;
+}
+
+/* line 59, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/flexslider.scss */
+.loading .flex-viewport {
+  max-height: 300px;
+}
+
+/* line 60, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/flexslider.scss */
+.flexslider .slides {
+  zoom: 1;
+}
+
+/* line 61, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/flexslider.scss */
+.carousel li {
+  margin-right: 5px;
+}
+
+/* Direction Nav */
+/* line 64, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/flexslider.scss */
+.flex-direction-nav {
+  *height: 0;
+}
+
+/* line 65, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/flexslider.scss */
+.flex-direction-nav a {
+  text-decoration: none;
+  display: block;
+  width: 40px;
+  height: 40px;
+  margin: -20px 0 0;
+  position: absolute;
+  top: 50%;
+  z-index: 10;
+  overflow: hidden;
+  opacity: 0;
+  cursor: pointer;
+  color: rgba(0, 0, 0, 0.8);
+  text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.3);
+  -webkit-transition: all .3s ease;
+  -moz-transition: all .3s ease;
+  transition: all .3s ease;
+}
+
+/* line 66, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/flexslider.scss */
+.flex-direction-nav .flex-prev {
+  left: -50px;
+}
+
+/* line 67, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/flexslider.scss */
+.flex-direction-nav .flex-next {
+  right: -50px;
+  text-align: right;
+}
+
+/* line 68, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/flexslider.scss */
+.flexslider:hover .flex-prev {
+  opacity: 0.7;
+  left: 10px;
+}
+
+/* line 69, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/flexslider.scss */
+.flexslider:hover .flex-next {
+  opacity: 0.7;
+  right: 10px;
+}
+
+/* line 70, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/flexslider.scss */
+.flexslider:hover .flex-next:hover, .flexslider:hover .flex-prev:hover {
+  opacity: 1;
+}
+
+/* line 71, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/flexslider.scss */
+.flex-direction-nav .flex-disabled {
+  opacity: 0 !important;
+  filter: alpha(opacity=0);
+  cursor: default;
+}
+
+/* line 72, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/flexslider.scss */
+.flex-direction-nav a:before {
+  font-family: "flexslider-icon";
+  font-size: 40px;
+  line-height: 1;
+  display: inline-block;
+  content: '\f001';
+}
+
+/* line 73, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/flexslider.scss */
+.flex-direction-nav a.flex-next:before {
+  content: '\f002';
+}
+
+/* Pause/Play */
+/* line 76, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/flexslider.scss */
+.flex-pauseplay a {
+  display: block;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  bottom: 5px;
+  left: 10px;
+  opacity: 0.8;
+  z-index: 10;
+  overflow: hidden;
+  cursor: pointer;
+  color: #000;
+}
+
+/* line 77, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/flexslider.scss */
+.flex-pauseplay a:before {
+  font-family: "flexslider-icon";
+  font-size: 20px;
+  display: inline-block;
+  content: '\f004';
+}
+
+/* line 78, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/flexslider.scss */
+.flex-pauseplay a:hover {
+  opacity: 1;
+}
+
+/* line 79, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/flexslider.scss */
+.flex-pauseplay a.flex-play:before {
+  content: '\f003';
+}
+
+/* Control Nav */
+/* line 82, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/flexslider.scss */
+.flex-control-nav {
+  width: 100%;
+  position: absolute;
+  bottom: -40px;
+  text-align: center;
+}
+
+/* line 83, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/flexslider.scss */
+.flex-control-nav li {
+  margin: 0 6px;
+  display: inline-block;
+  zoom: 1;
+  *display: inline;
+}
+
+/* line 84, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/flexslider.scss */
+.flex-control-paging li a {
+  width: 11px;
+  height: 11px;
+  display: block;
+  background: #666;
+  background: rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+  text-indent: -9999px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  -o-border-radius: 20px;
+  border-radius: 20px;
+  -webkit-box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.3);
+  -o-box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.3);
+  box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.3);
+}
+
+/* line 85, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/flexslider.scss */
+.flex-control-paging li a:hover {
+  background: #333;
+  background: rgba(0, 0, 0, 0.7);
+}
+
+/* line 86, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/flexslider.scss */
+.flex-control-paging li a.flex-active {
+  background: #000;
+  background: rgba(0, 0, 0, 0.9);
+  cursor: default;
+}
+
+/* line 88, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/flexslider.scss */
+.flex-control-thumbs {
+  margin: 5px 0 0;
+  position: static;
+  overflow: hidden;
+}
+
+/* line 89, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/flexslider.scss */
+.flex-control-thumbs li {
+  width: 25%;
+  float: left;
+  margin: 0;
+}
+
+/* line 90, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/flexslider.scss */
+.flex-control-thumbs img {
+  width: 100%;
+  display: block;
+  opacity: .7;
+  cursor: pointer;
+}
+
+/* line 91, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/flexslider.scss */
+.flex-control-thumbs img:hover {
+  opacity: 1;
+}
+
+/* line 92, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/flexslider.scss */
+.flex-control-thumbs .flex-active {
+  opacity: 1;
+  cursor: default;
+}
+
+@media screen and (max-width: 860px) {
+  /* line 95, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/flexslider.scss */
+  .flex-direction-nav .flex-prev {
+    opacity: 1;
+    left: 10px;
+  }
+
+  /* line 96, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/flexslider.scss */
+  .flex-direction-nav .flex-next {
+    opacity: 1;
+    right: 10px;
+  }
+}
+/* Welcome to Compass. Use this file to write IE specific override styles.
+ * Import this file using the following HTML or equivalent:
+ * <!--[if IE]>
+ *   <link href="/stylesheets/ie.css" media="screen, projection" rel="stylesheet" type="text/css" />
+ * <![endif]--> */
+/* Welcome to Compass. Use this file to define print styles.
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/print.css" media="print" rel="stylesheet" type="text/css" /> */
+@import url("http://fonts.googleapis.com/css?family=Ubuntu:300,400,500,300italic,400italic|Josefin+Sans|Open+Sans|Raleway");
+@import url("http://fonts.googleapis.com/css?family=Ubuntu:300,400,500,300italic,400italic|Josefin+Sans|Open+Sans|Raleway");
+@import url("http://fonts.googleapis.com/css?family=Ubuntu:300,400,500,300italic,400italic|Josefin+Sans|Open+Sans|Raleway");
+@import url("http://fonts.googleapis.com/css?family=Ubuntu:300,400,500,300italic,400italic|Josefin+Sans|Open+Sans|Raleway");
+@import url("http://fonts.googleapis.com/css?family=Ubuntu:300,400,500,300italic,400italic|Josefin+Sans|Open+Sans|Raleway");
+@import url("http://fonts.googleapis.com/css?family=Ubuntu:300,400,500,300italic,400italic|Josefin+Sans|Open+Sans|Raleway");
+/* line 20, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_base.scss */
+h1 {
+  font-family: Ubuntu, serif;
+}
+
+/* line 24, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_base.scss */
+h2 {
+  font-family: Ubuntu, serif;
+  font-weight: 300;
+}
+
+/* line 30, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_base.scss */
+p {
+  font-family: Raleway, serif;
+}
+
+/* Layout ------------------------------------------------------------------*/
+/* line 20, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_base.scss */
+h1 {
+  font-family: Ubuntu, serif;
+}
+
+/* line 24, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_base.scss */
+h2 {
+  font-family: Ubuntu, serif;
+  font-weight: 300;
+}
+
+/* line 30, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_base.scss */
+p {
+  font-family: Raleway, serif;
+}
+
+/* line 20, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_base.scss */
+h1 {
+  font-family: Ubuntu, serif;
+}
+
+/* line 24, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_base.scss */
+h2 {
+  font-family: Ubuntu, serif;
+  font-weight: 300;
+}
+
+/* line 30, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_base.scss */
+p {
+  font-family: Raleway, serif;
+}
+
+@media (min-width: 30em) and (max-width: 82em) {
+  /* line 19, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_responsiveBreakpoints.scss */
+  h1 {
+    font-size: 1rem;
+  }
+
+  /* line 22, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_responsiveBreakpoints.scss */
+  p, .menu-list .navLink {
+    font-size: 0.75rem;
+  }
+
+  /* line 25, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_responsiveBreakpoints.scss */
+  .projectIcon {
+    width: 16.66667%;
+    height: 16.66667%;
+    margin-left: 1em;
+  }
+}
+@media (min-width: 82em) {
+  /* line 37, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_responsiveBreakpoints.scss */
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  /* line 40, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_responsiveBreakpoints.scss */
+  p {
+    font-size: 1rem;
+  }
+}
+/* line 17, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
+#titleSection {
+  margin-left: 3.30579%;
+}
+/* line 22, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
+#titleSection #pageTitle {
+  padding-bottom: 0.5rem;
+  padding-top: 0.5rem;
+  font-size: 2rem;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  width: 32.77311%;
+}
+/* line 31, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
+#titleSection #pageTitle .slashDelimiter {
+  color: #ff00ff;
+}
+
+/* line 39, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
+.subjectContainer {
+  *zoom: 1;
+  margin: auto;
+  width: 121em;
+  max-width: 100%;
+  height: 100%;
+}
+/* line 38, /Users/tfpractice/.rbenv/versions/2.1.0/lib/ruby/gems/2.1.0/gems/compass-0.12.6/frameworks/compass/stylesheets/compass/utilities/general/_clearfix.scss */
+.subjectContainer:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+/* line 45, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
+.subjectContainer .sectionSummary {
+  display: inline;
+  float: left;
+  width: 15.70248%;
+  margin-right: 0.82645%;
+  margin-top: 3rem;
+  margin-left: 3.30579%;
+}
+/* line 53, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
+.subjectContainer .categoryDiv {
+  margin-top: 3rem;
+  display: inline;
+  float: left;
+  width: 22.31405%;
+  margin-right: 0.82645%;
+  margin-left: 1.65289%;
+}
+/* line 60, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
+.subjectContainer .presentation {
+  margin-right: 2.5rem;
+}
+/* line 64, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
+.subjectContainer .pJDisplay {
+  display: inline;
+  float: left;
+  width: 98.34711%;
+  margin-right: 0.82645%;
+}
+/* line 74, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
+.subjectContainer .pJDisplay .imageSection {
+  display: inline;
+  float: left;
+  width: 65.28926%;
+  margin-right: 0.82645%;
+  max-height: 2000px;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-box;
+  display: box;
+  -webkit-box-orient: horizontal;
+  -moz-box-orient: horizontal;
+  -ms-box-orient: horizontal;
+  box-orient: horizontal;
+  -webkit-box-align: stretch;
+  -moz-box-align: stretch;
+  -ms-box-align: stretch;
+  box-align: stretch;
+  display: inline-flex;
+}
+/* line 86, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
+.subjectContainer .pJDisplay .imageSection .thumbnailDiv {
+  width: 24.05063%;
+  margin-left: 5.06329%;
+}
+/* line 97, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
+.subjectContainer .pJDisplay .imageSection #slideContainer {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-box;
+  display: box;
+  width: 62.02532%;
+  margin-left: 5.06329%;
+  display: inline-block;
+}
+/* line 109, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
+.subjectContainer .pJDisplay .imageSection #slideContainer .imageListItem {
+  width: auto;
+}
+/* line 115, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
+.subjectContainer .pJDisplay .imageSection #slideContainer img {
+  width: auto;
+  height: auto;
+  margin: auto;
+  max-height: 60%;
+  margin-bottom: 0.5rem;
+}
+/* line 136, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
+.subjectContainer .pJDisplay .imageSection .imageDetails {
+  padding-bottom: 0.5rem;
+  text-align: center;
+}
+/* line 145, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
+.subjectContainer .pJDisplay .projectDescription {
+  display: inline;
+  float: left;
+  width: 24.36975%;
+  margin-right: 0.84034%;
+  float: right;
+  margin-right: 4rem;
+}
+
+/* line 163, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
+.flexslider .slides img {
+  max-width: 100%;
+  display: block;
+}
+
+/* line 166, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
+.flexslider {
+  background-color: transparent;
+  border: none;
+  box-shadow: none;
+}
+
+/* line 172, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
+#boywolfSlides img {
+  background-color: #ffffff;
+}
+
+/* line 20, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_base.scss */
+h1 {
+  font-family: Ubuntu, serif;
+}
+
+/* line 24, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_base.scss */
+h2 {
+  font-family: Ubuntu, serif;
+  font-weight: 300;
+}
+
+/* line 30, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_base.scss */
+p {
+  font-family: Raleway, serif;
+}
+
+/* Layout ------------------------------------------------------------------*/
+/* line 20, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_base.scss */
+h1 {
+  font-family: Ubuntu, serif;
+}
+
+/* line 24, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_base.scss */
+h2 {
+  font-family: Ubuntu, serif;
+  font-weight: 300;
+}
+
+/* line 30, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_base.scss */
+p {
+  font-family: Raleway, serif;
+}
+
+/* line 20, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_base.scss */
+h1 {
+  font-family: Ubuntu, serif;
+}
+
+/* line 24, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_base.scss */
+h2 {
+  font-family: Ubuntu, serif;
+  font-weight: 300;
+}
+
+/* line 30, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_base.scss */
+p {
+  font-family: Raleway, serif;
+}
+
+@media (min-width: 30em) and (max-width: 82em) {
+  /* line 19, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_responsiveBreakpoints.scss */
+  h1 {
+    font-size: 1rem;
+  }
+
+  /* line 22, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_responsiveBreakpoints.scss */
+  p, .menu-list .navLink {
+    font-size: 0.75rem;
+  }
+
+  /* line 25, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_responsiveBreakpoints.scss */
+  .projectIcon {
+    width: 16.66667%;
+    height: 16.66667%;
+    margin-left: 1em;
+  }
+}
+@media (min-width: 82em) {
+  /* line 37, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_responsiveBreakpoints.scss */
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  /* line 40, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_responsiveBreakpoints.scss */
+  p {
+    font-size: 1rem;
+  }
+}
+/* line 17, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
+#titleSection {
+  margin-left: 3.30579%;
+}
+/* line 22, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
+#titleSection #pageTitle {
+  padding-bottom: 0.5rem;
+  padding-top: 0.5rem;
+  font-size: 2rem;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  width: 32.77311%;
+}
+/* line 31, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
+#titleSection #pageTitle .slashDelimiter {
+  color: #ff00ff;
+}
+
+/* line 39, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
+.subjectContainer {
+  *zoom: 1;
+  margin: auto;
+  width: 121em;
+  max-width: 100%;
+  height: 100%;
+}
+/* line 38, /Users/tfpractice/.rbenv/versions/2.1.0/lib/ruby/gems/2.1.0/gems/compass-0.12.6/frameworks/compass/stylesheets/compass/utilities/general/_clearfix.scss */
+.subjectContainer:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+/* line 45, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
+.subjectContainer .sectionSummary {
+  display: inline;
+  float: left;
+  width: 15.70248%;
+  margin-right: 0.82645%;
+  margin-top: 3rem;
+  margin-left: 3.30579%;
+}
+/* line 53, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
+.subjectContainer .categoryDiv {
+  margin-top: 3rem;
+  display: inline;
+  float: left;
+  width: 22.31405%;
+  margin-right: 0.82645%;
+  margin-left: 1.65289%;
+}
+/* line 60, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
+.subjectContainer .presentation {
+  margin-right: 2.5rem;
+}
+/* line 64, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
+.subjectContainer .pJDisplay {
+  display: inline;
+  float: left;
+  width: 98.34711%;
+  margin-right: 0.82645%;
+}
+/* line 74, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
+.subjectContainer .pJDisplay .imageSection {
+  display: inline;
+  float: left;
+  width: 65.28926%;
+  margin-right: 0.82645%;
+  max-height: 2000px;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-box;
+  display: box;
+  -webkit-box-orient: horizontal;
+  -moz-box-orient: horizontal;
+  -ms-box-orient: horizontal;
+  box-orient: horizontal;
+  -webkit-box-align: stretch;
+  -moz-box-align: stretch;
+  -ms-box-align: stretch;
+  box-align: stretch;
+  display: inline-flex;
+}
+/* line 86, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
+.subjectContainer .pJDisplay .imageSection .thumbnailDiv {
+  width: 24.05063%;
+  margin-left: 5.06329%;
+}
+/* line 97, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
+.subjectContainer .pJDisplay .imageSection #slideContainer {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-box;
+  display: box;
+  width: 62.02532%;
+  margin-left: 5.06329%;
+  display: inline-block;
+}
+/* line 109, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
+.subjectContainer .pJDisplay .imageSection #slideContainer .imageListItem {
+  width: auto;
+}
+/* line 115, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
+.subjectContainer .pJDisplay .imageSection #slideContainer img {
+  width: auto;
+  height: auto;
+  margin: auto;
+  max-height: 60%;
+  margin-bottom: 0.5rem;
+}
+/* line 136, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
+.subjectContainer .pJDisplay .imageSection .imageDetails {
+  padding-bottom: 0.5rem;
+  text-align: center;
+}
+/* line 145, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
+.subjectContainer .pJDisplay .projectDescription {
+  display: inline;
+  float: left;
+  width: 24.36975%;
+  margin-right: 0.84034%;
+  float: right;
+  margin-right: 4rem;
+}
+
+/* line 163, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
+.flexslider .slides img {
+  max-width: 100%;
+  display: block;
+}
+
+/* line 166, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
+.flexslider {
+  background-color: transparent;
+  border: none;
+  box-shadow: none;
+}
+
+/* line 172, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
+#boywolfSlides img {
+  background-color: #ffffff;
+}
+
+/* line 9, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_modules.scss */
+.skillsDiv {
+  text-align: center;
+}
+
+/* line 15, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_modules.scss */
+text {
+  font-family: Ubuntu, serif;
+  font-size: 2rem;
+  text-anchor: middle;
+  background: #000;
+  max-width: 3rem;
+  word-wrap: break-word;
+}
+
+/* line 26, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_modules.scss */
+.canvasDiv {
+  border-top: 1px solid #00ff00;
+  border-bottom: 1px solid #00ff00;
+}
+
+/* line 54, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_modules.scss */
+.menu-list .menuItem {
+  font-family: Ubuntu, serif;
+  font-size: 1rem;
+  font-weight: 300;
+  text-anchor: middle;
+  height: 40px;
+  background-color: rgba(255, 0, 255, 0.5);
+  display: table-row;
+}
+/* line 66, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_modules.scss */
+.menu-list .navLink {
+  color: #ffffff;
+}
+/* line 70, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_modules.scss */
+.menu-list .navLink:after {
+  color: #000000;
+}
+/* line 73, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_modules.scss */
+.menu-list .navLink #logoIcon {
+  padding-top: none;
+}
+/* line 75, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_modules.scss */
+.menu-list .navLink #logoIcon #topIcon {
+  height: 1rem;
+}
+
+/* line 91, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_modules.scss */
+#officialPagination {
+  display: none;
+}
+
+/* line 96, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_modules.scss */
+.onepage-pagination {
+  position: absolute;
+  right: 1%;
+  top: 1%;
+  z-index: 5;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* line 105, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_modules.scss */
+.onepage-pagination li {
+  padding: 0;
+  text-align: center;
+  font-family: Ubuntu, serif;
+  font-size: 1.5rem;
+  text-anchor: middle;
+  height: 40px;
+  display: inline-block;
+}
+
+/* line 116, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_modules.scss */
+.onepage-pagination li a {
+  padding-top: 0.25rem;
+  padding-bottom: 0px;
+  display: block;
+  padding-left: .25rem;
+  padding-right: .25rem;
+}
+
+/* line 124, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_modules.scss */
+.onepage-pagination li a:before {
+  content: '';
+  position: absolute;
+  background: rgba(0, 0, 0, 0.85);
+}
+
+/* line 135, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_modules.scss */
+.onepage-pagination li a.active:before {
+  background: none;
+  border: none;
+  margin-top: -4px;
+  left: 8px;
+}
+
+/*
+
+if(settings.pagination == true) {
+  	  var pagination = document.createElement("ul");
+  	  pagination.setAttribute("class", "onepage-pagination");
+      pagination.setAttribute("id", "officialPagination");
+*/
+/* Layout ------------------------------------------------------------------*/
+/* 
+.container {
+  @include container;
+  @include susy-grid-background;
+}
+
+*/
+/* Layout ------------------------------------------------------------------*/
+/* line 7, sass/screen.scss */
+
+.container {
+  *zoom: 1;
+  margin: auto;
+  width: 61em;
+  max-width: 100%;
+  background-image: -webkit-gradient(linear, 0% 50%, 100% 50%, color-stop(1.63934%, rgba(0, 0, 0, 0)), color-stop(1.63934%, rgba(100, 100, 225, 0.25)), color-stop(8.19672%, rgba(100, 100, 225, 0.25)), color-stop(8.19672%, rgba(0, 0, 0, 0)), color-stop(9.83607%, rgba(0, 0, 0, 0)), color-stop(9.83607%, rgba(100, 100, 225, 0.25)), color-stop(16.39344%, rgba(100, 100, 225, 0.25)), color-stop(16.39344%, rgba(0, 0, 0, 0)), color-stop(18.03279%, rgba(0, 0, 0, 0)), color-stop(18.03279%, rgba(100, 100, 225, 0.25)), color-stop(24.59016%, rgba(100, 100, 225, 0.25)), color-stop(24.59016%, rgba(0, 0, 0, 0)), color-stop(26.22951%, rgba(0, 0, 0, 0)), color-stop(26.22951%, rgba(100, 100, 225, 0.25)), color-stop(32.78689%, rgba(100, 100, 225, 0.25)), color-stop(32.78689%, rgba(0, 0, 0, 0)), color-stop(34.42623%, rgba(0, 0, 0, 0)), color-stop(34.42623%, rgba(100, 100, 225, 0.25)), color-stop(40.98361%, rgba(100, 100, 225, 0.25)), color-stop(40.98361%, rgba(0, 0, 0, 0)), color-stop(42.62295%, rgba(0, 0, 0, 0)), color-stop(42.62295%, rgba(100, 100, 225, 0.25)), color-stop(49.18033%, rgba(100, 100, 225, 0.25)), color-stop(49.18033%, rgba(0, 0, 0, 0)), color-stop(50.81967%, rgba(0, 0, 0, 0)), color-stop(50.81967%, rgba(100, 100, 225, 0.25)), color-stop(57.37705%, rgba(100, 100, 225, 0.25)), color-stop(57.37705%, rgba(0, 0, 0, 0)), color-stop(59.01639%, rgba(0, 0, 0, 0)), color-stop(59.01639%, rgba(100, 100, 225, 0.25)), color-stop(65.57377%, rgba(100, 100, 225, 0.25)), color-stop(65.57377%, rgba(0, 0, 0, 0)), color-stop(67.21311%, rgba(0, 0, 0, 0)), color-stop(67.21311%, rgba(100, 100, 225, 0.25)), color-stop(73.77049%, rgba(100, 100, 225, 0.25)), color-stop(73.77049%, rgba(0, 0, 0, 0)), color-stop(75.40984%, rgba(0, 0, 0, 0)), color-stop(75.40984%, rgba(100, 100, 225, 0.25)), color-stop(81.96721%, rgba(100, 100, 225, 0.25)), color-stop(81.96721%, rgba(0, 0, 0, 0)), color-stop(83.60656%, rgba(0, 0, 0, 0)), color-stop(83.60656%, rgba(100, 100, 225, 0.25)), color-stop(90.16393%, rgba(100, 100, 225, 0.25)), color-stop(90.16393%, rgba(0, 0, 0, 0)), color-stop(91.80328%, rgba(0, 0, 0, 0)), color-stop(91.80328%, rgba(100, 100, 225, 0.25)), color-stop(98.36066%, rgba(100, 100, 225, 0.25)), color-stop(98.36066%, rgba(0, 0, 0, 0)), color-stop(100%, rgba(0, 0, 0, 0)));
+  background-image: -webkit-linear-gradient(left, rgba(0, 0, 0, 0) 1.63934%, rgba(100, 100, 225, 0.25) 1.63934%, rgba(100, 100, 225, 0.25) 8.19672%, rgba(0, 0, 0, 0) 8.19672%, rgba(0, 0, 0, 0) 9.83607%, rgba(100, 100, 225, 0.25) 9.83607%, rgba(100, 100, 225, 0.25) 16.39344%, rgba(0, 0, 0, 0) 16.39344%, rgba(0, 0, 0, 0) 18.03279%, rgba(100, 100, 225, 0.25) 18.03279%, rgba(100, 100, 225, 0.25) 24.59016%, rgba(0, 0, 0, 0) 24.59016%, rgba(0, 0, 0, 0) 26.22951%, rgba(100, 100, 225, 0.25) 26.22951%, rgba(100, 100, 225, 0.25) 32.78689%, rgba(0, 0, 0, 0) 32.78689%, rgba(0, 0, 0, 0) 34.42623%, rgba(100, 100, 225, 0.25) 34.42623%, rgba(100, 100, 225, 0.25) 40.98361%, rgba(0, 0, 0, 0) 40.98361%, rgba(0, 0, 0, 0) 42.62295%, rgba(100, 100, 225, 0.25) 42.62295%, rgba(100, 100, 225, 0.25) 49.18033%, rgba(0, 0, 0, 0) 49.18033%, rgba(0, 0, 0, 0) 50.81967%, rgba(100, 100, 225, 0.25) 50.81967%, rgba(100, 100, 225, 0.25) 57.37705%, rgba(0, 0, 0, 0) 57.37705%, rgba(0, 0, 0, 0) 59.01639%, rgba(100, 100, 225, 0.25) 59.01639%, rgba(100, 100, 225, 0.25) 65.57377%, rgba(0, 0, 0, 0) 65.57377%, rgba(0, 0, 0, 0) 67.21311%, rgba(100, 100, 225, 0.25) 67.21311%, rgba(100, 100, 225, 0.25) 73.77049%, rgba(0, 0, 0, 0) 73.77049%, rgba(0, 0, 0, 0) 75.40984%, rgba(100, 100, 225, 0.25) 75.40984%, rgba(100, 100, 225, 0.25) 81.96721%, rgba(0, 0, 0, 0) 81.96721%, rgba(0, 0, 0, 0) 83.60656%, rgba(100, 100, 225, 0.25) 83.60656%, rgba(100, 100, 225, 0.25) 90.16393%, rgba(0, 0, 0, 0) 90.16393%, rgba(0, 0, 0, 0) 91.80328%, rgba(100, 100, 225, 0.25) 91.80328%, rgba(100, 100, 225, 0.25) 98.36066%, rgba(0, 0, 0, 0) 98.36066%, rgba(0, 0, 0, 0) 100%);
+  background-image: -moz-linear-gradient(left, rgba(0, 0, 0, 0) 1.63934%, rgba(100, 100, 225, 0.25) 1.63934%, rgba(100, 100, 225, 0.25) 8.19672%, rgba(0, 0, 0, 0) 8.19672%, rgba(0, 0, 0, 0) 9.83607%, rgba(100, 100, 225, 0.25) 9.83607%, rgba(100, 100, 225, 0.25) 16.39344%, rgba(0, 0, 0, 0) 16.39344%, rgba(0, 0, 0, 0) 18.03279%, rgba(100, 100, 225, 0.25) 18.03279%, rgba(100, 100, 225, 0.25) 24.59016%, rgba(0, 0, 0, 0) 24.59016%, rgba(0, 0, 0, 0) 26.22951%, rgba(100, 100, 225, 0.25) 26.22951%, rgba(100, 100, 225, 0.25) 32.78689%, rgba(0, 0, 0, 0) 32.78689%, rgba(0, 0, 0, 0) 34.42623%, rgba(100, 100, 225, 0.25) 34.42623%, rgba(100, 100, 225, 0.25) 40.98361%, rgba(0, 0, 0, 0) 40.98361%, rgba(0, 0, 0, 0) 42.62295%, rgba(100, 100, 225, 0.25) 42.62295%, rgba(100, 100, 225, 0.25) 49.18033%, rgba(0, 0, 0, 0) 49.18033%, rgba(0, 0, 0, 0) 50.81967%, rgba(100, 100, 225, 0.25) 50.81967%, rgba(100, 100, 225, 0.25) 57.37705%, rgba(0, 0, 0, 0) 57.37705%, rgba(0, 0, 0, 0) 59.01639%, rgba(100, 100, 225, 0.25) 59.01639%, rgba(100, 100, 225, 0.25) 65.57377%, rgba(0, 0, 0, 0) 65.57377%, rgba(0, 0, 0, 0) 67.21311%, rgba(100, 100, 225, 0.25) 67.21311%, rgba(100, 100, 225, 0.25) 73.77049%, rgba(0, 0, 0, 0) 73.77049%, rgba(0, 0, 0, 0) 75.40984%, rgba(100, 100, 225, 0.25) 75.40984%, rgba(100, 100, 225, 0.25) 81.96721%, rgba(0, 0, 0, 0) 81.96721%, rgba(0, 0, 0, 0) 83.60656%, rgba(100, 100, 225, 0.25) 83.60656%, rgba(100, 100, 225, 0.25) 90.16393%, rgba(0, 0, 0, 0) 90.16393%, rgba(0, 0, 0, 0) 91.80328%, rgba(100, 100, 225, 0.25) 91.80328%, rgba(100, 100, 225, 0.25) 98.36066%, rgba(0, 0, 0, 0) 98.36066%, rgba(0, 0, 0, 0) 100%);
+  background-image: -o-linear-gradient(left, rgba(0, 0, 0, 0) 1.63934%, rgba(100, 100, 225, 0.25) 1.63934%, rgba(100, 100, 225, 0.25) 8.19672%, rgba(0, 0, 0, 0) 8.19672%, rgba(0, 0, 0, 0) 9.83607%, rgba(100, 100, 225, 0.25) 9.83607%, rgba(100, 100, 225, 0.25) 16.39344%, rgba(0, 0, 0, 0) 16.39344%, rgba(0, 0, 0, 0) 18.03279%, rgba(100, 100, 225, 0.25) 18.03279%, rgba(100, 100, 225, 0.25) 24.59016%, rgba(0, 0, 0, 0) 24.59016%, rgba(0, 0, 0, 0) 26.22951%, rgba(100, 100, 225, 0.25) 26.22951%, rgba(100, 100, 225, 0.25) 32.78689%, rgba(0, 0, 0, 0) 32.78689%, rgba(0, 0, 0, 0) 34.42623%, rgba(100, 100, 225, 0.25) 34.42623%, rgba(100, 100, 225, 0.25) 40.98361%, rgba(0, 0, 0, 0) 40.98361%, rgba(0, 0, 0, 0) 42.62295%, rgba(100, 100, 225, 0.25) 42.62295%, rgba(100, 100, 225, 0.25) 49.18033%, rgba(0, 0, 0, 0) 49.18033%, rgba(0, 0, 0, 0) 50.81967%, rgba(100, 100, 225, 0.25) 50.81967%, rgba(100, 100, 225, 0.25) 57.37705%, rgba(0, 0, 0, 0) 57.37705%, rgba(0, 0, 0, 0) 59.01639%, rgba(100, 100, 225, 0.25) 59.01639%, rgba(100, 100, 225, 0.25) 65.57377%, rgba(0, 0, 0, 0) 65.57377%, rgba(0, 0, 0, 0) 67.21311%, rgba(100, 100, 225, 0.25) 67.21311%, rgba(100, 100, 225, 0.25) 73.77049%, rgba(0, 0, 0, 0) 73.77049%, rgba(0, 0, 0, 0) 75.40984%, rgba(100, 100, 225, 0.25) 75.40984%, rgba(100, 100, 225, 0.25) 81.96721%, rgba(0, 0, 0, 0) 81.96721%, rgba(0, 0, 0, 0) 83.60656%, rgba(100, 100, 225, 0.25) 83.60656%, rgba(100, 100, 225, 0.25) 90.16393%, rgba(0, 0, 0, 0) 90.16393%, rgba(0, 0, 0, 0) 91.80328%, rgba(100, 100, 225, 0.25) 91.80328%, rgba(100, 100, 225, 0.25) 98.36066%, rgba(0, 0, 0, 0) 98.36066%, rgba(0, 0, 0, 0) 100%);
+  background-image: linear-gradient(left, rgba(0, 0, 0, 0) 1.63934%, rgba(100, 100, 225, 0.25) 1.63934%, rgba(100, 100, 225, 0.25) 8.19672%, rgba(0, 0, 0, 0) 8.19672%, rgba(0, 0, 0, 0) 9.83607%, rgba(100, 100, 225, 0.25) 9.83607%, rgba(100, 100, 225, 0.25) 16.39344%, rgba(0, 0, 0, 0) 16.39344%, rgba(0, 0, 0, 0) 18.03279%, rgba(100, 100, 225, 0.25) 18.03279%, rgba(100, 100, 225, 0.25) 24.59016%, rgba(0, 0, 0, 0) 24.59016%, rgba(0, 0, 0, 0) 26.22951%, rgba(100, 100, 225, 0.25) 26.22951%, rgba(100, 100, 225, 0.25) 32.78689%, rgba(0, 0, 0, 0) 32.78689%, rgba(0, 0, 0, 0) 34.42623%, rgba(100, 100, 225, 0.25) 34.42623%, rgba(100, 100, 225, 0.25) 40.98361%, rgba(0, 0, 0, 0) 40.98361%, rgba(0, 0, 0, 0) 42.62295%, rgba(100, 100, 225, 0.25) 42.62295%, rgba(100, 100, 225, 0.25) 49.18033%, rgba(0, 0, 0, 0) 49.18033%, rgba(0, 0, 0, 0) 50.81967%, rgba(100, 100, 225, 0.25) 50.81967%, rgba(100, 100, 225, 0.25) 57.37705%, rgba(0, 0, 0, 0) 57.37705%, rgba(0, 0, 0, 0) 59.01639%, rgba(100, 100, 225, 0.25) 59.01639%, rgba(100, 100, 225, 0.25) 65.57377%, rgba(0, 0, 0, 0) 65.57377%, rgba(0, 0, 0, 0) 67.21311%, rgba(100, 100, 225, 0.25) 67.21311%, rgba(100, 100, 225, 0.25) 73.77049%, rgba(0, 0, 0, 0) 73.77049%, rgba(0, 0, 0, 0) 75.40984%, rgba(100, 100, 225, 0.25) 75.40984%, rgba(100, 100, 225, 0.25) 81.96721%, rgba(0, 0, 0, 0) 81.96721%, rgba(0, 0, 0, 0) 83.60656%, rgba(100, 100, 225, 0.25) 83.60656%, rgba(100, 100, 225, 0.25) 90.16393%, rgba(0, 0, 0, 0) 90.16393%, rgba(0, 0, 0, 0) 91.80328%, rgba(100, 100, 225, 0.25) 91.80328%, rgba(100, 100, 225, 0.25) 98.36066%, rgba(0, 0, 0, 0) 98.36066%, rgba(0, 0, 0, 0) 100%);
+  background-position: left top;
+}
+/* line 38, ../../../../../.rbenv/versions/2.1.0/lib/ruby/gems/2.1.0/gems/compass-0.12.6/frameworks/compass/stylesheets/compass/utilities/general/_clearfix.scss */
+.container:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+@import url("http://fonts.googleapis.com/css?family=Ubuntu:300,400,500,300italic,400italic|Josefin+Sans|Open+Sans|Raleway");
+@import url("http://fonts.googleapis.com/css?family=Ubuntu:300,400,500,300italic,400italic|Josefin+Sans|Open+Sans|Raleway");
+@import url("http://fonts.googleapis.com/css?family=Ubuntu:300,400,500,300italic,400italic|Josefin+Sans|Open+Sans|Raleway");
+@import url("http://fonts.googleapis.com/css?family=Ubuntu:300,400,500,300italic,400italic|Josefin+Sans|Open+Sans|Raleway");
+@import url("http://fonts.googleapis.com/css?family=Ubuntu:300,400,500,300italic,400italic|Josefin+Sans|Open+Sans|Raleway");
+@import url("http://fonts.googleapis.com/css?family=Ubuntu:300,400,500,300italic,400italic|Josefin+Sans|Open+Sans|Raleway");
+/* line 20, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_base.scss */
+h1 {
+  font-family: Ubuntu, serif;
+}
+
+/* line 24, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_base.scss */
+h2 {
+  font-family: Ubuntu, serif;
+  font-weight: 300;
+}
+
+/* line 30, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_base.scss */
+p {
+  font-family: Raleway, serif;
+}
+
+/* Layout ------------------------------------------------------------------*/
+/* line 20, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_base.scss */
+h1 {
+  font-family: Ubuntu, serif;
+}
+
+/* line 24, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_base.scss */
+h2 {
+  font-family: Ubuntu, serif;
+  font-weight: 300;
+}
+
+/* line 30, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_base.scss */
+p {
+  font-family: Raleway, serif;
+}
+
+/* line 20, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_base.scss */
+h1 {
+  font-family: Ubuntu, serif;
+}
+
+/* line 24, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_base.scss */
+h2 {
+  font-family: Ubuntu, serif;
+  font-weight: 300;
+}
+
+/* line 30, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_base.scss */
+p {
+  font-family: Raleway, serif;
+}
+
+@media (min-width: 30em) and (max-width: 82em) {
+  /* line 19, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_responsiveBreakpoints.scss */
+  h1 {
+    font-size: 1rem;
+  }
+
+  /* line 22, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_responsiveBreakpoints.scss */
+  p, .menu-list .navLink {
+    font-size: 0.75rem;
+  }
+
+  /* line 25, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_responsiveBreakpoints.scss */
+  .projectIcon {
+    width: 16.66667%;
+    height: 16.66667%;
+    margin-left: 1em;
+  }
+}
+@media (min-width: 82em) {
+  /* line 37, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_responsiveBreakpoints.scss */
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  /* line 40, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_responsiveBreakpoints.scss */
+  p {
+    font-size: 1rem;
+  }
+}
+/* line 17, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
+#titleSection {
+  margin-left: 3.30579%;
+}
+/* line 22, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
+#titleSection #pageTitle {
+  padding-bottom: 0.5rem;
+  padding-top: 0.5rem;
+  font-size: 2rem;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  width: 32.77311%;
+}
+/* line 31, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
+#titleSection #pageTitle .slashDelimiter {
+  color: #ff00ff;
+}
+
+/* line 39, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
+.subjectContainer {
+  *zoom: 1;
+  margin: auto;
+  width: 121em;
+  max-width: 100%;
+  height: 100%;
+}
+/* line 38, /Users/tfpractice/.rbenv/versions/2.1.0/lib/ruby/gems/2.1.0/gems/compass-0.12.6/frameworks/compass/stylesheets/compass/utilities/general/_clearfix.scss */
+.subjectContainer:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+/* line 45, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
+.subjectContainer .sectionSummary {
+  display: inline;
+  float: left;
+  width: 15.70248%;
+  margin-right: 0.82645%;
+  margin-top: 3rem;
+  margin-left: 3.30579%;
+}
+/* line 53, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
+.subjectContainer .categoryDiv {
+  margin-top: 3rem;
+  display: inline;
+  float: left;
+  width: 22.31405%;
+  margin-right: 0.82645%;
+  margin-left: 1.65289%;
+}
+/* line 60, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
+.subjectContainer .presentation {
+  margin-right: 2.5rem;
+}
+/* line 64, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
+.subjectContainer .pJDisplay {
+  display: inline;
+  float: left;
+  width: 98.34711%;
+  margin-right: 0.82645%;
+}
+/* line 74, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
+.subjectContainer .pJDisplay .imageSection {
+  display: inline;
+  float: left;
+  width: 65.28926%;
+  margin-right: 0.82645%;
+  max-height: 2000px;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-box;
+  display: box;
+  -webkit-box-orient: horizontal;
+  -moz-box-orient: horizontal;
+  -ms-box-orient: horizontal;
+  box-orient: horizontal;
+  -webkit-box-align: stretch;
+  -moz-box-align: stretch;
+  -ms-box-align: stretch;
+  box-align: stretch;
+  display: inline-flex;
+}
+/* line 86, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
+.subjectContainer .pJDisplay .imageSection .thumbnailDiv {
+  width: 24.05063%;
+  margin-left: 5.06329%;
+}
+/* line 97, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
+.subjectContainer .pJDisplay .imageSection #slideContainer {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-box;
+  display: box;
+  width: 62.02532%;
+  margin-left: 5.06329%;
+  display: inline-block;
+}
+/* line 109, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
+.subjectContainer .pJDisplay .imageSection #slideContainer .imageListItem {
+  width: auto;
+}
+/* line 115, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
+.subjectContainer .pJDisplay .imageSection #slideContainer img {
+  width: auto;
+  height: auto;
+  margin: auto;
+  max-height: 60%;
+  margin-bottom: 0.5rem;
+}
+/* line 136, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
+.subjectContainer .pJDisplay .imageSection .imageDetails {
+  padding-bottom: 0.5rem;
+  text-align: center;
+}
+/* line 145, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
+.subjectContainer .pJDisplay .projectDescription {
+  display: inline;
+  float: left;
+  width: 24.36975%;
+  margin-right: 0.84034%;
+  float: right;
+  margin-right: 4rem;
+}
+
+/* line 163, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
+.flexslider .slides img {
+  max-width: 100%;
+  display: block;
+}
+
+/* line 166, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
+.flexslider {
+  background-color: transparent;
+  border: none;
+  box-shadow: none;
+}
+
+/* line 172, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
+#boywolfSlides img {
+  background-color: #ffffff;
+}
+
+/* line 20, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_base.scss */
+h1 {
+  font-family: Ubuntu, serif;
+}
+
+/* line 24, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_base.scss */
+h2 {
+  font-family: Ubuntu, serif;
+  font-weight: 300;
+}
+
+/* line 30, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_base.scss */
+p {
+  font-family: Raleway, serif;
+}
+
+/* Layout ------------------------------------------------------------------*/
+/* line 20, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_base.scss */
+h1 {
+  font-family: Ubuntu, serif;
+}
+
+/* line 24, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_base.scss */
+h2 {
+  font-family: Ubuntu, serif;
+  font-weight: 300;
+}
+
+/* line 30, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_base.scss */
+p {
+  font-family: Raleway, serif;
+}
+
+/* line 20, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_base.scss */
+h1 {
+  font-family: Ubuntu, serif;
+}
+
+/* line 24, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_base.scss */
+h2 {
+  font-family: Ubuntu, serif;
+  font-weight: 300;
+}
+
+/* line 30, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_base.scss */
+p {
+  font-family: Raleway, serif;
+}
+
+@media (min-width: 30em) and (max-width: 82em) {
+  /* line 19, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_responsiveBreakpoints.scss */
+  h1 {
+    font-size: 1rem;
+  }
+
+  /* line 22, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_responsiveBreakpoints.scss */
+  p, .menu-list .navLink {
+    font-size: 0.75rem;
+  }
+
+  /* line 25, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_responsiveBreakpoints.scss */
+  .projectIcon {
+    width: 16.66667%;
+    height: 16.66667%;
+    margin-left: 1em;
+  }
+}
+@media (min-width: 82em) {
+  /* line 37, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_responsiveBreakpoints.scss */
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  /* line 40, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_responsiveBreakpoints.scss */
+  p {
+    font-size: 1rem;
+  }
+}
+/* line 17, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
+#titleSection {
+  margin-left: 3.30579%;
+}
+/* line 22, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
+#titleSection #pageTitle {
+  padding-bottom: 0.5rem;
+  padding-top: 0.5rem;
+  font-size: 2rem;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  width: 32.77311%;
+}
+/* line 31, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
+#titleSection #pageTitle .slashDelimiter {
+  color: #ff00ff;
+}
+
+/* line 39, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
+.subjectContainer {
+  *zoom: 1;
+  margin: auto;
+  width: 121em;
+  max-width: 100%;
+  height: 100%;
+}
+/* line 38, /Users/tfpractice/.rbenv/versions/2.1.0/lib/ruby/gems/2.1.0/gems/compass-0.12.6/frameworks/compass/stylesheets/compass/utilities/general/_clearfix.scss */
+.subjectContainer:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+/* line 45, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
+.subjectContainer .sectionSummary {
+  display: inline;
+  float: left;
+  width: 15.70248%;
+  margin-right: 0.82645%;
+  margin-top: 3rem;
+  margin-left: 3.30579%;
+}
+/* line 53, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
+.subjectContainer .categoryDiv {
+  margin-top: 3rem;
+  display: inline;
+  float: left;
+  width: 22.31405%;
+  margin-right: 0.82645%;
+  margin-left: 1.65289%;
+}
+/* line 60, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
+.subjectContainer .presentation {
+  margin-right: 2.5rem;
+}
+/* line 64, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
+.subjectContainer .pJDisplay {
+  display: inline;
+  float: left;
+  width: 98.34711%;
+  margin-right: 0.82645%;
+}
+/* line 74, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
+.subjectContainer .pJDisplay .imageSection {
+  display: inline;
+  float: left;
+  width: 65.28926%;
+  margin-right: 0.82645%;
+  max-height: 2000px;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-box;
+  display: box;
+  -webkit-box-orient: horizontal;
+  -moz-box-orient: horizontal;
+  -ms-box-orient: horizontal;
+  box-orient: horizontal;
+  -webkit-box-align: stretch;
+  -moz-box-align: stretch;
+  -ms-box-align: stretch;
+  box-align: stretch;
+  display: inline-flex;
+}
+/* line 86, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
+.subjectContainer .pJDisplay .imageSection .thumbnailDiv {
+  width: 24.05063%;
+  margin-left: 5.06329%;
+}
+/* line 97, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
+.subjectContainer .pJDisplay .imageSection #slideContainer {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-box;
+  display: box;
+  width: 62.02532%;
+  margin-left: 5.06329%;
+  display: inline-block;
+}
+/* line 109, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
+.subjectContainer .pJDisplay .imageSection #slideContainer .imageListItem {
+  width: auto;
+}
+/* line 115, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
+.subjectContainer .pJDisplay .imageSection #slideContainer img {
+  width: auto;
+  height: auto;
+  margin: auto;
+  max-height: 60%;
+  margin-bottom: 0.5rem;
+}
+/* line 136, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
+.subjectContainer .pJDisplay .imageSection .imageDetails {
+  padding-bottom: 0.5rem;
+  text-align: center;
+}
+/* line 145, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
+.subjectContainer .pJDisplay .projectDescription {
+  display: inline;
+  float: left;
+  width: 24.36975%;
+  margin-right: 0.84034%;
+  float: right;
+  margin-right: 4rem;
+}
+
+/* line 163, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
+.flexslider .slides img {
+  max-width: 100%;
+  display: block;
+}
+
+/* line 166, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
+.flexslider {
+  background-color: transparent;
+  border: none;
+  box-shadow: none;
+}
+
+/* line 172, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
+#boywolfSlides img {
+  background-color: #ffffff;
+}
+
+/* line 9, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_modules.scss */
+.skillsDiv {
+  text-align: center;
+}
+
+/* line 15, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_modules.scss */
+text {
+  font-family: Ubuntu, serif;
+  font-size: 2rem;
+  text-anchor: middle;
+  background: #000;
+  max-width: 3rem;
+  word-wrap: break-word;
+}
+
+/* line 26, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_modules.scss */
+.canvasDiv {
+  border-top: 1px solid #00ff00;
+  border-bottom: 1px solid #00ff00;
+}
+
+/* line 54, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_modules.scss */
+.menu-list .menuItem {
+  font-family: Ubuntu, serif;
+  font-size: 1rem;
+  font-weight: 300;
+  text-anchor: middle;
+  height: 40px;
+  background-color: rgba(255, 0, 255, 0.5);
+  display: table-row;
+}
+/* line 66, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_modules.scss */
+.menu-list .navLink {
+  color: #ffffff;
+}
+/* line 70, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_modules.scss */
+.menu-list .navLink:after {
+  color: #000000;
+}
+/* line 73, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_modules.scss */
+.menu-list .navLink #logoIcon {
+  padding-top: none;
+}
+/* line 75, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_modules.scss */
+.menu-list .navLink #logoIcon #topIcon {
+  height: 1rem;
+}
+
+/* line 91, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_modules.scss */
+#officialPagination {
+  display: none;
+}
+
+/* line 96, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_modules.scss */
+.onepage-pagination {
+  position: absolute;
+  right: 1%;
+  top: 1%;
+  z-index: 5;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* line 105, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_modules.scss */
+.onepage-pagination li {
+  padding: 0;
+  text-align: center;
+  font-family: Ubuntu, serif;
+  font-size: 1.5rem;
+  text-anchor: middle;
+  height: 40px;
+  display: inline-block;
+}
+
+/* line 116, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_modules.scss */
+.onepage-pagination li a {
+  padding-top: 0.25rem;
+  padding-bottom: 0px;
+  display: block;
+  padding-left: .25rem;
+  padding-right: .25rem;
+}
+
+/* line 124, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_modules.scss */
+.onepage-pagination li a:before {
+  content: '';
+  position: absolute;
+  background: rgba(0, 0, 0, 0.85);
+}
+
+/* line 135, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_modules.scss */
+.onepage-pagination li a.active:before {
+  background: none;
+  border: none;
+  margin-top: -4px;
+  left: 8px;
+}
+
+/*
+
+if(settings.pagination == true) {
+  	  var pagination = document.createElement("ul");
+  	  pagination.setAttribute("class", "onepage-pagination");
+      pagination.setAttribute("id", "officialPagination");
+*/
+/* Layout ------------------------------------------------------------------*/
+/* 
+.container {
+  @include container;
+  @include susy-grid-background;
+}
+
+*/
+/* line 3, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/toolTipStyles.css.scss */
+.d3-tip {
+  line-height: 1;
+  padding: 12px;
+  background: rgba(255, 255, 255, 0.3);
+  color: #00ff00;
+  border-radius: 2px;
+  pointer-events: none;
+  font-family: Ubuntu, serif;
+  font-size: 1.5rem;
+  text-anchor: middle;
+}
+
+/* Creates a small triangle extender for the tooltip */
+/* line 17, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/toolTipStyles.css.scss */
+.d3-tip:after {
+  box-sizing: border-box;
+  display: inline;
+  font-size: 10px;
+  width: 100%;
+  line-height: 1;
+  color: white;
+  position: absolute;
+  pointer-events: none;
+}
+
+/* Northward tooltips */
+/* line 29, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/toolTipStyles.css.scss */
+.d3-tip.n:after {
+  content: "\25BC";
+  margin: -1px 0 0 0;
+  top: 100%;
+  left: 0;
+  text-align: center;
+}
+
+/* Eastward tooltips */
+/* line 38, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/toolTipStyles.css.scss */
+.d3-tip.e:after {
+  content: "\25C0";
+  margin: -4px 0 0 0;
+  top: 50%;
+  left: -8px;
+}
+
+/* Southward tooltips */
+/* line 46, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/toolTipStyles.css.scss */
+.d3-tip.s:after {
+  content: "\25B2";
+  margin: 0 0 1px 0;
+  top: -8px;
+  left: 0;
+  text-align: center;
+}
+
+/* Westward tooltips */
+/* line 55, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/toolTipStyles.css.scss */
+.d3-tip.w:after {
+  content: "\25B6";
+  margin: -4px 0 0 -1px;
+  top: 50%;
+  left: 100%;
+}
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+
+
+ */

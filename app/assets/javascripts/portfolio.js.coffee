@@ -16,8 +16,22 @@ $  ->
 
 
    $(".projectLink").click ->
-      currentContents = $(@).find(".pJDisplay .pJContents")
-      currentDisplay = $(@).find(".pJDisplay")
+    currentContents = $(@).find(".pJDisplay .pJContents")
+    currentDisplay = $(@).find(".pJDisplay")
+    $(".pJDisplay").slideToggle()
+    slider = $('.flexslider').data('flexslider')
+    fslide = $('.flexslider')
+    slider.resize()
+    fslide.resize()
+    
+    console.log(slider)
+    console.log(fslide)
+    #$(window).trigger("resize")
+    
+
+
+
+
      # if currentContents.is(":visible")
        #  currentDisplay.css("height","40%")
          #currentDisplay.slideUp()
