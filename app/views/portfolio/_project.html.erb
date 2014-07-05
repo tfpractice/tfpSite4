@@ -3,7 +3,7 @@
 <div class = "pJContents">
 <div class = "imageSection" id = "<%= project.name + 'ImageSection' %>" > 
 	<div class =  "thumbnailDiv">
-	<h1> thumbnails </h1>
+	<p> Click thumbnail for full-sized Image </p>
 	<% project.images.each_with_index do |image, i| %>
 
 	<%= link_to (image_tag (image.thumbnailFilepath),size: "80x80", class: "thumbnail"), "assets/#{image.mainFilepath}", target: "_blank" %>

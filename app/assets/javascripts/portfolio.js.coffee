@@ -6,6 +6,7 @@
 $  ->
 
    #$(".top-nav").scrollToFixed()
+   $("#developmentHome .clickInstructions").html("(rollover labels for details)")
    $("#titleSection").hide()
    #window.onload ->
    $("#titleSection").slideDown(800)
