@@ -1,100 +1,3 @@
-/*
- * jQuery FlexSlider v2.2.0
- * http://www.woothemes.com/flexslider/
- *
- * Copyright 2012 WooThemes
- * Free to use under the GPLv2 license.
- * http://www.gnu.org/licenses/gpl-2.0.html
- *
- * Contributing author: Tyler Smith (@mbmufffin)
- */
-
-
-/* Browser Resets
-*********************************/
-
-.flex-container a:active,
-.flexslider a:active,
-.flex-container a:focus,
-.flexslider a:focus  {outline: none;}
-.slides,
-.flex-control-nav,
-.flex-direction-nav {margin: 0; padding: 0; list-style: none;}
-
-/* Icon Fonts
-*********************************/
-/* Font-face Icons */
-@font-face {
-	font-family: 'flexslider-icon';
-	src:url('fonts/flexslider-icon.eot');
-	src:url('fonts/flexslider-icon.eot?#iefix') format('embedded-opentype'),
-		url('fonts/flexslider-icon.woff') format('woff'),
-		url('fonts/flexslider-icon.ttf') format('truetype'),
-		url('fonts/flexslider-icon.svg#flexslider-icon') format('svg');
-	font-weight: normal;
-	font-style: normal;
-}
-
-/* FlexSlider Necessary Styles
-*********************************/
-.flexslider {margin: 0; padding: 0;}
-.flexslider .slides > li {display: none; -webkit-backface-visibility: hidden;} /* Hide the slides before the JS is loaded. Avoids image jumping */
-.flexslider .slides img {width: 100%; display: block;}
-.flex-pauseplay span {text-transform: capitalize;}
-
-/* Clearfix for the .slides element */
-.slides:after {content: "\0020"; display: block; clear: both; visibility: hidden; line-height: 0; height: 0;}
-html[xmlns] .slides {display: block;}
-* html .slides {height: 1%;}
-
-/* No JavaScript Fallback */
-/* If you are not using another script, such as Modernizr, make sure you
- * include js that eliminates this class on page load */
-.no-js .slides > li:first-child {display: block;}
-
-/* FlexSlider Default Theme
-*********************************/
-.flexslider { margin: 0 0 60px; background: #fff; border: 4px solid #fff; position: relative; -webkit-border-radius: 4px; -moz-border-radius: 4px; -o-border-radius: 4px; border-radius: 4px; -webkit-box-shadow: 0 1px 4px rgba(0,0,0,.2); -moz-box-shadow: 0 1px 4px rgba(0,0,0,.2); -o-box-shadow: 0 1px 4px rgba(0,0,0,.2); box-shadow: 0 1px 4px rgba(0,0,0,.2); zoom: 1; }
-.flex-viewport { max-height: 2000px; -webkit-transition: all 1s ease; -moz-transition: all 1s ease; -o-transition: all 1s ease; transition: all 1s ease; }
-.loading .flex-viewport { max-height: 300px; }
-.flexslider .slides { zoom: 1; }
-.carousel li { margin-right: 5px; }
-
-/* Direction Nav */
-.flex-direction-nav {*height: 0;}
-.flex-direction-nav a  { text-decoration:none; display: block; width: 40px; height: 40px; margin: -20px 0 0; position: absolute; top: 50%; z-index: 10; overflow: hidden; opacity: 0; cursor: pointer; color: rgba(0,0,0,0.8); text-shadow: 1px 1px 0 rgba(255,255,255,0.3); -webkit-transition: all .3s ease; -moz-transition: all .3s ease; transition: all .3s ease; }
-.flex-direction-nav .flex-prev { left: -50px; }
-.flex-direction-nav .flex-next { right: -50px; text-align: right; }
-.flexslider:hover .flex-prev { opacity: 0.7; left: 10px; }
-.flexslider:hover .flex-next { opacity: 0.7; right: 10px; }
-.flexslider:hover .flex-next:hover, .flexslider:hover .flex-prev:hover { opacity: 1; }
-.flex-direction-nav .flex-disabled { opacity: 0!important; filter:alpha(opacity=0); cursor: default; }
-.flex-direction-nav a:before  { font-family: "flexslider-icon"; font-size: 40px; line-height:1; display: inline-block; content: '\f001'; }
-.flex-direction-nav a.flex-next:before  { content: '\f002'; }
-
-/* Pause/Play */
-.flex-pauseplay a { display: block; width: 20px; height: 20px; position: absolute; bottom: 5px; left: 10px; opacity: 0.8; z-index: 10; overflow: hidden; cursor: pointer; color: #000; }
-.flex-pauseplay a:before  { font-family: "flexslider-icon"; font-size: 20px; display: inline-block; content: '\f004'; }
-.flex-pauseplay a:hover  { opacity: 1; }
-.flex-pauseplay a.flex-play:before { content: '\f003'; }
-
-/* Control Nav */
-.flex-control-nav {width: 100%; position: absolute; bottom: -40px; text-align: center;}
-.flex-control-nav li {margin: 0 6px; display: inline-block; zoom: 1; *display: inline;}
-.flex-control-paging li a {width: 11px; height: 11px; display: block; background: #666; background: rgba(0,0,0,0.5); cursor: pointer; text-indent: -9999px; -webkit-border-radius: 20px; -moz-border-radius: 20px; -o-border-radius: 20px; border-radius: 20px; -webkit-box-shadow: inset 0 0 3px rgba(0,0,0,0.3); -moz-box-shadow: inset 0 0 3px rgba(0,0,0,0.3); -o-box-shadow: inset 0 0 3px rgba(0,0,0,0.3); box-shadow: inset 0 0 3px rgba(0,0,0,0.3); }
-.flex-control-paging li a:hover { background: #333; background: rgba(0,0,0,0.7); }
-.flex-control-paging li a.flex-active { background: #000; background: rgba(0,0,0,0.9); cursor: default; }
-
-.flex-control-thumbs {margin: 5px 0 0; position: static; overflow: hidden;}
-.flex-control-thumbs li {width: 25%; float: left; margin: 0;}
-.flex-control-thumbs img {width: 100%; display: block; opacity: .7; cursor: pointer;}
-.flex-control-thumbs img:hover {opacity: 1;}
-.flex-control-thumbs .flex-active {opacity: 1; cursor: default;}
-
-@media screen and (max-width: 860px) {
-  .flex-direction-nav .flex-prev { opacity: 1; left: 10px;}
-  .flex-direction-nav .flex-next { opacity: 1; right: 10px;}
-}
 /* Welcome to Compass. Use this file to write IE specific override styles.
  * Import this file using the following HTML or equivalent:
  * <!--[if IE]>
@@ -220,35 +123,53 @@ p {
   font-family: Raleway, serif;
 }
 
-@media (min-width: 64em) and (max-width: 80em) {
-  /* line 19, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_responsiveBreakpoints.scss */
+@media (min-width: 30em) {
+  /* line 16, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_responsiveBreakpoints.scss */
   h1 {
     font-size: 1rem;
   }
 
-  /* line 22, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_responsiveBreakpoints.scss */
+  /* line 19, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_responsiveBreakpoints.scss */
   p, .menu-list .navLink {
     font-size: 0.75rem;
   }
 
-  /* line 25, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_responsiveBreakpoints.scss */
+  /* line 22, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_responsiveBreakpoints.scss */
   .projectIcon {
     width: 16.66667%;
     height: 16.66667%;
     margin-left: 1em;
   }
 }
-@media (min-width: 80em) {
-  /* line 37, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_responsiveBreakpoints.scss */
-  h1 {
-    font-size: 1.5rem;
+/*
+@include breakpoint($ipodHorizontal $macbookHorizontal){
+  	h1 {
+  		font-size: 1rem;
+  	}
+  	p, .menu-list .navLink{
+  		font-size: 0.75rem;
+  	}
+  	.projectIcon{
+
+	width: columns(1,5);
+	height: columns(1,5);
+	margin-left: 1em;
+	//border-bottom: 1px solid #ffffff;
+}
+
   }
 
-  /* line 40, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_responsiveBreakpoints.scss */
-  p {
-    font-size: 1rem;
+
+@include breakpoint($macbookHorizontal){
+  	h1{
+  		font-size: 1.25rem;
+  	}
+  	p{
+  		font-size: 1rem;
+  	}
+
   }
-}
+*/
 /* line 17, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
 #titleSection {
   margin-left: 3.30579%;
@@ -346,7 +267,11 @@ p {
   margin-left: 5.06329%;
   display: inline-block;
 }
-/* line 114, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
+/* line 109, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
+.subjectContainer .pJDisplay .imageSection #slideContainer .imageListItem {
+  width: auto;
+}
+/* line 115, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
 .subjectContainer .pJDisplay .imageSection #slideContainer img {
   width: auto;
   height: auto;
@@ -354,12 +279,12 @@ p {
   max-height: 60%;
   margin-bottom: 0.5rem;
 }
-/* line 135, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
+/* line 136, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
 .subjectContainer .pJDisplay .imageSection .imageDetails {
   padding-bottom: 0.5rem;
   text-align: center;
 }
-/* line 144, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
+/* line 145, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
 .subjectContainer .pJDisplay .projectDescription {
   display: inline;
   float: left;
@@ -369,20 +294,20 @@ p {
   margin-right: 4rem;
 }
 
-/* line 162, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
+/* line 163, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
 .flexslider .slides img {
   max-width: 100%;
   display: block;
 }
 
-/* line 165, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
+/* line 166, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
 .flexslider {
   background-color: transparent;
   border: none;
   box-shadow: none;
 }
 
-/* line 171, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
+/* line 172, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
 #boywolfSlides img {
   background-color: #ffffff;
 }
@@ -436,35 +361,53 @@ p {
   font-family: Raleway, serif;
 }
 
-@media (min-width: 64em) and (max-width: 80em) {
-  /* line 19, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_responsiveBreakpoints.scss */
+@media (min-width: 30em) {
+  /* line 16, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_responsiveBreakpoints.scss */
   h1 {
     font-size: 1rem;
   }
 
-  /* line 22, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_responsiveBreakpoints.scss */
+  /* line 19, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_responsiveBreakpoints.scss */
   p, .menu-list .navLink {
     font-size: 0.75rem;
   }
 
-  /* line 25, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_responsiveBreakpoints.scss */
+  /* line 22, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_responsiveBreakpoints.scss */
   .projectIcon {
     width: 16.66667%;
     height: 16.66667%;
     margin-left: 1em;
   }
 }
-@media (min-width: 80em) {
-  /* line 37, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_responsiveBreakpoints.scss */
-  h1 {
-    font-size: 1.5rem;
+/*
+@include breakpoint($ipodHorizontal $macbookHorizontal){
+  	h1 {
+  		font-size: 1rem;
+  	}
+  	p, .menu-list .navLink{
+  		font-size: 0.75rem;
+  	}
+  	.projectIcon{
+
+	width: columns(1,5);
+	height: columns(1,5);
+	margin-left: 1em;
+	//border-bottom: 1px solid #ffffff;
+}
+
   }
 
-  /* line 40, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_responsiveBreakpoints.scss */
-  p {
-    font-size: 1rem;
+
+@include breakpoint($macbookHorizontal){
+  	h1{
+  		font-size: 1.25rem;
+  	}
+  	p{
+  		font-size: 1rem;
+  	}
+
   }
-}
+*/
 /* line 17, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
 #titleSection {
   margin-left: 3.30579%;
@@ -562,7 +505,11 @@ p {
   margin-left: 5.06329%;
   display: inline-block;
 }
-/* line 114, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
+/* line 109, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
+.subjectContainer .pJDisplay .imageSection #slideContainer .imageListItem {
+  width: auto;
+}
+/* line 115, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
 .subjectContainer .pJDisplay .imageSection #slideContainer img {
   width: auto;
   height: auto;
@@ -570,12 +517,12 @@ p {
   max-height: 60%;
   margin-bottom: 0.5rem;
 }
-/* line 135, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
+/* line 136, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
 .subjectContainer .pJDisplay .imageSection .imageDetails {
   padding-bottom: 0.5rem;
   text-align: center;
 }
-/* line 144, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
+/* line 145, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
 .subjectContainer .pJDisplay .projectDescription {
   display: inline;
   float: left;
@@ -585,20 +532,20 @@ p {
   margin-right: 4rem;
 }
 
-/* line 162, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
+/* line 163, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
 .flexslider .slides img {
   max-width: 100%;
   display: block;
 }
 
-/* line 165, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
+/* line 166, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
 .flexslider {
   background-color: transparent;
   border: none;
   box-shadow: none;
 }
 
-/* line 171, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
+/* line 172, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
 #boywolfSlides img {
   background-color: #ffffff;
 }
@@ -844,7 +791,7 @@ if(settings.pagination == true) {
 
 /* line 188, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/portfolio.css.scss */
 #resumeContainer {
-  background: url(/assets/resume0.png);
+  background: url(/assets/resume1.png);
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
@@ -911,35 +858,53 @@ p {
   font-family: Raleway, serif;
 }
 
-@media (min-width: 64em) and (max-width: 80em) {
-  /* line 19, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_responsiveBreakpoints.scss */
+@media (min-width: 30em) {
+  /* line 16, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_responsiveBreakpoints.scss */
   h1 {
     font-size: 1rem;
   }
 
-  /* line 22, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_responsiveBreakpoints.scss */
+  /* line 19, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_responsiveBreakpoints.scss */
   p, .menu-list .navLink {
     font-size: 0.75rem;
   }
 
-  /* line 25, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_responsiveBreakpoints.scss */
+  /* line 22, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_responsiveBreakpoints.scss */
   .projectIcon {
     width: 16.66667%;
     height: 16.66667%;
     margin-left: 1em;
   }
 }
-@media (min-width: 80em) {
-  /* line 37, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_responsiveBreakpoints.scss */
-  h1 {
-    font-size: 1.5rem;
+/*
+@include breakpoint($ipodHorizontal $macbookHorizontal){
+  	h1 {
+  		font-size: 1rem;
+  	}
+  	p, .menu-list .navLink{
+  		font-size: 0.75rem;
+  	}
+  	.projectIcon{
+
+	width: columns(1,5);
+	height: columns(1,5);
+	margin-left: 1em;
+	//border-bottom: 1px solid #ffffff;
+}
+
   }
 
-  /* line 40, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_responsiveBreakpoints.scss */
-  p {
-    font-size: 1rem;
+
+@include breakpoint($macbookHorizontal){
+  	h1{
+  		font-size: 1.25rem;
+  	}
+  	p{
+  		font-size: 1rem;
+  	}
+
   }
-}
+*/
 /* line 17, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
 #titleSection {
   margin-left: 3.30579%;
@@ -1037,7 +1002,11 @@ p {
   margin-left: 5.06329%;
   display: inline-block;
 }
-/* line 114, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
+/* line 109, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
+.subjectContainer .pJDisplay .imageSection #slideContainer .imageListItem {
+  width: auto;
+}
+/* line 115, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
 .subjectContainer .pJDisplay .imageSection #slideContainer img {
   width: auto;
   height: auto;
@@ -1045,12 +1014,12 @@ p {
   max-height: 60%;
   margin-bottom: 0.5rem;
 }
-/* line 135, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
+/* line 136, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
 .subjectContainer .pJDisplay .imageSection .imageDetails {
   padding-bottom: 0.5rem;
   text-align: center;
 }
-/* line 144, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
+/* line 145, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
 .subjectContainer .pJDisplay .projectDescription {
   display: inline;
   float: left;
@@ -1060,20 +1029,20 @@ p {
   margin-right: 4rem;
 }
 
-/* line 162, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
+/* line 163, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
 .flexslider .slides img {
   max-width: 100%;
   display: block;
 }
 
-/* line 165, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
+/* line 166, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
 .flexslider {
   background-color: transparent;
   border: none;
   box-shadow: none;
 }
 
-/* line 171, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
+/* line 172, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
 #boywolfSlides img {
   background-color: #ffffff;
 }
@@ -1129,35 +1098,53 @@ p {
   font-family: Raleway, serif;
 }
 
-@media (min-width: 64em) and (max-width: 80em) {
-  /* line 19, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_responsiveBreakpoints.scss */
+@media (min-width: 30em) {
+  /* line 16, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_responsiveBreakpoints.scss */
   h1 {
     font-size: 1rem;
   }
 
-  /* line 22, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_responsiveBreakpoints.scss */
+  /* line 19, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_responsiveBreakpoints.scss */
   p, .menu-list .navLink {
     font-size: 0.75rem;
   }
 
-  /* line 25, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_responsiveBreakpoints.scss */
+  /* line 22, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_responsiveBreakpoints.scss */
   .projectIcon {
     width: 16.66667%;
     height: 16.66667%;
     margin-left: 1em;
   }
 }
-@media (min-width: 80em) {
-  /* line 37, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_responsiveBreakpoints.scss */
-  h1 {
-    font-size: 1.5rem;
+/*
+@include breakpoint($ipodHorizontal $macbookHorizontal){
+  	h1 {
+  		font-size: 1rem;
+  	}
+  	p, .menu-list .navLink{
+  		font-size: 0.75rem;
+  	}
+  	.projectIcon{
+
+	width: columns(1,5);
+	height: columns(1,5);
+	margin-left: 1em;
+	//border-bottom: 1px solid #ffffff;
+}
+
   }
 
-  /* line 40, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_responsiveBreakpoints.scss */
-  p {
-    font-size: 1rem;
+
+@include breakpoint($macbookHorizontal){
+  	h1{
+  		font-size: 1.25rem;
+  	}
+  	p{
+  		font-size: 1rem;
+  	}
+
   }
-}
+*/
 /* line 17, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
 #titleSection {
   margin-left: 3.30579%;
@@ -1255,7 +1242,11 @@ p {
   margin-left: 5.06329%;
   display: inline-block;
 }
-/* line 114, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
+/* line 109, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
+.subjectContainer .pJDisplay .imageSection #slideContainer .imageListItem {
+  width: auto;
+}
+/* line 115, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
 .subjectContainer .pJDisplay .imageSection #slideContainer img {
   width: auto;
   height: auto;
@@ -1263,12 +1254,12 @@ p {
   max-height: 60%;
   margin-bottom: 0.5rem;
 }
-/* line 135, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
+/* line 136, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
 .subjectContainer .pJDisplay .imageSection .imageDetails {
   padding-bottom: 0.5rem;
   text-align: center;
 }
-/* line 144, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
+/* line 145, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
 .subjectContainer .pJDisplay .projectDescription {
   display: inline;
   float: left;
@@ -1278,20 +1269,20 @@ p {
   margin-right: 4rem;
 }
 
-/* line 162, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
+/* line 163, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
 .flexslider .slides img {
   max-width: 100%;
   display: block;
 }
 
-/* line 165, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
+/* line 166, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
 .flexslider {
   background-color: transparent;
   border: none;
   box-shadow: none;
 }
 
-/* line 171, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
+/* line 172, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
 #boywolfSlides img {
   background-color: #ffffff;
 }
@@ -1419,33 +1410,393 @@ p {
   font-family: Raleway, serif;
 }
 
-@media (min-width: 64em) and (max-width: 80em) {
-  /* line 19, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_responsiveBreakpoints.scss */
+@media (min-width: 30em) {
+  /* line 16, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_responsiveBreakpoints.scss */
   h1 {
     font-size: 1rem;
   }
 
-  /* line 22, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_responsiveBreakpoints.scss */
+  /* line 19, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_responsiveBreakpoints.scss */
   p, .menu-list .navLink {
     font-size: 0.75rem;
   }
 
-  /* line 25, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_responsiveBreakpoints.scss */
+  /* line 22, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_responsiveBreakpoints.scss */
   .projectIcon {
     width: 16.66667%;
     height: 16.66667%;
     margin-left: 1em;
   }
 }
-@media (min-width: 80em) {
-  /* line 37, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_responsiveBreakpoints.scss */
-  h1 {
-    font-size: 1.5rem;
+/*
+@include breakpoint($ipodHorizontal $macbookHorizontal){
+  	h1 {
+  		font-size: 1rem;
+  	}
+  	p, .menu-list .navLink{
+  		font-size: 0.75rem;
+  	}
+  	.projectIcon{
+
+	width: columns(1,5);
+	height: columns(1,5);
+	margin-left: 1em;
+	//border-bottom: 1px solid #ffffff;
+}
+
   }
 
-  /* line 40, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_responsiveBreakpoints.scss */
-  p {
-    font-size: 1rem;
+
+@include breakpoint($macbookHorizontal){
+  	h1{
+  		font-size: 1.25rem;
+  	}
+  	p{
+  		font-size: 1rem;
+  	}
+
+  }
+*/
+/*
+ * jQuery FlexSlider v2.2.0
+ * http://www.woothemes.com/flexslider/
+ *
+ * Copyright 2012 WooThemes
+ * Free to use under the GPLv2 license.
+ * http://www.gnu.org/licenses/gpl-2.0.html
+ *
+ * Contributing author: Tyler Smith (@mbmufffin)
+ */
+/* Browser Resets
+*********************************/
+/* line 19, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/flexslider.scss */
+.flex-container a:active,
+.flexslider a:active,
+.flex-container a:focus,
+.flexslider a:focus {
+  outline: none;
+}
+
+/* line 22, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/flexslider.scss */
+.slides,
+.flex-control-nav,
+.flex-direction-nav {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* Icon Fonts
+*********************************/
+/* Font-face Icons */
+@font-face {
+  font-family: 'flexslider-icon';
+  src: url("fonts/flexslider-icon.eot");
+  src: url("fonts/flexslider-icon.eot?#iefix") format("embedded-opentype"), url("fonts/flexslider-icon.woff") format("woff"), url("fonts/flexslider-icon.ttf") format("truetype"), url("fonts/flexslider-icon.svg#flexslider-icon") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* FlexSlider Necessary Styles
+*********************************/
+/* line 40, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/flexslider.scss */
+.flexslider {
+  margin: 0;
+  padding: 0;
+}
+
+/* line 41, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/flexslider.scss */
+.flexslider .slides > li {
+  display: none;
+  -webkit-backface-visibility: hidden;
+}
+
+/* Hide the slides before the JS is loaded. Avoids image jumping */
+/* line 42, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/flexslider.scss */
+.flexslider .slides img {
+  width: 100%;
+  display: block;
+}
+
+/* line 43, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/flexslider.scss */
+.flex-pauseplay span {
+  text-transform: capitalize;
+}
+
+/* Clearfix for the .slides element */
+/* line 46, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/flexslider.scss */
+.slides:after {
+  content: "\0020";
+  display: block;
+  clear: both;
+  visibility: hidden;
+  line-height: 0;
+  height: 0;
+}
+
+/* line 47, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/flexslider.scss */
+html[xmlns] .slides {
+  display: block;
+}
+
+/* line 48, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/flexslider.scss */
+* html .slides {
+  height: 1%;
+}
+
+/* No JavaScript Fallback */
+/* If you are not using another script, such as Modernizr, make sure you
+ * include js that eliminates this class on page load */
+/* line 53, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/flexslider.scss */
+.no-js .slides > li:first-child {
+  display: block;
+}
+
+/* FlexSlider Default Theme
+*********************************/
+/* line 57, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/flexslider.scss */
+.flexslider {
+  margin: 0 0 60px;
+  background: #fff;
+  border: 4px solid #fff;
+  position: relative;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -o-border-radius: 4px;
+  border-radius: 4px;
+  -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+  -o-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+  zoom: 1;
+}
+
+/* line 58, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/flexslider.scss */
+.flex-viewport {
+  max-height: 2000px;
+  -webkit-transition: all 1s ease;
+  -moz-transition: all 1s ease;
+  -o-transition: all 1s ease;
+  transition: all 1s ease;
+}
+
+/* line 59, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/flexslider.scss */
+.loading .flex-viewport {
+  max-height: 300px;
+}
+
+/* line 60, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/flexslider.scss */
+.flexslider .slides {
+  zoom: 1;
+}
+
+/* line 61, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/flexslider.scss */
+.carousel li {
+  margin-right: 5px;
+}
+
+/* Direction Nav */
+/* line 64, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/flexslider.scss */
+.flex-direction-nav {
+  *height: 0;
+}
+
+/* line 65, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/flexslider.scss */
+.flex-direction-nav a {
+  text-decoration: none;
+  display: block;
+  width: 40px;
+  height: 40px;
+  margin: -20px 0 0;
+  position: absolute;
+  top: 50%;
+  z-index: 10;
+  overflow: hidden;
+  opacity: 0;
+  cursor: pointer;
+  color: rgba(0, 0, 0, 0.8);
+  text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.3);
+  -webkit-transition: all .3s ease;
+  -moz-transition: all .3s ease;
+  transition: all .3s ease;
+}
+
+/* line 66, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/flexslider.scss */
+.flex-direction-nav .flex-prev {
+  left: -50px;
+}
+
+/* line 67, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/flexslider.scss */
+.flex-direction-nav .flex-next {
+  right: -50px;
+  text-align: right;
+}
+
+/* line 68, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/flexslider.scss */
+.flexslider:hover .flex-prev {
+  opacity: 0.7;
+  left: 10px;
+}
+
+/* line 69, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/flexslider.scss */
+.flexslider:hover .flex-next {
+  opacity: 0.7;
+  right: 10px;
+}
+
+/* line 70, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/flexslider.scss */
+.flexslider:hover .flex-next:hover, .flexslider:hover .flex-prev:hover {
+  opacity: 1;
+}
+
+/* line 71, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/flexslider.scss */
+.flex-direction-nav .flex-disabled {
+  opacity: 0 !important;
+  filter: alpha(opacity=0);
+  cursor: default;
+}
+
+/* line 72, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/flexslider.scss */
+.flex-direction-nav a:before {
+  font-family: "flexslider-icon";
+  font-size: 40px;
+  line-height: 1;
+  display: inline-block;
+  content: '\f001';
+}
+
+/* line 73, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/flexslider.scss */
+.flex-direction-nav a.flex-next:before {
+  content: '\f002';
+}
+
+/* Pause/Play */
+/* line 76, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/flexslider.scss */
+.flex-pauseplay a {
+  display: block;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  bottom: 5px;
+  left: 10px;
+  opacity: 0.8;
+  z-index: 10;
+  overflow: hidden;
+  cursor: pointer;
+  color: #000;
+}
+
+/* line 77, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/flexslider.scss */
+.flex-pauseplay a:before {
+  font-family: "flexslider-icon";
+  font-size: 20px;
+  display: inline-block;
+  content: '\f004';
+}
+
+/* line 78, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/flexslider.scss */
+.flex-pauseplay a:hover {
+  opacity: 1;
+}
+
+/* line 79, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/flexslider.scss */
+.flex-pauseplay a.flex-play:before {
+  content: '\f003';
+}
+
+/* Control Nav */
+/* line 82, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/flexslider.scss */
+.flex-control-nav {
+  width: 100%;
+  position: absolute;
+  bottom: -40px;
+  text-align: center;
+}
+
+/* line 83, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/flexslider.scss */
+.flex-control-nav li {
+  margin: 0 6px;
+  display: inline-block;
+  zoom: 1;
+  *display: inline;
+}
+
+/* line 84, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/flexslider.scss */
+.flex-control-paging li a {
+  width: 11px;
+  height: 11px;
+  display: block;
+  background: #666;
+  background: rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+  text-indent: -9999px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  -o-border-radius: 20px;
+  border-radius: 20px;
+  -webkit-box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.3);
+  -o-box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.3);
+  box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.3);
+}
+
+/* line 85, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/flexslider.scss */
+.flex-control-paging li a:hover {
+  background: #333;
+  background: rgba(0, 0, 0, 0.7);
+}
+
+/* line 86, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/flexslider.scss */
+.flex-control-paging li a.flex-active {
+  background: #000;
+  background: rgba(0, 0, 0, 0.9);
+  cursor: default;
+}
+
+/* line 88, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/flexslider.scss */
+.flex-control-thumbs {
+  margin: 5px 0 0;
+  position: static;
+  overflow: hidden;
+}
+
+/* line 89, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/flexslider.scss */
+.flex-control-thumbs li {
+  width: 25%;
+  float: left;
+  margin: 0;
+}
+
+/* line 90, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/flexslider.scss */
+.flex-control-thumbs img {
+  width: 100%;
+  display: block;
+  opacity: .7;
+  cursor: pointer;
+}
+
+/* line 91, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/flexslider.scss */
+.flex-control-thumbs img:hover {
+  opacity: 1;
+}
+
+/* line 92, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/flexslider.scss */
+.flex-control-thumbs .flex-active {
+  opacity: 1;
+  cursor: default;
+}
+
+@media screen and (max-width: 860px) {
+  /* line 95, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/flexslider.scss */
+  .flex-direction-nav .flex-prev {
+    opacity: 1;
+    left: 10px;
+  }
+
+  /* line 96, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/flexslider.scss */
+  .flex-direction-nav .flex-next {
+    opacity: 1;
+    right: 10px;
   }
 }
 /* Welcome to Compass. Use this file to write IE specific override styles.
@@ -1511,35 +1862,53 @@ p {
   font-family: Raleway, serif;
 }
 
-@media (min-width: 64em) and (max-width: 80em) {
-  /* line 19, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_responsiveBreakpoints.scss */
+@media (min-width: 30em) {
+  /* line 16, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_responsiveBreakpoints.scss */
   h1 {
     font-size: 1rem;
   }
 
-  /* line 22, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_responsiveBreakpoints.scss */
+  /* line 19, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_responsiveBreakpoints.scss */
   p, .menu-list .navLink {
     font-size: 0.75rem;
   }
 
-  /* line 25, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_responsiveBreakpoints.scss */
+  /* line 22, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_responsiveBreakpoints.scss */
   .projectIcon {
     width: 16.66667%;
     height: 16.66667%;
     margin-left: 1em;
   }
 }
-@media (min-width: 80em) {
-  /* line 37, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_responsiveBreakpoints.scss */
-  h1 {
-    font-size: 1.5rem;
+/*
+@include breakpoint($ipodHorizontal $macbookHorizontal){
+  	h1 {
+  		font-size: 1rem;
+  	}
+  	p, .menu-list .navLink{
+  		font-size: 0.75rem;
+  	}
+  	.projectIcon{
+
+	width: columns(1,5);
+	height: columns(1,5);
+	margin-left: 1em;
+	//border-bottom: 1px solid #ffffff;
+}
+
   }
 
-  /* line 40, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_responsiveBreakpoints.scss */
-  p {
-    font-size: 1rem;
+
+@include breakpoint($macbookHorizontal){
+  	h1{
+  		font-size: 1.25rem;
+  	}
+  	p{
+  		font-size: 1rem;
+  	}
+
   }
-}
+*/
 /* line 17, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
 #titleSection {
   margin-left: 3.30579%;
@@ -1637,7 +2006,11 @@ p {
   margin-left: 5.06329%;
   display: inline-block;
 }
-/* line 114, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
+/* line 109, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
+.subjectContainer .pJDisplay .imageSection #slideContainer .imageListItem {
+  width: auto;
+}
+/* line 115, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
 .subjectContainer .pJDisplay .imageSection #slideContainer img {
   width: auto;
   height: auto;
@@ -1645,12 +2018,12 @@ p {
   max-height: 60%;
   margin-bottom: 0.5rem;
 }
-/* line 135, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
+/* line 136, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
 .subjectContainer .pJDisplay .imageSection .imageDetails {
   padding-bottom: 0.5rem;
   text-align: center;
 }
-/* line 144, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
+/* line 145, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
 .subjectContainer .pJDisplay .projectDescription {
   display: inline;
   float: left;
@@ -1660,20 +2033,20 @@ p {
   margin-right: 4rem;
 }
 
-/* line 162, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
+/* line 163, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
 .flexslider .slides img {
   max-width: 100%;
   display: block;
 }
 
-/* line 165, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
+/* line 166, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
 .flexslider {
   background-color: transparent;
   border: none;
   box-shadow: none;
 }
 
-/* line 171, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
+/* line 172, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
 #boywolfSlides img {
   background-color: #ffffff;
 }
@@ -1727,35 +2100,53 @@ p {
   font-family: Raleway, serif;
 }
 
-@media (min-width: 64em) and (max-width: 80em) {
-  /* line 19, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_responsiveBreakpoints.scss */
+@media (min-width: 30em) {
+  /* line 16, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_responsiveBreakpoints.scss */
   h1 {
     font-size: 1rem;
   }
 
-  /* line 22, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_responsiveBreakpoints.scss */
+  /* line 19, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_responsiveBreakpoints.scss */
   p, .menu-list .navLink {
     font-size: 0.75rem;
   }
 
-  /* line 25, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_responsiveBreakpoints.scss */
+  /* line 22, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_responsiveBreakpoints.scss */
   .projectIcon {
     width: 16.66667%;
     height: 16.66667%;
     margin-left: 1em;
   }
 }
-@media (min-width: 80em) {
-  /* line 37, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_responsiveBreakpoints.scss */
-  h1 {
-    font-size: 1.5rem;
+/*
+@include breakpoint($ipodHorizontal $macbookHorizontal){
+  	h1 {
+  		font-size: 1rem;
+  	}
+  	p, .menu-list .navLink{
+  		font-size: 0.75rem;
+  	}
+  	.projectIcon{
+
+	width: columns(1,5);
+	height: columns(1,5);
+	margin-left: 1em;
+	//border-bottom: 1px solid #ffffff;
+}
+
   }
 
-  /* line 40, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_responsiveBreakpoints.scss */
-  p {
-    font-size: 1rem;
+
+@include breakpoint($macbookHorizontal){
+  	h1{
+  		font-size: 1.25rem;
+  	}
+  	p{
+  		font-size: 1rem;
+  	}
+
   }
-}
+*/
 /* line 17, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
 #titleSection {
   margin-left: 3.30579%;
@@ -1853,7 +2244,11 @@ p {
   margin-left: 5.06329%;
   display: inline-block;
 }
-/* line 114, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
+/* line 109, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
+.subjectContainer .pJDisplay .imageSection #slideContainer .imageListItem {
+  width: auto;
+}
+/* line 115, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
 .subjectContainer .pJDisplay .imageSection #slideContainer img {
   width: auto;
   height: auto;
@@ -1861,12 +2256,12 @@ p {
   max-height: 60%;
   margin-bottom: 0.5rem;
 }
-/* line 135, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
+/* line 136, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
 .subjectContainer .pJDisplay .imageSection .imageDetails {
   padding-bottom: 0.5rem;
   text-align: center;
 }
-/* line 144, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
+/* line 145, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
 .subjectContainer .pJDisplay .projectDescription {
   display: inline;
   float: left;
@@ -1876,20 +2271,20 @@ p {
   margin-right: 4rem;
 }
 
-/* line 162, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
+/* line 163, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
 .flexslider .slides img {
   max-width: 100%;
   display: block;
 }
 
-/* line 165, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
+/* line 166, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
 .flexslider {
   background-color: transparent;
   border: none;
   box-shadow: none;
 }
 
-/* line 171, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
+/* line 172, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
 #boywolfSlides img {
   background-color: #ffffff;
 }
@@ -2084,35 +2479,53 @@ p {
   font-family: Raleway, serif;
 }
 
-@media (min-width: 64em) and (max-width: 80em) {
-  /* line 19, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_responsiveBreakpoints.scss */
+@media (min-width: 30em) {
+  /* line 16, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_responsiveBreakpoints.scss */
   h1 {
     font-size: 1rem;
   }
 
-  /* line 22, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_responsiveBreakpoints.scss */
+  /* line 19, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_responsiveBreakpoints.scss */
   p, .menu-list .navLink {
     font-size: 0.75rem;
   }
 
-  /* line 25, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_responsiveBreakpoints.scss */
+  /* line 22, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_responsiveBreakpoints.scss */
   .projectIcon {
     width: 16.66667%;
     height: 16.66667%;
     margin-left: 1em;
   }
 }
-@media (min-width: 80em) {
-  /* line 37, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_responsiveBreakpoints.scss */
-  h1 {
-    font-size: 1.5rem;
+/*
+@include breakpoint($ipodHorizontal $macbookHorizontal){
+  	h1 {
+  		font-size: 1rem;
+  	}
+  	p, .menu-list .navLink{
+  		font-size: 0.75rem;
+  	}
+  	.projectIcon{
+
+	width: columns(1,5);
+	height: columns(1,5);
+	margin-left: 1em;
+	//border-bottom: 1px solid #ffffff;
+}
+
   }
 
-  /* line 40, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_responsiveBreakpoints.scss */
-  p {
-    font-size: 1rem;
+
+@include breakpoint($macbookHorizontal){
+  	h1{
+  		font-size: 1.25rem;
+  	}
+  	p{
+  		font-size: 1rem;
+  	}
+
   }
-}
+*/
 /* line 17, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
 #titleSection {
   margin-left: 3.30579%;
@@ -2210,7 +2623,11 @@ p {
   margin-left: 5.06329%;
   display: inline-block;
 }
-/* line 114, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
+/* line 109, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
+.subjectContainer .pJDisplay .imageSection #slideContainer .imageListItem {
+  width: auto;
+}
+/* line 115, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
 .subjectContainer .pJDisplay .imageSection #slideContainer img {
   width: auto;
   height: auto;
@@ -2218,12 +2635,12 @@ p {
   max-height: 60%;
   margin-bottom: 0.5rem;
 }
-/* line 135, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
+/* line 136, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
 .subjectContainer .pJDisplay .imageSection .imageDetails {
   padding-bottom: 0.5rem;
   text-align: center;
 }
-/* line 144, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
+/* line 145, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
 .subjectContainer .pJDisplay .projectDescription {
   display: inline;
   float: left;
@@ -2233,20 +2650,20 @@ p {
   margin-right: 4rem;
 }
 
-/* line 162, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
+/* line 163, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
 .flexslider .slides img {
   max-width: 100%;
   display: block;
 }
 
-/* line 165, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
+/* line 166, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
 .flexslider {
   background-color: transparent;
   border: none;
   box-shadow: none;
 }
 
-/* line 171, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
+/* line 172, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
 #boywolfSlides img {
   background-color: #ffffff;
 }
@@ -2300,35 +2717,53 @@ p {
   font-family: Raleway, serif;
 }
 
-@media (min-width: 64em) and (max-width: 80em) {
-  /* line 19, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_responsiveBreakpoints.scss */
+@media (min-width: 30em) {
+  /* line 16, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_responsiveBreakpoints.scss */
   h1 {
     font-size: 1rem;
   }
 
-  /* line 22, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_responsiveBreakpoints.scss */
+  /* line 19, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_responsiveBreakpoints.scss */
   p, .menu-list .navLink {
     font-size: 0.75rem;
   }
 
-  /* line 25, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_responsiveBreakpoints.scss */
+  /* line 22, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_responsiveBreakpoints.scss */
   .projectIcon {
     width: 16.66667%;
     height: 16.66667%;
     margin-left: 1em;
   }
 }
-@media (min-width: 80em) {
-  /* line 37, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_responsiveBreakpoints.scss */
-  h1 {
-    font-size: 1.5rem;
+/*
+@include breakpoint($ipodHorizontal $macbookHorizontal){
+  	h1 {
+  		font-size: 1rem;
+  	}
+  	p, .menu-list .navLink{
+  		font-size: 0.75rem;
+  	}
+  	.projectIcon{
+
+	width: columns(1,5);
+	height: columns(1,5);
+	margin-left: 1em;
+	//border-bottom: 1px solid #ffffff;
+}
+
   }
 
-  /* line 40, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_responsiveBreakpoints.scss */
-  p {
-    font-size: 1rem;
+
+@include breakpoint($macbookHorizontal){
+  	h1{
+  		font-size: 1.25rem;
+  	}
+  	p{
+  		font-size: 1rem;
+  	}
+
   }
-}
+*/
 /* line 17, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
 #titleSection {
   margin-left: 3.30579%;
@@ -2426,7 +2861,11 @@ p {
   margin-left: 5.06329%;
   display: inline-block;
 }
-/* line 114, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
+/* line 109, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
+.subjectContainer .pJDisplay .imageSection #slideContainer .imageListItem {
+  width: auto;
+}
+/* line 115, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
 .subjectContainer .pJDisplay .imageSection #slideContainer img {
   width: auto;
   height: auto;
@@ -2434,12 +2873,12 @@ p {
   max-height: 60%;
   margin-bottom: 0.5rem;
 }
-/* line 135, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
+/* line 136, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
 .subjectContainer .pJDisplay .imageSection .imageDetails {
   padding-bottom: 0.5rem;
   text-align: center;
 }
-/* line 144, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
+/* line 145, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
 .subjectContainer .pJDisplay .projectDescription {
   display: inline;
   float: left;
@@ -2449,20 +2888,20 @@ p {
   margin-right: 4rem;
 }
 
-/* line 162, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
+/* line 163, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
 .flexslider .slides img {
   max-width: 100%;
   display: block;
 }
 
-/* line 165, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
+/* line 166, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
 .flexslider {
   background-color: transparent;
   border: none;
   box-shadow: none;
 }
 
-/* line 171, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
+/* line 172, /Users/tfpractice/Sites/tfpSite4/app/assets/stylesheets/sass/_layout.scss */
 #boywolfSlides img {
   background-color: #ffffff;
 }

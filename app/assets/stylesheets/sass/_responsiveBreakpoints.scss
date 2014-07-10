@@ -12,9 +12,24 @@ $ipadHorizontal		: 64em;
 $macbookVertical	: 50em;
 $macbookHorizontal	: 82em;
 
+@include breakpoint($ipodHorizontal){
+    h1 {
+      font-size: 1rem;
+    }
+    p, .menu-list .navLink{
+      font-size: 0.75rem;
+    }
+    .projectIcon{
 
+  width: columns(1,5);
+  height: columns(1,5);
+  margin-left: 1em;
+  //border-bottom: 1px solid #ffffff;
+}
 
+  }
 
+/*
 @include breakpoint($ipodHorizontal $macbookHorizontal){
   	h1 {
   		font-size: 1rem;
@@ -42,3 +57,4 @@ $macbookHorizontal	: 82em;
   	}
 
   }
+*/
